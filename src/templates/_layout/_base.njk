@@ -1,3 +1,14 @@
+{% set lang = page.lang or "ja" %}
+{% set t = locate[lang] %}
+
+{% if headerType == "user" %}
+  {% include "_layout/_header/_header-user.njk" %}
+{% elseif headerType == "auth" %}
+  {% include "_layout/_header/_header-auth.njk" %}
+{% else %}
+  {% include "_layout/_header/_header-public.njk" %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="{{ lang }}">
   <head>

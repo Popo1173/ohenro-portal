@@ -18,6 +18,9 @@
   justify-content: center;
 }
 
-@mixin fluid($min, $max) {
-  font-size: clamp(rem($min), 2vw, rem($max));
+@function fluid($min, $max, $min-vw: 375, $max-vw: 1200) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $base: $min - $slope * $min-vw;
+
+  @return clamp(#{rem($min)}, #{math.div($base, 16)}rem + #{$slope * 100}vw, #{rem($max)});
 }
