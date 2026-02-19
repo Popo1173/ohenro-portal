@@ -1,0 +1,36 @@
+<!-- import -->
+{% from "_components/_button-small.njk" import buttonPill %}
+<!-- import -->
+
+<header class="my-page-header">
+  <div class="my-page-header__logo">
+    <figure class="my-page-header__logo-figure">
+      <img
+        src="/assets/images/common/ohenro-logo.webp"
+        class="my-page-header__logo-image"
+        alt="88お遍路さん"
+      />
+    </figure>
+  </div>
+  <nav class="my-page-header__nav">
+    <ul class="my-page-header__nav-list">
+      <li class="my-page-header__nav-item">
+		    <a class="my-page-header__nav-link" href="/">
+          <img src="/assets/images/common/icon-home.svg" alt="home" />マイページトップ
+		    </a>
+      </li>
+      <li class="my-page-header__nav-item">
+        <a class="my-page-header__nav-link" href="/">
+          <img src="/assets/images/common/icon-favorite.svg" alt="favorite" />お気に入り
+        </a>
+      </li>
+      <li class="my-page-header__nav-item">
+        <a class="my-page-header__nav-link" href="/">
+          <img src="/assets/images/common/icon-language.svg" alt="language" />Language
+        </a>
+      </li>
+      <li class="my-page-header__nav-item">{{ buttonPill("ログアウト", "/logout/", "outline") }}</li>
+    </ul>
+  </nav>
+  
+</header>

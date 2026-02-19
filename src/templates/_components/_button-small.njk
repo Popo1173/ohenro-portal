@@ -1,0 +1,14 @@
+<!-- 宣言 -->
+{% macro buttonPill(label, url="#", modifier="", icon=true) %}
+
+<div class="small-button">
+  <a
+    href="{{ url }}"
+    class="small-button__link {% if modifier %}c-button-pill--{{ modifier }}{% endif %}"
+  >
+    <span class="small-button__label">
+      {{ label }}
+    </span>
+  </a>
+{% endmacro %}
+</div>

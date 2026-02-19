@@ -2,35 +2,100 @@
 @use '../foundation/variables' as *;
 @use '../foundation/breakpoints' as *;
 
-.header {
-  color: #fff;
-  background: $color-primary;
+.my-page-header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  padding: 40px;
 
-  &__inner {
-    justify-content: space-between;
-    padding: rem(16) 0;
+		// .my-page-header__logo
+
+		&__logo {
+      // .my-page-header__logo-image
+		}
+
+		// .my-page-header__logo-figure
+
+		&__logo-figure {
+      max-width: 194px;
+		}
+
+		// .my-page-header__logo-image
+
+		&__logo-image {
+      // .my-page-header__logo-image
+		}
+
+		// .my-page-header__nav
+
+		&__nav {
+      // .my-page-header__nav
+		}
+
+		// .my-page-header__nav-list
+
+		&__nav-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 0;
+      margin: 0;
+		}
+
+		// .my-page-header__nav-item
+
+		&__nav-item {
+      padding: 0 16px;
+      font-size: 15px;
+      color: $color-primary;
+      list-style-type: none;
+      
+
+      @include mq(desktop) {
+      
+        &:not(:last-of-type) {
+          border-right: 1px solid #5D5D5D;
+        }
+      }
+		}
+
+    // .my-page-header__nav-link
+    &__nav-link {
+      display: flex;
+      gap: 8px;
+    }
+}
+
+// .header {
+//   color: #fff;
+//   background: $color-primary;
+
+//   &__inner {
+//     justify-content: space-between;
+//     padding: rem(16) 0;
     
 
-    @include container;
-    @include flex-center;
-  }
+//     @include container;
+//     @include flex-center;
+//   }
 
-  &__logo {
-    @include fluid(18, 24);
+//   &__logo {
+//     @include fluid(18, 24);
 
-    font-weight: bold;
-  }
+//     font-weight: bold;
+//   }
 
-  &__nav {
-    display: none;
+//   &__nav {
+//     display: none;
 
-    @include mq(tablet) {
-      display: block;
-    }
-  }
+//     @include mq(tablet) {
+//       display: block;
+//     }
+//   }
 
-  &__list {
-    display: flex;
-    gap: rem(24);
-  }
-}
+//   &__list {
+//     display: flex;
+//     gap: rem(24);
+//   }
+// }

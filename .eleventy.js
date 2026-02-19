@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addWatchTarget('./src/assets/scss/')
-
+  eleventyConfig.addPassthroughCopy('src/assets/images')
+  eleventyConfig.addPassthroughCopy('src/assets/js')
   return {
     dir: {
       input: 'src',

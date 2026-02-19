@@ -4,30 +4,33 @@
   // ========================================
   "editor.formatOnSave": true,
 
-  // デフォルトは Prettier を使用（HTML / JS など）
+  // ========================================
+  // .njk を HTML として扱う（超重要）
+  // ========================================
+  "files.associations": {
+    "*.njk": "html"
+  },
+
+  // ========================================
+  // デフォルトは Prettier を使用
+  // ========================================
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
   // ----------------------------------------
   // 各言語ごとのフォーマッター設定
   // ----------------------------------------
 
-  // HTML は Prettier
+  // HTML（.njk含む）は Prettier
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // Nunjucks も Prettier
-  "[nunjucks]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-
-  // SCSS は stylelint で整形
-  // → プロパティ順も自動統一される
+  // SCSS は stylelint
   "[scss]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
 
-  // CSS も stylelint で整形
+  // CSS も stylelint
   "[css]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
@@ -36,8 +39,8 @@
   // 保存時に lint の自動修正を実行
   // ----------------------------------------
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true, // JS の自動修正
-    "source.fixAll.stylelint": true // SCSS / CSS の自動修正
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
 
   // ESLint は JS のみ対象

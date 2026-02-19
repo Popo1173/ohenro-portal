@@ -1,4 +1,5 @@
 ## モジュールのインストール
+
 ```
 npm install @11ty/eleventy
 npm install -D vite sass
@@ -10,20 +11,19 @@ npm install -D eslint eslint-config-prettier eslint-plugin-prettier
 npm install -D stylelint stylelint-config-standard-scss
 ```
 
-/*
-========================================
-SCSS 自動整形ルールについて
-========================================
+# /\*
+
+# SCSS 自動整形ルールについて
 
 このプロジェクトでは：
 
 ■ HTML / JS / Nunjucks
-  → Prettier で整形
+→ Prettier で整形
 
 ■ SCSS / CSS
-  → stylelint で整形（プロパティ順も自動統一）
+→ stylelint で整形（プロパティ順も自動統一）
 
-----------------------------------------
+---
 
 ▼ なぜ分けているか？
 
@@ -39,7 +39,7 @@ stylelint + stylelint-config-recess-order により：
 
 を行っています。
 
-----------------------------------------
+---
 
 ▼ 保存時の動作
 
@@ -50,24 +50,24 @@ SCSS保存時：
 3. lintエラーを修正
 4. 保存完了
 
-----------------------------------------
+---
 
 ▼ VSCode設定
 
 SCSSのみ stylelint をフォーマッターとして使用：
 
 "[scss]": {
-  "editor.defaultFormatter": "stylelint.vscode-stylelint"
+"editor.defaultFormatter": "stylelint.vscode-stylelint"
 }
 
 それ以外は Prettier を使用。
 
-----------------------------------------
+---
 
 ▼ 注意
 
 dist/ は lint 対象外。
-必ず src/**/*.scss を編集してください。
+必ず src/\*_/_.scss を編集してください。
 
 ========================================
-*/
+\*/

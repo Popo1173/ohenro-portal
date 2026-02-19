@@ -1,0 +1,29 @@
+@use '../foundation/variables' as *;
+
+.small-button {
+	// .small-button__link
+
+	&__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 130px;
+    height: 36px;
+
+    // padding: 8px;
+		background: white;
+    border: 1px solid $color-primary;
+    border-radius: 999px;
+		}
+
+		// .small-button__label
+
+	&__label {
+
+    &::after {
+      display: inline-block;
+      vertical-align: middle;
+      content: url("/assets/images/common/icon-logout.svg");
+    }
+	}
+}
