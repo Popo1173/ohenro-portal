@@ -2,9 +2,34 @@
 <html lang="{{ lang }}">
 <head>
   <meta charset="UTF-8">
+
+  <!-- viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- title / description -->
   <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+
+  <!-- OGP -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ url }}">
+  <meta property="og:image" content="{{ ogImage }}">
+
+  <!-- favicon -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css">
+
 </head>
 <body>
+
   {{ content | safe }}
+
+  <!-- JS -->
+  <script src="/assets/js/main.js" defer></script>
+
 </body>
 </html>

@@ -1,24 +1,51 @@
 {
+  // ========================================
+  // 保存時に自動フォーマットを実行
+  // ========================================
   "editor.formatOnSave": true,
+
+  // デフォルトは Prettier を使用（HTML / JS など）
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
+  // ----------------------------------------
+  // 各言語ごとのフォーマッター設定
+  // ----------------------------------------
+
+  // HTML は Prettier
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  // Nunjucks も Prettier
   "[nunjucks]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  // SCSS は stylelint で整形
+  // → プロパティ順も自動統一される
   "[scss]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
 
+  // CSS も stylelint で整形
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+
+  // ----------------------------------------
+  // 保存時に lint の自動修正を実行
+  // ----------------------------------------
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": true, // JS の自動修正
+    "source.fixAll.stylelint": true // SCSS / CSS の自動修正
   },
 
+  // ESLint は JS のみ対象
   "eslint.validate": ["javascript"],
-  "stylelint.validate": ["css", "scss"]
+
+  // stylelint は CSS / SCSS を対象
+  "stylelint.validate": ["css", "scss"],
+
+  // コードスペルチェック除外項目
+  "cSpell.userWords": ["true"]
 }

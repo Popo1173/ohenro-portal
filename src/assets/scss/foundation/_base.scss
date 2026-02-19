@@ -1,0 +1,28 @@
+@use 'variables' as *;
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: $font-base;
+  line-height: 1.6;
+  color: $color-text;
+  background: $color-bg;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
