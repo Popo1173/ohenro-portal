@@ -5,14 +5,14 @@
   "editor.formatOnSave": true,
 
   // ========================================
-  // .njk を HTML として扱う（超重要）
+  // .njk を HTML として扱う
   // ========================================
   "files.associations": {
     "*.njk": "html"
   },
 
   // ========================================
-  // デフォルトは Prettier を使用
+  // デフォルトは Prettier
   // ========================================
   "editor.defaultFormatter": "esbenp.prettier-vscode",
 
@@ -25,14 +25,14 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // SCSS は stylelint
+  // SCSS も Prettierで整形（← 重要）
   "[scss]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
-  // CSS も stylelint
+  // CSS も Prettier
   "[css]": {
-    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   // ----------------------------------------
@@ -46,7 +46,7 @@
   // ESLint は JS のみ対象
   "eslint.validate": ["javascript"],
 
-  // stylelint は CSS / SCSS を対象
+  // stylelint は CSS / SCSS を対象（lintだけ）
   "stylelint.validate": ["css", "scss"],
 
   // コードスペルチェック除外項目

@@ -8,63 +8,63 @@
   align-items: center;
   padding: 40px;
 
-		// .my-page-header__logo
+  // .my-page-header__logo
 
-		&__logo {
-      // .my-page-header__logo-image
-		}
+  &__logo {
+    // .my-page-header__logo-image
+  }
 
-		// .my-page-header__logo-figure
+  // .my-page-header__logo-figure
 
-		&__logo-figure {
-      max-width: 194px;
-		}
+  &__logo-figure {
+    max-width: 194px;
+    padding: 0;
+    margin: 0;
+  }
 
-		// .my-page-header__logo-image
+  // .my-page-header__logo-image
 
-		&__logo-image {
-      // .my-page-header__logo-image
-		}
+  &__logo-image {
+    // .my-page-header__logo-image
+  }
 
-		// .my-page-header__nav
+  // .my-page-header__nav
 
-		&__nav {
-      // .my-page-header__nav
-		}
+  &__nav {
+    // .my-page-header__nav
+  }
 
-		// .my-page-header__nav-list
+  // .my-page-header__nav-list
 
-		&__nav-list {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0;
-      margin: 0;
-		}
+  &__nav-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    margin: 0;
+  }
 
-		// .my-page-header__nav-item
+  // .my-page-header__nav-item
 
-		&__nav-item {
-      padding: 0 16px;
-      font-size: 15px;
-      color: $color-primary;
-      list-style-type: none;
-      
+  &__nav-item {
+    padding: 0 16px;
+    font-size: 15px;
+    color: $color-primary;
+    list-style-type: none;
 
-      @include mq(desktop) {
-      
-        &:not(:last-of-type) {
-          border-right: 1px solid #5D5D5D;
-        }
+    @include mq(desktop) {
+      &:not(:last-of-type) {
+        border-right: 1px solid #5d5d5d;
       }
-		}
-
-    // .my-page-header__nav-link
-    &__nav-link {
-      display: flex;
-      gap: 8px;
     }
+  }
+
+  // .my-page-header__nav-link
+  &__nav-link {
+    display: flex;
+    gap: 8px;
+  }
 }
 
 // .header {
@@ -74,7 +74,6 @@
 //   &__inner {
 //     justify-content: space-between;
 //     padding: rem(16) 0;
-    
 
 //     @include container;
 //     @include flex-center;
