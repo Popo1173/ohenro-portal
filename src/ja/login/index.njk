@@ -23,7 +23,9 @@ url: https://ohenro.online/ja/login/
     {# パスワード #}
     {{ passForms.passwordField("パスワード", "password", "Password") }}
 
-    {{ buttons.primaryButton("新規登録はこちら", "submit", "/register/") }}
+    <div class="login__button">
+      {{ buttons.primaryButton("ログイン", "submit", "/my-page/") }}
+    </div>
   </form>
 
   <figure class="login__background">

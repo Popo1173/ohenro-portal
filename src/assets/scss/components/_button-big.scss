@@ -1,18 +1,26 @@
 @use '../foundation/variables' as *;
+@use '../foundation/breakpoints' as *;
 
 .button-primary {
-  background: $color-primary;
-
   // .button-primary__button
 
   &__button {
-    // .button-primary__button
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 23px 8px;
+    background: $color-primary;
+    border-radius: 50px;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 
-  // .button-primary__button-text
-
   &__button-text {
-    font-size: $button-font-size;
+    font-size: $base-font-size;
     color: $color-white;
   }
 }

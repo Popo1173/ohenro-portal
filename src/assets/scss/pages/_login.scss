@@ -1,3 +1,11 @@
 @use '../foundation/mixin' as *;
 @use '../foundation/variables' as *;
 @use '../foundation/breakpoints' as *;
+@use '../components' as *;
+
+.login {
+  // .login__button
+  &__button {
+    max-width: 340px;
+  }
+}

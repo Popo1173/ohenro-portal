@@ -25,10 +25,11 @@ a:hover {
 
 button {
   padding: 0;
+  font: inherit;
+  color: inherit;
   appearance: none;
   cursor: pointer;
-  outline: none;
-  background-color: transparent;
+  background: none;
   border: none;
 }
 
@@ -100,12 +101,26 @@ button {
   content: url("/assets/images/common/icon-logout.svg");
 }
 
-.button-primary {
+.button-primary__button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 23px 8px;
   background: #9f1627;
+  border-radius: 50px;
+}
+.button-primary__button:hover {
+  opacity: 0.7;
 }
 .button-primary__button-text {
-  font-size: 18;
+  font-size: 16px;
   color: #fff;
+}
+
+.login__button {
+  max-width: 340px;
 }
 
 /*# sourceMappingURL=style.css.map */

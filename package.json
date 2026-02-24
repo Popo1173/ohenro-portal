@@ -6,8 +6,8 @@
     "dev": "npm-run-all --parallel eleventy sass:watch",
     "build": "npm run sass:build && eleventy",
     "eleventy": "eleventy --serve",
-    "sass:watch": "sass src/assets/scss/style.scss:src/assets/css/style.css --watch",
-    "sass:build": "sass src/assets/scss/style.scss:src/assets/css/style.css --style=compressed",
+    "sass:watch": "sass src/assets/scss/style.scss:dist/assets/css/style.css --watch",
+    "sass:build": "sass src/assets/scss/style.scss:dist/assets/css/style.css --style=compressed",
     "lint": "eslint src --ext .js",
     "lint:css": "stylelint \"src/**/*.scss\"",
     "format": "prettier --write ."
