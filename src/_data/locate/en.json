@@ -2,7 +2,8 @@
   "headerUser": {
     "home": "My page top",
     "favorite": "favorite",
-    "language": "Language"
+    "language": "Language",
+    "auth": "logout"
   },
   "footer": {
     "privacy": "Privacy policy",
