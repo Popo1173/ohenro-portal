@@ -1,13 +1,18 @@
+@use '../foundation/variables' as *;
+
 .button-primary {
+  background: $color-primary;
+
   // .button-primary__button
 
   &__button {
-    background: red;
+    // .button-primary__button
   }
 
   // .button-primary__button-text
 
   &__button-text {
-    // .button-primary__button
+    font-size: $button-font-size;
+    color: $color-white;
   }
 }

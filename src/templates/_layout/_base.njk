@@ -1,6 +1,5 @@
 {% set lang = lang or "ja" %}
 {% set t = locate[lang] %}
-
 <!DOCTYPE html>
 <html lang="{{ lang }}">
   <head>
@@ -28,9 +27,18 @@
 
     <!-- JS -->
     <script src="/assets/js/common.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    {% if lang == "en" %}
+    <script src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+      Weglot.initialize({
+        api_key: "wg_538b4c07bac9a637bca794a5c27c2f710"
+      });
+    </script>
+    {% endif %}
   </head>
   <body>
-
     {% if headerType == "user" %}
     {% include "_layout/_header/_header-user.njk" %}
     {% elseif headerType == "auth" %}
