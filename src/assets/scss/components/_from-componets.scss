@@ -1,17 +1,41 @@
+@use '../foundation' as *;
+
 // ========================================
 // テキストフィールド
 // ========================================
 .text-fiedl {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+
   // .text-fiedl__label
 
   &__label {
-    // .text-fiedl__label
+    font-size: $base-font-size;
   }
 
   // .text-fiedl__input
 
   &__input {
-    // .text-fiedl__input
+    box-sizing: border-box;
+
+    // max-width: 590px;
+    padding: 24px;
+    font-size: $base-font-size;
+    color: $color-text;
+    border: 1px solid #eaeaea;
+
+    &::placeholder {
+      font-size: $base-font-size;
+      color: #c3c3c3;
+
+      @include font-futura;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+    }
   }
 }
 
@@ -19,16 +43,50 @@
 // パスワード入力フィールド
 // ========================================
 .password-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+
+  // max-width: 590px;
+
   // .password-field__label
 
   &__label {
-    // .password-field__label
+    font-size: $base-font-size;
+  }
+
+  // .password-field__inner
+  &__inner {
+    position: relative;
   }
 
   // .fpassword-field__input
 
   &__input {
-    // .fpassword-field__input
+    box-sizing: border-box;
+    width: 100%;
+    padding: 24px;
+    font-size: $base-font-size;
+    color: $color-text;
+    border: 1px solid #eaeaea;
+    &::placeholder {
+      font-size: $base-font-size;
+      color: #c3c3c3;
+
+      @include font-futura;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+
+  // .password-field__switch
+  &__switch {
+    position: absolute;
+    top: 30%;
+    right: 20px;
   }
 }
 

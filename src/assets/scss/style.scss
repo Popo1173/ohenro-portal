@@ -1,8 +1,5 @@
-@use './foundation/variables' as *;
-@use './foundation/breakpoints' as *;
-@use './foundation/mixin' as *;
-@use './foundation/base';
+@use './foundation' as *;
+@use './components' as *;
 @use './layout/header';
 @use './layout/footer';
 @use './pages/login';
-@use './components' as *;

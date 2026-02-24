@@ -24,3 +24,11 @@
 
   @return clamp(#{rem($min)}, #{math.div($base, 16)}rem + #{$slope * 100}vw, #{rem($max)});
 }
+
+// ===============================
+// Font mixins
+// ===============================
+@mixin font-futura {
+  font-family:
+    'Futura Medium Italic', Futura, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+}

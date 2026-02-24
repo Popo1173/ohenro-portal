@@ -1,11 +1,50 @@
-@use '../foundation/mixin' as *;
-@use '../foundation/variables' as *;
-@use '../foundation/breakpoints' as *;
+@use '../foundation' as *;
 @use '../components' as *;
 
 .login {
+  height: 80vh; // ← ここ重要
+  background: url('/assets/images/common/login/login-background.webp') center / cover no-repeat;
+
+  // .login__inner
+  &__inner {
+    padding: 32px 85px;
+    margin: 0 auto;
+    background: rgb(255 255 255 / 70%);
+
+    // background: red;
+
+    @include mq(desktop) {
+      max-width: 760px;
+    }
+  }
+
+  // .login__title
+  &__title {
+    font-size: 30px;
+    color: $color-text;
+  }
+
+  // .login__form
+  &__form {
+    width: 100%;
+  }
+
+  // .login__form-forget
+  &__form-forget {
+    padding: 0;
+    margin: 0;
+
+    // .login__forget-link
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   // .login__button
   &__button {
+    width: 100%;
     max-width: 340px;
   }
 }

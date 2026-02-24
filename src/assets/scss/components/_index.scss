@@ -1,3 +1,6 @@
+@use '../foundation' as *;
+
+// componentsをexport
 @forward './button';
 @forward './button-big';
 @forward './from-componets';
