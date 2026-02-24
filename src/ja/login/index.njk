@@ -1,0 +1,32 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+title: ログイン
+description: ログイン
+url: https://ohenro.online/ja/login/
+---
+
+<section class="login">
+  <div class="login__title">
+    <h2>Sign Up</h2>
+  </div>
+
+
+  {% import "_components/_form/_form-field-text.njk" as forms %}
+  {% import "_components/_form/_form-field-password.njk" as passForms %}
+  {% import "_components/_button-big.njk" as buttons %}
+  <form>
+    {# メールアドレス #}
+    {{ forms.formInput("メールアドレス", "user-email", "Your Email") }}
+    
+    {# パスワード #}
+    {{ passForms.passwordField("パスワード", "password", "Password") }}
+
+    {{ buttons.primaryButton("新規登録はこちら", "submit", "/register/") }}
+  </form>
+
+  <figure class="login__background">
+    <img src="/assets/images/common/login/login-background.webp" alt="" />
+  </figure>
+</section>

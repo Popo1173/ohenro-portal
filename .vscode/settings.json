@@ -35,12 +35,17 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
+  // nk　は　HTMLとして扱う
+  "[njk]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
   // ----------------------------------------
   // 保存時に lint の自動修正を実行
   // ----------------------------------------
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
   },
 
   // ESLint は JS のみ対象

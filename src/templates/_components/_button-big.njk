@@ -1,0 +1,13 @@
+{% macro primaryButton(label, type="submit", href="#", id="") %}
+<div class="button-primary">
+  {% if type == "submit" %}
+    <button type="submit" {% if id %}id="{{ id }}"{% endif %} class="button-primary__button">
+		<span class="button-primary__button-text">{{ label }}</span>      
+    </button>
+  {% else %}
+    <a href="{{ href }}" {% if id %}id="{{ id }}"{% endif %} class="button-primary__button">
+      <span class="button-primary__button-text">{{ label }}</span>    
+    </a>
+  {% endif %}
+</div>
+{% endmacro %}

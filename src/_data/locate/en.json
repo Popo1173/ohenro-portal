@@ -1,0 +1,12 @@
+{
+  "headerUser": {
+    "home": "My page top",
+    "favorite": "favorite",
+    "language": "Language"
+  },
+  "footer": {
+    "privacy": "Privacy policy",
+    "terms": "terms of service",
+    "copyright": "© OHENRO PORTAL"
+  }
+}
