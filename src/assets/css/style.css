@@ -44,6 +44,13 @@ input {
   outline: none;
 }
 
+hr {
+  width: 100%;
+  height: 1px;
+  background: #c3c3c3;
+  border: 0;
+}
+
 .small-button__link {
   display: flex;
   align-items: center;
@@ -76,6 +83,25 @@ input {
 .button-primary__button-text {
   font-size: 16px;
   color: #fff;
+}
+
+.button-secondary__button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 19px 8px;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 50px;
+}
+.button-secondary__button:hover {
+  opacity: 0.7;
+}
+.button-secondary__button-text {
+  font-size: 16px;
+  color: #3b4043;
 }
 
 .text-fiedl {
@@ -141,12 +167,17 @@ input {
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
-  padding: 20px;
+  padding: 18px 24px;
 }
 .my-page-header__logo-figure {
-  max-width: 180px;
+  max-width: 130px;
   padding: 0;
   margin: 0;
+}
+@media (min-width: 1024px) {
+  .my-page-header__logo-figure {
+    max-width: 180px;
+  }
 }
 .my-page-header__nav-list {
   display: flex;
@@ -191,16 +222,23 @@ input {
 
 .login {
   height: 80vh;
+  padding: 16px;
   background: url("/assets/images/common/login/login-background.webp") center/cover no-repeat;
 }
 .login__inner {
-  padding: 32px 85px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  justify-items: center;
+  padding: 16px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
 }
 @media (min-width: 1024px) {
   .login__inner {
     max-width: 760px;
+    padding: 64px 85px 56px;
   }
 }
 .login__title {
@@ -208,18 +246,29 @@ input {
   color: #3b4043;
 }
 .login__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
   width: 100%;
 }
-.login__form-forget {
+.login__forget {
+  display: flex;
+  justify-content: flex-end;
   padding: 0;
-  margin: 0;
+  margin-top: -16px;
 }
-.login__form-forget-link:hover {
+.login__forget-link:hover {
   text-decoration: underline;
 }
-.login__button {
+.login__button-primary {
   width: 100%;
   max-width: 340px;
+  margin: 0 auto;
+}
+.login__button-secondary {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -16,6 +16,7 @@ url: https://ohenro.online/ja/login/
     {% import "_components/_form/_form-field-text.njk" as forms %}
     {% import "_components/_form/_form-field-password.njk" as passForms %}
     {% import "_components/_button-big.njk" as buttons %}
+    {% import "_components/_button-secondary.njk" as buttonSecondary %}
     <form class="login__form">
       {# メールアドレス #}
       {{ forms.formInput("メールアドレス", "user-email", "Your Email") }}
@@ -26,8 +27,14 @@ url: https://ohenro.online/ja/login/
         <a class="login__forget-link" href="">パスワードを忘れた場合</a>
       </p>
 
-      <div class="login__button">
+      <div class="login__button-primary">
         {{ buttons.primaryButton("ログイン", "submit", "/my-page/") }}
+      </div>
+
+      <hr class="login__border" /> 
+
+      <div class="login__button-secondary">
+        {{ buttonSecondary.secondaryButton("新規会員登録", "submit", "/my-page/") }}
       </div>
     </form>
   </div>
