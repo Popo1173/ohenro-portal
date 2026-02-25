@@ -12,10 +12,16 @@
     width: 100%;
     padding: 23px 8px;
     background: $color-primary;
+    border: 1px solid $color-primary;
     border-radius: 50px;
 
     &:hover {
-      opacity: 0.7;
+      background: $color-white;
+      border: 1px solid $color-primary;
+
+      .button-primary__button-text {
+        color: $color-primary;
+      }
     }
   }
 
