@@ -49,5 +49,11 @@
 
     {{ content | safe }}
 
+    {% if footerType == "user" %}
+    {% include "_layout/_footer/_footer-user.njk" %}
+    {% else %}
+      {% include "_layout/_footer/_footer-user.njk" %}
+    {% endif %}
+
   </body>
 </html>
