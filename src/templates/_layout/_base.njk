@@ -47,7 +47,9 @@
       {% include "_layout/_header/_header-public.njk" %}
     {% endif %}
 
-    {{ content | safe }}
+    <main>
+      {{ content | safe }}
+    </main>
 
     {% if footerType == "user" %}
     {% include "_layout/_footer/_footer-user.njk" %}

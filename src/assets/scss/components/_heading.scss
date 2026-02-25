@@ -1,3 +1,5 @@
+@use '../foundation' as *;
+
 // ========================================
 // My-page
 // ========================================
@@ -5,6 +7,10 @@
   // .heading-my-page__text
 
   &__text {
-    font-size: 30px;
+    font-size: rem(24);
+
+    @include mq(desktop) {
+      font-size: 30px;
+    }
   }
 }

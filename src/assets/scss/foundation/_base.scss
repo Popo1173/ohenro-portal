@@ -14,6 +14,13 @@ body {
   color: $color-text;
 }
 
+// mainを以下のようにするとfooter下部配置になる
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
 img {
   display: block;
   max-width: 100%;

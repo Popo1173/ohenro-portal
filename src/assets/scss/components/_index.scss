@@ -1,8 +1,9 @@
-@use '../foundation' as *;
+// @use '../foundation' as *;
 
 // componentsをexport
 @forward './button';
 @forward './button-big';
 @forward './button-secondary';
 @forward './from-componets';
+@forward './auth-completion';
 @forward './heading';

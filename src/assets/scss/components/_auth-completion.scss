@@ -1,3 +1,76 @@
+@use '../foundation' as *;
+
 // ========================================
 // 入力、完了画面関連のボックスレイアウト
 // ========================================
+
+// 背景色を高さいっぱいにする指定。
+// コンテンツの高さがないものは.sign-up同様にflexをかける
+.sign-up {
+  display: flex;
+  flex: 1;
+}
+.auth-completion {
+  flex: 1;
+  padding: rem(78) 16px rem(64);
+  background: #f5f7f9;
+
+  @include mq(desktop) {
+    padding: rem(156) 16px rem(48);
+  }
+
+  // .auth-completion__inner
+
+  &__inner {
+    @include container-auth;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 27px 16px 44px;
+    background: red;
+    background: rgb(255 255 255 / 70%);
+    border-radius: 10px;
+
+    @include mq(desktop) {
+      max-width: 760px;
+      padding: 54px 85px 88px;
+    }
+  }
+
+  // .auth-completion__title
+
+  &__title {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+
+    // .auth-completion__title-description
+    &-description {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // .auth-completion__form
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    justify-items: center;
+  }
+
+  // .auth-completion__buttons
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+    @include mq(desktop) {
+      flex-direction: row;
+    }
+  }
+}

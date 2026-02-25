@@ -12,6 +12,12 @@
   margin: 0 auto;
 }
 
+@mixin container-auth {
+  box-sizing: border-box;
+  max-width: $container-auth-width;
+  margin: 0 auto;
+}
+
 @mixin flex-center {
   display: flex;
   align-items: center;
