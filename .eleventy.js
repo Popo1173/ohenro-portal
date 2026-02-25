@@ -1,11 +1,13 @@
 module.exports = function (eleventyConfig) {
+  // 監視
   eleventyConfig.addPassthroughCopy('src/assets/images')
   eleventyConfig.addPassthroughCopy('src/assets/js')
   eleventyConfig.addPassthroughCopy('src/assets/css')
+  eleventyConfig.addWatchTarget('/src/assets/scss/')
 
-  //　BrowserSync
-  eleventyConfig.setBrowserSyncConfig({
-    files: ['./dist/assets/css/**/*.css', './dist/assets/js/**/*.js'],
+  // Eleventy v3用
+  eleventyConfig.setServerOptions({
+    watch: ['dist/assets/css/**/*.css', 'dist/assets/js/**/*.js'],
   })
 
   return {
