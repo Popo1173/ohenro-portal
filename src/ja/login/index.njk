@@ -5,7 +5,7 @@ headerType: auth
 footerType: user
 title: ログイン
 description: ログイン
-url: https://ohenro.online/ja/sign-up/
+url: https://ohenro.online/ja/login/
 ---
 <section class="login">
   <div class="login__inner">
@@ -19,12 +19,12 @@ url: https://ohenro.online/ja/sign-up/
     {% import "_components/_button-secondary.njk" as buttonSecondary %}
     <form class="login__form">
       {# メールアドレス #}
-      {{ forms.formInput("メールアドレス", "user-email", "Your Email") }}
+      {{ forms.formInput("メールアドレス", "email", "Your Email") }}
       
       {# パスワード #}
       {{ passForms.passwordField("パスワード", "password", "Password") }}
       <p class="login__forget">
-        <a class="login__forget-link" href="">パスワードを忘れた場合</a>
+        <a class="login__forget-link" href="/ja/resetting/">パスワードを忘れた場合</a>
       </p>
 
       <div class="login__button-primary">
@@ -34,7 +34,7 @@ url: https://ohenro.online/ja/sign-up/
       <hr class="login__border" /> 
 
       <div class="login__button-secondary">
-        {{ buttonSecondary.secondaryButton("新規会員登録", "submit", "/my-page/") }}
+        {{ buttonSecondary.secondaryButton("新規会員登録", "link", "/" + lang + "/signup/") }}
       </div>
     </form>
   </div>

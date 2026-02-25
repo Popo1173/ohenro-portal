@@ -3,39 +3,21 @@ lang: ja
 layout: _layout/_base.njk
 headerType: auth
 footerType: user
-title: ログイン
-description: ログイン
-url: https://ohenro.online/ja/sign-up/
+title: 新規登録
+description: 新規登録
+url: https://ohenro.online/ja/signup/
 ---
-<section class="login">
-  <div class="login__inner">
-    <div class="login__title">
-      <h2 class="login__title-text">Sign Up</h2>
+<section class="sign-up">
+  {% import "_components/_section-heading-my-page.njk" as title %}
+  {% import "_components/_form/_form-field-text.njk" as forms %}
+  <div>
+  <div class="sign-up__inner">
+    <div class="sign-up__title">
+      {{title.sectionHeading("test")}}
     </div>
 
-    {% import "_components/_form/_form-field-text.njk" as forms %}
-    {% import "_components/_form/_form-field-password.njk" as passForms %}
-    {% import "_components/_button-big.njk" as buttons %}
-    {% import "_components/_button-secondary.njk" as buttonSecondary %}
-    <form class="login__form">
-      {# メールアドレス #}
+          {# メールアドレス #}
       {{ forms.formInput("メールアドレス", "user-email", "Your Email") }}
-      
-      {# パスワード #}
-      {{ passForms.passwordField("パスワード", "password", "Password") }}
-      <p class="login__forget">
-        <a class="login__forget-link" href="">パスワードを忘れた場合</a>
-      </p>
-
-      <div class="login__button-primary">
-        {{ buttons.primaryButton("ログイン", "submit", "/my-page/") }}
-      </div>
-
-      <hr class="login__border" /> 
-
-      <div class="login__button-secondary">
-        {{ buttonSecondary.secondaryButton("新規会員登録", "submit", "/my-page/") }}
-      </div>
-    </form>
+  </div>
   </div>
 </section>
