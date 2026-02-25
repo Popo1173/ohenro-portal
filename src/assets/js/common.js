@@ -1,19 +1,18 @@
+// パスワード表示、非表示時切り替え
 document.addEventListener('DOMContentLoaded', () => {
   const containers = document.querySelectorAll('.js-password-container')
 
   containers.forEach((container) => {
     const input = container.querySelector('.js-password-input')
     const toggle = container.querySelector('.js-password-toggle')
+    const icon = toggle.querySelector('img')
 
-    if (input && toggle) {
-      toggle.addEventListener('click', () => {
-        // type属性を切り替える
-        const isPassword = input.getAttribute('type') === 'password'
-        input.setAttribute('type', isPassword ? 'text' : 'password')
+    toggle.addEventListener('click', () => {
+      const isActive = toggle.classList.toggle('is-active')
 
-        // (オプション) アイコンの色やスタイルを切り替える場合はここに追加
-        toggle.classList.toggle('is-active')
-      })
-    }
+      input.type = isActive ? 'text' : 'password'
+
+      icon.src = `/assets/images/icons/icon-pasword-${isActive ? 'on' : 'off'}.svg`
+    })
   })
 })
