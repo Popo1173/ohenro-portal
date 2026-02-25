@@ -2,9 +2,13 @@
 @use '../components' as *;
 
 .login {
-  height: 80vh; // ← ここ重要
-  padding: 16px;
+  height: 73vh;
+  padding: rem(78) 16px rem(24);
   background: url('/assets/images/common/login/login-background.webp') center / cover no-repeat;
+
+  @include mq(desktop) {
+    padding: rem(156) 16px rem(48);
+  }
 
   // .login__inner
   &__inner {
