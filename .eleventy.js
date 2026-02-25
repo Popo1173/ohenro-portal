@@ -1,11 +1,13 @@
 module.exports = function (eleventyConfig) {
-  // 監視
+  /**
+   * distへ各フォルダへのコピー
+   * JSはバンドルしないため、記載（バンドルする場合は削除する）
+   *  */
   eleventyConfig.addPassthroughCopy('src/assets/images')
   eleventyConfig.addPassthroughCopy('src/assets/js')
-  eleventyConfig.addPassthroughCopy('src/assets/css')
   eleventyConfig.addWatchTarget('/src/assets/scss/')
 
-  // Eleventy v3用
+  // Eleventy v3用 js,SCSSはデフォルトで監視対象外のため
   eleventyConfig.setServerOptions({
     watch: ['dist/assets/css/**/*.css', 'dist/assets/js/**/*.js'],
   })
