@@ -7,11 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggle = container.querySelector('.js-password-toggle')
     const icon = toggle.querySelector('img')
 
+    // type切り替えとアイコン切り替え
     toggle.addEventListener('click', () => {
       const isActive = toggle.classList.toggle('is-active')
 
+      // type 切り替え
       input.type = isActive ? 'text' : 'password'
 
+      // アイコン切り替え
       icon.src = `/assets/images/icons/icon-pasword-${isActive ? 'on' : 'off'}.svg`
     })
   })
