@@ -1,0 +1,23 @@
+{% macro formRadio(label, name, options, checked="", required=false) %}
+<div class="radio-group">
+  <div class="radio-group__label {% if required %}is-required{% endif %}">
+    {{ label }}
+  </div>
+
+	<ul class="radio-group__list">
+		{% for o in options %}
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="{{ name }}"
+					value="{{ o.value }}"
+					{% if checked == o.value %}checked{% endif %}
+				/>
+				{{ o.label }}
+			</label>
+		</li>
+		{% endfor %}
+		</ul>
+</div>
+{% endmacro %}

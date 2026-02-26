@@ -11,6 +11,7 @@ url: https://ohenro.online/ja/form/
 {% import "_components/_breadcrumbs.njk" as breadcrumbs %}
 {% import "_components/_form/_form-field-text.njk" as forms %}
 {% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_form/_form-radio.njk" as radio %}
 {% import "_components/_button-big.njk" as primary %}
 <section class="registration">
 	<div class="auth-page-heading">
@@ -47,7 +48,10 @@ url: https://ohenro.online/ja/form/
 				{{ forms.formInput("メイ", "firstNameKana", "タロウ", "text", true) }}
 
 				{# セイ #}
-				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}				
+				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}
+				
+				{# 年代 #}
+				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}		
 	
 				<div class="auth-completion__buttons">
 				{{ primary.primaryButton("確認する", "submit", "/my-page/") }}
