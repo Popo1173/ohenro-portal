@@ -5,11 +5,13 @@
 // ========================================
 
 // 背景色を高さいっぱいにする指定。
-// コンテンツの高さがないものは.sign-up同様にflexをかける
-.sign-up {
+// コンテンツの高さがないものは.signup同様にflexをかける
+.signup,
+.resetting {
   display: flex;
   flex: 1;
 }
+
 .auth-completion {
   flex: 1;
   padding: rem(78) 16px rem(64);
@@ -17,6 +19,10 @@
 
   @include mq(desktop) {
     padding: rem(156) 16px rem(48);
+  }
+
+  &.is-no-margin {
+    padding: 0 16px;
   }
 
   // .auth-completion__inner
@@ -43,6 +49,7 @@
   &__title {
     display: grid;
     grid-template-columns: 1fr;
+    gap: 8px;
     justify-items: center;
 
     // .auth-completion__title-description

@@ -7,16 +7,16 @@ title: ログイン
 description: ログイン
 url: https://ohenro.online/ja/login/
 ---
+{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_button-big.njk" as buttons %}
+{% import "_components/_button-secondary.njk" as buttonSecondary %}
 <section class="login">
   <div class="login__inner">
     <div class="login__title">
-      <h2 class="login__title-text">Sign Up</h2>
+      {{title.authTitle("Sign Up", "is-english")}}
     </div>
-
-    {% import "_components/_form/_form-field-text.njk" as forms %}
-    {% import "_components/_form/_form-field-password.njk" as passForms %}
-    {% import "_components/_button-big.njk" as buttons %}
-    {% import "_components/_button-secondary.njk" as buttonSecondary %}
     <form class="login__form">
       {# メールアドレス #}
       {{ forms.formInput("メールアドレス", "email", "Your Email") }}

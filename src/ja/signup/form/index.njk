@@ -1,0 +1,58 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: 会員情報登録フォーム
+description: 会員情報登録フォーム
+url: https://ohenro.online/ja/form/
+---
+{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_breadcrumbs.njk" as breadcrumbs %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_button-big.njk" as primary %}
+<section class="registration">
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>{{ title.authTitle("会員情報登録") }}</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			{{breadcrumbs.breadcrumbs("新規会員登録")}}
+		</div>
+	</div>
+
+	<div class="auth-completion is-no-margin">
+		<div class="registration__title">
+			<h3 class="registration__title-text">新規会員情報登録</h3>
+			<p class="registration__title-descrption">ご登録いただいた情報は、会員サービスの提供および各種ご案内のために使用いたします。内容をご確認のうえ、必要情報を入力いただき次の画面へお進みください。</p>
+			<span class="note">※ 必須項目はすべてご入力ください。</span>
+		</div>		
+		
+		<div class="auth-completion__inner">
+			<form class="auth-completion__form">
+				{# メールアドレス #}
+				{{ forms.formInput("メールアドレス", "email", "Your Email", "text", true, true) }}
+
+				{# パスワード #}
+				{{ passForms.passwordField("パスワード", "password", "Password", "text", true, true) }}
+
+				{# 名 #}
+				{{ forms.formInput("名", "firstName", "太郎", "text", true) }}
+
+				{# 姓 #}
+				{{ forms.formInput("姓", "lastName", "御遍路", "text", true) }}
+
+				{# メイ #}
+				{{ forms.formInput("メイ", "firstNameKana", "タロウ", "text", true) }}
+
+				{# セイ #}
+				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}				
+	
+				<div class="auth-completion__buttons">
+				{{ primary.primaryButton("確認する", "submit", "/my-page/") }}
+			</div>
+			</form>
+		</div>
+	</div>
+</section>

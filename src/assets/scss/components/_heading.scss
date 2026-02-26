@@ -1,16 +1,43 @@
 @use '../foundation' as *;
 
 // ========================================
-// My-page
+// 単一コンテンツ画面用見出し
+// （例　ログイン、完了画面、購読完了画面、etc
 // ========================================
-.heading-my-page {
+.auth-title {
   // .heading-my-page__text
 
   &__text {
     font-size: rem(24);
 
+    // 英語フォントの時
+    &.is-english {
+      color: red;
+    }
+
     @include mq(desktop) {
       font-size: 30px;
     }
+  }
+}
+
+// パンクズと見出しレイアウト
+.auth-page-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+
+  @include container;
+
+  // .page-heading__title
+
+  &__title {
+    // .page-heading__title
+  }
+
+  // .page-heading__breadcrumbs
+
+  &__breadcrumbs {
+    // .page-heading__breadcrumbs
   }
 }

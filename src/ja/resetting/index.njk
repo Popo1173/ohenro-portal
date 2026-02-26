@@ -5,17 +5,17 @@ headerType: auth
 footerType: user
 title: 新規登録
 description: 新規登録
-url: https://ohenro.online/ja/sign-up/
+url: https://ohenro.online/ja/resetting/
 ---
-<section class="sign-up">
-  {% import "_components/_section-heading-my-page.njk" as title %}
+<section class="resetting">
+  {% import "_components/_auth-title.njk" as title %}
   {% import "_components/_form/_form-field-text.njk" as forms %}
   {% import "_components/_button-big.njk" as primary %}
   {% import "_components/_button-normal.njk" as normal %}
   <div class="auth-completion">
     <div class="auth-completion__inner">
       <div class="auth-completion__title">
-        {{title.sectionHeading("新規会員登録")}}
+        {{title.authTitle("パスワード再発行")}}
         <p class="auth-completion__title-description">メールアドレスを入力してください</p>
       </div>
       <form class="auth-completion__form">

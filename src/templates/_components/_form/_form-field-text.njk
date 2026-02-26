@@ -1,12 +1,18 @@
-{% macro formInput(label, id, placeholder="Your Email", type="email") %}
+{% macro formInput(label, id, placeholder="Your Email", type="email", required=false, error=false) %}
 <div class="text-fiedl">
-  <label for="{{ id }}" class="text-fiedl__label">{{ label }}</label>
+  <label for="{{ id }}" class="text-fiedl__label {% if required %}is-required{% endif %}">{{ label }}</label>
   <input 
     type="{{ type }}" 
     id="{{ id }}" 
     name="{{ id }}" 
     placeholder="{{ placeholder }}" 
-    class="text-fiedl__input"
+    class="text-fiedl__input {% if error %}is-error{% endif %}"
   >
+  <!-- エラー文言 -->
+   <div class="error {% if error %}is-error-message{% endif %}">
+    <div class="error-message">
+      <p class="error-message__text">無効なメールアドレスです</p>
+    </div>
+  </div>
 </div>
 {% endmacro %}

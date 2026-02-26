@@ -1,0 +1,30 @@
+@use '../foundation' as *;
+
+// ========================================
+// 会員情報登録、確認画面
+// ========================================
+
+.registration {
+  // .registration__title
+  &__title {
+    padding: rem(56) 0 rem(40);
+
+    @include container-auth;
+
+    // .registration__title-text
+    &-text {
+      font-size: 30px;
+    }
+
+    // .registration__title-descrption
+    &-descrption {
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.note {
+  font-size: 14px;
+  color: red;
+}

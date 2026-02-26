@@ -85,12 +85,19 @@
   // .password-field__switch
   &__switch {
     position: absolute;
-    top: 30%;
+    top: 20px;
     right: 20px;
 
     img {
       width: 40px;
     }
+  }
+
+  // .password-field__conditions
+  &__conditions {
+    padding: 0;
+    margin: 8px 0;
+    font-size: 14px;
   }
 }
 
@@ -102,4 +109,50 @@
 }
 .js-password-toggle {
   // js-password-toggle
+}
+
+// ========================================
+// 入力エラー時
+// ========================================
+.error {
+  display: none;
+}
+
+.is-error-message {
+  display: block;
+
+  .error-message {
+    padding: 8px;
+    background: #ff4d55;
+    border-radius: 4px;
+
+    &__text {
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      color: $color-white;
+    }
+  }
+}
+.is-error {
+  border: 1px solid #ff4d55;
+}
+
+// ========================================
+// 必死アイコン
+// ========================================
+
+.is-required {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 3px;
+    padding: 0 4px;
+    margin-left: 8px;
+    font-size: 13px;
+    color: $color-white;
+    content: '必須';
+    background: #ff4d55;
+    border-radius: 4px;
+  }
 }
