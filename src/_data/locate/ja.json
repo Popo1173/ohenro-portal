@@ -9,5 +9,104 @@
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
     "copyright": "© OHENRO PORTAL"
+  },
+  "form": {
+    "survey": {
+      "q1": {
+        "label": "あなたの居住国を教えてください",
+        "options": [
+          { "label": "オーストラリア", "value": "au" },
+          { "label": "カナダ", "value": "ca" },
+          { "label": "フランス", "value": "fr" },
+          { "label": "ドイツ", "value": "de" },
+          { "label": "日本", "value": "jp" },
+          { "label": "オランダ", "value": "nl" },
+          { "label": "ニュージーランド", "value": "nz" },
+          { "label": "スペイン", "value": "es" },
+          { "label": "イギリス", "value": "uk" },
+          { "label": "アメリカ合衆国", "value": "us" },
+          { "label": "中国本土", "value": "cn" },
+          { "label": "台湾", "value": "tw" },
+          { "label": "香港（特別行政区）", "value": "hk" }
+        ],
+        "other": "その他"
+      },
+
+      "q2": {
+        "label": "日本には何回訪れましたか？",
+        "options": [
+          { "label": "0", "value": "0" },
+          { "label": "1", "value": "1" },
+          { "label": "2", "value": "2" },
+          { "label": "3", "value": "3" },
+          { "label": "more", "value": "more" }
+        ],
+        "showIf": "q1 != jp"
+      },
+
+      "q3": {
+        "label": "四国八十八ヶ所巡りを体験しましたか？",
+        "options": [
+          { "label": "Completed all 88 temples", "value": "complete" },
+          { "label": "Partial", "value": "partial" },
+          { "label": "No", "value": "no" }
+        ],
+        "showIf": "q2 != 0"
+      },
+
+      "q4": {
+        "label": "最後に巡礼をしたのはいつですか?",
+        "options": [
+          { "label": "Within 1 year", "value": "within_1" },
+          { "label": "Within 3 years", "value": "within_3" },
+          { "label": "Within 10 years", "value": "within_10" },
+          { "label": "Over 10 years ago", "value": "over_10" }
+        ],
+        "showIf": "q2 != 0 && q3 != no"
+      },
+
+      "q5": {
+        "label": "これまで合計何回巡礼をしましたか？",
+        "options": [
+          { "label": "1", "value": "1" },
+          { "label": "2", "value": "2" },
+          { "label": "3", "value": "3" },
+          { "label": "4 or more", "value": "4+" }
+        ],
+        "showIf": "q2 != 0"
+      },
+
+      "q6": {
+        "label": "四国八十八ヶ所巡りを今後しようと思っていますか。",
+        "options": [
+          { "label": "1年以内の具体的な予定が決まっている", "value": "definite_1y" },
+          {
+            "label": "具体的には決まっていないがWithin 1 yearにできたらいいなと思っている",
+            "value": "hope_1y"
+          },
+          { "label": "Within 3 yearsにできたらいいなと思っている", "value": "hope_3y" },
+          { "label": "Within 10 yearsにできたらいいなと思っている", "value": "hope_10y" }
+        ],
+        "other": "その他"
+      },
+
+      "q7": {
+        "label": "1年以内の具体的な予定が決まっている",
+        "options": [
+          {
+            "label": "具体的には決まっていないがWithin 1 yearにできたらいいなと思っている",
+            "value": "no_plan_1y"
+          },
+          { "label": "Within 3 yearsにできたらいいなと思っている", "value": "hope_3y" },
+          { "label": "Within 10 yearsにできたらいいなと思っている", "value": "hope_10y" }
+        ],
+        "other": "その他",
+        "showIf": "q6 == definite_1y"
+      },
+
+      "q8": {
+        "label": "四国遍路をより魅力的に、より快適にするためのご提案やアイデアがありましたら、ぜひご自由にお書きください。"
+      }
+    }
   }
 }

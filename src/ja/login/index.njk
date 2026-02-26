@@ -19,10 +19,10 @@ url: https://ohenro.online/ja/login/
     </div>
     <form class="login__form">
       {# メールアドレス #}
-      {{ forms.formInput("メールアドレス", "email", "Your Email") }}
+      {{ forms.formInput("メールアドレス", "email", "Your Email", "text", true, true) }}
       
       {# パスワード #}
-      {{ passForms.passwordField("パスワード", "password", "Password") }}
+      {{ passForms.passwordField("パスワード", "password", "Password", "text", true, true) }}
       <p class="login__forget">
         <a class="login__forget-link" href="/ja/resetting/">パスワードを忘れた場合</a>
       </p>

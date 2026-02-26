@@ -12,7 +12,7 @@
 
     // 英語フォントの時
     &.is-english {
-      color: red;
+      // color: red;
     }
 
     @include mq(desktop) {

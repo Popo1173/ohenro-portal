@@ -11,6 +11,8 @@ url: https://ohenro.online/ja/form/
 {% import "_components/_breadcrumbs.njk" as breadcrumbs %}
 {% import "_components/_form/_form-field-text.njk" as forms %}
 {% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_form/_form-questionnaire.njk" as questionnaire %}
+{% set s = locate[lang].form.survey %}
 {% import "_components/_form/_form-radio.njk" as radio %}
 {% import "_components/_button-big.njk" as primary %}
 <section class="registration">
@@ -51,7 +53,27 @@ url: https://ohenro.online/ja/form/
 				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}
 				
 				{# 年代 #}
-				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}		
+				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}
+				
+				<div class="auth-completion__questionnaire">
+					<p>アンケートにご協力ください。※必須項目ではありません。</p>
+					<details class="accordion" open>
+						<summary class="accordion__summary">
+							アンケート
+						</summary>
+
+						<div class="accordion__content">
+{{ questionnaire.selectField(s.q1, "q1") }}
+{{ questionnaire.selectField(s.q2, "q2") }}
+{{ questionnaire.selectField(s.q3, "q3") }}
+{{ questionnaire.selectField(s.q4, "q4") }}
+{{ questionnaire.selectField(s.q5, "q5") }}
+{{ questionnaire.selectField(s.q6, "q6") }}
+{{ questionnaire.selectField(s.q7, "q7") }}
+{{ questionnaire.textareaField(s.q8, "q8") }}
+						</div>
+					</details>
+				</div>
 	
 				<div class="auth-completion__buttons">
 				{{ primary.primaryButton("確認する", "submit", "/my-page/") }}
