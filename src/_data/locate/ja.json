@@ -14,6 +14,7 @@
     "survey": {
       "q1": {
         "label": "あなたの居住国を教えてください",
+        "placeholder": "選択してください",
         "options": [
           { "label": "オーストラリア", "value": "au" },
           { "label": "カナダ", "value": "ca" },
@@ -34,6 +35,7 @@
 
       "q2": {
         "label": "日本には何回訪れましたか？",
+        "placeholder": "選択してください",
         "options": [
           { "label": "0", "value": "0" },
           { "label": "1", "value": "1" },
@@ -46,6 +48,7 @@
 
       "q3": {
         "label": "四国八十八ヶ所巡りを体験しましたか？",
+        "placeholder": "選択してください",
         "options": [
           { "label": "Completed all 88 temples", "value": "complete" },
           { "label": "Partial", "value": "partial" },
@@ -56,6 +59,7 @@
 
       "q4": {
         "label": "最後に巡礼をしたのはいつですか?",
+        "placeholder": "選択してください",
         "options": [
           { "label": "Within 1 year", "value": "within_1" },
           { "label": "Within 3 years", "value": "within_3" },
@@ -67,6 +71,7 @@
 
       "q5": {
         "label": "これまで合計何回巡礼をしましたか？",
+        "placeholder": "選択してください",
         "options": [
           { "label": "1", "value": "1" },
           { "label": "2", "value": "2" },
@@ -78,6 +83,7 @@
 
       "q6": {
         "label": "四国八十八ヶ所巡りを今後しようと思っていますか。",
+        "placeholder": "選択してください",
         "options": [
           { "label": "1年以内の具体的な予定が決まっている", "value": "definite_1y" },
           {
@@ -91,20 +97,6 @@
       },
 
       "q7": {
-        "label": "1年以内の具体的な予定が決まっている",
-        "options": [
-          {
-            "label": "具体的には決まっていないがWithin 1 yearにできたらいいなと思っている",
-            "value": "no_plan_1y"
-          },
-          { "label": "Within 3 yearsにできたらいいなと思っている", "value": "hope_3y" },
-          { "label": "Within 10 yearsにできたらいいなと思っている", "value": "hope_10y" }
-        ],
-        "other": "その他",
-        "showIf": "q6 == definite_1y"
-      },
-
-      "q8": {
         "label": "四国遍路をより魅力的に、より快適にするためのご提案やアイデアがありましたら、ぜひご自由にお書きください。"
       }
     }

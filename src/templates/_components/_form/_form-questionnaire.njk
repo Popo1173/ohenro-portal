@@ -1,14 +1,12 @@
 {% macro selectField(q, name) %}
 <div class="form-field js-q"
-     data-q="{{ name }}"
-     {% if q.showIf %}data-show-if="{{ q.showIf }}"{% endif %}>
+	data-q="{{ name }}"
+	{% if q.showIf %}data-show-if="{{ q.showIf }}"{% endif %}>
 
   <label class="form-field__label" for="{{ name }}">{{ q.label }}</label>
-
   {% if q.options %}
     <select class="form-field__select js-select" id="{{ name }}" name="{{ name }}" data-q="{{ name }}">
-      <option value="">選択してください</option>
-
+      <option value="">{{ q.placeholder }}</option>
       {% for opt in q.options %}
         <option value="{{ opt.value }}">{{ opt.label }}</option>
       {% endfor %}
@@ -19,18 +17,18 @@
     </select>
 
     {% if q.other %}
-      <input class="form-field__other js-other"
-             type="text"
-             name="{{ name }}_other"
-             data-other-for="{{ name }}"
-             placeholder="入力してください"
-             hidden>
+		<input class="form-field__other js-other"
+						type="text"
+						name="{{ name }}_other"
+						data-other-for="{{ name }}"
+						placeholder="入力してください"
+						hidden>
     {% endif %}
   {% endif %}
-
 </div>
 {% endmacro %}
 
+<!-- その他選択時のテキストボックス -->
 {% macro textareaField(q, name) %}
 <div class="form-field js-q" data-q="{{ name }}">
   <label class="form-field__label" for="{{ name }}">{{ q.label }}</label>
