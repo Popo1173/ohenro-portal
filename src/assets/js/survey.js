@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!m) return true
       const [, key, op, val] = m
       const cur = state[key] ?? ''
+
       return op === '==' ? cur === val : cur !== val
     })
   }

@@ -19,8 +19,6 @@
 
   &__input {
     box-sizing: border-box;
-
-    // max-width: 590px;
     padding: 24px;
     font-size: $base-font-size;
     color: $color-text;
@@ -191,4 +189,95 @@
     background: #ff4d55;
     border-radius: 4px;
   }
+}
+
+// ========================================
+// アンケートエリア
+// ========================================
+
+// アンケートアコーディオン
+.accordion {
+  background: #f4f4f4;
+
+  // border-top: 1px solid #ddd;
+
+  &__summary {
+    position: relative;
+    padding: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  &__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  &__summary::after {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    bottom: 0;
+    width: 6px;
+    height: 6px;
+    margin: auto;
+    content: '';
+    border: 0;
+    border-top: solid 2px #333;
+    border-right: solid 2px #333;
+    transform: rotate(135deg);
+  }
+
+  &[open] &__summary::after {
+    transform: rotate(-45deg);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px 20px 24px;
+    background: #fbfafa;
+  }
+}
+.questionnaire-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+
+  // .questionnaire-field__label
+
+  &__label {
+    font-size: $base-font-size;
+  }
+
+  // .questionnaire-field__select
+
+  &__select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: $base-font-size;
+    color: $color-text;
+    background: $color-white;
+    border: 1px solid #eaeaea;
+  }
+
+  // .questionnaire-field__other
+
+  &__other {
+    padding: 8px;
+  }
+
+  // .questionnaire-field__textarea
+
+  &__textarea {
+    resize: vertical; // 横伸び防止
+  }
+}
+
+// 条件分岐で非表示切り替えのためhiddenインポータント
+[hidden] {
+  display: none !important;
 }
