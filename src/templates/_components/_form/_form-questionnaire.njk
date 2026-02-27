@@ -1,11 +1,11 @@
 {% macro selectField(q, name) %}
-<div class="form-field js-q"
+<div class="Questionnaire-field js-q"
 	data-q="{{ name }}"
 	{% if q.showIf %}data-show-if="{{ q.showIf }}"{% endif %}>
 
-  <label class="form-field__label" for="{{ name }}">{{ q.label }}</label>
+  <label class="Questionnaire-field__label" for="{{ name }}">{{ q.label }}</label>
   {% if q.options %}
-    <select class="form-field__select js-select" id="{{ name }}" name="{{ name }}" data-q="{{ name }}">
+    <select class="Questionnaire-field__select js-select" id="{{ name }}" name="{{ name }}" data-q="{{ name }}">
       <option value="">{{ q.placeholder }}</option>
       {% for opt in q.options %}
         <option value="{{ opt.value }}">{{ opt.label }}</option>
@@ -17,12 +17,12 @@
     </select>
 
     {% if q.other %}
-		<input class="form-field__other js-other"
-						type="text"
-						name="{{ name }}_other"
-						data-other-for="{{ name }}"
-						placeholder="入力してください"
-						hidden>
+		<input class="Questionnaire-field__other js-other"
+      type="text"
+      name="{{ name }}_other"
+      data-other-for="{{ name }}"
+      placeholder="入力してください"
+      hidden>
     {% endif %}
   {% endif %}
 </div>
@@ -30,8 +30,8 @@
 
 <!-- その他選択時のテキストボックス -->
 {% macro textareaField(q, name) %}
-<div class="form-field js-q" data-q="{{ name }}">
-  <label class="form-field__label" for="{{ name }}">{{ q.label }}</label>
-  <textarea class="form-field__textarea" id="{{ name }}" name="{{ name }}" rows="4"></textarea>
+<div class="Questionnaire-field js-q" data-q="{{ name }}">
+  <label class="Questionnaire-field__label" for="{{ name }}">{{ q.label }}</label>
+  <textarea class="Questionnaire-field__textarea" id="{{ name }}" name="{{ name }}" rows="4"></textarea>
 </div>
 {% endmacro %}

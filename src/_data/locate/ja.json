@@ -78,7 +78,8 @@
           { "label": "3", "value": "3" },
           { "label": "4 or more", "value": "4+" }
         ],
-        "showIf": "q2 != 0"
+        "showIf": "q2 != 0",
+        "showIf": "q2 != 0 && q3 != no"
       },
 
       "q6": {
