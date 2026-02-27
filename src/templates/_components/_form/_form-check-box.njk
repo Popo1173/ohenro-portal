@@ -1,0 +1,10 @@
+{% macro formCheck(label, name, value, required=false) %}
+<label class="checkbox">
+  <input
+    type="checkbox"
+    name="{{ name }}"
+    value="{{ value }}"
+  >
+  <span class="checkbox__label  {% if required %}is-required{% endif %}">{{ label }}</span>
+</label>
+{% endmacro %}

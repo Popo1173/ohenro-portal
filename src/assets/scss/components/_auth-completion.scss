@@ -22,7 +22,7 @@
   }
 
   &.is-no-margin {
-    padding: 0 16px;
+    padding: 0 16px 64px;
   }
 
   // .auth-completion__inner
@@ -90,7 +90,33 @@
     }
 
     // .auth-completion__subscription-radio
-    &-radio {
+    // &-radio {
+    // }
+  }
+
+  // .auth-completion__policy
+  &__policy {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    justify-items: center;
+    width: 100%;
+    padding-top: 32px;
+    border-top: 1px solid #c3c3c3;
+
+    @include mq(desktop) {
+      padding-top: 64px;
+    }
+
+    // .auth-completion__policy-text
+    &-text {
+      padding: 0;
+      margin: 0;
+    }
+
+    // .auth-completion__policy-check
+    &-check {
+      // .auth-completion__policy-check
     }
   }
 
@@ -101,6 +127,8 @@
     flex-direction: column;
     gap: 24px;
     width: 100%;
+    max-width: 340px;
+    padding-top: 40px;
 
     @include mq(desktop) {
       flex-direction: row;

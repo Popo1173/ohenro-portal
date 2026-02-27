@@ -14,6 +14,7 @@ url: https://ohenro.online/ja/form/
 {% import "_components/_form/_form-questionnaire.njk" as questionnaire %}
 {% set s = locate[lang].form.survey %}
 {% import "_components/_form/_form-radio.njk" as radio %}
+{% import "_components/_form/_form-check-box.njk" as checkBox %}
 {% import "_components/_button-big.njk" as primary %}
 <section class="registration">
 	<div class="auth-page-heading">
@@ -34,27 +35,13 @@ url: https://ohenro.online/ja/form/
 		
 		<div class="auth-completion__inner">
 			<form class="auth-completion__form">
-				{# メールアドレス #}
 				{{ forms.formInput("メールアドレス", "email", "Your Email", "text", true, true) }}
-
-				{# パスワード #}
 				{{ passForms.passwordField("パスワード", "password", "Password", "text", true, true) }}
-
-				{# 名 #}
 				{{ forms.formInput("名", "firstName", "太郎", "text", true) }}
-
-				{# 姓 #}
 				{{ forms.formInput("姓", "lastName", "御遍路", "text", true) }}
-
-				{# メイ #}
 				{{ forms.formInput("メイ", "firstNameKana", "タロウ", "text", true) }}
-
-				{# セイ #}
 				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}
-				
-				{# 年代 #}
-				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}
-				
+				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}				
 				<div class="auth-completion__questionnaire">
 					<p>アンケートにご協力ください。※必須項目ではありません。</p>
 					<details class="accordion" open>
@@ -81,6 +68,13 @@ url: https://ohenro.online/ja/form/
           <div class="auth-completion__subscription-radio">
             {# 年代 #}
             {{ radio.formRadio("","subscribe",[{ label: "購読する", value: "subscribe" },{ label: "購読しない", value: "unsubscribe" }], "subscribe") }}
+          </div>
+        </div>
+
+        <div class="auth-completion__policy">
+          <p class="auth-completion__policy-text"><a href="/ja/privacy">個人情報保護ポリシー</a> をご確認の上、「同意する」にチェックしてください。</p>
+          <div class="auth-completion__policy-check">
+          {{ checkBox.formCheck("同意する", "consent", "consent",true) }}
           </div>
         </div>
 	
