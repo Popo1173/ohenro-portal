@@ -7,7 +7,7 @@ title: 登録情報の確認
 description: 会登録情報の確認
 url: https://ohenro.online/ja/form/confirm/
 ---
-{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_page-title.njk" as title %}
 {% import "_components/_breadcrumbs.njk" as breadcrumbs %}
 {% import "_components/_button-big.njk" as primary %}
 {% import "_components/_form/_form-field-text.njk" as forms %}
@@ -15,7 +15,7 @@ url: https://ohenro.online/ja/form/confirm/
 <section class="registration">
 	<div class="auth-page-heading">
 		<div class="auth-page-heading__title">
-			<span>{{ title.authTitle("登録情報の確認") }}</span>
+			<span>{{ title.pageTitle("登録情報の確認") }}</span>
 		</div>
 		<div class="auth-page-heading__breadcrumbs">
 			{{breadcrumbs.breadcrumbs("登録情報の確認", "ja")}}

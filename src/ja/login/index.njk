@@ -7,7 +7,7 @@ title: ログイン
 description: ログイン
 url: https://ohenro.online/ja/login/
 ---
-{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_page-title.njk" as title %}
 {% import "_components/_form/_form-field-text.njk" as forms %}
 {% import "_components/_form/_form-field-password.njk" as passForms %}
 {% import "_components/_button-big.njk" as buttons %}
@@ -15,7 +15,7 @@ url: https://ohenro.online/ja/login/
 <section class="login">
   <div class="login__inner">
     <div class="login__title">
-      {{title.authTitle("Sign Up", "is-english")}}
+      {{title.pageTitle("Sign Up", "is-english")}}
     </div>
     <form class="login__form">
       {# メールアドレス #}

@@ -8,14 +8,14 @@ description: 新しいパスワード設定
 url: https://ohenro.online/ja/password-reset/new
 ---
 <section class="resetting">
-  {% import "_components/_auth-title.njk" as title %}
+  {% import "_components/_page-title.njk" as title %}
   {% import "_components/_form/_form-field-password.njk" as passForms %}
   {% import "_components/_button-big.njk" as primary %}
   {% import "_components/_button-normal.njk" as normal %}
   <div class="auth-completion">
     <div class="auth-completion__inner">
       <div class="auth-completion__title">
-        {{title.authTitle("新しいパスワードを設定")}}
+        {{title.pageTitle("新しいパスワードを設定")}}
       </div>
       <form class="auth-completion__form">
         {{ passForms.passwordField("新しいパスワード", "password", "Password", "password", true, true) }}

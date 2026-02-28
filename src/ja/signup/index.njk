@@ -8,14 +8,14 @@ description: 新規登録
 url: https://ohenro.online/ja/signup/
 ---
 <section class="signup">
-  {% import "_components/_auth-title.njk" as title %}
+  {% import "_components/_page-title.njk" as title %}
   {% import "_components/_form/_form-field-text.njk" as forms %}
   {% import "_components/_button-big.njk" as primary %}
   {% import "_components/_button-normal.njk" as normal %}
   <div class="auth-completion">
     <div class="auth-completion__inner">
       <div class="auth-completion__title">
-        {{title.authTitle("新規会員登録")}}
+        {{title.pageTitle("新規会員登録")}}
         <p class="auth-completion__title-description">メールアドレスを入力してください</p>
       </div>
       <form class="auth-completion__form">
