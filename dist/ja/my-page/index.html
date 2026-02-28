@@ -1,0 +1,223 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>マイページ</title>
+    <meta name="description" content="マイページ" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="マイページ" />
+    <meta property="og:description" content="マイページ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/my-page/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    
+
+<header class="my-page-header">
+  <div class="my-page-header__logo">
+    <figure class="my-page-header__logo-figure">
+      <img
+        src="/assets/images/common/ohenro-logo.webp"
+        class="my-page-header__logo-image"
+        alt="88お遍路さん"
+      />
+    </figure>
+  </div>
+  <nav class="my-page-header__nav">
+    <div class="my-page-header__controls">
+      <ul class="my-page-header__controls-list">
+        <li class="my-page-header__controls-item">
+<div class="lang-switcher js-lang">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+        <li class="my-page-header__controls-item">
+          <a class="my-page-header__controls-link" href="/ja/logout/">
+             <img src="/assets/images/icons/icon-logout.svg" alt="logout" />ログアウト
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <ul class="my-page-header__nav-list">
+      
+      <li class="my-page-header__nav-item">
+		    <a class="my-page-header__nav-link" href="/ja/my-page/">
+          <img src="/assets/images/icons/icon-home.svg" alt="" />マイページトップ
+		    </a>
+      </li>
+      
+      <li class="my-page-header__nav-item">
+		    <a class="my-page-header__nav-link" href="/ja/favorite/">
+          <img src="/assets/images/icons/icon-favorite.svg" alt="" />お気に入り
+		    </a>
+      </li>
+      
+      <li class="my-page-header__nav-item">
+		    <a class="my-page-header__nav-link" href="/ja/history/">
+          <img src="/assets/images/icons/icon-history.svg" alt="" />お寺Movie閲覧履歴
+		    </a>
+      </li>
+      
+    </ul>
+  </nav>
+</header>
+
+    
+
+    <main>
+      
+
+<section>
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>
+<h1 class="page-title">
+	<span class="page-title__text ">会員情報登録</span>
+</h1>
+</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			
+<nav class="breadcrumbs">
+  <a href="/ja/">HOME</a>
+  <span> > </span>
+  <span>新規会員登録</span>
+</nav>
+
+		</div>
+	</div>
+</section>
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>

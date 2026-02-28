@@ -1,0 +1,144 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>新しいパスワード設定</title>
+    <meta name="description" content="新しいパスワード設定" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="新しいパスワード設定" />
+    <meta property="og:description" content="新しいパスワード設定" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/password-reset/new" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    <header class="my-page-header">
+  <div class="my-page-header__logo">
+    <figure class="my-page-header__logo-figure">
+      <img
+        src="/assets/images/common/ohenro-logo.webp"
+        class="my-page-header__logo-image"
+        alt="88お遍路さん"
+      />
+    </figure>
+  </div>
+</header>
+
+    
+
+    <main>
+      <section class="resetting">
+  
+  
+  
+  
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        
+<h1 class="page-title">
+	<span class="page-title__text ">新しいパスワードを設定</span>
+</h1>
+
+      </div>
+      <form class="auth-completion__form">
+        
+<div class="password-field js-password-container">
+  <label for="password" class="password-field__label is-required">新しいパスワード</label>
+  <div class="password-field__inner">
+    <input 
+      type="password" 
+      id="password" 
+      name="password" 
+      placeholder="Password" 
+      class="password-field__input js-password-input is-error"
+    >
+    <button type="button" class="password-field__switch js-password-toggle" aria-label="パスワードを表示する">
+      
+      <img src="/assets/images/icons/icon-pasword-on.svg" alt="パスワード表示する" />
+    </button>
+    <!-- エラー文言 -->
+      <p class="password-field__conditions ">半角英数字8文字以上</p>
+      <div class="error is-error-message">
+        <div class="error-message">
+          <p class="error-message__text">半角英数字8文字以上で入力してください</p>
+        </div>
+      </div>
+  </div>
+</div>
+
+        
+<div class="password-field js-password-container">
+  <label for="password" class="password-field__label is-required">新しいパスワード（再入力）</label>
+  <div class="password-field__inner">
+    <input 
+      type="password" 
+      id="password" 
+      name="password" 
+      placeholder="Password" 
+      class="password-field__input js-password-input "
+    >
+    <button type="button" class="password-field__switch js-password-toggle" aria-label="パスワードを表示する">
+      
+      <img src="/assets/images/icons/icon-pasword-on.svg" alt="パスワード表示する" />
+    </button>
+    <!-- エラー文言 -->
+      <p class="password-field__conditions is-hidden">半角英数字8文字以上</p>
+      <div class="error ">
+        <div class="error-message">
+          <p class="error-message__text">半角英数字8文字以上で入力してください</p>
+        </div>
+      </div>
+  </div>
+</div>
+
+        <div class="auth-completion__buttons is-single-button">
+        
+  
+    <button type="submit"  class="button-primary__button">
+		<span class="button-primary__button-text">送信</span>      
+    </button>
+  
+
+
+      </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>
