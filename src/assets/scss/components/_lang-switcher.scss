@@ -1,5 +1,14 @@
+@use '../foundation/' as *;
+
 .lang-switcher {
   // position: relative;
+
+  // .lang-switcher__toggle
+  &__toggle {
+    display: flex;
+    gap: 8px;
+    color: $color-primary;
+  }
 
   // .lang-switcher__panel
   &__panel {

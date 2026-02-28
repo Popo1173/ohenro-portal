@@ -1,11 +1,9 @@
-@use '../foundation/mixin' as *;
-@use '../foundation/variables' as *;
-@use '../foundation/breakpoints' as *;
+@use '../foundation/' as *;
 
 .my-page-header {
   display: grid;
   grid-template-columns: auto auto;
-  align-items: center;
+  align-items: end;
   padding: 18px 24px;
 
   // .my-page-header__logo
@@ -36,6 +34,30 @@
 
   &__nav {
     // .my-page-header__nav
+  }
+
+  // .my-page-header__controls
+  &__controls {
+    // .my-page-header__controls-list
+    &-list {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      justify-content: flex-end;
+      padding: 0 10px 16px 0;
+      margin: 0;
+    }
+
+    // .my-page-header__controls-item
+    &-item {
+      list-style-type: none;
+    }
+
+    // .my-page-header__controls-link
+    &-link {
+      display: flex;
+      gap: 8px;
+    }
   }
 
   // .my-page-header__nav-list
