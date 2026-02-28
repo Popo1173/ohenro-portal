@@ -1,0 +1,29 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: 会員登録が完了しました。
+description: 会員登録が完了しました。
+url: https://ohenro.online/ja/form/complete/
+---
+{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_button-big.njk" as primary %}
+<section class="complete">
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.authTitle("会員登録が完了しました")}}
+        <p class="auth-completion__title-description">ご登録ありがとうございます。<br />引き続き、ログインして会員専用ページをご覧ください。</p>
+      </div>
+      <form class="auth-completion__form">
+        
+        <div class="auth-completion__buttons is-single-button">
+        {{ primary.primaryButton("ログイン", "link", "/ja/my-page/") }} 
+      </div>
+      </form>
+    </div>
+  </div>
+
+
+</section>
