@@ -52,6 +52,10 @@
   // .my-page-header__nav-item
 
   &__nav-item {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: center;
     padding: 0 16px;
     color: $color-primary;
     list-style-type: none;

@@ -1,0 +1,12 @@
+{% macro LangSwitcher(lang="ja") %}
+<div class="lang-switcher js-lang">
+  <button class="lang-switcher__toggle js-lang-toggle">Language</button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <select class="lang-switcher__select js-lang-select">
+      <option value="ja" {% if lang == "ja" %}selected{% endif %}>日本語</option>
+      <option value="en" {% if lang == "en" %}selected{% endif %}>English</option>
+    </select>
+  </div>
+</div>
+{% endmacro %}

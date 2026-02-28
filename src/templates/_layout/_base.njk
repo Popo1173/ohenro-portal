@@ -41,8 +41,8 @@
     {% endif %}
   </head>
   <body>
-    {% if headerType == "user" %}
-    {% include "_layout/_header/_header-user.njk" %}
+    {% if headerType == "my-page" %}
+    {% include "_layout/_header/_header-my-page.njk" %}
     {% elseif headerType == "auth" %}
     {% include "_layout/_header/_header-auth.njk" %}
     {% else %}
