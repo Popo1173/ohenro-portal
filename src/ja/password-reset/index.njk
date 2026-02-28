@@ -3,9 +3,9 @@ lang: ja
 layout: _layout/_base.njk
 headerType: auth
 footerType: user
-title: 新規登録
-description: 新規登録
-url: https://ohenro.online/ja/resetting/
+title: パスワード再設定
+description: パスワード再設定
+url: https://ohenro.online/ja/password-reset/
 ---
 <section class="resetting">
   {% import "_components/_auth-title.njk" as title %}
@@ -24,7 +24,6 @@ url: https://ohenro.online/ja/resetting/
         <div class="auth-completion__buttons">
         {{ normal.normalButton("キャンセル", "link", "/" + lang + "/login/") }}
         {{ primary.primaryButton("送信", "submit", "/my-page/") }}
-        
       </div>
       </form>
     </div>
