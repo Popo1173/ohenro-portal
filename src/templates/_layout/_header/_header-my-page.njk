@@ -11,21 +11,27 @@
     </figure>
   </div>
   <nav class="my-page-header__nav">
+    <div class="my-page-header__controls">
+      <ul class="my-page-header__controls-list">
+        <li class="my-page-header__controls-item">{{ LangSwitcher(lang) }}</li>
+        <li class="my-page-header__controls-item">
+          <a class="my-page-header__nav-link" href="/{{ lang }}/logout/">ログアウト</a>
+        </li>
+      </ul>
+    </div>
+    {% set navItems = [
+      { link: "/" + lang + "/my-page/", label: t.headerUser.home, icon: "/assets/images/icons/icon-home.svg" },
+      { link: "/" + lang + "/favorite/", label: t.headerUser.favorite, icon: "/assets/images/icons/icon-favorite.svg" },
+      { link: "/" + lang + "/history/", label: t.headerUser.history, icon: "/assets/images/icons/icon-history.svg" }
+    ] %}
     <ul class="my-page-header__nav-list">
+      {% for item in navItems %}
       <li class="my-page-header__nav-item">
-		    <a class="my-page-header__nav-link" href="/">
-          <img src="/assets/images/common/icon-home.svg" alt="home" />{{ t.headerUser.home }}
+		    <a class="my-page-header__nav-link" href="{{ item.link }}">
+          <img src="{{ item.icon }}" alt="{{ imte.label }}" />{{ item.label }}
 		    </a>
       </li>
-      <li class="my-page-header__nav-item">
-        <a class="my-page-header__nav-link" href="/">
-          <img src="/assets/images/common/icon-favorite.svg" alt="favorite" />{{ t.headerUser.favorite }}
-        </a>
-      </li>
-      <li class="my-page-header__nav-item">
-        <img src="/assets/images/common/icon-language.svg" alt="language" />{{ LangSwitcher(lang) }}        
-      </li>
-      <li class="my-page-header__nav-item">{{ buttonPill(t.headerUser.auth, "/logout/", "outline") }}</li>
+      {% endfor %}
     </ul>
   </nav>
 </header>
