@@ -1,0 +1,60 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: 登録情報の確認
+description: 会登録情報の確認
+url: https://ohenro.online/ja/form/
+---
+{% import "_components/_auth-title.njk" as title %}
+{% import "_components/_breadcrumbs.njk" as breadcrumbs %}
+{% import "_components/_button-big.njk" as primary %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_button-normal.njk" as normal %}
+<section class="registration">
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>{{ title.authTitle("登録情報の確認") }}</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			{{breadcrumbs.breadcrumbs("登録情報の確認")}}
+		</div>
+	</div>
+
+	<div class="auth-completion is-no-margin">
+		<div class="registration__title">
+			<p class="registration__title-descrption">内容にお間違いがなければ「登録する」ボタンを押して、会員登録を完了してください。修正がある場合は「登録情報をする修正」ボタンから入力内容を修正できます。</p>
+		</div>		
+		
+		<div class="auth-completion__inner">
+      {% set confirmItems = [
+        { label: "メールアドレス", name: "email", value: "ohenro-taro@ohenro.jp", required: true },
+        { label: "名", name: "first_name", value: "太郎", required: true },
+        { label: "姓", name: "last_name", value: "お遍路", required: true },
+        { label: "セイ", name: "first_kana", value: "タロウ", required: true },
+        { label: "メイ", name: "last_kana", value: "オヘンロ", required: true },
+        { label: "年代", name: "age", value: "30代", required: true },
+        { label: "メールマガジンの購読", name: "magazine", value: "購読する" },
+        { label: "個人情報保護ポリシー", name: "consent", value: "同意する", required: true }
+      ] %}      
+        <dl class="confirm__list">
+          {% for item in confirmItems %}
+            <div class="confirm__item">
+              <dt class="confirm__item-label {% if item.required %}is-required{% endif %}">
+                {{ item.label }}
+              </dt>
+              <dd class="confirm__item-value">{{ item.value }}</dd>
+              <input type="hidden" name="{{ item.name }}" value="{{ item.value }}">
+            </div>
+          {% endfor %}
+        </dl>
+			<form class="auth-completion__form">
+				<div class="auth-completion__buttons">
+				{{ normal.normalButton("登録情報を修正する", "link", "/" + lang + "/signup/form/") }}
+        {{ primary.primaryButton("確認する", "submit", "/confirm/") }}
+			</div>
+			</form>
+		</div>
+	</div>
+</section>

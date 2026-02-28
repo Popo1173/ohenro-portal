@@ -180,7 +180,7 @@
   &::after {
     position: absolute;
     top: 3px;
-    width: 30px;
+    width: 27px;
     padding: 0 4px;
     margin-left: 8px;
     font-size: 13px;
@@ -280,4 +280,38 @@
 // 条件分岐で非表示切り替えのためhiddenインポータント
 [hidden] {
   display: none !important;
+}
+
+// ========================================
+// 確認画面
+// ========================================
+.confirm {
+  // .confirm__list
+
+  &__list {
+  }
+
+  // .confirm__item
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 48px;
+    }
+  }
+
+  // .confirm__item-label
+
+  &__item-label {
+  }
+
+  // .confirm__item-value
+
+  &__item-value {
+    padding: 0 24px;
+    margin: 0;
+  }
 }

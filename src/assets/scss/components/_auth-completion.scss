@@ -128,11 +128,13 @@
     flex-direction: column;
     gap: 24px;
     width: 100%;
-    max-width: 340px;
-    padding-top: 40px;
 
     @include mq(desktop) {
       flex-direction: row;
+    }
+
+    &.is-single-button {
+      max-width: 340px;
     }
   }
 }
