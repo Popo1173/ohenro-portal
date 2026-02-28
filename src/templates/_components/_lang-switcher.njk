@@ -1,15 +1,25 @@
-{% macro LangSwitcher(lang="ja") %}
+{% macro LangSwitcher(lang, t, url='') %}
 <div class="lang-switcher js-lang">
   <button class="lang-switcher__toggle js-lang-toggle">
     <img src="/assets/images/icons/icon-language.svg" alt="Language" />
-    Language
+    {{ t.language[lang] }}
   </button>
 
   <div class="lang-switcher__panel js-lang-panel">
-    <select class="lang-switcher__select js-lang-select">
-      <option value="ja" {% if lang == "ja" %}selected{% endif %}>日本語</option>
-      <option value="en" {% if lang == "en" %}selected{% endif %}>English</option>
-    </select>
+    <ul class="lang-switcher__list">
+      {% for code, label in t.language %}
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/{{ code }}{{ url }}"
+            class="lang-switcher__link {% if lang == code %}is-current{% endif %}"
+            lang="{{ code }}"
+          >
+            {{ label }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </div>
 {% endmacro %}

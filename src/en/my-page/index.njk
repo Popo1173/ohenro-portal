@@ -1,14 +1,21 @@
 ---
 lang: en
 layout: _layout/_base.njk
-headerType: user
-title: English My-Page
-description: My-Page
+headerType: my-page
+footerType: user
+title: マイページ
+description: マイページ
 url: https://ohenro.online/en/my-page/
 ---
-
-{# ヘッダーの読み込み #}
-<section class="hero">
-  <h1>My-Page</h1>
-  <p>Welcome to the pilgrimage</p>
+{% import "_components/_page-title.njk" as title %}
+{% import "_components/_breadcrumbs.njk" as breadcrumbs %}
+<section>
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>{{ title.pageTitle("英語") }}</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			{{breadcrumbs.breadcrumbs("英語", "en")}}
+		</div>
+	</div>
 </section>

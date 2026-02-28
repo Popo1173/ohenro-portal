@@ -2,8 +2,19 @@
   "headerUser": {
     "home": "My page top",
     "favorite": "favorite",
+    "history": "Temple Movie viewing history",
     "language": "Language",
-    "auth": "logout"
+    "auth": "Logout"
+  },
+  "language": {
+    "ja": "Japanese",
+    "en": "English",
+    "zh-cn": "Chinese (simplified)",
+    "zh-tw": "Chinese (Traditional)",
+    "es": "Spanish",
+    "fr": "Français",
+    "it": "Italiano",
+    "de": "German"
   },
   "footer": {
     "privacy": "Privacy policy",

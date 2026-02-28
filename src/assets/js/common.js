@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================
-  // ⭐ 言語切替（URL維持版）
+  // 言語切替（URL維持版）
   // =========================
 
   const switchLanguage = (targetLang) => {

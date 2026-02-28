@@ -13,10 +13,10 @@
   <nav class="my-page-header__nav">
     <div class="my-page-header__controls">
       <ul class="my-page-header__controls-list">
-        <li class="my-page-header__controls-item">{{ LangSwitcher(lang) }}</li>
+        <li class="my-page-header__controls-item">{{ LangSwitcher(lang, locate[lang], page.url | replace('/' + lang, '')) }}</li>
         <li class="my-page-header__controls-item">
           <a class="my-page-header__controls-link" href="/{{ lang }}/logout/">
-             <img src="/assets/images/icons/icon-logout.svg" alt="logout" />ログアウト
+             <img src="/assets/images/icons/icon-logout.svg" alt="logout" />{{ t.headerUser.auth}}
           </a>
         </li>
       </ul>

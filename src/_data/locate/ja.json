@@ -11,6 +11,16 @@
     "terms": "利用規約",
     "copyright": "© OHENRO PORTAL"
   },
+  "language": {
+    "ja": "日本語",
+    "en": "English",
+    "zh-cn": "中文（简体）",
+    "zh-tw": "中文（繁體）",
+    "es": "Spanish",
+    "fr": "Français",
+    "it": "Italiano",
+    "de": "German"
+  },
   "form": {
     "survey": {
       "q1": {
