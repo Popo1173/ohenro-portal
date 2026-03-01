@@ -1,0 +1,47 @@
+{% from "_components/_lang-switcher.njk" import LangSwitcher %}
+{% from "_components/_button-small.njk" import buttonPill %}
+<div class="nav-mobile__controls">
+  <ul class="nav-mobile__controls-list">
+    <li class="nav-mobile__controls-item">{{ LangSwitcher(lang, locate[lang], page.url | replace('/' + lang, '')) }}</li>
+    <li class="nav-mobile__controls-item">
+      <button class="nav-mobile__hamburger js-drawer-toggle" aria-label="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </li>
+    <!-- <li class="nav-mobile__controls-item">
+      <a class="nav-mobile__controls-link" href="/{{ lang }}/logout/">
+          <img src="/assets/images/icons/icon-logout.svg" alt="logout" />{{ t.headerUser.auth}}
+      </a>
+    </li> -->
+  </ul>
+</div>
+<div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
+  <div class="nav-mobile__panel">
+
+    <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    <a href="/{{ lang }}/login/" class="nav-mobile__login">
+      <img src="/assets/images/icons/icon-user.svg" alt="" />
+      <span>Login / ログイン</span>
+      <span class="arrow">›</span>
+    </a>
+
+    <!-- ナビ -->
+    {% set navItems = [
+      { link: "/" + lang + "/my-page/", label: t.headerUser.home, icon: "/assets/images/icons/icon-home.svg" },
+      { link: "/" + lang + "/favorite/", label: t.headerUser.favorite, icon: "/assets/images/icons/icon-favorite.svg" },
+      { link: "/" + lang + "/history/", label: t.headerUser.history, icon: "/assets/images/icons/icon-history.svg" }
+    ] %}
+    <ul class="nav-mobile__nav-list">
+      {% for item in navItems %}
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="{{ item.link }}">
+          <span>{{ item.label }}</span>
+          <span class="arrow">›</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

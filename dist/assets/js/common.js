@@ -23,60 +23,70 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // =========================
-  // Languageトグル
+  // Language（複数DOM対応版）
   // =========================
-  const lang = document.querySelector('.js-lang')
-  const langToggle = document.querySelector('.js-lang-toggle')
-  const panel = document.querySelector('.js-lang-panel')
-  const applyBtn = document.querySelector('.js-lang-apply')
-  const select = document.querySelector('.js-lang-select')
+  document.querySelectorAll('.js-lang').forEach((lang) => {
+    const langToggle = lang.querySelector('.js-lang-toggle')
+    const panel = lang.querySelector('.js-lang-panel')
+    const applyBtn = lang.querySelector('.js-lang-apply')
+    const select = lang.querySelector('.js-lang-select')
 
-  // 開閉
-  if (lang && langToggle && panel) {
-    langToggle.addEventListener('click', (e) => {
-      e.stopPropagation()
-      panel.classList.toggle('is-open')
-    })
+    // =========================
+    // 開閉
+    // =========================
+    if (langToggle && panel) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation()
+        panel.classList.toggle('is-open')
+      })
 
-    document.addEventListener('click', () => {
-      panel.classList.remove('is-open')
-    })
+      document.addEventListener('click', () => {
+        panel.classList.remove('is-open')
+      })
 
-    panel.addEventListener('click', (e) => {
-      e.stopPropagation()
-    })
-  }
-
-  // =========================
-  // 言語切替（URL維持版）
-  // =========================
-
-  const switchLanguage = (targetLang) => {
-    const url = new URL(window.location.href)
-    const parts = url.pathname.split('/')
-
-    // /ja/... or /en/... の言語部分を置換
-    if (parts[1]) {
-      parts[1] = targetLang
-    } else {
-      parts.splice(1, 0, targetLang)
+      panel.addEventListener('click', (e) => {
+        e.stopPropagation()
+      })
     }
 
-    url.pathname = parts.join('/')
-    window.location.href = url.pathname
-  }
+    // =========================
+    // 言語切替
+    // =========================
+    const switchLanguage = (targetLang) => {
+      const url = new URL(window.location.href)
+      const parts = url.pathname.split('/')
 
-  // select変更で即切替
-  if (select) {
-    select.addEventListener('change', (e) => {
-      switchLanguage(e.target.value)
-    })
-  }
+      if (parts[1]) {
+        parts[1] = targetLang
+      } else {
+        parts.splice(1, 0, targetLang)
+      }
 
-  // 適用ボタン対応（あっても壊れない）
-  if (applyBtn && select) {
-    applyBtn.addEventListener('click', () => {
-      switchLanguage(select.value)
+      url.pathname = parts.join('/')
+      window.location.href = url.pathname
+    }
+
+    // select変更
+    if (select) {
+      select.addEventListener('change', (e) => {
+        switchLanguage(e.target.value)
+      })
+    }
+
+    // applyボタン
+    if (applyBtn && select) {
+      applyBtn.addEventListener('click', () => {
+        switchLanguage(select.value)
+      })
+    }
+  })
+
+  document.querySelectorAll('.js-drawer-toggle').forEach((trigger) => {
+    const drawer = document.querySelector('.js-drawer')
+
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault()
+      drawer?.classList.toggle('is-open')
     })
-  }
+  })
 })

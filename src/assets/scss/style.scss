@@ -3,4 +3,5 @@
 @use './pages' as *;
 @use './layout/header';
 @use './layout/footer';
+@use './layout/nav';
 @use './pages/login';

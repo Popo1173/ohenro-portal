@@ -1,5 +1,8 @@
 @use '../foundation/' as *;
 
+// ========================================
+// 会員情報登録、確認画面
+// ========================================
 .my-page-header {
   display: grid;
   grid-template-columns: auto auto;
@@ -57,106 +60,23 @@
         }
       }
     }
-  }
 
-  // .my-page-header__controls
-  &__controls {
-    // .my-page-header__controls-list
-    &-list {
-      display: flex;
-      flex-direction: row;
-      gap: 24px;
-      justify-content: flex-end;
-      padding: 0 0 10px;
-      margin: 0;
-    }
+    // .my-page-header__nav-desktop
+    &-desktop {
+      display: none;
 
-    // .my-page-header__controls-item
-    &-item {
-      list-style-type: none;
-    }
-
-    // .my-page-header__controls-link
-    &-link {
-      display: flex;
-      gap: 8px;
-      font-size: 13px;
-
-      &:hover {
-        opacity: 0.7;
+      @include mq(tablet) {
+        display: block;
       }
     }
-  }
 
-  // .my-page-header__nav-list
+    // .my-page-header__nav-mobile
+    &-mobile {
+      display: block;
 
-  &__nav-list {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0;
-    margin: 0;
-  }
-
-  // .my-page-header__nav-item
-
-  &__nav-item {
-    position: relative;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    padding: 0 16px;
-    color: $color-primary;
-    list-style-type: none;
-
-    &:last-of-type {
-      padding-right: 0;
-    }
-
-    @include mq(tablet) {
-      &:not(:last-of-type) {
-        border-right: 1px solid #5d5d5d;
+      @include mq(tablet) {
+        display: none;
       }
     }
-  }
-
-  // .my-page-header__nav-link
-  &__nav-link {
-    display: flex;
-    gap: 8px;
-    font-size: fluid(13, 15);
   }
 }
-
-// .header {
-//   color: #fff;
-//   background: $color-primary;
-
-//   &__inner {
-//     justify-content: space-between;
-//     padding: rem(16) 0;
-
-//     @include container;
-//     @include flex-center;
-//   }
-
-//   &__logo {
-//     @include fluid(18, 24);
-
-//     font-weight: bold;
-//   }
-
-//   &__nav {
-//     display: none;
-
-//     @include mq(tablet) {
-//       display: block;
-//     }
-//   }
-
-//   &__list {
-//     display: flex;
-//     gap: rem(24);
-//   }
-// }
