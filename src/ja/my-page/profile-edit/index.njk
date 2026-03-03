@@ -1,0 +1,34 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: 会員情報変更
+description: 登録情報の確認と変更が行える画面です。
+url: https://ohenro.online/ja/my-page/profile-edit/
+---
+{% import "_components/_page-title.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+<section>
+  	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>{{ title.pageTitle("会員情報変更") }}</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "マイページ", url: "/my-page" },{ label: "会員情報変更" }], lang) }}
+		</div>
+	</div>
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        タイトル
+        <p class="auth-completion__title-description">ご登録ありがとうございます。<br />引き続き、ログインして会員専用ページをご覧ください。</p>
+      </div>
+      <form class="auth-completion__form">
+        <div class="auth-completion__buttons is-single-button">
+        ぼたん
+      </div>
+      </form>
+    </div>
+  </div>
+</section>

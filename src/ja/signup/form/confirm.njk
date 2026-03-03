@@ -8,7 +8,7 @@ description: 入力したお客様の情報を確認してください。
 url: https://ohenro.online/ja/form/confirm/
 ---
 {% import "_components/_page-title.njk" as title %}
-{% import "_components/_breadcrumbs.njk" as breadcrumbs %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
 {% import "_components/_button-big.njk" as primary %}
 {% import "_components/_form/_form-field-text.njk" as forms %}
 {% import "_components/_button-normal.njk" as normal %}
@@ -18,7 +18,7 @@ url: https://ohenro.online/ja/form/confirm/
 			<span>{{ title.pageTitle("登録情報の確認") }}</span>
 		</div>
 		<div class="auth-page-heading__breadcrumbs">
-			{{breadcrumbs.breadcrumbs("登録情報の確認", "ja")}}
+      {{ breadcrumbs([{ label: "登録情報の確認" }], lang) }}
 		</div>
 	</div>
 

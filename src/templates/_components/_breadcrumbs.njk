@@ -1,7 +1,15 @@
-{% macro breadcrumbs(title, lang) %}
+{% macro breadcrumbs(items, lang) %}
 <nav class="breadcrumbs">
   <a href="/{{ lang }}/">HOME</a>
-  <span> > </span>
-  <span>{{ title }}</span>
+
+  {% for item in items %}
+    <span> &gt; </span>
+
+    {% if item.url %}
+      <a href="/{{ lang }}{{ item.url }}/">{{ item.label }}</a>
+    {% else %}
+      <span>{{ item.label }}</span>
+    {% endif %}
+  {% endfor %}
 </nav>
 {% endmacro %}
