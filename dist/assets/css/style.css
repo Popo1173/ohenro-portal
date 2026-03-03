@@ -402,7 +402,8 @@ hr {
 .signup,
 .resetting,
 .complete,
-.profile-edit-complete {
+.profile-edit-complete,
+.account-delete {
   display: flex;
   flex: 1;
 }
@@ -447,6 +448,9 @@ hr {
 .auth-completion__title-description {
   padding: 0;
   margin: 0;
+}
+.auth-completion__title-description.is-note {
+  color: #fc001f;
 }
 .auth-completion__form {
   display: grid;

@@ -9,7 +9,8 @@
 .signup,
 .resetting,
 .complete,
-.profile-edit-complete {
+.profile-edit-complete,
+.account-delete {
   display: flex;
   flex: 1;
 }
@@ -58,6 +59,10 @@
     &-description {
       padding: 0;
       margin: 0;
+
+      &.is-note {
+        color: #fc001f;
+      }
     }
   }
 
@@ -92,8 +97,8 @@
     }
 
     // .auth-completion__subscription-radio
-    // &-radio {
-    // }
+    &-radio {
+    }
   }
 
   // .auth-completion__policy
@@ -119,7 +124,6 @@
 
     // .auth-completion__policy-check
     &-check {
-      // .auth-completion__policy-check
     }
   }
 

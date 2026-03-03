@@ -1,0 +1,34 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: my-page
+footerType: user
+title: 退会手続き
+description: サービス退会のお手続きページです。
+url: https://ohenro.online/ja/my-page/account-delete/
+---
+{% import "_components/_page-title.njk" as title %}
+{% import "_components/_page-title.njk" as title %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_button-big.njk" as primary %}
+{% import "_components/_button-normal.njk" as normal %}
+
+<section class="account-delete">
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.pageTitle("退会手続き")}}
+        <p class="auth-completion__title-description is-note">退会されますと、ご登録いただいた「会員情報」および「お気に入り」などのデータは、すべて削除されます。登録メールアドレスとパスワードを入力ください。</p>
+      </div>
+      <form class="auth-completion__form">
+        {{ forms.formInput("メールアドレス", "email", "Your Email") }}
+        {{ passForms.passwordField("パスワード", "password", "Password", "text", true) }}
+        <div class="auth-completion__buttons">
+        {{ normal.normalButton("キャンセル", "link", "/" + lang + "/my-page/") }}
+        {{ primary.primaryButton("退会する", "submit", "/my-page/account-delete/complete/") }} 
+      </div>
+      </form>
+    </div>
+  </div>
+</section>
