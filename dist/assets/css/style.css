@@ -491,7 +491,7 @@ hr {
   flex-direction: column;
   gap: 24px;
   width: 100%;
-  margin-top: 56px;
+  margin-top: 0;
 }
 @media (min-width: 1024px) {
   .auth-completion__buttons {
@@ -500,6 +500,9 @@ hr {
 }
 .auth-completion__buttons.is-single-button {
   max-width: 340px;
+}
+.auth-completion__buttons.is-margin {
+  margin-top: 56px;
 }
 
 .page-title-main__text {

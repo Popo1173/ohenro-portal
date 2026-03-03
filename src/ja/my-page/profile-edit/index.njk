@@ -37,7 +37,7 @@ url: https://ohenro.online/ja/my-page/profile-edit/
 				{{ forms.formInput("メイ", "firstNameKana", "タロウ", "text") }}
 				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text") }}
 				{{ radio.formRadio("年代","age",[{ label: "18〜29", value: "18〜29" },{ label: "30〜39", value: "30-39" },{ label: "40〜49", value: "40-49" },{ label: "50〜59", value: "50〜59" },{ label: "60〜69", value: "60〜69" },{ label: "60〜69", value: "70 and above" }],"70 and above",true) }}					
-				<div class="auth-completion__buttons">
+				<div class="auth-completion__buttons is-margin">
 				{{ normal.normalButton("キャンセル", "link", "/" + lang + "/signup/form/") }}
         {{ primary.primaryButton("変更する", "submit", "/confirm/") }}
 			</div>

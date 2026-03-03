@@ -1,0 +1,35 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: my-page
+footerType: user
+title: 退会完了
+description: 退会手続きが完了しました。ご利用ありがとうございました。
+url: https://ohenro.online/ja/my-page/account-delete/complete/
+---
+{% import "_components/_page-title.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_form/_form-field-password.njk" as passForms %}
+{% import "_components/_form/_form-questionnaire.njk" as questionnaire %}
+{% set s = locate[lang].form.survey %}
+{% import "_components/_form/_form-radio.njk" as radio %}
+{% import "_components/_form/_form-check-box.njk" as checkBox %}
+{% import "_components/_button-big.njk" as primary %}
+{% import "_components/_button-normal.njk" as normal %}
+
+<section class="profile-edit-complete">
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.pageTitle("退会手続きが完了しました。")}}
+        <p>OHENRO.ONLINEをご利用いただき、ありがとうございました。<br />退会メールを送信しておりますので、ご確認ください。</p>
+      </div>
+      <form class="auth-completion__form">
+        <div class="auth-completion__buttons is-single-button">
+        {{ primary.primaryButton("マイページへ", "link", "/ja/my-page/") }} 
+      </div>
+      </form>
+    </div>
+  </div>
+</section>
