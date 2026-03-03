@@ -500,8 +500,19 @@ hr {
   max-width: 340px;
 }
 
+.page-title-main__text {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+@media (min-width: 1024px) {
+  .page-title-main__text {
+    font-size: 2.375rem;
+  }
+}
+
 .page-title__text {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 @media (min-width: 1024px) {
   .page-title__text {

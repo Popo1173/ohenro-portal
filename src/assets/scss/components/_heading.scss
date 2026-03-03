@@ -1,6 +1,27 @@
 @use '../foundation' as *;
 
 // ========================================
+// H1タイトル
+// ========================================
+.page-title-main {
+  // .heading-my-page__text
+
+  &__text {
+    font-size: rem(28);
+    font-weight: bold;
+
+    // 英語フォントの時
+    &.is-english {
+      // color: red;
+    }
+
+    @include mq(desktop) {
+      font-size: rem(38);
+    }
+  }
+}
+
+// ========================================
 // 単一コンテンツ画面用見出し
 // （例　ログイン、完了画面、購読完了画面、etc
 // ========================================
@@ -9,6 +30,7 @@
 
   &__text {
     font-size: rem(24);
+    font-weight: bold;
 
     // 英語フォントの時
     &.is-english {
