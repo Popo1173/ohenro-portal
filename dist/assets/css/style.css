@@ -401,7 +401,8 @@ hr {
 
 .signup,
 .resetting,
-.complete {
+.complete,
+.profile-edit-complete {
   display: flex;
   flex: 1;
 }

@@ -8,7 +8,8 @@
 // コンテンツの高さがないものは.signup同様にflexをかける
 .signup,
 .resetting,
-.complete {
+.complete,
+.profile-edit-complete {
   display: flex;
   flex: 1;
 }
