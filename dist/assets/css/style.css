@@ -553,7 +553,7 @@ hr {
 }
 
 .login {
-  height: 82vh;
+  min-height: 100dvh;
   padding: 4.875rem 16px 1.5rem;
   background: url("/assets/images/common/login/login-background.webp") center/cover no-repeat;
 }

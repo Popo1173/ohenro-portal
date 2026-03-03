@@ -2,7 +2,7 @@
 @use '../components' as *;
 
 .login {
-  height: 82vh;
+  min-height: 100dvh;
   padding: rem(78) 16px rem(24);
   background: url('/assets/images/common/login/login-background.webp') center / cover no-repeat;
 
