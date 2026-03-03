@@ -27,19 +27,19 @@
         "label": "あなたの居住国を教えてください",
         "placeholder": "選択してください",
         "options": [
-          { "label": "オーストラリア", "value": "au" },
-          { "label": "カナダ", "value": "ca" },
-          { "label": "フランス", "value": "fr" },
-          { "label": "ドイツ", "value": "de" },
-          { "label": "日本", "value": "jp" },
-          { "label": "オランダ", "value": "nl" },
-          { "label": "ニュージーランド", "value": "nz" },
-          { "label": "スペイン", "value": "es" },
-          { "label": "イギリス", "value": "uk" },
-          { "label": "アメリカ合衆国", "value": "us" },
-          { "label": "中国本土", "value": "cn" },
-          { "label": "台湾", "value": "tw" },
-          { "label": "香港（特別行政区）", "value": "hk" }
+          { "label": "オーストラリア", "value": "オーストラリア" },
+          { "label": "カナダ", "value": "カナダca" },
+          { "label": "フランス", "value": "フランス" },
+          { "label": "ドイツ", "value": "ドイツ" },
+          { "label": "日本", "value": "日本" },
+          { "label": "オランダ", "value": "オランダ" },
+          { "label": "ニュージーランド", "value": "ニュージーランド" },
+          { "label": "スペイン", "value": "スペイン" },
+          { "label": "イギリス", "value": "イギリス" },
+          { "label": "アメリカ合衆国", "value": "アメリカ合衆国us" },
+          { "label": "中国本土", "value": "中国本土" },
+          { "label": "台湾", "value": "台湾" },
+          { "label": "香港（特別行政区）", "value": "香港（特別行政区）" }
         ],
         "other": "その他",
         "otherPlaceholder": "国名を入力してください"
@@ -62,9 +62,9 @@
         "label": "四国八十八ヶ所巡りを体験しましたか？",
         "placeholder": "選択してください",
         "options": [
-          { "label": "Completed all 88 temples", "value": "complete" },
-          { "label": "Partial", "value": "partial" },
-          { "label": "No", "value": "no" }
+          { "label": "Completed all 88 temples", "value": "ompleted all 88 temples" },
+          { "label": "Partial", "value": "Partial" },
+          { "label": "No", "value": "No" }
         ],
         "showIf": "q2 != 0"
       },
@@ -73,10 +73,10 @@
         "label": "最後に巡礼をしたのはいつですか?",
         "placeholder": "選択してください",
         "options": [
-          { "label": "Within 1 year", "value": "within_1" },
-          { "label": "Within 3 years", "value": "within_3" },
-          { "label": "Within 10 years", "value": "within_10" },
-          { "label": "Over 10 years ago", "value": "over_10" }
+          { "label": "Within 1 year", "value": "witWithin 1 yearhin_1" },
+          { "label": "Within 3 years", "value": "Within 3 years" },
+          { "label": "Within 10 years", "value": "Within 10 years" },
+          { "label": "Over 10 years ago", "value": "Over 10 years ago" }
         ],
         "showIf": "q2 != 0 && q3 != no"
       },
@@ -97,13 +97,22 @@
         "label": "四国八十八ヶ所巡りを今後しようと思っていますか。",
         "placeholder": "選択してください",
         "options": [
-          { "label": "1年以内の具体的な予定が決まっている", "value": "definite_1y" },
+          {
+            "label": "1年以内の具体的な予定が決まっている",
+            "value": "1年以内の具体的な予定が決まっている"
+          },
           {
             "label": "具体的には決まっていないがWithin 1 yearにできたらいいなと思っている",
-            "value": "hope_1y"
+            "value": "具体的には決まっていないがWithin 1 yearにできたらいいなと思っている"
           },
-          { "label": "Within 3 yearsにできたらいいなと思っている", "value": "hope_3y" },
-          { "label": "Within 10 yearsにできたらいいなと思っている", "value": "hope_10y" }
+          {
+            "label": "Within 3 yearsにできたらいいなと思っている",
+            "value": "ithin 3 yearsにできたらいいなと思っている"
+          },
+          {
+            "label": "Within 10 yearsにできたらいいなと思っている",
+            "value": "Within 10 yearsにできたらいいなと思っている"
+          }
         ],
         "other": "その他",
         "otherPlaceholder": "その他の理由を入力してください"
