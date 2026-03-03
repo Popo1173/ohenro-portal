@@ -717,10 +717,18 @@ hr {
 }
 
 .my-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
   padding: 16px;
+  background: #fff;
+  transition: transform 0.25s ease;
+}
+.my-page-header.is-hidden {
+  transform: translateY(-100%);
 }
 @media (min-width: 1024px) {
   .my-page-header {

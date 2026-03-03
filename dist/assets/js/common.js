@@ -119,4 +119,29 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeDrawer()
   })
+
+  // =========================
+  // ヘッダースクロール追従
+  // =========================
+  const header = document.querySelector('.my-page-header')
+
+  if (header) {
+    let lastY = window.scrollY
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const y = window.scrollY
+
+        if (y > lastY && y > 50) {
+          header.classList.add('is-hidden') // 下スクロールで隠す
+        } else {
+          header.classList.remove('is-hidden') // 上スクロールで表示
+        }
+
+        lastY = y
+      },
+      { passive: true },
+    )
+  }
 })

@@ -4,10 +4,19 @@
 // 会員情報登録、確認画面
 // ========================================
 .my-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
   padding: 16px;
+  background: $color-white;
+  transition: transform 0.25s ease;
+
+  &.is-hidden {
+    transform: translateY(-100%);
+  }
 
   @include mq(desktop) {
     padding: 18px 24px;
