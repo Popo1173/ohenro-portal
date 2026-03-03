@@ -69,9 +69,29 @@
 
   // .nav-desktop__nav-link
   &__nav-link {
+    position: relative;
     display: flex;
     gap: 8px;
     font-size: fluid(13, 15);
+    text-decoration: none;
+    &::after {
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background: $color-key;
+      transform: scale(0, 1);
+      transform-origin: left top;
+      transition: transform 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        transform: scale(1, 1);
+      }
+    }
   }
 }
 

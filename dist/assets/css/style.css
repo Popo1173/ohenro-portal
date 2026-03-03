@@ -736,9 +736,26 @@ hr {
   }
 }
 .nav-desktop__nav-link {
+  position: relative;
   display: flex;
   gap: 8px;
   font-size: clamp(0.8125rem, 0.7556818182rem + 0.2424242424vw, 0.9375rem);
+  text-decoration: none;
+}
+.nav-desktop__nav-link::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background: #d3992c;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+.nav-desktop__nav-link:hover::after {
+  transform: scale(1, 1);
 }
 
 .nav-mobile__hamburger {
