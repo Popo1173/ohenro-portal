@@ -12,6 +12,11 @@ body {
   font-family: $font-base;
   line-height: 1.6;
   color: $color-text;
+
+  &.is-scroll-lock {
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 // mainを以下のようにするとfooter下部配置になる

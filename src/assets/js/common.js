@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // =========================
-  // Language（複数DOM対応版）
+  // Language
   // =========================
   document.querySelectorAll('.js-lang').forEach((lang) => {
     const langToggle = lang.querySelector('.js-lang-toggle')
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       document.addEventListener('click', () => {
         panel.classList.remove('is-open')
+        langToggle.classList.remove('is-open')
       })
 
       panel.addEventListener('click', (e) => {
@@ -67,14 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = url.pathname
     }
 
-    // select変更
     if (select) {
       select.addEventListener('change', (e) => {
         switchLanguage(e.target.value)
       })
     }
 
-    // applyボタン
     if (applyBtn && select) {
       applyBtn.addEventListener('click', () => {
         switchLanguage(select.value)
@@ -82,12 +81,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
-  document.querySelectorAll('.js-drawer-toggle').forEach((trigger) => {
-    const drawer = document.querySelector('.js-drawer')
+  // =========================
+  // Drawer（ハンバーガー等）+ スクロールロック追加
+  // =========================
+  const drawer = document.querySelector('.js-drawer')
+  const triggers = document.querySelectorAll('.js-drawer-toggle')
 
+  const openDrawer = () => {
+    drawer?.classList.add('is-open')
+    document.body.classList.add('is-scroll-lock')
+  }
+
+  const closeDrawer = () => {
+    drawer?.classList.remove('is-open')
+    document.body.classList.remove('is-scroll-lock')
+  }
+
+  const toggleDrawer = () => {
+    const isOpen = drawer?.classList.toggle('is-open')
+    document.body.classList.toggle('is-scroll-lock', Boolean(isOpen))
+  }
+
+  triggers.forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault()
-      drawer?.classList.toggle('is-open')
+      toggleDrawer()
     })
+  })
+
+  // 背景クリックで閉じる（.js-drawer がオーバーレイ要素想定）
+  drawer?.addEventListener('click', (e) => {
+    // パネル内クリックは閉じない（必要なら .js-drawer-panel に合わせて変更）
+    if (e.target === drawer) closeDrawer()
+  })
+
+  // ESCで閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDrawer()
   })
 })
