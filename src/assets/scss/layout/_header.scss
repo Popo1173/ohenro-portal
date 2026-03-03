@@ -6,8 +6,12 @@
 .my-page-header {
   display: grid;
   grid-template-columns: auto auto;
-  align-items: end;
-  padding: 18px 24px;
+  align-items: center;
+  padding: 16px;
+
+  @include mq(desktop) {
+    padding: 18px 24px;
+  }
 
   // .my-page-header__logo
 

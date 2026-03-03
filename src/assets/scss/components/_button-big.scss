@@ -7,6 +7,7 @@
   &__button {
     box-sizing: border-box;
     display: inline-flex;
+    gap: 8px;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -20,12 +21,33 @@
       background: $color-white;
       border: 1px solid $color-primary;
 
+      .button-primary__icon svg {
+        fill: $color-primary;
+      }
+
       .button-primary__button-text {
         color: $color-primary;
       }
     }
   }
 
+  // .button-primary__icon
+  &__icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    fill: white;
+    transition: fill 0.2s ease;
+
+    .icon {
+      width: 16px;
+      height: 16px;
+      fill: white;
+      transition: fill 0.2s ease;
+    }
+  }
+
+  // .button-primary__button-text
   &__button-text {
     font-size: $base-font-size;
     color: $color-white;

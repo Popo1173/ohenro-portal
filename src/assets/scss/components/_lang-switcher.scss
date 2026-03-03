@@ -1,17 +1,38 @@
 @use '../foundation/' as *;
 
 .lang-switcher {
-  // width: 90px;
-
   // .lang-switcher__toggle
   &__toggle {
     display: flex;
     gap: 8px;
+    align-items: center;
     font-size: 13px;
     color: $color-primary;
 
     &:hover {
       opacity: 0.7;
+    }
+
+    &::after {
+      box-sizing: border-box;
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      line-height: 1;
+      vertical-align: middle;
+      color: $color-primary;
+      content: '';
+      border: 0.1em solid currentcolor;
+      border-bottom: 0;
+      border-left: 0;
+      transform: translateY(-25%) rotate(135deg);
+      transition: transform 0.25s ease;
+    }
+
+    &.is-open {
+      &::after {
+        transform: translateY(25%) rotate(-45deg);
+      }
     }
   }
 
@@ -43,7 +64,7 @@
     border-radius: 4px;
   }
 
-  // .// .lang-switcher__item
+  // .lang-switcher__item
   &__item {
     padding: 4px 8px;
     list-style-type: none;
@@ -66,10 +87,44 @@
     height: 40px;
     margin-top: 16px;
   }
-}
 
-// .lang-switcher.is-open .lang-switcher__panel {
-//   visibility: visible;
-//   opacity: 1;
-//   transform: translateY(0);
-// }
+  // ========================================
+  // バーガーメニュー用スタイル
+  // ========================================
+
+  &--drawer {
+    padding: 0 16px;
+
+    .lang-switcher__toggle {
+      justify-content: center;
+      width: 100%;
+      padding: 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+
+      &::after {
+        position: absolute;
+        right: 32px;
+      }
+    }
+
+    .lang-switcher__panel {
+      position: static;
+      width: 100%;
+    }
+
+    .lang-switcher__list {
+      margin-top: 0;
+      border-top: none;
+      border-radius: 0;
+    }
+
+    .lang-switcher__item {
+      padding: 8px 24px;
+    }
+
+    .lang-switcher__link {
+      font-size: 14px;
+    }
+  }
+}

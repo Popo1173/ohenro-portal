@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       langToggle.addEventListener('click', (e) => {
         e.stopPropagation()
         panel.classList.toggle('is-open')
+        langToggle.classList.toggle('is-open')
       })
 
       document.addEventListener('click', () => {

@@ -1,12 +1,38 @@
-{% macro primaryButton(label, type="submit", href="#", id="") %}
+{% macro primaryButton(label, type="submit", href="#", id="", iconLogout=false) %}
   {% if type == "submit" %}
-    <button type="submit" {% if id %}id="{{ id }}"{% endif %} class="button-primary__button">
-		<span class="button-primary__button-text">{{ label }}</span>      
+    <button
+      type="submit"
+      {% if id %}id="{{ id }}"{% endif %}
+      class="button-primary__button"
+    >
+      <!-- ログアウトアイコン -->
+      {% if iconLogout %}
+      <span class="button-primary__icon">
+       <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 14.48 16"
+        >
+          <path d="M1.458,13.711V2.289a.833.833,0,0,1,.832-.832h8.885V0H2.289A2.292,2.292,0,0,0,0,2.289V13.711A2.292,2.292,0,0,0,2.289,16h8.885V14.542H2.289a.833.833,0,0,1-.832-.832" />
+          <path d="M29.953,24.106l4.579-4.579-4.579-4.578-1.03,1.03L31.742,18.8H26v1.458h5.738l-2.819,2.819Z" transform="translate(-20.052 -11.528)" />
+        </svg>
+      </span>
+      {% endif %}
+      <span class="button-primary__button-text">{{ label }}</span>
     </button>
+
   {% else %}
-    <a href="{{ href }}" {% if id %}id="{{ id }}"{% endif %} class="button-primary__button">
-      <span class="button-primary__button-text">{{ label }}</span>    
+    <a
+      href="{{ href }}"
+      {% if id %}id="{{ id }}"{% endif %}
+      class="button-primary__button"
+    >
+      {% if iconLogout %}
+        <span class="button-primary__icon">
+          <img src="{{ icon }}" alt="">
+        </span>
+      {% endif %}
+      <span class="button-primary__button-text">{{ label }}</span>
     </a>
   {% endif %}
-
 {% endmacro %}

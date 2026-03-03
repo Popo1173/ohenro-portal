@@ -9,5 +9,6 @@ module.exports = {
   rules: {
     'selector-class-pattern': null, // BEM命名を許可（header__inner など）
     'rule-empty-line-before': null, // ルール前の空行チェックを無効化
+    'block-no-empty': null, // 空ブロックを許可
   },
 }

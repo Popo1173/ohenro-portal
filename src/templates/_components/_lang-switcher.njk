@@ -1,5 +1,5 @@
-{% macro LangSwitcher(lang, t, url='') %}
-<div class="lang-switcher js-lang">
+{% macro LangSwitcher(lang, t, url='', modifier="") %}
+<div class="lang-switcher js-lang {% if modifier %}lang-switcher--{{ modifier }}{% endif %}">
   <button class="lang-switcher__toggle js-lang-toggle">
     <img src="/assets/images/icons/icon-language.svg" alt="Language" />
     {{ t.language[lang] }}

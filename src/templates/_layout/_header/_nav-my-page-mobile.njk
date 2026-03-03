@@ -1,5 +1,8 @@
 {% from "_components/_lang-switcher.njk" import LangSwitcher %}
 {% from "_components/_button-small.njk" import buttonPill %}
+{% import "_components/_button-big.njk" as buttons %}
+{% from "_components/_lang-switcher.njk" import LangSwitcher %}
+
 <div class="nav-mobile__controls">
   <ul class="nav-mobile__controls-list">
     <li class="nav-mobile__controls-item">{{ LangSwitcher(lang, locate[lang], page.url | replace('/' + lang, '')) }}</li>
@@ -10,22 +13,26 @@
         <span></span>
       </button>
     </li>
-    <!-- <li class="nav-mobile__controls-item">
-      <a class="nav-mobile__controls-link" href="/{{ lang }}/logout/">
-          <img src="/assets/images/icons/icon-logout.svg" alt="logout" />{{ t.headerUser.auth}}
-      </a>
-    </li> -->
   </ul>
 </div>
 <div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
   <div class="nav-mobile__panel">
-
-    <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
-    <a href="/{{ lang }}/login/" class="nav-mobile__login">
-      <img src="/assets/images/icons/icon-user.svg" alt="" />
-      <span>Login / ログイン</span>
-      <span class="arrow">›</span>
-    </a>
+    <div class="nav-mobile__heading">
+      <a href="/my-paege">
+        <figure class="nav-mobile__logo">
+          <img
+            src="/assets/images/common/ohenro-logo.webp"
+            class="nav-mobile__logo-image"
+            alt="88お遍路さん"
+          />
+        </figure>
+      </a>
+      <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    </div>
+    
+    <div class="nav-mobile__log-out">
+      {{ buttons.primaryButton("ログアウト","submit","","",true) }}
+    </div>
 
     <!-- ナビ -->
     {% set navItems = [
@@ -38,10 +45,13 @@
       <li class="nav-mobile__nav-item">
         <a class="nav-mobile__nav-link" href="{{ item.link }}">
           <span>{{ item.label }}</span>
-          <span class="arrow">›</span>
         </a>
       </li>
       {% endfor %}
     </ul>
+
+    <div class="nav-mobile__langrge">
+      {{ LangSwitcher(lang,locate[lang],page.url | replace('/' + lang, ''),"drawer") }}
+    </div>
   </div>
 </div>
