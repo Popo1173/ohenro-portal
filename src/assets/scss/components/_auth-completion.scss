@@ -23,7 +23,7 @@
   }
 
   &.is-no-margin {
-    padding: 0 16px 64px;
+    padding: 58px 16px 64px;
   }
 
   // .auth-completion__inner
@@ -129,6 +129,7 @@
     flex-direction: column;
     gap: 24px;
     width: 100%;
+    margin-top: 56px;
 
     @include mq(desktop) {
       flex-direction: row;

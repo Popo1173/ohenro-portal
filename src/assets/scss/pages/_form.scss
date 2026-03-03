@@ -7,7 +7,7 @@
 .registration {
   // .registration__title
   &__title {
-    padding: rem(56) 0 rem(40);
+    padding: 0 0 rem(40);
 
     @include container-auth;
 

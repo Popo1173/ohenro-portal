@@ -417,7 +417,7 @@ hr {
   }
 }
 .auth-completion.is-no-margin {
-  padding: 0 16px 64px;
+  padding: 58px 16px 64px;
 }
 .auth-completion__inner {
   box-sizing: border-box;
@@ -490,6 +490,7 @@ hr {
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  margin-top: 56px;
 }
 @media (min-width: 1024px) {
   .auth-completion__buttons {
@@ -685,7 +686,7 @@ hr {
 }
 
 .registration__title {
-  padding: 3.5rem 0 2.5rem;
+  padding: 0 0 2.5rem;
   box-sizing: border-box;
   max-width: 760px;
   margin: 0 auto;
