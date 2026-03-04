@@ -7,15 +7,25 @@ title: マイページ
 description: 会員専用のマイページ画面です。
 url: https://ohenro.online/ja/my-page/
 ---
-{% import "_components/_page-title.njk" as title %}
-{% import "_components/_breadcrumbs.njk" as breadcrumbs %}
-<section>
-	<div class="auth-page-heading">
-		<div class="auth-page-heading__title">
-			<span>{{ title.pageTitle("会員情報登録") }}</span>
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+
+<section class="my-page">
+	<div class="page-heading">
+		<div class="page-heading__title">
+			<span>{{ title.pageTitle("マイページ") }}</span>
 		</div>
-		<div class="auth-page-heading__breadcrumbs">
-			{{breadcrumbs.breadcrumbs("新規会員登録", "ja")}}
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "マイページ" }], lang) }}
 		</div>
+	</div>
+
+  <div class="auth-completion is-no-margin">
+    <div class="my-page__news">
+      <h2 class="page-title-small">お知らせ</h2>
+      <div class="my-page__news">
+      {% include "./_IndexNews.njk" %}
+      </div>
+    </div>
 	</div>
 </section>
