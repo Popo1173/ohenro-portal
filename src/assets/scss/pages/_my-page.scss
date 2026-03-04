@@ -1,9 +1,55 @@
 @use '../foundation' as *;
 
+.my-page {
+  // .my-paege__inner
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin: 0 auto;
+
+    @include mq(tablet) {
+      grid-template-columns: clamp(240px, 30%, 340px) 1fr;
+      gap: rem(40);
+      align-items: start;
+      max-width: 1160px;
+    }
+  }
+
+  // .my-page__news
+
+  &__news {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  // .my-page__news-list
+
+  &__news-list {
+  }
+
+  // .my-page__member
+
+  &__member {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  // .my-page__member-inner
+
+  &__member-inner {
+    padding: 16px;
+    background: $color-white;
+    border-radius: 5px;
+  }
+}
+
 // ========================================
 // お知らせ
 // ========================================
-.my-page-news {
+.news {
   // .my-page-news__list
 
   &__list {
@@ -28,13 +74,13 @@
     flex-direction: column;
     gap: 16px;
     padding: 16px;
-    background: #fff;
+    background: $color-white;
     border-radius: 5px;
     transition: all 0.3s ease;
     &:hover {
       background: #f2e4ca;
 
-      .my-page-news__date::after {
+      .news__date::after {
         right: 10px;
       }
     }
@@ -77,5 +123,85 @@
     margin: 0;
     font-size: 14px;
     color: $color-text;
+  }
+}
+
+// ========================================
+// 会員情報
+// ========================================
+
+.member {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+
+  // .member__label
+
+  &__label {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: #c3c3c3;
+  }
+
+  // .member__value
+
+  &__value {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+
+    &:not(:last-of-type) {
+      padding-bottom: 40px;
+    }
+  }
+
+  // .member__edit
+
+  &__edit {
+    display: flex;
+    justify-content: flex-end;
+    margin: 24px 0;
+  }
+
+  // .member__subscription
+
+  &__subscription {
+  }
+
+  // .member__withdrawal
+
+  &__withdrawal {
+  }
+}
+
+.button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: $color-white;
+  border: 1px solid $color-key;
+  border-radius: 50px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $color-key;
+
+    svg {
+      fill: white;
+    }
+
+    .button-text {
+      color: $color-white;
+    }
+  }
+
+  // .button__text
+
+  &__text {
   }
 }

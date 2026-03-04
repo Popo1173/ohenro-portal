@@ -1059,19 +1059,49 @@ hr {
   transform: translateX(-25%) rotate(45deg);
 }
 
-.my-page-news__list {
+.my-page__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .my-page__inner {
+    grid-template-columns: clamp(240px, 30%, 340px) 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    max-width: 1160px;
+  }
+}
+.my-page__news {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.my-page__member {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.my-page__member-inner {
+  padding: 16px;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.news__list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
   padding: 0;
   margin: 0;
 }
-.my-page-news__item {
+.news__item {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
-.my-page-news__link {
+.news__link {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -1080,20 +1110,20 @@ hr {
   border-radius: 5px;
   transition: all 0.3s ease;
 }
-.my-page-news__link:hover {
+.news__link:hover {
   background: #f2e4ca;
 }
-.my-page-news__link:hover .my-page-news__date::after {
+.news__link:hover .news__date::after {
   right: 10px;
 }
-.my-page-news__date {
+.news__date {
   position: relative;
   padding: 0;
   margin: 0;
   font-size: 13px;
   color: #9f1627;
 }
-.my-page-news__date::after {
+.news__date::after {
   position: absolute;
   top: 5px;
   right: 14px;
@@ -1112,11 +1142,58 @@ hr {
   transform: translateX(-25%) rotate(45deg);
   transition: all 0.3s;
 }
-.my-page-news__text {
+.news__text {
   padding: 0;
   margin: 0;
   font-size: 14px;
   color: #3b4043;
+}
+
+.member {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.member__label {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #c3c3c3;
+}
+.member__value {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+}
+.member__value:not(:last-of-type) {
+  padding-bottom: 40px;
+}
+.member__edit {
+  display: flex;
+  justify-content: flex-end;
+  margin: 24px 0;
+}
+.button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.button:hover {
+  background: #d3992c;
+}
+.button:hover svg {
+  fill: white;
+}
+.button:hover .button-text {
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

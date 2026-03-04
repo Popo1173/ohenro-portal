@@ -10,7 +10,7 @@ url: https://ohenro.online/ja/my-page/
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
 
-<section class="my-page">
+<div class="my-page">
 	<div class="page-heading">
 		<div class="page-heading__title">
 			<span>{{ title.pageTitle("マイページ") }}</span>
@@ -21,11 +21,20 @@ url: https://ohenro.online/ja/my-page/
 	</div>
 
   <div class="auth-completion is-no-margin">
-    <div class="my-page__news">
-      <h2 class="page-title-small">お知らせ</h2>
-      <div class="my-page__news">
-      {% include "./_IndexNews.njk" %}
-      </div>
+    <div class="my-page__inner">
+      <section class="my-page__news">
+        <h2 class="page-title-small">お知らせ</h2>
+        <div class="my-page__news-list">
+          {% include "./_IndexNews.njk" %}
+        </div>
+      </section>
+
+      <section class="my-page__member">
+        <h2 class="page-title-small">会員情報</h2>
+        <div class="my-page__member-inner">
+        {% include "./_IndexMember.njk" %}
+        </div>
+      </section>
     </div>
-	</div>
-</section>
+</div>
+</div>
