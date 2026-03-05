@@ -1,9 +1,66 @@
-.favorite-tab__link {
-  padding: 8px 16px;
-  text-decoration: none;
+@use '../foundation' as *;
 
-  &.is-active {
-    font-weight: bold;
-    border-bottom: 2px solid #000;
+.tab {
+  // .tab__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 0;
+    padding: 8px 16px;
+    margin: 0;
+    background: $color-white;
+    border-radius: 8px;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+      border-radius: 50px;
+    }
+  }
+
+  // .tab__item
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  // .tab__link
+
+  &__link {
+    display: block;
+    padding: 12px 8px;
+    color: $color-text;
+    text-align: center;
+    border-radius: 50px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &.is-tokushima {
+      &:hover {
+        background: $color-tokushima;
+      }
+    }
+    &.is-kochi {
+      &:hover {
+        background: $color-kochi;
+      }
+    }
+    &.is-ehime {
+      &:hover {
+        background: $color-ehime;
+      }
+    }
+    &.is-kagawa {
+      &:hover {
+        background: $color-kagawa;
+      }
+    }
   }
 }

@@ -520,8 +520,7 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  padding: 0 16px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 .page-title-main__text {
   font-size: 1.75rem;
@@ -560,8 +559,7 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  padding: 0 16px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 .lang-switcher__toggle {
   display: flex;
@@ -659,6 +657,52 @@ hr {
 }
 .lang-switcher--drawer .lang-switcher__link {
   font-size: 14px;
+}
+
+.tab__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  align-items: center;
+  padding: 0;
+  padding: 8px 16px;
+  margin: 0;
+  background: #fff;
+  border-radius: 8px;
+}
+@media (min-width: 1024px) {
+  .tab__list {
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 50px;
+  }
+}
+.tab__item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.tab__link {
+  display: block;
+  padding: 12px 8px;
+  color: #3b4043;
+  text-align: center;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+.tab__link:hover {
+  color: #fff;
+}
+.tab__link.is-tokushima:hover {
+  background: #4a86a8;
+}
+.tab__link.is-kochi:hover {
+  background: #b65a6a;
+}
+.tab__link.is-ehime:hover {
+  background: #6371a7;
+}
+.tab__link.is-kagawa:hover {
+  background: #4f7a5a;
 }
 
 .login {
@@ -1274,7 +1318,7 @@ hr {
 .favorite__link.is-kochi:hover {
   background: #b65a6a;
 }
-.favorite__link.is-aichi:hover {
+.favorite__link.is-ehime:hover {
   background: #6371a7;
 }
 .favorite__link.is-kagawa:hover {
@@ -1285,8 +1329,7 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  padding: 0 16px;
-  margin: 40px auto;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */
