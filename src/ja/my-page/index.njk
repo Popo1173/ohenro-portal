@@ -29,12 +29,19 @@ url: https://ohenro.online/ja/my-page/
         </div>
       </section>
 
-      <section class="my-page__member">
-        <h2 class="page-title-small">会員情報</h2>
-        <div class="my-page__member-inner">
-        {% include "./_IndexMember.njk" %}
-        </div>
-      </section>
+      <div class="my-page__contet">
+        <section class="my-page__member">
+          <h2 class="page-title-small">会員情報</h2>
+          <div class="my-page__member-inner">
+          {% include "./_IndexMember.njk" %}
+          </div>
+        </section>
+
+        <section class="my-page__favorite">
+          <h2 class="page-title-small">お気に入り札所</h2>
+          {% include "./_IndexFavorite.njk" %}
+        </section>
+      </div>
     </div>
 </div>
 </div>

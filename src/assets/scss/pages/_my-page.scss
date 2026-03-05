@@ -16,6 +16,10 @@
     }
   }
 
+  // .my-page__contet
+  &__contet {
+  }
+
   // .my-page__news
 
   &__news {
@@ -35,6 +39,10 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
+
+    hr {
+      margin-bottom: 32px;
+    }
   }
 
   // .my-page__member-inner
@@ -55,9 +63,13 @@
   &__list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 16px;
     padding: 0;
     margin: 0;
+
+    @include mq(tablet) {
+      gap: 24px;
+    }
   }
 
   // .my-page-news__item
@@ -172,6 +184,12 @@
   // .member__withdrawal
 
   &__withdrawal {
+    // .member__withdrawal-link
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -203,5 +221,75 @@
   // .button__text
 
   &__text {
+  }
+}
+
+// ========================================
+// お気入り
+// ========================================
+.favorite {
+  padding: 16px;
+  background: $color-white;
+
+  // .favorite__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 16px;
+    margin: 0;
+    background: #f5f7f9;
+    border-radius: 8px;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+      border-radius: 50px;
+    }
+  }
+
+  // .favorite__item
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  // .favorite__link
+
+  &__link {
+    display: block;
+    padding: 8px;
+    color: $color-text;
+    text-align: center;
+    border-radius: 50px;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    &.is-tokushima {
+      &:hover {
+        background: $color-tokushima;
+      }
+    }
+    &.is-kochi {
+      &:hover {
+        background: $color-kochi;
+      }
+    }
+    &.is-aichi {
+      &:hover {
+        background: $color-aichi;
+      }
+    }
+    &.is-kagawa {
+      &:hover {
+        background: $color-kagawa;
+      }
+    }
   }
 }
