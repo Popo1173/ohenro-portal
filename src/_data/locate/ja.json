@@ -6,6 +6,12 @@
     "language": "Language",
     "auth": "ログアウト"
   },
+  "favoriteTab": {
+    "tokushima": "徳島県",
+    "kochi": "高知県",
+    "ehime": "愛媛県",
+    "kagawa": "香川県"
+  },
   "footer": {
     "privacy": "プライバシーポリシー",
     "terms": "利用規約",
