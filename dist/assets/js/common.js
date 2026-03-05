@@ -152,16 +152,11 @@ const params = new URLSearchParams(window.location.search)
 const tab = params.get('tab') || 'tokushima'
 
 // コンテンツ切替
-document.querySelectorAll('[data-tab]').forEach((panel) => {
-  panel.hidden = panel.dataset.tab !== tab
+document.querySelectorAll('.tab-panel').forEach((panel) => {
+  panel.classList.toggle('is-active', panel.dataset.tab === tab)
 })
 
 // アクティブリンク
-document.querySelectorAll('.favorite-tab__link').forEach((link) => {
-  const url = new URL(link.href, window.location.origin)
-  const linkTab = url.searchParams.get('tab')
-
-  if (linkTab === tab) {
-    link.classList.add('is-active')
-  }
+document.querySelectorAll('.tab__link').forEach((link) => {
+  link.classList.toggle('is-active', link.dataset.tab === tab)
 })

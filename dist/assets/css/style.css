@@ -520,7 +520,8 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  padding: 0 16px;
+  margin: 40px auto;
 }
 .page-title-main__text {
   font-size: 1.75rem;
@@ -559,7 +560,8 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  padding: 0 16px;
+  margin: 40px auto;
 }
 .lang-switcher__toggle {
   display: flex;
@@ -664,7 +666,6 @@ hr {
   grid-template-columns: 1fr;
   gap: 8px;
   align-items: center;
-  padding: 0;
   padding: 8px 16px;
   margin: 0;
   background: #fff;
@@ -679,7 +680,7 @@ hr {
 .tab__item {
   padding: 0;
   margin: 0;
-  list-style-type: none;
+  list-style: none;
 }
 .tab__link {
   display: block;
@@ -687,21 +688,25 @@ hr {
   color: #3b4043;
   text-align: center;
   border-radius: 50px;
-  transition: all 0.3s;
+  transition: 0.3s;
 }
 .tab__link:hover {
   color: #fff;
 }
-.tab__link.is-tokushima:hover {
+.tab__link.is-tokushima:hover, .tab__link.is-tokushima.is-active {
+  color: #fff;
   background: #4a86a8;
 }
-.tab__link.is-kochi:hover {
+.tab__link.is-kochi:hover, .tab__link.is-kochi.is-active {
+  color: #fff;
   background: #b65a6a;
 }
-.tab__link.is-ehime:hover {
+.tab__link.is-ehime:hover, .tab__link.is-ehime.is-active {
+  color: #fff;
   background: #6371a7;
 }
-.tab__link.is-kagawa:hover {
+.tab__link.is-kagawa:hover, .tab__link.is-kagawa.is-active {
+  color: #fff;
   background: #4f7a5a;
 }
 
@@ -1329,7 +1334,16 @@ hr {
   box-sizing: border-box;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  padding: 0 16px;
+  margin: 40px auto;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.is-active {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

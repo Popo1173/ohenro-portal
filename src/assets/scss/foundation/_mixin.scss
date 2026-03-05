@@ -9,9 +9,8 @@
   box-sizing: border-box;
   width: 100%;
   max-width: $container-width;
-
-  // padding: 0 $gutter;
-  margin: 0 auto;
+  padding: 0 $gutter;
+  margin: 40px auto;
 }
 
 @mixin container-auth {

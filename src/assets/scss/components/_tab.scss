@@ -2,13 +2,11 @@
 
 .tab {
   // .tab__list
-
   &__list {
     display: grid;
     grid-template-columns: 1fr;
     gap: 8px;
     align-items: center;
-    padding: 0;
     padding: 8px 16px;
     margin: 0;
     background: $color-white;
@@ -21,44 +19,65 @@
   }
 
   // .tab__item
-
   &__item {
     padding: 0;
     margin: 0;
-    list-style-type: none;
+    list-style: none;
   }
 
   // .tab__link
-
   &__link {
     display: block;
     padding: 12px 8px;
     color: $color-text;
     text-align: center;
     border-radius: 50px;
-    transition: all 0.3s;
+    transition: 0.3s;
 
     &:hover {
       color: $color-white;
     }
 
+    // =====================
+    // 徳島
+    // =====================
     &.is-tokushima {
-      &:hover {
+      &:hover,
+      &.is-active {
+        color: $color-white;
         background: $color-tokushima;
       }
     }
+
+    // =====================
+    // 高知
+    // =====================
     &.is-kochi {
-      &:hover {
+      &:hover,
+      &.is-active {
+        color: $color-white;
         background: $color-kochi;
       }
     }
+
+    // =====================
+    // 愛媛
+    // =====================
     &.is-ehime {
-      &:hover {
+      &:hover,
+      &.is-active {
+        color: $color-white;
         background: $color-ehime;
       }
     }
+
+    // =====================
+    // 香川
+    // =====================
     &.is-kagawa {
-      &:hover {
+      &:hover,
+      &.is-active {
+        color: $color-white;
         background: $color-kagawa;
       }
     }
