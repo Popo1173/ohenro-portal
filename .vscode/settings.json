@@ -62,5 +62,5 @@
   "stylelint.validate": ["css", "scss"],
 
   // コードスペルチェック除外項目
-  "cSpell.userWords": ["true"]
+  "cSpell.userWords": ["ohenro", "tokushima", "kochi", "ehime", "kagawa", "myPage", "pasword"]
 }
