@@ -1,3 +1,6 @@
+// =========================
+// アンケート条件分岐
+// =========================
 document.addEventListener('DOMContentLoaded', () => {
   const selects = [...document.querySelectorAll('.js-select')]
   const blocks = [...document.querySelectorAll('.js-q')]
@@ -40,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const visible = evalShowIf(block.dataset.showIf)
       block.hidden = !visible
 
-      // 非表示になったら値もクリア（分岐の整合性が崩れない）
+      // 非表示になったら値もクリア
       if (!visible) {
         const sel = block.querySelector('.js-select')
         if (sel) sel.value = ''

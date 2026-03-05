@@ -1,0 +1,21 @@
+{% set favoriteItems = [
+  { label: "徳島県", tab: "tokushima", class: "is-tokushima" },
+  { label: "高知県", tab: "kochi", class: "is-kochi" },
+  { label: "愛媛県", tab: "ehime", class: "is-ehime" },
+  { label: "香川県", tab: "kagawa", class: "is-kagawa" }
+] %}
+
+<div class="favorite-tab">
+  <ul class="favorite-tab__list">
+    {% for item in favoriteItems %}
+    <li class="favorite-tab__item">
+      <a
+        class="favorite-tab__link {{ item.class }} {% if currentTab == item.tab %}is-active{% endif %}"
+        href="?tab={{ item.tab }}"
+      >
+        {{ item.label }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

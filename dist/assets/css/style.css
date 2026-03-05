@@ -1281,4 +1281,12 @@ hr {
   background: #4f7a5a;
 }
 
+.my-page-favorite__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 40px auto;
+}
+
 /*# sourceMappingURL=style.css.map */

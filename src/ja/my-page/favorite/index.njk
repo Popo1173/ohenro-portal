@@ -1,0 +1,35 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: my-page
+footerType: user
+title: お気に入り
+description: お気に入り札所情報です。
+url: https://ohenro.online/ja/my-page/favorite/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+<div class="my-page-favorite">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			<span>{{ title.pageTitle("お気に入り") }}</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "マイページ", url: "/my-page/" },{ label: "お気に入り" }], lang) }}
+		</div>
+	</div>
+
+{% set currentTab = tab or "tokushima" %}
+
+<div class="auth-completion is-no-margin">
+  <div class="my-page-favorite__inner">
+
+    {% include "_components/_tab.njk" %}
+
+    <div data-tab="tokushima">徳島県コンテンツ</div>
+    <div data-tab="kochi">高知県コンテンツ</div>
+    <div data-tab="ehime">愛媛県コンテンツ</div>
+    <div data-tab="kagawa">香川県コンテンツ</div>
+  </div>
+</div>
+</div>
