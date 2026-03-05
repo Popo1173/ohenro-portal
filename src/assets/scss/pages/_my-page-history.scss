@@ -1,0 +1,16 @@
+@use '../foundation' as *;
+@use '../components' as *;
+
+.my-page-history {
+  // .my-page-history__inner
+
+  &__inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0;
+    margin-top: 0;
+  }
+}

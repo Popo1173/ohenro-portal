@@ -1587,4 +1587,17 @@ hr {
   list-style-type: none;
 }
 
+.my-page-history__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 0;
+  margin-top: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

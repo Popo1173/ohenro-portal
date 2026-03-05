@@ -1,0 +1,27 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: my-page
+footerType: user
+title: お寺Movie閲覧履歴
+description: これまでに視聴した映像の履歴を表示します。
+url: https://ohenro.online/ja/my-page/history/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+
+<div class="my-page-history">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			<span>{{ title.pageTitle("お寺Movie閲覧履歴") }}</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "マイページ", url: "/my-page/" },{ label: "お寺Movie閲覧履歴" }], lang) }}
+		</div>
+	</div>
+  <div class="auth-completion is-no-margin">
+    <div class="my-page-history__inner">
+      <p>各地の寺院に伝わる教えや風景を、動画を通じて体験してみませんか？<br />ひとつの動画を最後まで視聴するごとに、あなたの歩みの証として「参拝スタンプ」が授与されます。<br />未踏のスタンプを押すと、新たな動画の世界へ。すべてのスタンプを巡り終えたとき、あなたの心には新しい気づきと、日々の平穏が宿っているはずです。</p>
+    </div>
+  </div>
+</div>
