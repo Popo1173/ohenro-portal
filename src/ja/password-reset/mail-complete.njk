@@ -1,0 +1,20 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: メール送信完了
+description: メール送信完了しました。登録アドレスにメール受信していことをご確認ください。
+url: https://ohenro.online/ja/password-reset/mail-complete/
+---
+{% import "_components/_page-title.njk" as title %}
+<section class="complete">
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.pageTitle("メール送信完了しました")}}
+        <p class="auth-completion__title-description">入力したメールアドレスにパスワード再設定用リンクを送信しておりますので、そちらからパスワード再設定をお願いいたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
