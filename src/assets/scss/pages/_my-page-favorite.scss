@@ -6,6 +6,12 @@
 
   &__inner {
     @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0;
+    margin-top: 0;
   }
 
   // .my-page-favorite__tab-panel
@@ -15,5 +21,40 @@
     &.is-active {
       display: block;
     }
+  }
+
+  // .my-page-favorite__number
+  &__number {
+    padding: 8px 24px;
+    margin-bottom: 32px;
+    background: #eaeaea;
+    border-radius: 20px 20px 0 0;
+
+    // .my-page-favorite__number-text
+    &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  // .my-page-favorite__list
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0;
+    margin: 0;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // .my-page-favorite__item
+  &__item {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
   }
 }

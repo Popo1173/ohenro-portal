@@ -661,21 +661,27 @@ hr {
   font-size: 14px;
 }
 
+.tab {
+  padding: 0 16px;
+  margin-inline: calc(50% - 50vw);
+  overflow-x: auto;
+}
+@media (min-width: 768px) {
+  .tab {
+    padding: 0;
+    margin: 0;
+  }
+}
 .tab__list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   align-items: center;
+  min-width: 700px;
   padding: 8px 16px;
   margin: 0;
   background: #fff;
-  border-radius: 8px;
-}
-@media (min-width: 1024px) {
-  .tab__list {
-    grid-template-columns: repeat(4, 1fr);
-    border-radius: 50px;
-  }
+  border-radius: 50px;
 }
 .tab__item {
   padding: 0;
@@ -708,6 +714,210 @@ hr {
 .tab__link.is-kagawa:hover, .tab__link.is-kagawa.is-active {
   color: #fff;
   background: #4f7a5a;
+}
+
+.temple-card__prefecture {
+  display: inline-block;
+  padding: 0 8px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+.temple-card__prefecture-text {
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+}
+.temple-card__prefecture.is-tokushima {
+  background: #4a86a8;
+}
+.temple-card__prefecture.is-kochi {
+  background: #b65a6a;
+}
+.temple-card__prefecture.is-ehime {
+  background: #6371a7;
+}
+.temple-card__prefecture.is-kagawa {
+  background: #4f7a5a;
+}
+.temple-card__inner {
+  position: relative;
+}
+.temple-card__favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+.temple-card__favorite-icon {
+  display: block;
+  width: 17px;
+  fill: #fff;
+  stroke: #3b4043;
+  stroke-width: 2;
+}
+.temple-card__favorite.is-active .temple-card__favorite-icon {
+  fill: #9f1627;
+  stroke: #9f1627;
+}
+.temple-card__figure {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.temple-card__figure::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 70%);
+}
+.temple-card__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.temple-card__link {
+  position: relative;
+}
+.temple-card__link:hover .temple-card__figure {
+  opacity: 0.8;
+}
+.temple-card__link:hover .temple-card__image {
+  transform: scale(1.1);
+}
+.temple-card__link:hover .temple-card__name::after {
+  right: -4px;
+}
+.temple-card__name {
+  position: absolute;
+  bottom: 16px;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: 0;
+}
+.temple-card__name::after {
+  position: absolute;
+  right: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  line-height: 1;
+  color: #d3992c;
+  content: "";
+  border: 4px solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translateX(-25%) rotate(45deg);
+  transition: all 0.3s ease;
+}
+.temple-card__number {
+  display: inline-block;
+  padding: 3px 6px;
+  font-size: 15px;
+  color: #fff;
+  background: #3b4043;
+  border-radius: 3px;
+}
+.temple-card__label {
+  flex: 1;
+  margin-left: 8px;
+  font-size: 21px;
+  line-height: 1.3;
+  color: #fff;
+}
+.temple-card__buttons {
+  padding: 0;
+}
+.temple-card__buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+}
+@media (min-width: 1024px) {
+  .temple-card__buttons-list {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+.temple-card__buttons-item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+@media (min-width: 1024px) {
+  .temple-card__buttons-item {
+    flex: 1;
+  }
+}
+
+.ruby-under {
+  font-weight: normal;
+  ruby-position: under;
+}
+
+.button-movie {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 50px;
+}
+.button-movie::after {
+  position: absolute;
+  right: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  line-height: 1;
+  color: #d3992c;
+  content: "";
+  border: 0.1em solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translateX(-25%) rotate(45deg);
+  transition: all 0.3s ease;
+}
+.button-movie:hover {
+  background: #9f1627;
+  border: 1px solid #9f1627;
+}
+.button-movie:hover::after {
+  right: 12px;
+}
+.button-movie:hover .button-movie__icon {
+  fill: #fff;
+}
+.button-movie:hover .button-movie__text {
+  color: #fff;
+}
+.button-movie__icon {
+  width: 20px;
+  height: auto;
+  fill: #9f1627;
+}
+.button-movie__text {
+  font-size: 15px;
 }
 
 .login {
@@ -1336,12 +1546,45 @@ hr {
   max-width: 1200px;
   padding: 0 16px;
   margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 0;
+  margin-top: 0;
 }
 .my-page-favorite__tab-panel {
   display: none;
 }
 .my-page-favorite__tab-panel.is-active {
   display: block;
+}
+.my-page-favorite__number {
+  padding: 8px 24px;
+  margin-bottom: 32px;
+  background: #eaeaea;
+  border-radius: 20px 20px 0 0;
+}
+.my-page-favorite__number-text {
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+.my-page-favorite__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1024px) {
+  .my-page-favorite__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.my-page-favorite__item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=style.css.map */

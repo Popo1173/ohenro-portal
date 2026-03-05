@@ -1,21 +1,26 @@
 @use '../foundation' as *;
 
 .tab {
+  padding: 0 16px;
+  margin-inline: calc(50% - 50vw);
+  overflow-x: auto;
+
+  @include mq(tablet) {
+    padding: 0;
+    margin: 0;
+  }
+
   // .tab__list
   &__list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
     align-items: center;
+    min-width: 700px;
     padding: 8px 16px;
     margin: 0;
     background: $color-white;
-    border-radius: 8px;
-
-    @include mq(desktop) {
-      grid-template-columns: repeat(4, 1fr);
-      border-radius: 50px;
-    }
+    border-radius: 50px;
   }
 
   // .tab__item

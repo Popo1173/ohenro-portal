@@ -10,13 +10,9 @@
   <ul class="tab__list">
     {% for item in tabItems %}
     <li class="tab__item">
-<a
-  class="tab__link {{ item.class }}"
-  href="?tab={{ item.tab }}"
-  data-tab="{{ item.tab }}"
->
-  {{ item.label }}
-</a>
+      <a class="tab__link {{ item.class }}" href="?tab={{ item.tab }}" data-tab="{{ item.tab }}">
+        {{ item.label }}
+      </a>
     </li>
     {% endfor %}
   </ul>
