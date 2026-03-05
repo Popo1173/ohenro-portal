@@ -152,7 +152,7 @@ const params = new URLSearchParams(window.location.search)
 const tab = params.get('tab') || 'tokushima'
 
 // コンテンツ切替
-document.querySelectorAll('.tab-panel').forEach((panel) => {
+document.querySelectorAll('.my-page-favorite__tab-panel').forEach((panel) => {
   panel.classList.toggle('is-active', panel.dataset.tab === tab)
 })
 

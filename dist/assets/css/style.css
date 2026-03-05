@@ -1337,12 +1337,10 @@ hr {
   padding: 0 16px;
   margin: 40px auto;
 }
-
-.tab-panel {
+.my-page-favorite__tab-panel {
   display: none;
 }
-
-.tab-panel.is-active {
+.my-page-favorite__tab-panel.is-active {
   display: block;
 }
 

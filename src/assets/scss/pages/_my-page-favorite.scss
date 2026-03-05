@@ -7,12 +7,13 @@
   &__inner {
     @include container;
   }
-}
 
-.tab-panel {
-  display: none;
-}
+  // .my-page-favorite__tab-panel
+  &__tab-panel {
+    display: none;
 
-.tab-panel.is-active {
-  display: block;
+    &.is-active {
+      display: block;
+    }
+  }
 }
