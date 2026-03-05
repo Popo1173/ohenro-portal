@@ -1073,6 +1073,11 @@ hr {
     max-width: 1160px;
   }
 }
+.my-page__contet {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
 .my-page__news {
   display: grid;
   grid-template-columns: 1fr;
@@ -1090,6 +1095,25 @@ hr {
   padding: 16px;
   background: #fff;
   border-radius: 5px;
+}
+.my-page__favorite {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.my-page__history {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.my-page__history-button {
+  padding: 16px;
+  background: #fff;
+  border-radius: 5px;
+}
+.my-page__history-button-inner {
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 .news__list {
@@ -1210,6 +1234,7 @@ hr {
 .favorite {
   padding: 16px;
   background: #fff;
+  border-radius: 5px;
 }
 .favorite__list {
   display: grid;

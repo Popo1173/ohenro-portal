@@ -9,6 +9,7 @@ url: https://ohenro.online/ja/my-page/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% import "_components/_button-big.njk" as buttons %}
 
 <div class="my-page">
 	<div class="page-heading">
@@ -40,6 +41,15 @@ url: https://ohenro.online/ja/my-page/
         <section class="my-page__favorite">
           <h2 class="page-title-small">お気に入り札所</h2>
           {% include "./_IndexFavorite.njk" %}
+        </section>
+
+        <section class="my-page__history">
+          <h2 class="page-title-small">お寺Movie閲覧履歴</h2>
+          <div class="my-page__history-button">
+            <div class="my-page__history-button-inner">
+             {{ buttons.primaryButton("あなたのお遍路既踏状況", "link", "/" + lang + "/my-page/history/") }}
+             </div>
+          </div>
         </section>
       </div>
     </div>

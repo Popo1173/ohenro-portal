@@ -18,6 +18,9 @@
 
   // .my-page__contet
   &__contet {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
 
   // .my-page__news
@@ -51,6 +54,33 @@
     padding: 16px;
     background: $color-white;
     border-radius: 5px;
+  }
+
+  // .my-page__favorite
+  &__favorite {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  // .my-page__history
+  &__history {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    // .my-page__history-button
+    &-button {
+      padding: 16px;
+      background: $color-white;
+      border-radius: 5px;
+
+      // .my-page__history-button-inner
+      &-inner {
+        max-width: 340px;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -230,6 +260,7 @@
 .favorite {
   padding: 16px;
   background: $color-white;
+  border-radius: 5px;
 
   // .favorite__list
 
