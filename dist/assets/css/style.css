@@ -411,7 +411,8 @@ hr {
 .resetting,
 .complete,
 .profile-edit-complete,
-.account-delete {
+.account-delete,
+.account-delete-complet {
   display: flex;
   flex: 1;
 }
