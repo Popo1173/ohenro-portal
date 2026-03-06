@@ -1,0 +1,79 @@
+<?php include_once("notice.php")?>
+<?php include_once($document_path . "header.html")?>
+
+<?php include_once($document_path . "sidebar.html")?>
+<div id="right_main">
+
+<div id="error_message"><?=$data["error_message"]?></div>
+<div class="space20"></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="notice_id" value="<?=$data["notice_id"]?>">
+  <tr>
+    <th>言語<?=$need_string?></th>
+    <td><select name="lang_code" id="lang_code">
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th>表示画面</th>
+    <td><input type="checkbox" name="top_flag" value="1"<?=check_box("1", $data["top_flag"])?>>トップページ<br />
+    <input type="checkbox" name="mypage_flag" value="1"<?=check_box("1", $data["mypage_flag"])?>>マイページ</td>
+  </tr>
+  <tr>
+    <th>メイン画像</th>
+    <td>
+    <input type="hidden" name="image_up_flag" value="<?=escape_html($data["image_up_flag"])?>">
+<?php
+if ($data["image_file"]) {
+?>
+    <img src="<?=escape_html($data["image_file_path"])?>" width="400px"><br>
+	<?=get_file_name($data["image_file_name"])?><br />
+    ファイルを変更する場合は下記からアップロードしてください。<br />
+<?php
+}
+?>
+    <input type="file" name="image_file" value="<?=escape_html($data["image_file"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th>タイトル<?=$need_string?></th>
+    <td><input type="text" name="title" value="<?=escape_html($data["title"])?>" style="width:100%;"></td>
+  </tr>
+  <tr>
+    <th>詳細</th>
+    <td><textarea name="detail" style="width:100%; height:200px;"><?=escape_html($data["detail"])?></textarea></td>
+  </tr>
+  <tr>
+    <th>URL</th>
+    <td><input type="text" name="url" value="<?=escape_html($data["url"])?>" style="width:100%;"><br>
+    <strong>※URLを登録した場合、詳細は表示されず、一覧から登録したURLに遷移します。</td>
+  </tr>
+  <tr>
+    <th>公開ステータス</th>
+    <td><select name="status" id="status">
+<?php
+	for ($i = 0; $i < count_ary($display_ary); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["status"]))?>><?=escape_html($display_ary[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+</table>
+<!--//table_end-->
+<div class="space40"></div>
+<div align="center"><input type="submit" value="確　　認" class="button_s">
+</div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer.html")?>

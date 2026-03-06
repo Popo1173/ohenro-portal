@@ -1,0 +1,177 @@
+<?php include_once("info.php")?>
+<?php include_once($document_path . "header.html")?>
+
+<?php include_once($document_path . "sidebar.html")?>
+<div id="right_main">
+<script type="text/javascript"><!--
+var alert_flag = false;
+
+function delete_image(id) {
+	if (window.confirm("この商品の画像を全て削除します。よろしいですか？")) {
+		document.form_list.mode.value = 'image_del';
+		document.form_list.info_id.value = id;
+		document.form_list.submit();
+	}
+}
+
+function change_value() {
+	alert_flag = true;
+}
+
+window.onbeforeunload = function(event){
+	if(alert_flag){
+		event = event || window.event; 
+		event.returnValue = '設定が保存されていませんが、画面を移動してもよろしいですか？';
+	}
+}
+
+function submit_download() {
+	document.form_search.method = "POST";
+	document.form_search.mode.value = "download_csv";
+	document.form_search.submit();
+}
+
+function submit_download_xml() {
+	document.form_search.method = "POST";
+	document.form_search.mode.value = "download_xml";
+	document.form_search.submit();
+}
+
+function submit_search() {
+	document.form_search.method = "GET";
+	document.form_search.mode.value = "";
+	document.form_search.submit();
+}
+
+//--></script>
+<form>
+<div align="right"><input type="button" class="button_m" value="新規登録" onClick="javascript: location.href='<?=$menu_id?>_up.html?mode_flag=<?=$data["mode_flag"]?>';"></div>
+</form>
+
+<form action="<?=$_SERVER["SCRIPT_NAME"]?>" method="GET">
+<strong>絞り込み検索</strong><br />
+<table class="form_table">
+<input type="hidden" name="mode_flag" value="<?=$data["mode_flag"]?>">
+<input type="hidden" name="reset" value="">
+  <tr>
+    <th width="120">フリーワード</th><td><input type="text" name="free_word" style="width:100%;" value="<?=escape_html($data["free_word"])?>"></td>
+  </tr>
+  <tr>
+    <th>言語</th><td><select name="lang_code">
+      <option value="">すべて</option>
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th>ID順</th><td><select name="order_id">
+      <option value="0">昇順</option>
+      <option value="desc"<?=check_select($data["order_id"], "desc")?>>降順</option>
+    </select></td>
+  </tr>
+</table>
+<input type="submit" class="button_m" value="検　　索" onClick="submit_search();">　　<input type="button" class="button_m" value="リセット" onClick="location.href='<?=$_SERVER["SCRIPT_NAME"]?>?mode_flag=<?=$data["mode_flag"]?>';"><br />
+</form>
+
+<div class="space20"></div>
+<?php
+	page_link($max, $num, $page);
+?>
+<!--table_start//-->
+<table class="list_table">
+<form name="form_list" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST">
+<input type="hidden" name="mode" value="image_del">
+<input type="hidden" name="info_id" value="">
+<input type="hidden" name="query" value="<?=$_SERVER["QUERY_STRING"]?>">
+ <tr>
+  <!--<th width="110">画像</th>-->
+  <th width="100">言語</th>
+  <th width="80"><?=$info_header[$data["mode_flag"]][array_search("info_num", $info_keys[$data["mode_flag"]])]?></th>
+  <th width="200"><?=$info_header[$data["mode_flag"]][array_search("info_name", $info_keys[$data["mode_flag"]])]?></th>
+<?php
+if (array_search("address", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <th>住所</th>
+<?php
+}
+if (array_search("tel", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <th width="120"><?=$info_header[$data["mode_flag"]][array_search("tel", $info_keys[$data["mode_flag"]])]?></th>
+<?php
+}
+if (array_search("comment", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <th><?=$info_header[$data["mode_flag"]][array_search("comment", $info_keys[$data["mode_flag"]])]?></th>
+<?php
+}
+if (array_search("status", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <th width="80"><?=$info_header[$data["mode_flag"]][array_search("status", $info_keys[$data["mode_flag"]])]?></th>
+<?php
+}
+?>
+ </tr>
+<?php
+if (count_ary($list)) {
+	for ($i = 0; $i < count_ary($list); $i++) {
+?>
+ <tr>
+  <!--<td><a href="info_detail.html?id=<?=$list[$i]["info_id"]?>"><img src="<?=$obj_data->get_image_path($list[$i]["info_num"])?>" width="110px" border="0"></a></td>-->
+  <td><?=escape_html($lang_string[$list[$i]["lang_code"]])?></td>
+  <td><?=escape_html($list[$i]["info_num"])?></td>
+  <td><a href="info_detail.html?mode_flag=<?=$data["mode_flag"]?>&id=<?=$list[$i]["info_id"]?>" class="link_b"><?=escape_html($list[$i]["info_name"])?></a></td>
+<?php
+if (array_search("address", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <td><?=escape_html($list[$i]["pref"])?><?=escape_html($list[$i]["address"])?></td>
+<?php
+}
+if (array_search("tel", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <td><?=escape_html($list[$i]["tel"])?></td>
+<?php
+}
+if (array_search("comment", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <td><?=escape_html($list[$i]["comment"])?></td>
+<?php
+}
+if (array_search("status", $info_keys[$data["mode_flag"]]) !== false) {
+?>
+  <td><?=escape_html($list[$i]["status"])?></td>
+<?php
+}
+?>
+  <!--<input type="button" value="全画像削除" onClick="delete_image('<?=$list[$i]["info_id"]?>');">-->
+ </tr>
+<?php
+	}
+}
+else {
+?>
+ <tr>
+  <td colspan="99"><?=$sub_title?>が登録されておりません。</td>
+ </tr>
+<?php
+}
+?>
+</form>
+</table>
+<!--//table_end-->
+<div align="right"><?=$num1?>～<?=$num2?>件目/<?=$max?>件</div>
+<br />
+<?php
+	page_link($max, $num, $page);
+?>
+<div class="space40"></div>
+<form>
+<div align="center"><input type="button" class="button_m" value="新規登録" onClick="javascript: location.href='<?=$menu_id?>_up.html?mode_flag=<?=$data["mode_flag"]?>';"></div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer.html")?>

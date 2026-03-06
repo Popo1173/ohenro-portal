@@ -1,0 +1,82 @@
+<?php include_once("user.php")?>
+<?php include_once($document_path . "header" . EXT)?>
+
+<?php include_once($document_path . "sidebar" . EXT)?>
+<div id="right_main">
+
+<div id="error_message"><?=$data["error_message"]?></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form name="form1" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST">
+<input type="hidden" name="user_id" value="<?=$data[$menu_id . "_id"]?>">
+<input type="hidden" name="mode" value="">
+<input type="hidden" name="sub_id" value="">
+  <tr>
+    <th>言語<?=$need_string?></th>
+    <td><select name="lang_code" id="lang_code">
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th width="200"><?=$user_header[array_search("email", $user_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="email" value="<?=escape_html($data["email"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th>パスワード<?=$need_string?></th>
+    <td><input type="text" name="password" value="" style="width: 100%;">
+<?php
+if (isset($data["user_id"])) {
+?>
+    <br />※変更する場合のみ入力してください。
+<?php
+}
+?>
+    </td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("family_name", $user_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="family_name" value="<?=escape_html($data["family_name"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("first_name", $user_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="first_name" value="<?=escape_html($data["first_name"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("family_kana", $user_keys)]?></th>
+    <td><input type="text" name="family_kana" value="<?=escape_html($data["family_kana"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("first_kana", $user_keys)]?></th>
+    <td><input type="text" name="first_kana" value="<?=escape_html($data["first_kana"])?>" style="width: 100%;"></td>
+  </tr>
+<!--
+  <tr>
+    <th><?=$user_header[array_search("country", $user_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="country" value="<?=escape_html($data["country"])?>" style="width: 100%;"></td>
+  </tr>
+-->
+  <tr>
+    <th><?=$user_header[array_search("age", $user_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="age" value="<?=escape_html($data["age"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th>メルマガ購読</th>
+    <td><input type="checkbox" name="mail_flag" value="1"<?=check_box("1", $data["mail_flag"])?>>購読する</td>
+  </tr>
+</table>
+
+<div class="space40"></div>
+<div align="center">
+ <input type="submit" value="確　　認" class="button_s"<?=$enabled?>>　　
+</div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer" . EXT)?>

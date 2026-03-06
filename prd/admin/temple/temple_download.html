@@ -1,0 +1,47 @@
+<?php include_once("temple.php")?>
+<?php include_once($document_path . "header" . EXT)?>
+
+<?php include_once($document_path . "sidebar" . EXT)?>
+<div id="right_main">
+
+<div id="error_message"><?=$data["error_message"]?></div>
+
+<div class="bold">
+言語を選択して、ダウンロードボタンを押してください。<br>
+※CSVファイルをEXCELで開くには、「データ」メニューの「テキストまたはCSVから」を選択して読み込んでください。<br>
+
+<br></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form name="form1" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST">
+<input type="hidden" name="id" value="<?=$data[$menu_id . "_id"]?>">
+<input type="hidden" name="mode" value="download">
+<input type="hidden" name="sub_id" value="">
+  <tr>
+    <th>言語</th>
+    <td><select name="lang_code" id="lang_code">
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+		$selected = "";
+		if ($data["lang_code"] === $i) {
+			$selected = " selected";
+		}
+?>
+      <option value="<?=$i?>"<?=$selected?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+</table>
+
+
+<div class="space40"></div>
+<div align="center">
+ <input type="submit" value="ダウンロード" class="button_m"<?=$enabled?>>　　
+</div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer" . EXT)?>

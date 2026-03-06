@@ -1,0 +1,17 @@
+<div class="space20 noneprint"></div>
+<?php
+if ($_SESSION["login"]["login_admin_flag"]) {
+?>
+	<div id="footer_menu" class="noneprint"><a href="javascript:history.back();" class="link_b">戻る</a>
+	　　　　　　　　
+	<a href="javascript:history.forward();" class="link_b">進む</a>
+	　　　　　　　　
+	<a href="<?=$document_path?>logout.php" class="link_b">ログアウト</a></div>
+<?php
+}
+?>
+	<div id="footer" class="noneprint">COPYRIGHT (C) PROMETH MEDIA DESIGN LIMITED ALL RIGHTS RESERVED.</div>
+</div>
+
+</body>
+</html>

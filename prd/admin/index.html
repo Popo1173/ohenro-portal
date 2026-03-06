@@ -1,0 +1,41 @@
+<?php include_once("index.php")?>
+<?php include_once("header" . EXT)?>
+
+<script type="text/javascript"><!--
+function change(event){
+	var code = event.which ? event.which : event.keyCode;
+	if (code == 13) {
+		document.form1.submit();
+	}
+}
+//--></script>
+
+<div class="space40"></div>
+
+<div id="login_error"><?=$error_message?></div>
+
+<div align="center">
+<table class="login_table">
+<form name="form1" action="login.php" method="post">
+<input type="hidden" name="query" value="<?=$_SERVER["QUERY_STRING"]?>">
+<tr>
+<td>ログインID</td>
+<td><input type="text" name="login_id" size="40" value="<?=escape_html($_COOKIE["login_id"])?>" onKeyUp="change(event);"></td>
+</tr>
+<tr>
+<td>パスワード</td>
+<td><input type="password" name="password" size="40" value="<?=escape_html($_COOKIE["password"])?>" onKeyUp="change(event);"></td>
+</tr>
+<tr>
+<td colspan="2"><input name="use_cookie" type="checkbox" value="checked" <?=escape_html($_COOKIE["use_cookie"])?>> このログイン情報をブラウザに保存する</td>
+</tr>
+<td colapsn="2">&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align:center"><input type="submit" value=" ログイン" class="button_m"></td>
+</tr>
+</form>
+</table>
+
+</div>
+<?php include_once("footer" . EXT)?>

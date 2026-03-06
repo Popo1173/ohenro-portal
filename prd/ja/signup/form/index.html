@@ -1,0 +1,610 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/user.php'); ?>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>会員情報登録フォーム</title>
+    <meta name="description" content="会員情報登録フォーム" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="会員情報登録フォーム" />
+    <meta property="og:description" content="会員情報登録フォーム" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/form/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    <header class="my-page-header">
+  <div class="my-page-header__logo">
+    <figure class="my-page-header__logo-figure">
+      <img
+        src="/assets/images/common/ohenro-logo.webp"
+        class="my-page-header__logo-image"
+        alt="88お遍路さん"
+      />
+    </figure>
+  </div>
+</header>
+
+    
+
+    <main>
+      
+
+
+
+
+
+
+
+
+<section class="registration">
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>
+<h1 class="page-title">
+	<span class="page-title__text ">会員情報登録</span>
+</h1>
+</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			
+<nav class="breadcrumbs">
+  <a href="/ja/">HOME</a>
+  <span> > </span>
+  <span>新規会員登録</span>
+</nav>
+
+		</div>
+	</div>
+
+	<div class="auth-completion is-no-margin">
+		<div class="registration__title">
+			<h3 class="registration__title-text">新規会員情報登録</h3>
+			<p class="registration__title-descrption">ご登録いただいた情報は、会員サービスの提供および各種ご案内のために使用いたします。内容をご確認のうえ、必要情報を入力いただき次の画面へお進みください。</p>
+			<span class="note">※ 必須項目はすべてご入力ください。</span>
+		</div>		
+		
+		<div class="auth-completion__inner">
+			<form class="auth-completion__form" action="<?=HTTP_ROOT?>user.php" method="post">
+			<?=$hidden?>
+				
+<div class="text-fiedl">
+  <label for="email" class="text-fiedl__label is-required">メールアドレス</label>
+  <input 
+    type="text" 
+    id="email" 
+    name="email" 
+    placeholder="Your Email" 
+    class="text-fiedl__input is-error"
+    maxlength="254"
+    value="<?=escape_html($data["email"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error<?=$class_ary["email"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["email_error"]?></p>
+    </div>
+  </div>
+</div>
+
+				
+<div class="password-field js-password-container">
+  <label for="password" class="password-field__label is-required">パスワード</label>
+  <div class="password-field__inner">
+    <input 
+      type="text" 
+      id="password" 
+      name="password" 
+      placeholder="Password" 
+      class="password-field__input js-password-input is-error"
+      minlength="8"
+      maxlength="128"      
+    >
+    <button type="button" class="password-field__switch js-password-toggle" aria-label="パスワードを表示する">
+      
+      <img src="/assets/images/icons/icon-pasword-on.svg" alt="パスワード表示する" />
+    </button>
+    <!-- エラー文言 -->
+      <p class="password-field__conditions ">半角英数字8文字以上</p>
+      <div class="error<?=$class_ary["password"]?>">
+        <div class="error-message">
+          <p class="error-message__text"><?=$class_ary["password_error"]?></p>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="lastName" class="text-fiedl__label is-required">姓</label>
+  <input 
+    type="text" 
+    id="lastName" 
+    name="family_name" 
+    placeholder="御遍路" 
+    class="text-fiedl__input "
+    maxlength="254"
+    value="<?=escape_html($data["family_name"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["family_name"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["family_name_error"]?></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="firstName" class="text-fiedl__label is-required">名</label>
+  <input 
+    type="text" 
+    id="firstName" 
+    name="first_name" 
+    placeholder="太郎" 
+    class="text-fiedl__input "
+    maxlength="254"
+    value="<?=escape_html($data["first_name"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["first_name"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["first_name_error"]?></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="lastNameKana" class="text-fiedl__label is-required">セイ</label>
+  <input 
+    type="text" 
+    id="lastNameKana" 
+    name="family_kana" 
+    placeholder="オヘンロ" 
+    class="text-fiedl__input "
+    maxlength="254"
+    value="<?=escape_html($data["family_kana"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["family_kana"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["family_kana_error"]?></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="firstNameKana" class="text-fiedl__label is-required">メイ</label>
+  <input 
+    type="text" 
+    id="firstNameKana" 
+    name="first_kana" 
+    placeholder="タロウ" 
+    class="text-fiedl__input "
+    maxlength="255"
+    value="<?=escape_html($data["first_kana"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["first_kana"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["first_kana_error"]?></p>
+    </div>
+  </div>
+</div>
+
+				
+<div class="radio-group">
+  <div class="radio-group__label is-required">
+    年代
+  </div>
+	<ul class="radio-group__list">
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="18～29"
+					<?=check_radio("18～29", $data["age"])?>
+				/>
+				18～29
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="30～39"
+					<?=check_radio("30～39", $data["age"])?>
+				/>
+				30～39
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="40～49"
+					<?=check_radio("40～49", $data["age"])?>
+				/>
+				40～49
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="50～59"
+					<?=check_radio("50～59", $data["age"])?>
+				/>
+				50～59
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="60～69"
+					<?=check_radio("60～69", $data["age"])?>
+				/>
+				60～69
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="70 and above"
+					<?=check_radio("70 and above", $data["age"])?>
+				/>
+				70 and above
+			</label>
+		</li>
+		
+		</ul>
+</div>
+   <div class="error<?=$class_ary["age"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["age_error"]?></p>
+    </div>
+  </div>
+				
+				<div class="auth-completion__questionnaire">
+					<p>アンケートにご協力ください。※必須項目ではありません。</p>
+					<details class="accordion" open>
+						<summary class="accordion__summary">
+							アンケート
+						</summary>
+						<div class="accordion__content">
+							
+<div class="questionnaire-field js-q"
+	data-q="q1"
+	>
+
+  <label class="questionnaire-field__label" for="q1">あなたの居住国を教えてください</label>
+  
+    <select class="questionnaire-field__select js-select" id="q1" name="q1" data-q="q1">
+      <option value="">選択してください</option>
+      
+        <option value="オーストラリア"<?=check_select("オーストラリア", $data["q1"])?>>オーストラリア</option>
+      
+        <option value="カナダ"<?=check_select("カナダ", $data["q1"])?>>カナダ</option>
+      
+        <option value="フランス"<?=check_select("フランス", $data["q1"])?>>フランス</option>
+      
+        <option value="ドイツ"<?=check_select("ドイツ", $data["q1"])?>>ドイツ</option>
+      
+        <option value="日本"<?=check_select("日本", $data["q1"])?>>日本</option>
+      
+        <option value="オランダ"<?=check_select("オランダ", $data["q1"])?>>オランダ</option>
+      
+        <option value="ニュージーランド"<?=check_select("ニュージーランド", $data["q1"])?>>ニュージーランド</option>
+      
+        <option value="スペイン"<?=check_select("スペイン", $data["q1"])?>>スペイン</option>
+      
+        <option value="イギリス"<?=check_select("イギリス", $data["q1"])?>>イギリス</option>
+      
+        <option value="アメリカ合衆国"<?=check_select("アメリカ合衆国", $data["q1"])?>>アメリカ合衆国</option>
+      
+        <option value="中国本土"<?=check_select("中国本土", $data["q1"])?>>中国本土</option>
+      
+        <option value="台湾"<?=check_select("台湾", $data["q1"])?>>台湾</option>
+      
+        <option value="香港（特別行政区）"<?=check_select("香港（特別行政区）", $data["q1"])?>>香港（特別行政区）</option>
+      
+
+      
+        <option value="その他"<?=check_select("その他", $data["q1"])?>>その他</option>
+      
+    </select>
+
+    
+		<input class="questionnaire-field__other js-other"
+        type="text"
+        name="q1_other"
+        data-other-for="q1"
+        data-show-on="その他"
+        placeholder="国名を入力してください"
+        value="<?=escape_html($data["q1_other"])?>"
+        hidden>
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q"
+	data-q="q2"
+	data-show-if="q1 != '日本'">
+
+  <label class="questionnaire-field__label" for="q2">日本には何回訪れましたか？</label>
+  
+    <select class="questionnaire-field__select js-select" id="q2" name="q2" data-q="q2">
+      <option value="">選択してください</option>
+      
+        <option value="0"<?=check_select("0", $data["q2"])?>>0</option>
+      
+        <option value="1"<?=check_select("1", $data["q2"])?>>1</option>
+      
+        <option value="2"<?=check_select("2", $data["q2"])?>>2</option>
+      
+        <option value="3"<?=check_select("3", $data["q2"])?>>3</option>
+      
+        <option value="more"<?=check_select("more", $data["q2"])?>>more</option>
+      
+
+      
+    </select>
+
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q"
+	data-q="q3"
+	data-show-if="q2 != 0">
+
+  <label class="questionnaire-field__label" for="q3">四国八十八ヶ所巡りを体験しましたか？</label>
+  
+    <select class="questionnaire-field__select js-select" id="q3" name="q3" data-q="q3">
+      <option value="">選択してください</option>
+      
+        <option value="Completed all 88 temples"<?=check_select("Completed all 88 temples", $data["q3"])?>>Completed all 88 temples</option>
+      
+        <option value="Partial"<?=check_select("Partial", $data["q3"])?>>Partial</option>
+      
+        <option value="No"<?=check_select("No", $data["q3"])?>>No</option>
+      
+
+      
+    </select>
+
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q"
+	data-q="q4"
+	data-show-if="q2 != 0 &amp;&amp; q3 != No">
+
+  <label class="questionnaire-field__label" for="q4">最後に巡礼をしたのはいつですか?</label>
+  
+    <select class="questionnaire-field__select js-select" id="q4" name="q4" data-q="q4">
+      <option value="">選択してください</option>
+      
+        <option value="Within 1 year"<?=check_select("Within 1 year", $data["q4"])?>>Within 1 year</option>
+      
+        <option value="Within 3 years"<?=check_select("Within 3 years", $data["q4"])?>>Within 3 years</option>
+      
+        <option value="Within 10 years"<?=check_select("Within 10 years", $data["q4"])?>>Within 10 years</option>
+      
+        <option value="Over 10 years ago"<?=check_select("Over 10 years ago", $data["q4"])?>>Over 10 years ago</option>
+      
+
+      
+    </select>
+
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q"
+	data-q="q5"
+	data-show-if="q2 != 0 &amp;&amp; q3 != No">
+
+  <label class="questionnaire-field__label" for="q5">これまで合計何回巡礼をしましたか？</label>
+  
+    <select class="questionnaire-field__select js-select" id="q5" name="q5" data-q="q5">
+      <option value="">選択してください</option>
+      
+        <option value="1"<?=check_select("1", $data["q5"])?>>1</option>
+      
+        <option value="2"<?=check_select("2", $data["q5"])?>>2</option>
+      
+        <option value="3"<?=check_select("3", $data["q5"])?>>3</option>
+      
+        <option value="4 or more"<?=check_select("4 or more", $data["q5"])?>>4 or more</option>
+      
+
+      
+    </select>
+
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q"
+	data-q="q6"
+	>
+
+  <label class="questionnaire-field__label" for="q6">四国八十八ヶ所巡りを今後しようと思っていますか。</label>
+  
+    <select class="questionnaire-field__select js-select" id="q6" name="q6" data-q="q6">
+      <option value="">選択してください</option>
+      
+        <option value="1年以内の具体的な予定が決まっている"<?=check_select("1年以内の具体的な予定が決まっている", $data["q6"])?>>1年以内の具体的な予定が決まっている</option>
+      
+        <option value="具体的には決まっていないがWithin 1 yearにできたらいいなと思っている"<?=check_select("具体的には決まっていないがWithin 1 yearにできたらいいなと思っている", $data["q6"])?>>具体的には決まっていないがWithin 1 yearにできたらいいなと思っている</option>
+      
+        <option value="Within 3 yearsにできたらいいなと思っている"<?=check_select("Within 3 yearsにできたらいいなと思っている", $data["q6"])?>>Within 3 yearsにできたらいいなと思っている</option>
+      
+        <option value="Within 10 yearsにできたらいいなと思っている"<?=check_select("Within 10 yearsにできたらいいなと思っている", $data["q6"])?>>Within 10 yearsにできたらいいなと思っている</option>
+      
+
+      
+        <option value="その他"<?=check_select("その他", $data["q6"])?>>その他</option>
+      
+    </select>
+
+    
+		<input class="questionnaire-field__other js-other"
+        type="text"
+        name="q6_other"
+        data-other-for="q6"
+        data-show-on="その他"
+        placeholder="その他の理由を入力してください"
+        value="<?=escape_html($data["q6_other"])?>"
+        hidden>
+    
+  
+</div>
+
+							
+<div class="questionnaire-field js-q" data-q="q7">
+  <label class="questionnaire-field__label" for="q7">四国遍路をより魅力的に、より快適にするためのご提案やアイデアがありましたら、ぜひご自由にお書きください。</label>
+  <textarea class="questionnaire-field__textarea" id="q7" name="q7" type="text" rows="4"><?=escape_html($data["q7"])?></textarea>
+</div>
+
+						</div>
+					</details>
+				</div>
+
+        <div class="auth-completion__subscription">
+          <div class="auth-completion__subscription-heading">
+            <p class="auth-completion__subscription-text"><b>当サイトからのお知らせ・メールマガジンの配信に同意します。</b></p>
+            <p class="auth-completion__subscription-text">会員登録後、当サイトからお知らせや最新情報をメールマガジンとしてお届けする場合があります。配信の停止は、マイページよりいつでも行えます。</p>
+          </div>
+          <div class="auth-completion__subscription-radio">
+            
+            
+<div class="radio-group">
+  <div class="radio-group__label ">
+    
+  </div>
+	<ul class="radio-group__list">
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="mail_flag"
+					value="1"
+					<?=check_radio("1", $data["mail_flag"])?>
+				/>
+				購読する
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="mail_flag"
+					value="0"
+					<?=check_radio("0", $data["mail_flag"])?>
+				/>
+				購読しない
+			</label>
+		</li>
+		
+		</ul>
+</div>
+
+          </div>
+        </div>
+
+        <div class="auth-completion__policy">
+          <p class="auth-completion__policy-text"><a href="/ja/privacy">個人情報保護ポリシー</a> をご確認の上、「同意する」にチェックしてください。</p>
+          <div class="auth-completion__policy-check">
+          
+<label class="checkbox">
+  <input
+    type="checkbox"
+    name="agree"
+    value="1"
+    <?=check_radio("1", $data["agree"])?>>
+  <span class="checkbox__label  is-required">同意する</span>
+</label>
+  <!-- エラー文言 -->
+   <div class="error<?=$class_ary["agree"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["agree_error"]?></p>
+    </div>
+  </div>
+
+          </div>
+        </div>
+	
+				<div class="auth-completion__buttons is-single-button">
+				
+  
+    <button type="submit"  class="button-primary__button">
+		<span class="button-primary__button-text">確認する</span>      
+    </button>
+  
+
+
+			</div>
+			</form>
+		</div>
+	</div>
+</section>
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>

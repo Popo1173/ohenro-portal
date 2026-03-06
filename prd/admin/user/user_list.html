@@ -1,0 +1,139 @@
+<?php include_once("user.php")?>
+<?php include_once($document_path . "header" . EXT)?>
+
+<?php include_once($document_path . "sidebar" . EXT)?>
+<script type="text/javascript"><!--
+
+function submit_download() {
+	document.form_search.method = "POST";
+	document.form_search.mode.value = "download";
+	document.form_search.submit();
+}
+
+function submit_download_xml() {
+	document.form_search.method = "POST";
+	document.form_search.mode.value = "download_xml";
+	document.form_search.submit();
+}
+
+function submit_search() {
+	document.form_search.method = "GET";
+	document.form_search.mode.value = "";
+	document.form_search.submit();
+}
+
+//--></script>
+<div id="right_main">
+
+<form>
+<div align="right">検索結果を反映したCSVをダウンロードできます。<input type="button" class="button_m" value="CSVダウンロード" onClick="submit_download();"></div>
+</form>
+
+<form name="form_search" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="GET">
+<input type="hidden" name="mode" value="">
+
+<strong>絞り込み検索</strong><br />
+<table class="form_table">
+<input type="hidden" name="reset" value="">
+  <tr>
+    <th>言語</th><td><select name="lang_code">
+      <option value="">すべて</option>
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th width="200"><?=$user_header[array_search("family_name", $user_keys)]?></th><td><input type="text" name="family_name" style="width:200px;" value="<?=escape_html($data["family_name"])?>"></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("first_name", $user_keys)]?></th><td><input type="text" name="first_name" style="width:200px;" value="<?=escape_html($data["first_name"])?>"></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("email", $user_keys)]?></th><td><input type="text" name="email" style="width:100%;" value="<?=escape_html($data["email"])?>"></td>
+  </tr>
+<!--
+  <tr>
+    <th><?=$user_header[array_search("country", $user_keys)]?></th><td><input type="text" name="country" style="width:100%;" value="<?=escape_html($data["country"])?>"></td>
+  </tr>
+-->
+  <tr>
+    <th><?=$user_header[array_search("age", $user_keys)]?></th><td><input type="text" name="age" style="width:200px;" value="<?=escape_html($data["age"])?>"></td>
+  </tr>
+  <tr>
+    <th>メルマガ購読</th><td><select name="mail_flag">
+      <option value="">すべて</option>
+      <option value="0"<?=check_select("0", $data["mail_flag"])?>>なし</option>
+      <option value="1"<?=check_select("1", $data["mail_flag"])?>>あり</option>
+    </select></td>
+  </tr>
+  </tr>
+</table>
+<input type="button" class="button_m" value="検　　索" onClick="submit_search();">　　<input type="button" class="button_m" value="リセット" onClick="location.href='<?=$_SERVER["SCRIPT_NAME"]?>';"><br />
+</form>
+
+<div class="space20"></div>
+<?php
+	page_link($max, $num, $page);
+?>
+<!--table_start//-->
+<table class="list_table">
+ <form name="form1" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="post">
+ <input type="hidden" name="query" value="<?=escape_html($_SERVER["QUERY_STRING"])?>">
+ <input type="hidden" name="id" value="">
+ <input type="hidden" name="md" value="">
+ <tr>
+  <th width="100">言語</th>
+  <th width="140"><?=$user_header[array_search("family_name", $user_keys)]?><?=$user_header[array_search("first_name", $user_keys)]?></th>
+  <th><?=$user_header[array_search("email", $user_keys)]?></th>
+<!--  <th width="140"><?=$user_header[array_search("country", $user_keys)]?></th>-->
+  <th width="120"><?=$user_header[array_search("age", $user_keys)]?></th>
+  <th width="120">メルマガ購読</th>
+ </tr>
+<?php
+if (count_ary($list)) {
+	for ($i = 0; $i < count_ary($list); $i++) {
+		$point_date = "";
+		if ($list[$i]["point"]) {
+			$point_date = $list[$i]["point_date"];
+		}
+?>
+ <tr>
+  <td><?=escape_html($lang_string[$list[$i]["lang_code"]])?></td>
+  <td><?=escape_html($list[$i]["family_name"])?> <?=escape_html($list[$i]["first_name"])?></td>
+  <td><a href="user_detail.html?id=<?=$list[$i]["user_id"]?>" class="link_b"><?=escape_html($list[$i]["email"])?></a></td>
+<!--  <td><?=escape_html($list[$i]["country"])?></td>-->
+  <td><?=escape_html($list[$i]["age"])?></td>
+  <td><?=escape_html($mail_read_ary[$list[$i]["mail_flag"]])?></td>
+ </tr>
+<?php
+	}
+}
+else {
+?>
+ <tr>
+  <td colspan="5"><?=$sub_title?>が登録されておりません。</td>
+ </tr>
+<?php
+}
+?>
+ </form>
+</table>
+<!--//table_end-->
+<div align="right"><?=$num1?>～<?=$num2?>件目/<?=$max?>件</div>
+<br />
+<?php
+	page_link($max, $num, $page);
+?>
+
+<div class="space40"></div>
+<form>
+<div align="center"><input type="button" class="button_m" value="新規登録" onClick="javascript: location.href='<?=$menu_id?>_up.html';"></div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer" . EXT)?>

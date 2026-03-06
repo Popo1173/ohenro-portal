@@ -1,0 +1,173 @@
+<?php include_once("temple.php")?>
+<?php include_once($document_path . "header.html")?>
+
+<?php include_once($document_path . "sidebar.html")?>
+<div id="right_main">
+
+<div id="error_message"><?=$data["error_message"]?></div>
+<div class="space20"></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="temple_id" value="<?=$data["temple_id"]?>">
+<!--
+  <tr>
+    <th>メイン画像</th>
+    <td>
+    <input type="hidden" name="image_up_flag" value="<?=escape_html($data["image_up_flag"])?>">
+<?php
+if ($data["image_file"]) {
+?>
+    <img src="<?=escape_html($data["image_file_path"])?>" width="400px"><br>
+	<?=get_file_name($data["image_file_name"])?><br />
+    ファイルを変更する場合は下記からアップロードしてください。<br />
+<?php
+}
+?>
+    <input type="file" name="image_file" value="<?=escape_html($data["image_file"])?>" size="80"></td>
+  </tr>
+-->
+  <tr>
+    <th>言語<?=$need_string?></th>
+    <td><select name="lang_code" id="lang_code">
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+?>
+      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("temple_num", $temple_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="temple_num" value="<?=escape_html($data["temple_num"])?>" size="10"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("mountain", $temple_keys)]?></th>
+    <td><input type="text" name="mountain" value="<?=escape_html($data["mountain"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("infirmary", $temple_keys)]?></th>
+    <td><input type="text" name="infirmary" value="<?=escape_html($data["infirmary"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("temple_name", $temple_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="temple_name" value="<?=escape_html($data["temple_name"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("pref", $temple_keys)]?></th>
+    <td><select name="pref" id="pref">
+<?php
+	for ($i = 0; $i < count_ary($shikoku_ary); $i++) {
+?>
+      <option value="<?=$shikoku_ary[$i]?>"<?=check_select($shikoku_ary[$i], $data["pref"])?>><?=$shikoku_ary[$i]?></option>
+<?php
+	}
+?>
+    </select></td>
+<!--
+    <td><input type="text" name="pref" value="<?=escape_html($data["pref"])?>" size="10"></td>
+-->
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("address", $temple_keys)]?></th>
+    <td><input type="text" name="address" value="<?=escape_html($data["address"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("tel", $temple_keys)]?></th>
+    <td><input type="text" name="tel" value="<?=escape_html($data["tel"])?>" size="30"></td>
+  </tr>
+<!--
+  <tr>
+    <th><?=$temple_header[array_search("access", $temple_keys)]?></th>
+    <td><textarea name="access" style="width:100%; height:100px;"><?=escape_html($data["access"])?></textarea></td>
+  </tr>
+-->
+  <tr>
+    <th><?=$temple_header[array_search("detail", $temple_keys)]?></th>
+    <td><textarea name="detail" style="width:100%; height:100px;"><?=escape_html($data["detail"])?></textarea></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("shuuha", $temple_keys)]?></th>
+    <td><input type="text" name="shuuha" value="<?=escape_html($data["shuuha"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("kaiki", $temple_keys)]?></th>
+    <td><input type="text" name="kanki" value="<?=escape_html($data["kaiki"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("honzon", $temple_keys)]?></th>
+    <td><input type="text" name="honzon" value="<?=escape_html($data["honzon"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("founding", $temple_keys)]?></th>
+    <td><input type="text" name="founding" value="<?=escape_html($data["founding"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("shingon", $temple_keys)]?></th>
+    <td><input type="text" name="shingon" value="<?=escape_html($data["shingon"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("next_temple", $temple_keys)]?></th>
+    <td><input type="text" name="next_temple" value="<?=escape_html($data["next_temple"])?>" size="10"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("walk", $temple_keys)]?></th>
+    <td><input type="text" name="walk" value="<?=escape_html($data["walk"])?>" size="10"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("car", $temple_keys)]?></th>
+    <td><input type="text" name="car" value="<?=escape_html($data["car"])?>" size="10"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("ohenro_item", $temple_keys)]?></th>
+    <td><input type="text" name="ohenro_item" value="<?=escape_html($data["ohenro_item"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("comment", $temple_keys)]?></th>
+    <td><textarea name="comment" style="width:100%; height:100px;"><?=escape_html($data["comment"])?></textarea></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("inn", $temple_keys)]?></th>
+    <td><input type="text" name="inn" value="<?=escape_html($data["inn"])?>" size="30"><br />
+    <strong>※セミコロン区切りで宿IDを入力してください。</strong></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("shukubou", $temple_keys)]?></th>
+    <td><input type="text" name="ohenro_item" value="<?=escape_html($data["shukubou"])?>" size="80"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("taxi", $temple_keys)]?></th>
+    <td><input type="text" name="taxi" value="<?=escape_html($data["taxi"])?>" size="30"><br />
+    <strong>※セミコロン区切りでタクシーIDを入力してください。</strong></td>
+  </tr>
+<!--
+  <tr>
+    <th><?=$temple_header[array_search("interview", $temple_keys)]?></th>
+    <td><input type="text" name="taxi" value="<?=escape_html($data["interview"])?>" size="30"><br />
+    <strong>※セミコロン区切りで旅館インタビューIDを入力してください。</strong></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("language", $temple_keys)]?></th>
+    <td><textarea name="language" style="width:100%; height:100px;"><?=escape_html($data["language"])?></textarea></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("food", $temple_keys)]?></th>
+    <td><textarea name="food" style="width:100%; height:100px;"><?=escape_html($data["food"])?></textarea></td>
+  </tr>
+-->
+  <tr>
+    <th><?=$temple_header[array_search("Johannes", $temple_keys)]?></th>
+    <td><textarea name="Johannes" style="width:100%; height:100px;"><?=escape_html($data["Johannes"])?></textarea></td>
+  </tr>
+</table>
+<!--//table_end-->
+<div class="space40"></div>
+<div align="center"><input type="submit" value="確　　認" class="button_s">
+</div>
+</form>
+
+</div>
+<?php include_once($document_path . "footer.html")?>

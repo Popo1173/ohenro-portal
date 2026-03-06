@@ -1,0 +1,297 @@
+<?php include_once("notice.php")?>
+<?php include_once($document_path . "header.html")?>
+
+<?php include_once($document_path . "sidebar.html")?>
+<div id="right_main">
+<style type="text/css"><!--
+.image_box {
+  width: 100px;
+  position: relative;
+}
+.image_box img.thumbnail {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.image_box .disabled_checkbox {
+  position: absolute;
+  /* チェックボックスは、親要素の右上から12pxの位置に配置します。 */
+  top: 8px;
+  left: 8px;
+  /* チェック前は非表示にしておきます。 */
+  display: none;
+  /* チェックボックスを大きくします。 */
+  transform: scale(1.5);
+  /* チェックボックスにカーソルを合わせたときに、
+  カーソルが指のマークになるようにします。 */
+  cursor: pointer;
+}
+.image_box img.thumbnail.checked + .disabled_checkbox {
+  /* 画像にcheckedクラスが指定されたときは、
+  チェックボックスの非表示を解除します。 */
+  display: block;
+}
+--></style>
+
+<script type="text/javascript"><!--
+$(function() {
+  // チェックボックスのクリックを無効化します。
+  $('.image_box .disabled_checkbox').click(function() {
+    return false;
+  });
+
+  // 画像がクリックされた時の処理です。
+  $('img.thumbnail').on('click', function() {
+    if (!$(this).is('.checked')) {
+      // チェックが入っていない画像をクリックした場合、チェックを入れます。
+      $(this).addClass('checked');
+      $(this).parent().find(".disabled_checkbox").prop('checked', true);
+    } else {
+      // チェックが入っている画像をクリックした場合、チェックを外します。
+      $(this).removeClass('checked')
+      $(this).parent().find(".disabled_checkbox").prop('checked', false);
+    }
+    chg_del();
+  });
+});
+
+//画像削除確認ダイアログ
+function delete_image(id) {
+	if (window.confirm("この画像を削除します。よろしいですか？")) {
+		document.form_detail.mode.value = 'image_del1';
+		if (id != "select") {
+			document.form_detail.num.value = id;
+		}
+		document.form_detail.submit();
+	}
+}
+
+//画像が選択されているかの判定
+function is_select() {
+	var tmp = document.form_detail.image_check;
+	var flag = false;
+	var ch;
+	document.form_detail.num.value = "";
+
+	//画像が1つしかない場合は配列に格納
+	if (tmp.length) {
+		ch = tmp;
+	}
+	else {
+		ch = new Array();
+		ch[0] = tmp;
+	}
+
+	for (i = 0; i < ch.length; i++) {
+		if (ch[i].checked) {
+			document.form_detail.num.value += ch[i].value + ",";
+			flag = true;
+		}
+	}
+
+	return flag;
+}
+
+//すべて選択・解除ボタン
+function select_all() {
+	var tmp = document.form_detail.image_check;
+	var im = document.getElementsByClassName("thumbnail") ;
+	var flag = true;
+	var ch;
+	if (is_select()) {
+		flag = false;
+	}
+
+	//画像が1つしかない場合は配列に格納
+	if (tmp.length) {
+		ch = tmp;
+	}
+	else {
+		ch = new Array();
+		ch[0] = tmp;
+	}
+
+	for (i = 0; i < ch.length; i++) {
+		ch[i].checked = flag;
+		if (flag) {
+			im[i].classList.add("checked");
+		}
+		else {
+			im[i].classList.remove("checked");
+		}
+	}
+
+	chg_del();
+	return false;
+}
+
+//削除ボタンの有効・無効切り替え
+function chg_del() {
+	if (is_select()) {
+		$("#del_img").prop("disabled", false);
+	}
+	else {
+		$("#del_img").prop("disabled", true);
+	}
+}
+//--></script>
+
+<font class="font_txt"><?=$message?></font>
+<div class="space20"></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form name="form_detail" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST">
+<input type="hidden" name="notice_id" value="<?=$data["notice_id"]?>">
+<input type="hidden" name="mode" value="image_del1">
+<input type="hidden" name="num" value="">
+<input type="hidden" name="query" value="<?=$_SERVER["QUERY_STRING"]?>">
+<?php
+if ($data["image_flag"]) {
+?>
+  <tr>
+    <th width="140">メイン画像</th>
+    <td><img src="<?=$data["image_file_path"]?>" width="400px"><br />
+    <?=$data["image_file"]?>
+<?php
+	if (!$_GET["md"] && $data["image_flag"]) {
+?>
+    &nbsp;&nbsp;<input type="button" value="削除" onClick="delete_image('');">
+<?php
+	}
+?>
+    </td>
+  </tr>
+<?php
+}
+?>
+
+  <tr width="140">
+    <th width="200">言語</th>
+    <td><?=escape_html($lang_string[$data["lang_code"]])?></td>
+  </tr>
+  <tr>
+    <th>表示画面</th>
+    <td><?=$obj_data->get_disp_str($data)?></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><?=escape_html($data["title"])?></td>
+  </tr>
+  <tr>
+    <th>詳細</th>
+    <td><?=escape_html($data["detail"])?></td>
+  </tr>
+  <tr>
+    <th>URL</th>
+    <td><a href="<?=escape_html($data["url"])?>" target="_blank" class="link_b"><?=escape_html($data["url"])?></a></td>
+  </tr>
+  <tr>
+    <th>公開ステータス</th>
+    <td><?=escape_html($display_ary[$data["status"]])?></td>
+  </tr>
+<?php
+if ($sub_flag) {
+?>
+  <tr>
+    <th>サブ画像</th>
+    <td>
+<?php
+	if (!$_GET["md"]) {
+?>
+    <div style="float:left;">選択した画像の <input type="button" id="del_img" value="削除" onClick="delete_image('select');" disabled></div>
+    <div width="100%" align="right"><input type="button" value="すべて選択・解除" onClick="select_all();"></div><br />
+<?php
+	}
+	for ($i = 1; $i <= 10; $i++) {
+		if ($data["image_flag" . $i]) {
+?>
+     <div class="image_box" style="float:left; margin-right:5px;"><img class="thumbnail" src="<?=$data["image_file_path" . $i]?>" width="100">
+     <input class="disabled_checkbox" name="image_check" value="<?=$i?>" type="checkbox"  /><br />
+     <?=$data["image_file" . $i]?></div>
+<?php
+		}
+	}
+?>
+    </td>
+  </tr>
+<?php
+}
+?>
+<?php
+if (!$_GET["md"]) {
+?>
+  <tr>
+    <th>更新日</th>
+    <td><?=escape_html($data["up_date"])?></td>
+  </tr>
+<?php
+}
+?>
+</form>
+</table>
+<!--//table_end-->
+<div class="space40"></div>
+
+<?php
+if ($md == "del") {
+?>
+<div align="center">
+<form action="<?=$_SERVER["SCRIPT_NAME"]?>" method="post">
+<input type="hidden" name="comp_flag" value="1">
+<input type="hidden" name="id" value="<?=$data["notice_id"]?>">
+<input type="hidden" name="mode" value="del">
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:history.back();">　　
+    <input type="submit" value="削　　除" class="button_s">
+</form>
+</div>
+<?php
+}
+elseif ($_GET["md"]) {
+?>
+<div align="center">
+<form action="notice_up.html" method="post">
+<input type="hidden" name="comp_flag" value="1">
+<?php
+	foreach ($data as $key => $value) {
+		if (is_array($value)) {
+			for ($i = 0; $i < count_ary($value); $i++) {
+				if (is_array($value[$i])) {
+					foreach ($value[$i] as $key2 => $value2) {
+?>
+  <input type="hidden" name="<?=$key2?>[]" value="<?=escape_html($value2)?>">
+<?php
+					}
+				}
+				else {
+?>
+  <input type="hidden" name="<?=$key?>[]" value="<?=escape_html($value[$i])?>">
+<?php
+				}
+			}
+		}
+		else {
+?>
+  <input type="hidden" name="<?=$key?>" value="<?=escape_html($value)?>">
+<?php
+		}
+	}
+?>
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:location.href='notice_up.html?md=chk'">　　
+    <input type="button" id="submit_button" value="確　　定" class="button_s" onClick="document.getElementById('submit_button').disabled= 'true'; this.form.submit();">
+</form>
+</div>
+<?php
+}
+else {
+?>
+<div align="center">
+<input type="button" value="変更する" class="button_s" onClick="location.href='notice_up.html?id=<?=$data["notice_id"]?>'">
+    　　<input type="button" value="削除する" class="button_s" onClick="location.href='notice_detail.html?md=del&id=<?=$data["notice_id"]?>'">
+</div>
+<?php
+}
+?>
+
+</div>
+<?php include_once($document_path . "footer.html")?>

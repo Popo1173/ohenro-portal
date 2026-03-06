@@ -1,0 +1,141 @@
+<?php include_once("user.php")?>
+<?php include_once($document_path . "header" . EXT)?>
+
+<?php include_once($document_path . "sidebar" . EXT)?>
+<div id="right_main">
+
+<font class="font_txt"><?=$message?></font>
+<div class="space20"></div>
+
+<!--table_start//-->
+<table class="form_table">
+  <tr width="140">
+    <th width="200">言語</th>
+    <td><?=escape_html($lang_string[$data["lang_code"]])?></td>
+  </tr>
+  <tr>
+    <th width="200"><?=$user_header[array_search("email", $user_keys)]?></th>
+    <td><?=escape_html($data["email"])?></td>
+  </tr>
+  <tr>
+    <th>パスワード</th>
+    <td>******** （セキュリティのため表示されません）</td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("family_name", $user_keys)]?></th>
+    <td><?=escape_html($data["family_name"])?></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("first_name", $user_keys)]?></th>
+    <td><?=escape_html($data["first_name"])?></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("family_kana", $user_keys)]?></th>
+    <td><?=escape_html($data["family_kana"])?></td>
+  </tr>
+  <tr>
+    <th><?=$user_header[array_search("first_kana", $user_keys)]?></th>
+    <td><?=escape_html($data["first_kana"])?></td>
+  </tr>
+<!--
+  <tr>
+    <th><?=$user_header[array_search("country", $user_keys)]?></th>
+    <td><?=escape_html($data["country"])?></td>
+  </tr>
+-->
+  <tr>
+    <th><?=$user_header[array_search("age", $user_keys)]?></th>
+    <td><?=escape_html($data["age"])?></td>
+  </tr>
+  <tr>
+    <th>メルマガ購読</th>
+    <td><?=escape_html($mail_read_ary[$data["mail_flag"]])?></td>
+  </tr>
+<?php
+if (!$_GET["md"]) {
+?>
+  <tr>
+    <th>アンケート回答</th>
+    <td><?=escape_html($data["answer_log"], true)?></td>
+  </tr>
+  <tr>
+    <th>お遍路達成回数</th>
+    <td><?=escape_html($data["ohenro_num"])?> 回</td>
+  </tr>
+  <tr>
+    <th>登録日</th>
+    <td><?=$data["insert_date"]?></td>
+  </tr>
+  <tr>
+    <th>更新日</th>
+    <td><?=$data["update_date"]?></td>
+  </tr>
+<?php
+}
+?>
+</table>
+<!--//table_end-->
+<div class="space40"></div>
+
+<?php
+if ($md == "del") {
+?>
+<div align="center">
+<form action="<?=$_SERVER["SCRIPT_NAME"]?>" method="post">
+<input type="hidden" name="comp_flag" value="1">
+<input type="hidden" name="user_id" value="<?=$data[$menu_id . "_id"]?>">
+<input type="hidden" name="mode" value="del">
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:history.back();">　　
+    <input type="submit" value="削　　除" class="button_s">
+</form>
+</div>
+<?php
+}
+elseif ($_GET["md"]) {
+?>
+<div align="center">
+<form action="<?=$menu_id?>_up.html" method="post">
+<input type="hidden" name="comp_flag" value="1">
+<?php
+	foreach ($data as $key => $value) {
+		if (is_array($value)) {
+			for ($i = 0; $i < count_ary($value); $i++) {
+				if (is_array($value[$i])) {
+					foreach ($value[$i] as $key2 => $value2) {
+?>
+  <input type="hidden" name="<?=$key2?>[]" value="<?=escape_html($value2)?>">
+<?php
+					}
+				}
+				else {
+?>
+  <input type="hidden" name="<?=$key?>[]" value="<?=escape_html($value[$i])?>">
+<?php
+				}
+			}
+		}
+		else {
+?>
+  <input type="hidden" name="<?=$key?>" value="<?=escape_html($value)?>">
+<?php
+		}
+	}
+?>
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:location.href='<?=$menu_id?>_up.html?md=chk'">　　
+    <input type="button" id="submit_button" value="確　　定" class="button_s" onClick="document.getElementById('submit_button').disabled= 'true'; this.form.submit();">
+</form>
+</div>
+<?php
+}
+else {
+?>
+<div align="center">
+<input type="button" value="編集する" class="button_s" onClick="location.href='<?=$menu_id?>_up.html?id=<?=$data[$menu_id . "_id"]?>'">　　
+<input type="button" value="削除する" class="button_s" onClick="location.href='<?=$menu_id?>_detail.html?md=del&id=<?=$data[$menu_id . "_id"]?>'">
+</div>
+<?php
+}
+?>
+
+</div>
+<?php include_once($document_path . "footer" . EXT)?>

@@ -1,0 +1,60 @@
+<?php include_once("info.php")?>
+<?php include_once($document_path . "header" . EXT)?>
+
+<?php include_once($document_path . "sidebar" . EXT)?>
+<div id="right_main">
+
+<div id="error_message"><?=$data["error_message"]?></div>
+
+<!--table_start//-->
+<table class="form_table">
+<form name="form1" action="<?=$_SERVER["SCRIPT_NAME"]?>" method="POST" enctype="multipart/form-data">
+<input type="hidden" name="id" value="<?=$data[$menu_id . "_id"]?>">
+<input type="hidden" name="mode_flag" value="<?=$data["mode_flag"]?>">
+<input type="hidden" name="mode" value="upload">
+<input type="hidden" name="sub_id" value="">
+  <tr>
+    <th>言語</th>
+    <td><select name="lang_code" id="lang_code">
+<?php
+	for ($i = 0; $i < count_ary($lang_string); $i++) {
+		$selected = "";
+		if ($data["lang_code"] === $i) {
+			$selected = " selected";
+		}
+?>
+      <option value="<?=$i?>"<?=$selected?>><?=escape_html($lang_string[$i])?></option>
+<?php
+	}
+?>
+    </select></td>
+  </tr>
+  <tr>
+    <th width="200">CSVファイル<?=$need_string?></th>
+    <td><input type="file" name="user_csv" value="" style="width:400px;" size="80"></td>
+  </tr>
+</table>
+<div class="bold">※CSVファイルの文字コードはUTF-8にしてください。<br>
+※2行目から登録者データとして読み込みます。<br>
+※言語コードとIDが重複している場合は上書きされますので、最新版のCSVをダウンロードしたものを編集してアップロードしてください。
+</div>
+
+<div class="space40"></div>
+<div align="center">
+ <input type="submit" value="アップロード" class="button_m"<?=$enabled?>>　　
+</div>
+</form>
+
+<div class="bold">
+<br>
+ヘッダー<br>
+<?php
+for ($i = 0; $i < count_ary($info_header[$data["mode_flag"]]); $i++) {
+	if ($i > 0) print ", ";
+	print $info_header[$data["mode_flag"]][$i];
+}
+?><br>
+</div>
+
+</div>
+<?php include_once($document_path . "footer" . EXT)?>

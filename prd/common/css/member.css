@@ -1,0 +1,53 @@
+
+.video-container {
+  position: relative;
+  width: 640px;
+  height: 360px;
+  pointer-events: auto;
+}
+
+/* “®‰æ‚ğe—v‘f‚¢‚Á‚Ï‚¢‚ÉL‚°‚é */
+#player {
+  width: 640px;
+  height: 360px;
+}
+
+/* d‚Ë‚é—v‘f‚Ìİ’è */
+.overlay {
+  position: absolute;
+  top: 300px;
+  left: 0px;
+  width: 80px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.6); /* ”¼“§–¾‚Ì•”wŒi */
+  color: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  pointer-events: auto;
+  text-align: center;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Chrome, Firefox, Edge, Opera */
+  display: none;
+}
+
+.message {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 640px;
+  height: 360px;
+  background: rgba(0, 0, 0, 0.6); /* ”¼“§–¾‚Ì•”wŒi */
+  color: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  pointer-events: auto;
+  text-align: center;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE 10+ */
+  user-select: none;         /* Chrome, Firefox, Edge, Opera */
+  display: none;
+}
+

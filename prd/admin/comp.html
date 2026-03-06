@@ -1,0 +1,51 @@
+<?php include_once("comp.php")?>
+<?php include_once("header" . EXT)?>
+
+<?php include_once("sidebar" . EXT)?>
+<div id="right_main">
+
+<?php
+if ($message_string) {
+?>
+<?=$message_string?>
+<?php
+}
+else {
+?>
+<?=$title_name?>の<?=$mode_name?>が完了いたしました。
+<?php
+}
+?>
+<div class="space40"></div>
+
+<div align="center">
+<?php
+if ($button_name) {
+	if ($next_page_url) {
+?>
+<input type="button" value="<?=$button_name?>" class="button_l" onClick="javascript:location.href='<?=$next_page_url?>'">
+<?php
+	}
+	else {
+?>
+<input type="button" value="<?=$button_name?>" class="button_l" onClick="javascript:location.href='<?=$_SERVER["SCRIPT_NAME"]?><?=$next_query?>'">
+<?php
+	}
+}
+elseif ($next_page_url) {
+?>
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:location.href='<?=$next_page_url?>'">
+<?php
+}
+else {
+?>
+<input type="button" value="戻　　る" class="button_s" onClick="javascript:location.href='<?=$_SERVER["SCRIPT_NAME"]?><?=$next_query?>'">
+<?php
+}
+?>
+</div>
+
+<div class="space300"></div>
+
+</div>
+<?php include_once("footer" . EXT)?>

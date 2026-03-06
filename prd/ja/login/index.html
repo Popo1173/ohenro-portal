@@ -1,0 +1,156 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/user.php'); ?>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>ログイン</title>
+    <meta name="description" content="ログイン" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="ログイン" />
+    <meta property="og:description" content="ログイン" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/login/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    <header class="my-page-header">
+  <div class="my-page-header__logo">
+    <figure class="my-page-header__logo-figure">
+      <img
+        src="/assets/images/common/ohenro-logo.webp"
+        class="my-page-header__logo-image"
+        alt="88お遍路さん"
+      />
+    </figure>
+  </div>
+</header>
+
+    
+
+    <main>
+      
+
+
+
+
+<section class="login">
+  <div class="login__inner">
+    <div class="login__title">
+      
+<h1 class="page-title">
+	<span class="page-title__text is-english">Sign Up</span>
+</h1>
+
+    </div>
+    <form class="login__form" action="<?=HTTP_ROOT?>login.php" method="post">
+      <?=$hidden?>
+      
+      
+<div class="text-fiedl">
+  <label for="email" class="text-fiedl__label is-required">メールアドレス</label>
+  <input 
+    type="text" 
+    id="email" 
+    name="email" 
+    placeholder="Your Email" 
+    class="text-fiedl__input is-error"
+  >
+  <!-- エラー文言 -->
+   <div class="error<?=$class_ary["email"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["email_error"]?></p>
+    </div>
+  </div>
+</div>
+
+      
+      
+      
+<div class="password-field js-password-container">
+  <label for="password" class="password-field__label is-required">パスワード</label>
+  <div class="password-field__inner">
+    <input 
+      type="text" 
+      id="password" 
+      name="password" 
+      placeholder="Password" 
+      class="password-field__input js-password-input is-error"
+    >
+    <button type="button" class="password-field__switch js-password-toggle" aria-label="パスワードを表示する">
+      
+      <img src="/assets/images/icons/icon-pasword-on.svg" alt="パスワード表示する" />
+    </button>
+    <!-- エラー文言 -->
+      <p class="password-field__conditions ">半角英数字8文字以上</p>
+      <div class="error<?=$class_ary["password"]?>">
+        <div class="error-message">
+          <p class="error-message__text"><?=$class_ary["password_error"]?></p>
+        </div>
+      </div>
+  </div>
+</div>
+
+      <p class="login__forget">
+        <a class="login__forget-link" href="/ja/password-reset/">パスワードを忘れた場合</a>
+      </p>
+
+      <div class="login__button-primary">
+        
+  
+    <button type="submit"  class="button-primary__button">
+		<span class="button-primary__button-text">ログイン</span>      
+    </button>
+  
+
+
+      </div>
+
+      <hr class="login__border" /> 
+
+      <div class="login__button-secondary">
+        
+  
+    <a href="/ja/signup/"  class="button-secondary__button">
+      <span class="button-secondary__button-text">新規会員登録</span>    
+    </a>
+  
+
+      </div>
+    </form>
+  </div>
+</section>
+
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>
