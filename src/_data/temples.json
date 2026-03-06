@@ -23,10 +23,21 @@
     { "no": 21, "mountain": "舎心山", "temple": "太龍寺", "prefecture": "徳島県" },
     { "no": 22, "mountain": "白水山", "temple": "平等寺", "prefecture": "徳島県" },
     { "no": 23, "mountain": "医王山", "temple": "薬王寺", "prefecture": "徳島県" },
-
-    { "no": 24, "mountain": "室戸山", "temple": "最御崎寺", "prefecture": "高知県" },
-    { "no": 25, "mountain": "宝珠山", "temple": "津照寺", "prefecture": "高知県" },
-    { "no": 26, "mountain": "龍頭山", "temple": "金剛頂寺", "prefecture": "高知県" },
+    {
+      "no": 24,
+      "mountain": "室戸山",
+      "temple": "最御崎寺",
+      "prefecture": "高知県",
+      "visited": true
+    },
+    { "no": 25, "mountain": "宝珠山", "temple": "津照寺", "prefecture": "高知県", "visited": true },
+    {
+      "no": 26,
+      "mountain": "龍頭山",
+      "temple": "金剛頂寺",
+      "prefecture": "高知県",
+      "visited": true
+    },
     { "no": 27, "mountain": "竹林山", "temple": "神峰寺", "prefecture": "高知県" },
     { "no": 28, "mountain": "法界山", "temple": "大日寺", "prefecture": "高知県" },
     { "no": 29, "mountain": "摩尼山", "temple": "国分寺", "prefecture": "高知県" },
@@ -53,7 +64,7 @@
     { "no": 49, "mountain": "西林山", "temple": "浄土寺", "prefecture": "愛媛県" },
     { "no": 50, "mountain": "東山", "temple": "繁多寺", "prefecture": "愛媛県" },
     { "no": 51, "mountain": "熊野山", "temple": "石手寺", "prefecture": "愛媛県" },
-    { "no": 52, "mountain": "瀧雲山", "temple": "太山寺", "prefecture": "愛媛県" },
+    { "no": 52, "mountain": "瀧雲山", "temple": "太山寺", "prefecture": "愛媛県", "visited": true },
     { "no": 53, "mountain": "須賀山", "temple": "圓明寺", "prefecture": "愛媛県" },
     { "no": 54, "mountain": "近見山", "temple": "延命寺", "prefecture": "愛媛県" },
     { "no": 55, "mountain": "別宮山", "temple": "南光坊", "prefecture": "愛媛県" },
@@ -89,6 +100,6 @@
     { "no": 85, "mountain": "五剣山", "temple": "八栗寺", "prefecture": "香川県" },
     { "no": 86, "mountain": "補陀洛山", "temple": "志度寺", "prefecture": "香川県" },
     { "no": 87, "mountain": "補陀洛山", "temple": "長尾寺", "prefecture": "香川県" },
-    { "no": 88, "mountain": "医王山", "temple": "大窪寺", "prefecture": "香川県" }
+    { "no": 88, "mountain": "医王山", "temple": "大窪寺", "prefecture": "香川県", "visited": true }
   ]
 }
