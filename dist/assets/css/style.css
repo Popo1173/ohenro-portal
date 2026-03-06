@@ -403,6 +403,10 @@ hr {
   margin: 0;
 }
 
+.is-megativ-margin {
+  margin-top: -32px;
+}
+
 .signup,
 .resetting,
 .complete,
@@ -440,7 +444,7 @@ hr {
 @media (min-width: 1024px) {
   .auth-completion__inner {
     max-width: 760px;
-    padding: 54px 85px 88px;
+    padding: 54px 80px 88px;
   }
 }
 .auth-completion__title {
