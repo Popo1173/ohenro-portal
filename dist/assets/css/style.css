@@ -920,6 +920,63 @@ hr {
   font-size: 15px;
 }
 
+.bubble {
+  position: relative;
+  display: inline-block;
+  display: grid;
+  justify-items: center;
+  max-width: 410px;
+  padding: 16px 16px 0;
+  margin: 0 auto 26px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #777;
+}
+.bubble::before {
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  content: "";
+  border-color: #777 transparent transparent;
+  border-style: solid;
+  border-width: 26px 20px 0;
+  opacity: 0.4;
+  filter: blur(4px);
+  transform: translateX(-50%);
+}
+.bubble::after {
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  content: "";
+  border-color: #fff transparent transparent;
+  border-style: solid;
+  border-width: 26px 20px 0;
+  transform: translateX(-50%);
+}
+.bubble__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bubble__laps {
+  font-size: 1.3125rem;
+  font-weight: bold;
+}
+.bubble__title {
+  font-size: 1.3125rem;
+  font-weight: bold;
+}
+.bubble__temple-number {
+  font-size: 3.75rem;
+  color: #9f1627;
+  font-family: "Futura Medium Italic", Futura, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
+.bubble__temple-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .login {
   min-height: 100dvh;
   padding: 4.875rem 16px 1.5rem;

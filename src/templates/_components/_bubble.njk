@@ -1,0 +1,12 @@
+{% macro bubble(laps, title, temple) %}
+<div class="bubble">
+  <div class="bubble__inner">
+    <span class="bubble__laps">[{{ laps }}]</span>
+    <span class="bubble__title">{{ title }}</span>
+  </div>
+  <div class="bubble__temple">
+    <span class="bubble__temple-number">{{ temple }}</span>
+    <span class="bubble__temple-text">札所 / 88</span>
+  </div>
+</div>
+{% endmacro %}

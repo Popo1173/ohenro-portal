@@ -8,6 +8,7 @@ description: これまでに視聴した映像の履歴を表示します。
 url: https://ohenro.online/ja/my-page/history/
 ---
 {% import "_components/_page-title-main.njk" as title %}
+{% import "_components/_bubble.njk" as bubble %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
 
 <div class="my-page-history">
@@ -23,5 +24,13 @@ url: https://ohenro.online/ja/my-page/history/
     <div class="my-page-history__inner">
       <p>各地の寺院に伝わる教えや風景を、動画を通じて体験してみませんか？<br />ひとつの動画を最後まで視聴するごとに、あなたの歩みの証として「参拝スタンプ」が授与されます。<br />未踏のスタンプを押すと、新たな動画の世界へ。すべてのスタンプを巡り終えたとき、あなたの心には新しい気づきと、日々の平穏が宿っているはずです。</p>
     </div>
+    <div class="my-page-history__inner">
+      <div class="my-page-history__bubble">
+        {{ bubble.bubble("2周目", "現在の閲覧お寺Movie", "8") }}
+      </div>
+    </div>
   </div>
+
+
+
 </div>
