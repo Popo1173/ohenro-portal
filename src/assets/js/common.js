@@ -30,9 +30,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
   const applyBtn = lang.querySelector('.js-lang-apply')
   const select = lang.querySelector('.js-lang-select')
 
-  // =========================
   // 開閉
-  // =========================
   if (langToggle && panel) {
     langToggle.addEventListener('click', (e) => {
       e.stopPropagation()
@@ -50,9 +48,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
     })
   }
 
-  // =========================
   // 言語切替
-  // =========================
   const switchLanguage = (targetLang) => {
     const url = new URL(window.location.href)
     const parts = url.pathname.split('/')
@@ -81,7 +77,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
 })
 
 // =========================
-// Drawer（ハンバーガー等）+ スクロールロック追加
+// Drawer（ハンバーガー等）+ スクロールロック
 // =========================
 const drawer = document.querySelector('.js-drawer')
 const triggers = document.querySelectorAll('.js-drawer-toggle')
@@ -132,14 +128,14 @@ if (header) {
     () => {
       const y = window.scrollY
 
-      // ヘッダー表示制御
+      // 下スクロールでヘッダー非表示
       if (y > lastY && y > 50) {
         header.classList.add('is-hidden')
       } else {
         header.classList.remove('is-hidden')
       }
 
-      // shadow制御
+      // 上スクロールでヘッダー表示してshadowを追加
       if (y > 0) {
         header.classList.add('is-shadow')
       } else {

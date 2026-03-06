@@ -1705,6 +1705,55 @@ hr {
   padding: 0;
   margin-top: 0;
 }
+.my-page-history__achievement {
+  display: grid;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 10px;
+}
+.my-page-history__achievement.is-hidden {
+  display: none;
+}
+.my-page-history__achievement-description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+.my-page-history__achievement-description dt {
+  padding: 0;
+  margin: 0;
+  font-size: 21px;
+  font-weight: bold;
+}
+.my-page-history__achievement-description dd {
+  padding: 0;
+  margin: 0;
+}
+.my-page-history__achievement-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 480px) {
+  .my-page-history__achievement-list {
+    flex-direction: row;
+  }
+}
+.my-page-history__achievement-item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.my-page-history__achievement-link:hover {
+  text-decoration: underline;
+}
 .my-page-history__stamp {
   box-sizing: border-box;
   width: 100%;

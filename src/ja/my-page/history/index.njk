@@ -24,7 +24,26 @@ url: https://ohenro.online/ja/my-page/history/
     <div class="my-page-history__inner">
       <p>各地の寺院に伝わる教えや風景を、動画を通じて体験してみませんか？<br />ひとつの動画を最後まで視聴するごとに、あなたの歩みの証として「参拝スタンプ」が授与されます。<br />未踏のスタンプを押すと、新たな動画の世界へ。すべてのスタンプを巡り終えたとき、あなたの心には新しい気づきと、日々の平穏が宿っているはずです。</p>
     </div>
+
     <div class="my-page-history__inner">
+      <!-- .my-page-history__achievement に「is-hidden」をつければこのエリアは非表示になります --->
+      <div class="my-page-history__achievement">
+        <dl class="my-page-history__achievement-description">
+          <dt>閲覧証明書</dt>
+          <dd>四国八十八ヶ所、全88札所ページをすべて閲覧したことを証明するものです。以下のリンクより、結願書をご覧いただけます。</dd>
+        </dl>
+        <ul class="my-page-history__achievement-list">
+          <li class="my-page-history__achievement-item">
+            <a class="my-page-history__achievement-link" href="/">・1周目結願書</a>
+          </li>
+          <li class="my-page-history__achievement-item">
+            <a class="my-page-history__achievement-link" href="/">・2周目結願書</a>
+          </li>
+          <li class="my-page-history__achievement-item">
+            <a class="my-page-history__achievement-link" href="/">・3周目結願書</a>
+          </li>
+        </ul>
+      </div>
       <div class="my-page-history__bubble">
         {{ bubble.bubble("2周目", "現在の閲覧お寺Movie", "8") }}
       </div>
