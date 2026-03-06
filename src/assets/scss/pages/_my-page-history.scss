@@ -13,4 +13,22 @@
     padding: 0;
     margin-top: 0;
   }
+
+  // .my-page-history__bubble
+  &__bubble {
+  }
+
+  // .my-page-history__stamp
+  &__stamp {
+    @include container;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 8px;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px 8px;
+    }
+  }
 }

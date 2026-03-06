@@ -18,6 +18,11 @@
     transform: translateY(-100%);
   }
 
+  &.is-shadow {
+    border-radius: 0;
+    box-shadow: 0 6px 13px -12px #777;
+  }
+
   @include mq(desktop) {
     padding: 18px 24px;
   }

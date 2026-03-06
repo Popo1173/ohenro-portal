@@ -1,0 +1,71 @@
+@use '../foundation' as *;
+
+.stamp {
+  background: $color-white;
+  border: 1px solid #c3c3c3;
+  border-radius: 10px;
+
+  &.is-done {
+    border: 1px solid $color-key;
+  }
+
+  // .stamp__heading
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3px;
+    background: #c3c3c3;
+    border-radius: 7px 7px 0 0;
+
+    &.is-done {
+      background: $color-key;
+    }
+  }
+
+  // .stamp__temple-number
+
+  &__temple-number {
+    font-size: rem(14);
+    color: $color-white;
+  }
+
+  // .stamp__temple-name
+
+  &__temple-name {
+    font-size: rem(18);
+    font-weight: bold;
+    line-height: 1.2;
+    color: $color-white;
+  }
+
+  // .stamp__design
+
+  &__design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // .stamp__figure
+
+  &__figure {
+    padding: 8px 12px;
+    margin: 0;
+  }
+
+  // .stamp__image
+
+  &__image {
+  }
+
+  // .stamp__prefecture
+
+  &__prefecture {
+    padding: 0 0 8px;
+    margin: 0;
+    font-size: rem(14);
+    text-align: center;
+  }
+}

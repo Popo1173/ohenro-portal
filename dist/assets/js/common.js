@@ -132,10 +132,18 @@ if (header) {
     () => {
       const y = window.scrollY
 
+      // ヘッダー表示制御
       if (y > lastY && y > 50) {
-        header.classList.add('is-hidden') // 下スクロールで隠す
+        header.classList.add('is-hidden')
       } else {
-        header.classList.remove('is-hidden') // 上スクロールで表示
+        header.classList.remove('is-hidden')
+      }
+
+      // shadow制御
+      if (y > 0) {
+        header.classList.add('is-shadow')
+      } else {
+        header.classList.remove('is-shadow')
       }
 
       lastY = y

@@ -1,0 +1,14 @@
+{% for t in temples.temples %}
+<div class="stamp {% if t.visited %}is-done{% endif %}">
+  <div class="stamp__heading {% if t.visited %}is-done{% endif %}">
+    <span class="stamp__temple-number">第{{ t.no }}番</span>
+    <span class="stamp__temple-name">{{ t.temple }}</span>
+  </div>
+  <div class="stamp__design">
+    <figure class="stamp__figure">
+      <img class="stamp__image" src="/assets/images/my-page/history/stamp-{% if t.visited %}done{% else %}default{% endif %}.svg" alt="Stamp">
+    </figure>
+  </div>
+  <p class="stamp__prefecture">{{ t.prefecture }}</p>
+</div>
+{% endfor %}
