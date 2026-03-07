@@ -6,6 +6,16 @@
     "language": "Language",
     "auth": "ログアウト"
   },
+  "headerPublic": {
+    "zen": "禅とお遍路",
+    "temples": "札所情報",
+    "basic": "基礎知識",
+    "special": "スペシャルコンテンツ",
+    "news": "お知らせ",
+    "glossary": "用語集",
+    "language": "Language",
+    "auth": "ログイン"
+  },
   "favoriteTab": {
     "tokushima": "徳島県",
     "kochi": "高知県",

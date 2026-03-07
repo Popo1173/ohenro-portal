@@ -1,0 +1,30 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: auth
+footerType: user
+title: メールマガジン配信設定
+description: メールマガジンの購読・解除の設定が行えます。
+url: https://ohenro.online/ja/my-page/subscribe-edit/
+---
+<section class="signup">
+  {% import "_components/_page-title.njk" as title %}
+  {% import "_components/_form/_form-radio.njk" as radio %}
+  {% import "_components/_button-big.njk" as primary %}
+  {% import "_components/_button-normal.njk" as normal %}
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.pageTitle("メールマガジンの購読")}}
+        <p class="auth-completion__title-description">当サイトからのお知らせ・メールマガジンの配信に同意します。<br />会員登録後、当サイトからお知らせや最新情報をメールマガジンとしてお届けする場合があります。</p>
+      </div>
+      <form class="auth-completion__form is-megativ-margin">
+        {{ radio.formRadio("","subscribe",[{ label: "購読する", value: "subscribe" },{ label: "購読しない", value: "unsubscribe" }], "subscribe") }}
+        <div class="auth-completion__buttons">
+        {{ normal.normalButton("キャンセル", "link", "/" + lang + "/login/") }}
+        {{ primary.primaryButton("変更する", "submit", "/my-page/") }} 
+      </div>
+      </form>
+    </div>
+  </div>
+</section>

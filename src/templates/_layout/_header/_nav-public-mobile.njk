@@ -1,0 +1,60 @@
+{% from "_components/_lang-switcher.njk" import LangSwitcher %}
+{% from "_components/_button-small.njk" import buttonPill %}
+{% import "_components/_button-big.njk" as buttons %}
+{% from "_components/_lang-switcher.njk" import LangSwitcher %}
+
+<div class="nav-mobile__controls">
+  <ul class="nav-mobile__controls-list">
+    <li class="nav-mobile__controls-item">{{ LangSwitcher(lang, locate[lang], page.url | replace('/' + lang, '')) }}</li>
+    <li class="nav-mobile__controls-item">
+      <button class="nav-mobile__hamburger js-drawer-toggle" aria-label="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
+  <div class="nav-mobile__panel">
+    <div class="nav-mobile__heading">
+      <a href="/my-paege">
+        <figure class="nav-mobile__logo">
+          <img
+            src="/assets/images/common/ohenro-logo.webp"
+            class="nav-mobile__logo-image"
+            alt="88お遍路さん"
+          />
+        </figure>
+      </a>
+      <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    </div>
+    
+    <div class="nav-mobile__log-out">
+      {{ buttons.primaryButton(t.headerPublic.auth,"submit","","",true) }}
+    </div>
+
+    <!-- ナビ -->
+    {% set navItems = [
+      { link: "/" + lang + "/zen-ohenro/", label: t.headerPublic.zen },
+      { link: "/" + lang + "/temples/", label: t.headerPublic.temples },
+      { link: "/" + lang + "/guide/", label: t.headerPublic.basic },
+      { link: "/" + lang + "/special/", label: t.headerPublic.special },
+      { link: "/" + lang + "/news/", label: t.headerPublic.news },
+      { link: "/" + lang + "/glossary/", label: t.headerPublic.glossary }
+    ] %}
+    <ul class="nav-mobile__nav-list">
+      {% for item in navItems %}
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="{{ item.link }}">
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="nav-mobile__langrge">
+      {{ LangSwitcher(lang,locate[lang],page.url | replace('/' + lang, ''),"drawer") }}
+    </div>
+  </div>
+</div>

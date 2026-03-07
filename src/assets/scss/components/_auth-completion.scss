@@ -10,7 +10,8 @@
 .resetting,
 .complete,
 .profile-edit-complete,
-.account-delete {
+.account-delete,
+.account-delete-complet {
   display: flex;
   flex: 1;
 }
@@ -43,7 +44,7 @@
 
     @include mq(desktop) {
       max-width: 760px;
-      padding: 54px 85px 88px;
+      padding: 54px 80px 88px;
     }
   }
 

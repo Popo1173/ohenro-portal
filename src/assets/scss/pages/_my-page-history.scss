@@ -14,6 +14,68 @@
     margin-top: 0;
   }
 
+  // .my-page-history__achievement
+  &__achievement {
+    display: grid;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+    background: $color-white;
+    border: 1px solid $color-key;
+    border-radius: 10px;
+
+    &.is-hidden {
+      display: none;
+    }
+
+    // .my-page-history__achievement-description
+    &-description {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      dt {
+        padding: 0;
+        margin: 0;
+        font-size: 21px;
+        font-weight: bold;
+      }
+
+      dd {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    // .my-page-history__achievement-list
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+
+      @include mq(mobile) {
+        flex-direction: row;
+      }
+    }
+
+    // .my-page-history__achievement-item
+    &-item {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    // .my-page-history__achievement-link
+    &-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   // .my-page-history__bubble
   &__bubble {
   }
