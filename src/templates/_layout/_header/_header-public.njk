@@ -1,1 +1,25 @@
-っっd
+<header class="page-header">
+  <div class="page-header__logo">
+    <a href="/my-paege">
+      <figure class="page-header__logo-figure">
+        <img
+          src="/assets/images/common/ohenro-logo.webp"
+          class="my-page-header__logo-image"
+          alt="88お遍路さん"
+        />
+      </figure>
+    </a>
+  </div>
+
+
+  <nav class="page-header__nav">
+    <!-- desktopNav -->
+    <div class="page-header__nav-desktop">
+      {% include "_layout/_header/_nav-public-desktop.njk" %}
+    </div>
+    <!-- mobileNav -->
+    <div class="page-header__nav-mobile">
+      {% include "_layout/_header/_nav-public-mobile.njk" %}
+    </div>
+  </nav>
+</header>

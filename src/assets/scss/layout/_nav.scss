@@ -65,6 +65,14 @@
         border-right: 1px solid #5d5d5d;
       }
     }
+
+    &.is-public {
+      border-right: none;
+
+      .nav-desktop__nav-link {
+        color: $color-text;
+      }
+    }
   }
 
   // .nav-desktop__nav-link

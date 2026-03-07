@@ -3,7 +3,7 @@
 // ========================================
 // 会員情報登録、確認画面
 // ========================================
-.my-page-header {
+.page-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -23,7 +23,8 @@
     box-shadow: 0 6px 13px -12px #777;
   }
 
-  @include mq(desktop) {
+  @include mq(tablet) {
+    align-items: end;
     padding: 18px 24px;
   }
 
