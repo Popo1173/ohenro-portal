@@ -1,0 +1,93 @@
+@use '../foundation' as *;
+
+.temples {
+  // .temples__main-visual
+
+  &__main-visual {
+  }
+
+  // .temples__temple
+
+  &__temple {
+    @include container;
+  }
+
+  // .temples__temple-nav
+
+  &__temple-nav {
+  }
+
+  // .temples__content
+
+  &__content {
+  }
+
+  // .temples__tokushima
+
+  &__tokushima {
+  }
+
+  // .temples__inner
+
+  &__inner {
+  }
+
+  // .temples__map
+
+  &__map {
+    padding: 0;
+    margin: 0;
+  }
+
+  // .temples__map-image
+
+  &__map-image {
+  }
+
+  // .temples__information
+
+  &__information {
+    dl {
+    }
+    dt {
+      padding: 0;
+      margin: 0;
+    }
+    dd {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // .temples__number
+  &__number {
+    // .temples__number-text
+    &-text {
+    }
+  }
+
+  // .temples__list
+
+  &__list {
+  }
+
+  // .temples__item
+
+  &__item {
+  }
+
+  // .temples__kochi
+
+  &__kochi {
+  }
+
+  // .temples__ehime
+
+  &__ehime {
+  }
+
+  // .temples__kagawa
+
+  &__kagawa {
+  }
+}

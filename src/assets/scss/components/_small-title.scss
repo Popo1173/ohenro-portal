@@ -1,0 +1,25 @@
+@use '../foundation' as *;
+
+.small-title {
+  display: flex;
+  &::before {
+    display: block;
+    width: 13px;
+    height: 13px;
+    margin-top: 7px;
+    margin-right: 10px;
+    content: '';
+    background-color: #c8952a;
+    border-radius: 50%;
+  }
+
+  // .small-title__text
+
+  &__text {
+    font-size: 18px;
+
+    @include mq(desktop) {
+      font-size: 24px;
+    }
+  }
+}

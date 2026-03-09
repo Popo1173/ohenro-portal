@@ -9,8 +9,11 @@ url: https://ohenro.online/ja/temples/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% from "_components/_main-visual-lower.njk" import mainVisual %}
+{% from "_components/_small-title.njk" import smallTitle %}
+{% import "_components/_temple-card.njk" as card %}
 
-<div>
+<div class="temples">
   <div class="page-heading">
 		<div class="page-heading__title">
 			<span>{{ title.pageTitle("八十八ヶ所 札所情報", "", "88 Temples") }}</span>
@@ -19,4 +22,48 @@ url: https://ohenro.online/ja/temples/
 			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報" }], lang) }}
 		</div>
 	</div>
+  <section class="temples__main-visual">
+    {{ mainVisual("/assets/images/temple/temple.jpg", "お寺", top) }}
+  </section>
+
+  {% set currentTab = tab or "tokushima" %}
+  <section class="temples__temple">
+    <div class="temples__temple-nav">
+      {% set tabListClass = "bg-blue" %}
+      {% include "_components/_tab.njk" %}
+    </div>
+    <div class="temples__content">
+      <div class="temples__tokushima tab-panel" data-tab="tokushima">
+
+        <div class="temples__inner">
+          <figure class="temples__map">
+            <img class="temples__map-image" src="/assets/images/temple/map-tokushima.svg" alt="徳島県">
+          </figure>
+          
+          <dl class="temples__information">
+            <dt>{{ smallTitle("徳島県") }}</dt>
+            <dd>徳島県は第一番札所を擁する、お遍路の「はじまりの地」です。<br />山深い札所や遍路道が多く、「修行の道場」とも呼ばれ、<br />心と身体を整えながら巡礼の第一歩を踏み出す地域とされています。</dd>
+          </dl>
+        </div>
+
+        <div class="my-page-favorite__number">
+          <p class="my-page-favorite__number-text">第01番〜23番</p>
+        </div>
+        <ul class="temples__list">
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+        </ul>
+
+      
+      </div>
+      <div class="temples__kochi tab-panel" data-tab="kochi">kochi</div>
+      <div class="temples__ehime tab-panel" data-tab="ehime">ehime</div>
+      <div class="temples__kagawa tab-panel" data-tab="kagawa">kagawa</div>
+    </div>
+  </section>
 </div>

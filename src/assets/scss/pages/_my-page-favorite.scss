@@ -14,15 +14,6 @@
     margin-top: 0;
   }
 
-  // .my-page-favorite__tab-panel
-  &__tab-panel {
-    display: none;
-
-    &.is-active {
-      display: block;
-    }
-  }
-
   // .my-page-favorite__number
   &__number {
     padding: 8px 24px;

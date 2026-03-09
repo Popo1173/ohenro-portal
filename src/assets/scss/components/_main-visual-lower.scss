@@ -1,0 +1,39 @@
+@use '../foundation' as *;
+
+.main-visual {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+
+  @include mq(desktop) {
+    @include container;
+
+    margin-top: 0;
+  }
+
+  // .main-visual__figure
+
+  &__figure {
+    padding: 0;
+    margin: 0;
+  }
+
+  // .main-visual__image
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+
+    @include mq(desktop) {
+      aspect-ratio: 3 / 1; // 1200 ÷ 400 = 3
+      border-radius: 20px;
+
+      &.is-top {
+        object-position: top;
+      }
+    }
+  }
+}

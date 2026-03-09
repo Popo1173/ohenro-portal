@@ -21,6 +21,10 @@
     margin: 0;
     background: $color-white;
     border-radius: 50px;
+
+    &.bg-blue {
+      background: #f5f7f9;
+    }
   }
 
   // .tab__item
@@ -86,5 +90,14 @@
         background: $color-kagawa;
       }
     }
+  }
+}
+
+// .my-page-favorite__tab-panel
+.tab-panel {
+  display: none;
+
+  &.is-active {
+    display: block;
   }
 }
