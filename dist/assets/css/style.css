@@ -528,6 +528,29 @@ hr {
   padding: 0 16px;
   margin: 40px auto;
 }
+.page-title-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.page-title-main__design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 21px;
+  color: #9f1627;
+}
+.page-title-main__design::before {
+  display: block;
+  width: 13px;
+  height: 13px;
+  content: "";
+  background-color: #c8952a; /* オレンジ */
+  border-radius: 50%;
+}
+.page-title-main__design {
+  font-family: "Futura Medium Italic", Futura, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
 .page-title-main__text {
   font-size: 1.75rem;
   font-weight: bold;

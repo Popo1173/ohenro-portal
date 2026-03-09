@@ -9,6 +9,14 @@ url: https://ohenro.online/ja/temples/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
-{% import "_components/_button-big.njk" as buttons %}
 
-<section>ddd</section>
+<div>
+  <div class="page-heading">
+		<div class="page-heading__title">
+			<span>{{ title.pageTitle("八十八ヶ所 札所情報", "", "88 Temples") }}</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報" }], lang) }}
+		</div>
+	</div>
+</div>

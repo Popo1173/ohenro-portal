@@ -26,6 +26,30 @@
 }
 
 .page-title-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  // .page-title-main__design
+  &__design {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 21px;
+    color: $color-primary;
+
+    &::before {
+      display: block;
+      width: 13px;
+      height: 13px;
+      content: '';
+      background-color: #c8952a; /* オレンジ */
+      border-radius: 50%;
+    }
+
+    @include font-futura;
+  }
+
   // .heading-my-page__text
 
   &__text {
