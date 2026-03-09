@@ -1875,14 +1875,17 @@ hr {
   max-width: 1200px;
   padding: 0 16px;
   margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 .temples__wrapper {
   position: relative;
-  margin-top: 32px;
+  margin-bottom: 40px;
 }
 @media (min-width: 1024px) {
   .temples__wrapper {
-    margin-top: 56px;
+    margin-bottom: 64px;
   }
 }
 @media (min-width: 1024px) {
@@ -1947,9 +1950,28 @@ hr {
     display: block;
   }
 }
-.temples__list {
+.temples__number {
+  padding: 8px 24px;
+  margin-bottom: 32px;
+  background: #eaeaea;
+  border-radius: 20px 20px 0 0;
+}
+.temples__number-text {
   padding: 0;
   margin: 0;
+  font-size: 18px;
+}
+.temples__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1024px) {
+  .temples__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .temples__item {
   padding: 0;

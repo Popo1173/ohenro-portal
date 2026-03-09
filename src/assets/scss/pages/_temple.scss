@@ -10,6 +10,10 @@
 
   &__temple {
     @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
   }
 
   // .temples__temple-nav
@@ -30,10 +34,10 @@
   // .temples__wrapper
   &__wrapper {
     position: relative;
-    margin-top: 32px;
+    margin-bottom: 40px;
 
     @include mq(desktop) {
-      margin-top: 56px;
+      margin-bottom: 64px;
     }
   }
 
@@ -120,16 +124,31 @@
 
   // .temples__number
   &__number {
+    padding: 8px 24px;
+    margin-bottom: 32px;
+    background: #eaeaea;
+    border-radius: 20px 20px 0 0;
+
     // .temples__number-text
     &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
     }
   }
 
   // .temples__list
 
   &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
     padding: 0;
     margin: 0;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   // .temples__item
