@@ -240,7 +240,7 @@ elseif ($post_send_flag && isset($request_data["md"]) && ($request_data["md"] ==
 	db_close($dbh);
 
 }
-elseif ($post_send_flag && isset($request_data["md"]) && $request_data["md"] == "mail_flag") {
+elseif ($post_send_flag && isset($request_data["md"]) && $request_data["md"] == "subscribe") {
 	//メルマガ購読変更処理
 
 	//セッションクリア
@@ -424,6 +424,9 @@ elseif (isset($request_data["md"]) && $request_data["md"] == "password") {
 elseif (strpos($path, "my-page/account-delete/") !== false) {
 	//退会確認画面
 
+	//ログインチェック
+	check_login_user();
+
 	if ($request_data["md"] == "chk") {
 		$data = $_SESSION[$update_session_name];
 		$class_ary = $data["class_ary"];
@@ -442,9 +445,17 @@ elseif (strpos($path, "my-page/account-delete/") !== false) {
 elseif (strpos($path, "my-page/subscribe-edit/") !== false) {
 	//メルマガ購読変更画面
 
+	//ログインチェック
+	check_login_user();
+
 	//詳細データ取得
 	$obj_data->get_data($_SESSION["login_info_user"]);
 	$data = $obj_data->data;
+
+	$hidden .= '    <input type="hidden" name="md" value="subscribe">
+	<input type="hidden" name="lang_code" value="' . $lang_code . '">
+	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">
+';
 }
 elseif (strpos($path, "signup/form/confirm") !== false) {
 	//確認画面
@@ -519,6 +530,9 @@ elseif (strpos($path, "signup/form/") !== false || strpos($path, "my-page/profil
 		}
 	}
 	elseif ($request_data["s"] || $_SESSION["login_info_user"]["user_id"]) {
+		//ログインチェック
+		check_login_user();
+
 		if (strpos($path, "profile-edit/") === false) {
 			$error_flag = true;
 		}
@@ -647,24 +661,37 @@ elseif (strpos($path, "password-reset/") !== false) {
 elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/history/") !== false) {
 	//視聴履歴一覧、お気に入り一覧
 
+	//ログインチェック
+	check_login_user();
+
 	//データ取得
 	$search = array();
+	$search["lang_code"] = $lang_code;
 	$search["user_id"] = $_SESSION["login_info_user"]["user_id"];
-	$search["pref"] = $request_data["pref"];
+	$search["pref"] = $shikoku_tab[$request_data["tab"]];
 
 	//データベースオープン
 	$dbh = db_open();
+
+	//札所クラス
+	require_once(CLASS_PATH . 'class_temple.php');
+	$obj_temple = new class_temple();
+
+	//動画CSV読み込み
+	$csv_data = get_csv_movie($lang_code);
 
 	if (strpos($path, "history/") !== false) {
 		//視聴履歴
 		$search["mode_flag"] = 1;
 
-		//札所一覧取得
-		require_once(CLASS_PATH . 'class_temple.php');
-		$obj_temple = new class_temple();
+		//詳細データ取得
+		$obj_data->get_data($search);
+		$data = $obj_data->data;
 
-		$obj_temple->get_list($search, $dbh);
-		$list = $obj_temple->list;
+		//合計
+		$obj_data->get_movie_list($search, $dbh);
+		$list = $obj_data->movie_list;
+		$cnt = $obj_data->movie_max;
 
 		//周回取得
 		if ($data["ohenro_num"]) {
@@ -689,6 +716,16 @@ elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/h
 	//データベースクローズ
 	db_close($dbh);
 
+	//動画用URL
+	for ($i = 0; $i < count_ary($list); $i++) {
+		$list[$i]["movie2_flag"] = false;
+		if ($csv_data[$list[$i]["temple_num"]-1]["url2"]) {
+			//住職ムービーが存在するかのフラグ
+			$list[$i]["movie2_flag"] = true;
+			$list[$i]["movie_url2"] = $obj_temple->get_movie_url($list[$i], 2);
+		}
+		$list[$i]["movie_url1"] = $obj_temple->get_movie_url($list[$i], 1);
+	}
 }
 //elseif ($mode == "award") {
 elseif (strpos($path, "my-page/award/") !== false) {
@@ -697,9 +734,18 @@ elseif (strpos($path, "my-page/award/") !== false) {
 	//詳細データ取得
 	$obj_data->get_data($request_data);
 	$data = $obj_data->data;
+/*
+	$search = $request_data;
+	$search["user_id"] = $_$SESSION["login_info_user"]["user_id"];
+	$obj_data->get_award($search);
+	$data = $obj_data->data;
+*/
 }
 elseif (strpos($path, "my-page/") !== false) {
 	//詳細
+
+	//ログインチェック
+	check_login_user();
 
 	//セッションクリア
 	session_unregister($update_session_name);
@@ -715,9 +761,13 @@ elseif (strpos($path, "my-page/") !== false) {
 	start_trans($dbh);
 
 	//詳細データ取得
-	$data = check_login_user($request_data, $obj_data, $dbh);
+	$search = array();
+	$search["user_id"] = $_SESSION["login_info_user"]["user_id"];
+	$obj_data->get_data($search, $dbh);
+	$data = $obj_data->data;
 
-	//絞り込み
+	//お知らせ一覧取得
+	$search = array();
 	$search = $request_data;
 	$search["mypage_flag"] = 1;
 	$search["limit"] = "limit 5 ";

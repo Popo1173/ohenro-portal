@@ -114,7 +114,6 @@ class class_user  {
 			count(r.round_id) as ohenro_num,
 			u.temp_id,
 			u.security_code,
-			date_format(r.insert_date, '%Y年%c月%e日') as round_date,
 			date_format(u.insert_date, '%Y/%c/%e') as insert_date,
 			date_format(u.update_date, '%Y/%c/%e') as update_date
 		from
@@ -125,6 +124,8 @@ class class_user  {
 			u.user_id = r.user_id
 		where
 			u." . $this->class_name . "_id is not null " . $sql_search . "
+		group by
+			u.user_id
 		";
 
 		$item = get_array($dbh, $sql);
@@ -311,24 +312,6 @@ class class_user  {
 
 		//認証成功
 		return true;
-	}
-
-	//ログイン状態確認
-	function check_login_info($request_data, $event) {
-		if ($event["login_flag"]) {
-			if (session_is_registered("login_info_user")) {
-				//セッション更新
-				$_SESSION["login_info_user"] = $_SESSION["login_info_user"];
-				return true;
-			}
-		}
-		else {
-			if ($request_data["s"]) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	//エラーチェック
@@ -1181,6 +1164,34 @@ class class_user  {
 		return $data;
 	}
 
+	//賞状表示情報取得
+	function get_award($request_data = "", $db_handle = null) {
+		if (!$data["user_id"] || !$data["round_id"]) {
+			return false;
+		}
+
+		//データ取得
+		$sql = "
+		select
+			u.family_name,
+			u.first_name,
+			date_format(r.insert_date, '%Y年%c月%e日') as round_date
+		from
+			" . TBL_HEAD . $this->class_name . " u
+		inner join
+			" . TBL_HEAD . "user_round r
+		on
+			u.user_id = r.user_id
+		where
+			u." . $this->class_name . "_id is not null " . $sql_search . "
+		and
+			r.round_id = " . escape_sql($data["round_id"]) . "
+		";
+
+		$item = get_array($dbh, $sql);
+		return $item[0];
+	}
+
 	//お遍路達成日一覧取得
 	function get_round_list($request_data = "", $db_handle = null) {
 		$data = $request_data;
@@ -1202,12 +1213,12 @@ class class_user  {
 			r.insert_date
 		from
 			" . TBL_HEAD . "user_round r
-		and
-			r.user_id = " . escape_sql($data["user_id"]) . "
 		where
 			r.round_id is not null " . $sql_search . "
+		and
+			r.user_id = " . escape_sql($data["user_id"]) . "
 		order by
-			r.insert_date desc
+			r.insert_date
 		" . $data["limit"];
 
 		$item = get_array($dbh, $sql);
@@ -1219,10 +1230,10 @@ class class_user  {
 			count(*) as cnt
 		from
 			" . TBL_HEAD . "user_round r
-		and
-			r.user_id = " . escape_sql($data["user_id"]) . "
 		where
 			r.round_id is not null " . $sql_search . "
+		and
+			r.user_id = " . escape_sql($data["user_id"]) . "
 		";
 
 		$item = get_array($dbh, $sql);
@@ -1261,58 +1272,132 @@ class class_user  {
 			t.pref = " . escape_sql($data["pref"]);
 		}
 
-		//データ取得
-		$sql = "
-		select
-			r.relation_id,
-			r.temple_num,
-			r.movie_num,
-			t.lang_code,
-			t.temple_name,
-			t.image_url1,
-			t.image_url2,
-			t.movie_detail1,
-			t.movie_detail2,
-			t.movie_category
-		from
-			" . TBL_HEAD . "temple t
-		inner join
-			" . TBL_HEAD . "movie_user r
-		on
-			t.temple_id = r.temple_id
-		and
-			r.user_id = " . escape_sql($data["user_id"]) . "
-		and
-			r.mode_flag = " . escape_sql($data["mode_flag"]) . "
-		where
-			t.temple_id is not null " . $sql_search . "
-		order by
-			r.insert_date desc
-		" . $data["limit"];
+		if ($data["mode_flag"] == 1) {
+			//データ取得
+			$sql = "
+			select
+				r.relation_id,
+				r.movie_num,
+				t.temple_id,
+				t.lang_code,
+				t.temple_num,
+				t.mountain,
+				t.temple_name,
+				t.pref,
+				t.movie_detail1,
+				t.movie_detail2,
+				t.movie_category
+			from
+				" . TBL_HEAD . "temple t
+			left join
+				" . TBL_HEAD . "movie_user r
+			on
+				t.temple_num = r.temple_num
+			and
+				r.user_id = " . escape_sql($data["user_id"]) . "
+			and
+				r.movie_num = 1
+			and
+				r.mode_flag = " . escape_sql($data["mode_flag"]) . "
+			where
+				t.temple_id is not null " . $sql_search . "
+			and
+				t.lang_code = " . escape_sql($data["lang_code"]) . "
+			order by
+				t.temple_num
+			" . $data["limit"];
 
-		$item = get_array($dbh, $sql);
-		$this->movie_list = $item;
+			$item = get_array($dbh, $sql);
+			$this->movie_list = $item;
 
-		//最大件数取得
-		$sql = "
-		select
-			count(*) as cnt
-		from
-			" . TBL_HEAD . "temple t
-		left join
-			" . TBL_HEAD . "movie_user r
-		on
-			t.temple_id = r.temple_id
-		where
-			t.temple_id is not null " . $sql_search . "
-		and
-			r.user_id = " . escape_sql($data["user_id"]) . "
-		and
-			r.mode_flag = " . escape_sql($data["mode_flag"]) . "
-		";
+			//最大件数取得
+			$sql = "
+			select
+				count(*) as cnt
+			from
+				" . TBL_HEAD . "temple t
+			inner join
+				" . TBL_HEAD . "movie_user r
+			on
+				t.temple_num = r.temple_num
+			where
+				t.temple_id is not null " . $sql_search . "
+			and
+				r.user_id = " . escape_sql($data["user_id"]) . "
+			and
+				r.movie_num = 1
+			and
+				r.mode_flag = " . escape_sql($data["mode_flag"]) . "
+			and
+				t.lang_code = " . escape_sql($data["lang_code"]) . "
+			";
 
-		$item = get_array($dbh, $sql);
-		$this->movie_max = $item[0]["cnt"];
+			$item = get_array($dbh, $sql);
+			$this->movie_max = $item[0]["cnt"];
+		}
+		else {
+			//データ取得
+			$sql = "
+			select
+				r.relation_id,
+				r.movie_num,
+				t.temple_id,
+				t.lang_code,
+				t.temple_num,
+				t.mountain,
+				t.temple_name,
+				t.pref,
+				t.movie_detail1,
+				t.movie_detail2,
+				t.movie_category
+			from
+				" . TBL_HEAD . "temple t
+			inner join
+				" . TBL_HEAD . "movie_user r
+			on
+				t.temple_num = r.temple_num
+			where
+				t.temple_id is not null " . $sql_search . "
+			and
+				r.user_id = " . escape_sql($data["user_id"]) . "
+			and
+				r.movie_num = 1
+			and
+				r.mode_flag = " . escape_sql($data["mode_flag"]) . "
+			and
+				t.lang_code = " . escape_sql($data["lang_code"]) . "
+			order by
+				t.temple_num
+			" . $data["limit"];
+
+			$item = get_array($dbh, $sql);
+			$this->movie_list = $item;
+
+			//最大件数取得
+			$sql = "
+			select
+				count(*) as cnt
+			from
+				" . TBL_HEAD . "temple t
+			inner join
+				" . TBL_HEAD . "movie_user r
+			on
+				t.temple_num = r.temple_num
+			where
+				t.temple_id is not null " . $sql_search . "
+			and
+				r.user_id = " . escape_sql($data["user_id"]) . "
+			and
+				r.movie_num = 1
+			and
+				r.mode_flag = " . escape_sql($data["mode_flag"]) . "
+			and
+				t.lang_code = " . escape_sql($data["lang_code"]) . "
+			";
+
+			$item = get_array($dbh, $sql);
+			$this->movie_max = $item[0]["cnt"];
+		}
 
 		if (!$db_handle) {
 			//データベースクローズ
@@ -1330,7 +1415,7 @@ class class_user  {
 			return false;
 		}
 
-		//データ取得
+		//重複確認
 		$sql = "
 		select
 			relation_id
@@ -1349,7 +1434,7 @@ class class_user  {
 		$item = get_array($dbh, $sql);
 
 		if (!count_ary($item)) {
-			//データ登録
+			//重複がなければデータ登録
 			$sql = "
 			insert into " . TBL_HEAD . "movie_user (
 				lang_code,
@@ -1373,14 +1458,27 @@ class class_user  {
 			$rs = trans_exec($dbh, $sql);
 		}
 
-		//お遍路全制覇時の処理
-		$search = array();
-		$search["user_id"] = $data["user_id"];
-		$search["movie_num"] = $data["movie_num"];
-		$search["mode_flag"] = 1;
+		if ($data["mode_flag"] == 2) {
+			return true;
+		}
 
-		$this->get_list($search, $dbh);
-		if (count_ary($this->list) >= 88) {
+		//お遍路全制覇時の処理
+		$sql = "
+		select
+			count(*) as cnt
+		from
+			" . TBL_HEAD . "movie_user
+		where
+			user_id = " . escape_sql($data["user_id"]) . "
+		and
+			movie_num = 1
+		and
+			mode_flag = 1
+		";
+
+		$item = get_array($dbh, $sql);
+
+		if ($item[0]["cnt"] >= 88) {
 			//データ更新
 			$sql = "
 			update 
@@ -1394,6 +1492,19 @@ class class_user  {
 			//テーブル更新
 			$rs = trans_exec($dbh, $sql);
 
+			//データ更新
+			$sql = "
+			insert into " . TBL_HEAD . "user_round (
+				user_id,
+				insert_date,
+			) values (
+				" . escape_sql($data["user_id"]) . ",
+				now()
+			)";
+
+			//テーブル更新
+			$rs = trans_exec($dbh, $sql);
+
 			//視聴履歴をリセット
 			$sql = "
 			delete from
@@ -1401,7 +1512,7 @@ class class_user  {
 			where
 				user_id = " . escape_sql($data["user_id"]) . "
 			and
-				movie_flag = 1
+				mode_flag = 1
 			";
 
 			//テーブル更新
@@ -1430,7 +1541,7 @@ class class_user  {
 		and
 			movie_num = " . escape_sql($data["movie_num"]) . "
 		and
-			movie_flag = 2
+			mode_flag = 2
 		";
 
 		//テーブル更新

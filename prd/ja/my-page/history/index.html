@@ -1,0 +1,608 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/user.php'); ?>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>お寺Movie閲覧履歴 ｜ ohenro.online</title>
+    <meta name="description" content="これまでに視聴した映像の履歴を表示します。" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="お寺Movie閲覧履歴" />
+    <meta property="og:description" content="これまでに視聴した映像の履歴を表示します。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/my-page/history/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    
+<header class="page-header">
+  <div class="page-header__logo">
+    <a href="/my-paege">
+      <figure class="page-header__logo-figure">
+        <img
+          src="/assets/images/common/ohenro-logo.webp"
+          class="my-page-header__logo-image"
+          alt="88お遍路さん"
+        />
+      </figure>
+    </a>
+  </div>
+
+
+  <nav class="page-header__nav">
+    <!-- desktopNav -->
+    <div class="page-header__nav-desktop">
+      
+
+<div class="nav-desktop__controls">
+  <ul class="nav-desktop__controls-list">
+    <li class="nav-desktop__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/history/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/history/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/history/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/history/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/history/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/history/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-desktop__controls-item">
+      <a class="nav-desktop__controls-link" href="/ja/logout/">
+          <img src="/assets/images/icons/icon-logout.svg" alt="logout" />ログアウト
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- ナビ -->
+
+<ul class="nav-desktop__nav-list">
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/my-page/">
+      <img src="/assets/images/icons/icon-home.svg" alt="マイページトップ" />マイページトップ
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/favorite/">
+      <img src="/assets/images/icons/icon-favorite.svg" alt="お気に入り" />お気に入り
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/history/">
+      <img src="/assets/images/icons/icon-history.svg" alt="お寺Movie閲覧履歴" />お寺Movie閲覧履歴
+    </a>
+  </li>
+  
+</ul>
+    </div>
+    <!-- mobileNav -->
+    <div class="page-header__nav-mobile">
+      
+
+
+
+
+<div class="nav-mobile__controls">
+  <ul class="nav-mobile__controls-list">
+    <li class="nav-mobile__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/history/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/history/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/history/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/history/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/history/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/history/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-mobile__controls-item">
+      <button class="nav-mobile__hamburger js-drawer-toggle" aria-label="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
+  <div class="nav-mobile__panel">
+    <div class="nav-mobile__heading">
+      <a href="/my-paege">
+        <figure class="nav-mobile__logo">
+          <img
+            src="/assets/images/common/ohenro-logo.webp"
+            class="nav-mobile__logo-image"
+            alt="88お遍路さん"
+          />
+        </figure>
+      </a>
+      <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    </div>
+    
+    <div class="nav-mobile__log-out">
+      
+  
+    <button
+      type="submit"
+      
+      class="button-primary__button"
+    >
+      <!-- ログアウトアイコン -->
+      
+      <span class="button-primary__icon">
+       <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 14.48 16"
+        >
+          <path d="M1.458,13.711V2.289a.833.833,0,0,1,.832-.832h8.885V0H2.289A2.292,2.292,0,0,0,0,2.289V13.711A2.292,2.292,0,0,0,2.289,16h8.885V14.542H2.289a.833.833,0,0,1-.832-.832" />
+          <path d="M29.953,24.106l4.579-4.579-4.579-4.578-1.03,1.03L31.742,18.8H26v1.458h5.738l-2.819,2.819Z" transform="translate(-20.052 -11.528)" />
+        </svg>
+      </span>
+      
+      <span class="button-primary__button-text">ログアウト</span>
+    </button>
+
+  
+
+    </div>
+
+    <!-- ナビ -->
+    
+    <ul class="nav-mobile__nav-list">
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/my-page/">
+          <span>マイページトップ</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/favorite/">
+          <span>お気に入り</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/history/">
+          <span>お寺Movie閲覧履歴</span>
+        </a>
+      </li>
+      
+    </ul>
+
+    <div class="nav-mobile__langrge">
+      
+<div class="lang-switcher js-lang lang-switcher--drawer">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/history/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/history/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/history/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/history/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/history/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/history/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/history/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+    </div>
+  </nav>
+</header>
+
+    
+
+    <main>
+      
+
+
+
+<div class="my-page-history">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			<span>
+<h1 class="page-title-main">
+	<span class="page-title-main__text ">お寺Movie閲覧履歴</span>
+</h1>
+</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			
+<nav class="breadcrumbs">
+  <a href="/ja/">HOME</a>
+
+  
+    <span> &gt; </span>
+
+    
+      <a href="/ja/my-page//">マイページ</a>
+    
+  
+    <span> &gt; </span>
+
+    
+      <span>お寺Movie閲覧履歴</span>
+    
+  
+</nav>
+
+		</div>
+	</div>
+  <div class="auth-completion is-no-margin">
+    <div class="my-page-history__inner">
+      <p>各地の寺院に伝わる教えや風景を、動画を通じて体験してみませんか？<br />ひとつの動画を最後まで視聴するごとに、あなたの歩みの証として「参拝スタンプ」が授与されます。<br />未踏のスタンプを押すと、新たな動画の世界へ。すべてのスタンプを巡り終えたとき、あなたの心には新しい気づきと、日々の平穏が宿っているはずです。</p>
+    </div>
+
+<?php if ($round_max) { ?>
+    <div class="my-page-history__inner">
+      <!-- .my-page-history__achievement に「is-hidden」をつければこのエリアは非表示になります --->
+      <div class="my-page-history__achievement">
+        <dl class="my-page-history__achievement-description">
+          <dt>閲覧証明書</dt>
+          <dd>四国八十八ヶ所、全88札所ページをすべて閲覧したことを証明するものです。以下のリンクより、結願書をご覧いただけます。</dd>
+        </dl>
+        <ul class="my-page-history__achievement-list">
+<?php   for ($i = 0; $i < $round_max; $i++) { ?>
+          <li class="my-page-history__achievement-item">
+            <a class="my-page-history__achievement-link" href="/ja/my-page/award/index.html?round_id=<?=$round_list[$i]["round_id"]?>">・<?=($i+1)?>周目結願書</a>
+          </li>
+<?php   } ?>
+        </ul>
+      </div>
+      <div class="my-page-history__bubble">
+<?php } ?>
+        
+<div class="bubble">
+  <div class="bubble__inner">
+    <span class="bubble__laps">[<?=($round_max+1)?>周目]</span>
+    <span class="bubble__title">現在の閲覧お寺Movie</span>
+  </div>
+  <div class="bubble__temple">
+    <span class="bubble__temple-number"><?=$cnt?></span>
+    <span class="bubble__temple-text">札所 / 88</span>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <div class="my-page-history__stamp">
+      
+<?php for ($i = 0; $i < count_ary($list); $i++) { ?>
+<?php   if ($list[$i]["relation_id"]) { ?>
+<div class="stamp is-done">
+  <div class="stamp__heading is-done">
+<?php   } else {?>
+<div class="stamp ">
+  <div class="stamp__heading ">
+<?php   } ?>
+    <span class="stamp__temple-number">第<?=escape_html($list[$i]["temple_num"])?>番</span>
+    <span class="stamp__temple-name"><?=escape_html($list[$i]["temple_name"])?></span>
+  </div>
+  <div class="stamp__design">
+    <figure class="stamp__figure">
+<?php   if ($list[$i]["relation_id"]) { ?>
+      <img class="stamp__image" src="/assets/images/my-page/history/stamp-done.svg" alt="Stamp">
+<?php   } else {?>
+      <img class="stamp__image" src="/assets/images/my-page/history/stamp-default.svg" alt="Stamp">
+<?php   } ?>
+    </figure>
+  </div>
+  <p class="stamp__prefecture"><?=escape_html($list[$i]["pref"])?></p>
+</div>
+<?php } ?>
+
+    </div>
+  </div>
+
+
+
+</div>
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>

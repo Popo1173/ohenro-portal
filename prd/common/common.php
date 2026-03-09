@@ -193,9 +193,9 @@ function check_login_info($flag = 1) {
 //------------------------------------------------------------------------------
 //ユーザー画面ログイン状態チェック
 //ログイン状態でない場合は、ログイン画面へジャンプする
-//引数 : リクエスト情報、ユーザークラス、データベースハンドル
+//引数 : なし
 //戻り値 : ログイン情報
-function check_login_user($request_data, $obj_data, $dbh = null) {
+function check_login_user() {
 	global $lang_ary;
 
 	//ログインありの場合
@@ -203,15 +203,7 @@ function check_login_user($request_data, $obj_data, $dbh = null) {
 		//セッション更新
 		$_SESSION["login_info_user"] = $_SESSION["login_info_user"];
 
-		//詳細データ取得
-		$search = array();
-		$search["user_id"] = $_SESSION["login_info_user"]["user_id"];
-		$obj_data->get_data($search, $dbh);
-		$data = $obj_data->data;
-
-		if (count_ary($data)) {
-			return $data;
-		}
+		return true;
 	}
 
 	// セッションクリア
@@ -223,11 +215,6 @@ function check_login_user($request_data, $obj_data, $dbh = null) {
 	}
 	else {
 		$url .= "&url=" . $_SERVER["SCRIPT_NAME"];
-	}
-
-	if ($dbh) {
-		//データベースクローズ
-		db_close($dbh);
 	}
 
 	header("Location: " . $url);

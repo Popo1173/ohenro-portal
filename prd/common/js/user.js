@@ -1,18 +1,18 @@
 
   //APIの読み込み
-  var tag = document.createElement('script');
+  let tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
+  let firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var video_id = 'GCZtPhDTM48';
-  var end_flag = false;
+  let video_id = 'GCZtPhDTM48';
+  let end_flag = false;
 
   function set_video_id(vid) {
     video_id = vid;
   }
 
-  var player;
+  let player;
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
       height: '360',
@@ -67,7 +67,7 @@
   // 1秒ごとに再生時間をチェックするタイマー
   setInterval(function() {
     if (player && player.getPlayerState() == YT.PlayerState.PLAYING) {
-      var currentTime = player.getCurrentTime();
+      let currentTime = player.getCurrentTime();
       if (currentTime >= 30) { 
         player.pauseVideo();
         player = null;

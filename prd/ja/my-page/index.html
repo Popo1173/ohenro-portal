@@ -1,0 +1,667 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/user.php'); ?>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>マイページ ｜ ohenro.online</title>
+    <meta name="description" content="会員専用のマイページ画面です。" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="マイページ" />
+    <meta property="og:description" content="会員専用のマイページ画面です。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/my-page/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    
+<header class="my-page-header">
+  <div class="my-page-header__logo">
+    <a href="/my-paege">
+      <figure class="my-page-header__logo-figure">
+        <img
+          src="/assets/images/common/ohenro-logo.webp"
+          class="my-page-header__logo-image"
+          alt="88お遍路さん"
+        />
+      </figure>
+    </a>
+  </div>
+
+
+  <nav class="my-page-header__nav">
+    <!-- desktopNav -->
+    <div class="my-page-header__nav-desktop">
+      
+
+<div class="nav-desktop__controls">
+  <ul class="nav-desktop__controls-list">
+    <li class="nav-desktop__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-desktop__controls-item">
+      <a class="nav-desktop__controls-link" href="/ja/logout/">
+          <img src="/assets/images/icons/icon-logout.svg" alt="logout" />ログアウト
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- ナビ -->
+
+<ul class="nav-desktop__nav-list">
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/my-page/">
+      <img src="/assets/images/icons/icon-home.svg" alt="マイページトップ" />マイページトップ
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/favorite/">
+      <img src="/assets/images/icons/icon-favorite.svg" alt="お気に入り" />お気に入り
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/history/">
+      <img src="/assets/images/icons/icon-history.svg" alt="お寺Movie閲覧履歴" />お寺Movie閲覧履歴
+    </a>
+  </li>
+  
+</ul>
+    </div>
+    <!-- mobileNav -->
+    <div class="my-page-header__nav-mobile">
+      
+
+
+
+
+<div class="nav-mobile__controls">
+  <ul class="nav-mobile__controls-list">
+    <li class="nav-mobile__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-mobile__controls-item">
+      <button class="nav-mobile__hamburger js-drawer-toggle" aria-label="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
+  <div class="nav-mobile__panel">
+    <div class="nav-mobile__heading">
+      <a href="/my-paege">
+        <figure class="nav-mobile__logo">
+          <img
+            src="/assets/images/common/ohenro-logo.webp"
+            class="nav-mobile__logo-image"
+            alt="88お遍路さん"
+          />
+        </figure>
+      </a>
+      <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    </div>
+    
+    <div class="nav-mobile__log-out">
+      
+  
+    <button
+      type="submit"
+      
+      class="button-primary__button"
+    >
+      <!-- ログアウトアイコン -->
+      
+      <span class="button-primary__icon">
+       <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 14.48 16"
+        >
+          <path d="M1.458,13.711V2.289a.833.833,0,0,1,.832-.832h8.885V0H2.289A2.292,2.292,0,0,0,0,2.289V13.711A2.292,2.292,0,0,0,2.289,16h8.885V14.542H2.289a.833.833,0,0,1-.832-.832" />
+          <path d="M29.953,24.106l4.579-4.579-4.579-4.578-1.03,1.03L31.742,18.8H26v1.458h5.738l-2.819,2.819Z" transform="translate(-20.052 -11.528)" />
+        </svg>
+      </span>
+      
+      <span class="button-primary__button-text">ログアウト</span>
+    </button>
+
+  
+
+    </div>
+
+    <!-- ナビ -->
+    
+    <ul class="nav-mobile__nav-list">
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/my-page/">
+          <span>マイページトップ</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/favorite/">
+          <span>お気に入り</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/history/">
+          <span>お寺Movie閲覧履歴</span>
+        </a>
+      </li>
+      
+    </ul>
+
+    <div class="nav-mobile__langrge">
+      
+<div class="lang-switcher js-lang lang-switcher--drawer">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+    </div>
+  </nav>
+</header>
+
+    
+
+    <main>
+      
+
+
+
+<div class="my-page">
+	<div class="page-heading">
+		<div class="page-heading__title">
+			<span>
+<h1 class="page-title-main">
+	<span class="page-title-main__text ">マイページ</span>
+</h1>
+</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			
+<nav class="breadcrumbs">
+  <a href="/ja/">HOME</a>
+
+  
+    <span> &gt; </span>
+
+    
+      <span>マイページ</span>
+    
+  
+</nav>
+
+		</div>
+	</div>
+
+  <div class="auth-completion is-no-margin">
+    <div class="my-page__inner">
+      <section class="my-page__news">
+        <h2 class="page-title-small">お知らせ</h2>
+        <div class="my-page__news-list">
+          <section class="news">
+  <ul class="news__list">
+<?php for ($i = 0; $i < count_ary($notice); $i++) { ?>
+    <li class="news__item">
+      <a class="news__link" href="/news/detail.html?id=<?=$notice[$i]["notice_id"]?>">
+        <dl class="news__date"><?=escape_html($notice[$i]["up_date"])?> </dl>
+        <dd class="news__text"><?=escape_html($notice[$i]["title"])?></dd>
+      </a>
+    </li>
+<?php } ?>
+  </ul>
+</section>
+        </div>
+      </section>
+
+      <div class="my-page__contet">
+        <section class="my-page__member">
+          <h2 class="page-title-small">会員情報</h2>
+          <div class="my-page__member-inner">
+          
+<dl class="member">
+  
+  <dt class="member__label">メールアドレス</dt>
+  <dd class="member__value"><?=escape_html($data["email"])?></dd>
+  
+  <dt class="member__label">姓</dt>
+  <dd class="member__value"><?=escape_html($data["family_name"])?></dd>
+  
+  <dt class="member__label">名</dt>
+  <dd class="member__value"><?=escape_html($data["first_name"])?></dd>
+  
+  <dt class="member__label">セイ</dt>
+  <dd class="member__value"><?=escape_html($data["family_kana"])?></dd>
+  
+  <dt class="member__label">メイ</dt>
+  <dd class="member__value"><?=escape_html($data["first_kana"])?></dd>
+  
+  <dt class="member__label">年代</dt>
+  <dd class="member__value"><?=escape_html($data["age"])?></dd>
+  
+</dl>
+<div class="member__edit">
+  <button class="button" type="button" type="submit" id="member-edit">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18.561" height="20" viewBox="0 0 18.561 20" fill="#d3992c">
+      <path d="M1.462 13.95S.385 18.178 0 19.831L2.066 17a1.42 1.42 0 0 1 .254-1.41 1.227 1.227 0 0 1 1.707-.04 1.181 1.181 0 0 1 .075 1.67 1.369 1.369 0 0 1-1.389.351L.13 20l5.448-2.109 2.188-3.28L4.9 11.928ZM16.777.04C15.95.607 5.6 11.122 5.6 11.122L8.518 13.9s8.77-10.378 10.043-12.49A1.406 1.406 0 0 0 16.777.04"/>
+    </svg>
+	<a href="profile-edit/">
+      <span class="button-text">会員情報を変更する</span>
+    </a>
+  </button>
+</div>
+
+<hr>
+
+<div class="member__subscription">
+  <dl class="member">
+    <dt class="member__label">メールマガジンの購読</dt>
+    <dd class="member__value"><?=$mail_read_ary[$data["mail_flag"]]?></dd>
+  </dl>
+  <div class="member__edit">
+    <button class="button" type="button" type="submit" id="subscription-edit">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18.561" height="20" viewBox="0 0 18.561 20" fill="#d3992c">
+        <path d="M1.462 13.95S.385 18.178 0 19.831L2.066 17a1.42 1.42 0 0 1 .254-1.41 1.227 1.227 0 0 1 1.707-.04 1.181 1.181 0 0 1 .075 1.67 1.369 1.369 0 0 1-1.389.351L.13 20l5.448-2.109 2.188-3.28L4.9 11.928ZM16.777.04C15.95.607 5.6 11.122 5.6 11.122L8.518 13.9s8.77-10.378 10.043-12.49A1.406 1.406 0 0 0 16.777.04"/>
+      </svg>
+	<a href="subscribe-edit/">
+      <span class="button-text">配信を変更する</span>
+    </a>
+  </button>
+  </div>
+</div>
+
+<hr>
+
+<div class="member__withdrawal">
+  <p>退会をご希望の場合は、<a class="member__withdrawal-link" href="/ja/my-page/account-delete/">こちら</a>から</p>
+</div>
+          </div>
+        </section>
+
+        <section class="my-page__favorite">
+          <h2 class="page-title-small">お気に入り札所</h2>
+          
+<div class="favorite">
+  <ul class="favorite__list">
+    
+    <li class="favorite__item">
+      <a class="favorite__link is-tokushima" href="/ja/my-page/favorite/?tab=tokushima">徳島県</a>
+    </li>
+    
+    <li class="favorite__item">
+      <a class="favorite__link is-kochi" href="/ja/my-page/favorite/?tab=kochi">高知県</a>
+    </li>
+    
+    <li class="favorite__item">
+      <a class="favorite__link is-ehime" href="/ja/my-page/favorite/?tab=ehime">愛媛県</a>
+    </li>
+    
+    <li class="favorite__item">
+      <a class="favorite__link is-kagawa" href="/ja/my-page/favorite/?tab=kagawa">香川県</a>
+    </li>
+    
+  </ul>
+</div>
+        </section>
+
+        <section class="my-page__history">
+          <h2 class="page-title-small">お寺Movie閲覧履歴</h2>
+          <div class="my-page__history-button">
+            <div class="my-page__history-button-inner">
+             
+  
+    <a
+      href="/ja/my-page/history/"
+      
+      class="button-primary__button"
+    >
+      
+      <span class="button-primary__button-text">あなたのお遍路既踏状況</span>
+    </a>
+  
+
+             </div>
+          </div>
+        </section>
+      </div>
+    </div>
+</div>
+</div>
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>

@@ -61,7 +61,7 @@ function submit_search() {
 <?php
 	for ($i = 0; $i < count_ary($lang_string); $i++) {
 ?>
-      <option value="<?=$i?>"<?=check_select($i, intval($data["lang_code"]))?>><?=escape_html($lang_string[$i])?></option>
+      <option value="<?=$i?>"<?=check_select(strval($i), $data["lang_code"])?>><?=escape_html($lang_string[$i])?></option>
 <?php
 	}
 ?>

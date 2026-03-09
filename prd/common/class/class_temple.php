@@ -195,7 +195,6 @@ class class_temple  {
 			$dbh = db_open();
 		}
 
-		$sql_relation = "";
 		$sql_search = $data["search"];
 		if ($data["free_word"]) {
 			$word = $data["free_word"];
@@ -236,16 +235,6 @@ class class_temple  {
 			t.pref = " . escape_sql($data["pref"]);
 		}
 
-		if ($data["user_id"]) {
-			$sql_relation .= "
-		and
-			r.user_id = " . escape_sql($data["user_id"]) . "
-		and
-			r.movie_num = 1
-		and
-			r.mode_flag = " . escape_sql($data["mode_flag"]);
-		}
-
 		if ($data["order_id"] === "desc") {
 			$data["order"] = "
 		order by
@@ -269,15 +258,10 @@ class class_temple  {
 		$sql = "
 		select
 			t.temple_id,
-			r.relation_id,
 			" . $sql_field . "
 			t.update_date as up_date
 		from
 			" . TBL_HEAD . "temple t
-		left join
-			" . TBL_HEAD . "movie_user r
-		on
-			t.temple_num = r.temple_num ". $sql_relation . "
 		where
 			t.temple_id is not null " . $sql_search . $data["search"] . "
 		" . $data["order"] . "
@@ -308,12 +292,14 @@ class class_temple  {
 	}
 
 	//動画URL取得
-	function get_movie_url($request_data) {
+	function get_movie_url($request_data, $movie_num = 1) {
+		global $lang_ary;
 		$data = $request_data;
 
 		$url = HTTP_ROOT . $lang_ary[$data["lang_code"]] . "/temples/movie.html?lang=" . $lang_ary[$data["lang_code"]];
-		$url .= "&temple=" . $data["temple_num"] . "&num=" . $data["movie_num"];
+		$url .= "&temple=" . $data["temple_num"] . "&num=" . $movie_num;
 
+		return $url;
 	}
 
 	//動画URLからIDを取得
@@ -341,10 +327,20 @@ class class_temple  {
 		return $url;
 	}
 
-	//画像パス取得
+	//サムネイル画像パス取得
 	function get_image_path($id) {
 		$file_root = TEMPLE_IMAGE_ROOT . sprintf('%02d', $id) . IMAGE_FILE_EXT;
 		$file_name = TEMPLE_IMAGE_PATH . sprintf('%02d', $id) . IMAGE_FILE_EXT;
+		if (!is_file($file_root)) {
+			$file_name = $this->no_img;
+		}
+		return $file_name;
+	}
+
+	//Lサイズ画像パス取得
+	function get_lsize_path($id) {
+		$file_root = TEMPLE_LSIZE_ROOT . sprintf('%02d', $id) . IMAGE_FILE_EXT;
+		$file_name = TEMPLE_LSIZE_PATH . sprintf('%02d', $id) . IMAGE_FILE_EXT;
 		if (!is_file($file_root)) {
 			$file_name = $this->no_img;
 		}

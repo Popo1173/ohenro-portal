@@ -82,19 +82,39 @@ elseif (strpos($path, "temples/movie") !== false) {
 		$title = $csv_data[$temple-1]["temple"];
 		$url = $csv_data[$temple-1]["url" . $num];
 
-		$js_string = "set_movie_id(" . $obj_data->get_movie_id($url) . ", " . $lang_code . ", " . $temple . ", " . $num . ");";
+		$js_string = "<script>
+  window.onload = function() {
+    set_movie_id(" . $obj_data->get_movie_id($url) . ", " . $lang_code . ", " . $temple . ", " . $num . ");
+  }
+</sciprt>";
 	}
 	else {
 		//その他の動画画面
+		$movie_key = "";
 		$movie_id = "";
+		$title = "";
+
 		if (isset($request_data["mid"])) {
-			$movie_id = $request_data["mid"];
+			//管理IDからURLを取得する
+			$movie_key = $request_data["mid"];
+			for ($i = 88; $i < count_ary($csv_data); $i++) {
+				if ($csv_data[$i]["pref"] == $movie_key) {
+					$movie_id = $obj_data->get_movie_id($csv_data[$i]["url1"]);
+					$title = $csv_data[$i]["temple"];
+					break;
+				}
+			}
 		}
+
 		if (!$movie_id && isset($request_data["url"])) {
 			$movie_id = $obj_data->get_movie_id($request_data["url"]);
 		}
 
-		$js_string = "set_movie_id(" . $movie_id . ", " . $lang_code . ");";
+		$js_string = "<script>
+  window.onload = function() {
+    set_movie_id(" . $movie_id . ", " . $lang_code . ");
+  }
+</script>";
 	}
 
 	//会員かどうかで読み込むファイルを変える
@@ -116,14 +136,10 @@ elseif (strpos($path, "temples") !== false) {
 	//絞り込み
 	$data = $request_data;
 	$search = array();
+	//スペイン語、フランス語、イタリア語、ドイツ語の場合は英語を取得
 	$search["en_flag"] = true;
 	$data["lang_code"] = get_lang_code($search);
-/*
-	//スペイン語、フランス語、イタリア語、ドイツ語の場合は英語を取得
-	if (!array_key_exists($lang_code, $lang_string)) {
-		$data["lang_code"] = array_search('en', $lang_ary);
-	}
-*/
+
 	if (is_login()) {
 		$data["user_id"] = $_SESSION["login_info_user"]["user_id"];
 	}
@@ -138,19 +154,37 @@ elseif (strpos($path, "temples") !== false) {
 	$num2 = min($page*$num+count_ary($obj_data->list), ($page+1)*$num, $max);
 
 	//動画用URL
-	$movie_url = "../movie.html?lang_code=" . $lang_code;
 	for ($i = 0; $i < count_ary($list); $i++) {
 		$list[$i]["movie2_flag"] = false;
-		if ($csv_data[$list[$i]["temple_num"]]["url2"]) {
+		if ($csv_data[$list[$i]["temple_num"-1]]["url2"]) {
 			//住職ムービーが存在するかのフラグ
 			$list[$i]["movie2_flag"] = true;
-			$list[$i]["movie_url2"] = $movie_url ."&temple=" . $list[$i]["temple_num"] . "&num=2";
+			$list[$i]["movie_url2"] = $obj_data->get_movie_url($list[$i], 2);
 		}
-		$list[$i]["movie_url1"] = $movie_url ."&temple=" . $list[$i]["temple_num"] . "&num=1";
+		$list[$i]["movie_url1"] = $obj_data->get_movie_url($list[$i], 1);
 	}
 
 }
 else {
+
+		//その他の動画画面
+		$movie_key = "";
+		$movie_id = "";
+		$title = "";
+
+		if (isset($request_data["mid"])) {
+			//管理IDからURLを取得する
+			$movie_key = $request_data["mid"];
+			for ($i = 88; $i < count_ary($csv_data); $i++) {
+				if ($csv_data[$i]["pref"] == $movie_key) {
+					$movie_id = $obj_data->get_movie_id($csv_data[$i]["url1"]);
+					$title = $csv_data[$i]["temple"];
+					break;
+				}
+			}
+		}
+c($movie_id);
+
 
 }
 

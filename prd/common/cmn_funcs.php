@@ -581,7 +581,7 @@ function convert_str($str, $encoding, $current = "auto") {
 //------------------------------------------------------------------------------
 //PHP 8以降対策
 function mb_string_length($str) {
-	if ($str) {
+	if ($str !== null) {
 		return mb_strlen($str);
 	}
 	return $str;
@@ -590,7 +590,7 @@ function mb_string_length($str) {
 //------------------------------------------------------------------------------
 //PHP 8以降対策
 function string_length($str) {
-	if ($str) {
+	if ($str !== null) {
 		return strlen($str);
 	}
 	return $str;
@@ -714,6 +714,16 @@ function make_time($hour, $min, $sec, $month, $day, $year) {
 	return mktime($h, $m, $s, $mon, $d, $y);
 }
 
+
+//------------------------------------------------------------------------------
+//デバッグ用に変数、配列の内容を出力して終了する(文字化け対策済み)
+//引数：表示する変数または配列
+//戻り値：なし
+function c($str) {
+	header('Content-Type: text/html; charset=' . CHAR_SET);
+	print_r($str);
+	exit;
+}
 
 //------------------------------------------------------------------------------
 //変数、配列の内容を出力

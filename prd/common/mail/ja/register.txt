@@ -5,7 +5,6 @@
 ■お客様情報
 お名前　　　　　　:#family_name# #first_name#
 メールアドレス　　:#email#
-居住国　　　　　　:#country#
 年齢層　　　　　　:#age#
 
 
@@ -13,3 +12,10 @@
 
 #url#
 
+
+□■━━━━━━━━━━━━━━━━━━━━━━━
+OHENRO.ONLINE
+https://ohenro.online/
+■　運営会社：株式会社こんにちハロー
+■　お問合せ先：https://ohenro.online/contact-us/
+━━━━━━━━━━━━━━━━━━━━━━━■□

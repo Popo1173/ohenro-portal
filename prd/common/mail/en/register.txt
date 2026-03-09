@@ -1,0 +1,17 @@
+Thank you very much for registering with "OHENRO.ONLINE".
+
+■ Customer Information
+Name: #first_name# #family_name#
+Email Address: #email#
+Age Group: #age#
+
+You can access your My Account by clicking the link below.
+
+#url#
+
+□■━━━━━━━━━━━━━━━━━━━━━━━
+OHENRO.ONLINE
+https://ohenro.online/
+Operator: Konnichi Hello Co., Ltd.
+Contact: https://ohenro.online/contact-us/
+━━━━━━━━━━━━━━━━━━━━━━━■□

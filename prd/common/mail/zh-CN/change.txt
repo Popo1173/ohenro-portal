@@ -1,0 +1,18 @@
+OHENRO.ONLINE
+我们已收到您在“OHENRO.ONLINE”的注册信息更新申请。
+
+■ 用户信息
+姓名：#family_name# #first_name#
+邮箱：#email#
+年龄段：#age#
+
+您可以通过点击下方链接访问您的个人主页。
+
+#url#
+
+□■━━━━━━━━━━━━━━━━━━━━━━━
+OHENRO.ONLINE
+https://ohenro.online/
+运营公司：Konnichi Hello 株式会社
+联系我们：https://ohenro.online/contact-us/
+━━━━━━━━━━━━━━━━━━━━━━━■□

@@ -27,15 +27,25 @@ class class_csv  {
 
 		$f = fopen($file, "r");
 
-//なぜかlocalhost:8000ではうまく読み込めない
-//		while($tmp = fgetcsv($f)){
-		while ($line = fgets($f)) {
-			$tmp = string_to_array(",", $line);
-			if ($convert) {
-				$tmp = mb_convert_change($tmp, $convert, "SJIS");
+		//なぜかlocalhost:8000ではうまく読み込めない
+		if ($_SERVER["SERVER_PORT"] == "8000") {
+			while ($line = fgets($f)) {
+				$tmp = string_to_array(",", $line);
+				if ($convert) {
+					$tmp = mb_convert_change($tmp, $convert, "SJIS");
+				}
+				array_push($csv_data, $tmp);
 			}
-			array_push($csv_data, $tmp);
 		}
+		else {
+			while($tmp = fgetcsv($f)) {
+				if ($convert) {
+					$tmp = mb_convert_change($tmp, $convert, "SJIS");
+				}
+				array_push($csv_data, $tmp);
+			}
+		}
+
 		fclose($f);
 
 		$this->list = $csv_data;

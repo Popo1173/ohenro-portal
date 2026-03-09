@@ -35,8 +35,10 @@ define("PDF_FILE_ROOT", SVR_ROOT . "pdf/");
 define("PDF_FILE_PATH", HTTP_ROOT . "pdf/");
 define("IMAGE_FILE_ROOT", SVR_ROOT . "image/notice/");
 define("IMAGE_FILE_PATH", HTTP_ROOT . "image/notice/");
-define("TEMPLE_IMAGE_ROOT", SVR_ROOT . "image/temple/");
-define("TEMPLE_IMAGE_PATH", HTTP_ROOT . "image/temple/");
+define("TEMPLE_IMAGE_ROOT", SVR_ROOT . "assets/images/temple/temple-");
+define("TEMPLE_IMAGE_PATH", HTTP_ROOT . "assets/images/temple/temple-");
+define("TEMPLE_LSIZE_ROOT", SVR_ROOT . "assets/images/temple-l/");
+define("TEMPLE_LSIZE_PATH", HTTP_ROOT . "assets/images/temple-l/");
 define("INFO_IMAGE_ROOT", CMN_ROOT . "image/");
 define("INFO_IMAGE_PATH", CMN_PATH . "image/");
 
@@ -71,6 +73,7 @@ $keys = array(
 	"2"=>"url1",
 	"3"=>"url2",
 );
+//札所以外の動画は、89行目以降に管理ID,タイトル,URL,(空白)とする
 
 //メッセージCSV列定義(lang_codeをvalueとする)
 $message_keys = array(
@@ -292,7 +295,19 @@ $display_ary = array(
 );
 
 //都道府県(四国のみ)
-$shikoku_ary = array("徳島県","香川県","愛媛県","高知県");
+$shikoku_ary = array("徳島県", "高知県", "愛媛県", "香川県");
+$shikoku_tab = array(
+	"tokushima"=>"徳島県",
+	"kochi"=>"高知県",
+	"ehime"=>"愛媛県",
+	"kagawa"=>"香川県",
+);
+$shikoku_temple_num = array(
+	"tokushima"=>"第01番～23番",
+	"kochi"=>"第24番～39番",
+	"ehime"=>"第40番～65番",
+	"kagawa"=>"第66番～88番",
+);
 
 
 //暗号化キー

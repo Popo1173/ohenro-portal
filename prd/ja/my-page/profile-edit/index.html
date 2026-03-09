@@ -1,0 +1,791 @@
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/user.php'); ?>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- title / description -->
+    <title>会員情報変更 ｜ ohenro.online</title>
+    <meta name="description" content="登録情報の確認と変更が行える画面です。" />
+
+    <!-- OGP -->
+    <meta property="og:title" content="会員情報変更" />
+    <meta property="og:description" content="登録情報の確認と変更が行える画面です。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ohenro.online/ja/my-page/profile-edit/" />
+    <meta property="og:image" content="" />
+
+    <!-- favicon,apple-touch-icon -->
+    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- JS -->
+    <script src="/assets/js/common.js" defer></script>
+    <script src="/assets/js/survey.js" defer></script>
+    
+    <!-- /es,de,fr,it の時のみタグを出力 -->
+    
+  </head>
+  <body>
+    
+    
+<header class="my-page-header">
+  <div class="my-page-header__logo">
+    <a href="/my-paege">
+      <figure class="my-page-header__logo-figure">
+        <img
+          src="/assets/images/common/ohenro-logo.webp"
+          class="my-page-header__logo-image"
+          alt="88お遍路さん"
+        />
+      </figure>
+    </a>
+  </div>
+
+
+  <nav class="my-page-header__nav">
+    <!-- desktopNav -->
+    <div class="my-page-header__nav-desktop">
+      
+
+<div class="nav-desktop__controls">
+  <ul class="nav-desktop__controls-list">
+    <li class="nav-desktop__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/profile-edit/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-desktop__controls-item">
+      <a class="nav-desktop__controls-link" href="/ja/logout/">
+          <img src="/assets/images/icons/icon-logout.svg" alt="logout" />ログアウト
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- ナビ -->
+
+<ul class="nav-desktop__nav-list">
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/my-page/">
+      <img src="/assets/images/icons/icon-home.svg" alt="マイページトップ" />マイページトップ
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/favorite/">
+      <img src="/assets/images/icons/icon-favorite.svg" alt="お気に入り" />お気に入り
+    </a>
+  </li>
+  
+  <li class="nav-desktop__nav-item">
+    <a class="nav-desktop__nav-link" href="/ja/history/">
+      <img src="/assets/images/icons/icon-history.svg" alt="お寺Movie閲覧履歴" />お寺Movie閲覧履歴
+    </a>
+  </li>
+  
+</ul>
+    </div>
+    <!-- mobileNav -->
+    <div class="my-page-header__nav-mobile">
+      
+
+
+
+
+<div class="nav-mobile__controls">
+  <ul class="nav-mobile__controls-list">
+    <li class="nav-mobile__controls-item">
+<div class="lang-switcher js-lang ">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/profile-edit/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+</li>
+    <li class="nav-mobile__controls-item">
+      <button class="nav-mobile__hamburger js-drawer-toggle" aria-label="menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </li>
+  </ul>
+</div>
+<div id="mobile-drawer" class="nav-mobile__drawer js-drawer">
+  <div class="nav-mobile__panel">
+    <div class="nav-mobile__heading">
+      <a href="/my-paege">
+        <figure class="nav-mobile__logo">
+          <img
+            src="/assets/images/common/ohenro-logo.webp"
+            class="nav-mobile__logo-image"
+            alt="88お遍路さん"
+          />
+        </figure>
+      </a>
+      <button class="nav-mobile__close js-drawer-toggle" aria-label="close">×</button>
+    </div>
+    
+    <div class="nav-mobile__log-out">
+      
+  
+    <button
+      type="submit"
+      
+      class="button-primary__button"
+    >
+      <!-- ログアウトアイコン -->
+      
+      <span class="button-primary__icon">
+       <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 14.48 16"
+        >
+          <path d="M1.458,13.711V2.289a.833.833,0,0,1,.832-.832h8.885V0H2.289A2.292,2.292,0,0,0,0,2.289V13.711A2.292,2.292,0,0,0,2.289,16h8.885V14.542H2.289a.833.833,0,0,1-.832-.832" />
+          <path d="M29.953,24.106l4.579-4.579-4.579-4.578-1.03,1.03L31.742,18.8H26v1.458h5.738l-2.819,2.819Z" transform="translate(-20.052 -11.528)" />
+        </svg>
+      </span>
+      
+      <span class="button-primary__button-text">ログアウト</span>
+    </button>
+
+  
+
+    </div>
+
+    <!-- ナビ -->
+    
+    <ul class="nav-mobile__nav-list">
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/my-page/">
+          <span>マイページトップ</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/favorite/">
+          <span>お気に入り</span>
+        </a>
+      </li>
+      
+      <li class="nav-mobile__nav-item">
+        <a class="nav-mobile__nav-link" href="/ja/history/">
+          <span>お寺Movie閲覧履歴</span>
+        </a>
+      </li>
+      
+    </ul>
+
+    <div class="nav-mobile__langrge">
+      
+<div class="lang-switcher js-lang lang-switcher--drawer">
+  <button class="lang-switcher__toggle js-lang-toggle">
+    <img src="/assets/images/icons/icon-language.svg" alt="Language" />
+    日本語
+  </button>
+
+  <div class="lang-switcher__panel js-lang-panel">
+    <ul class="lang-switcher__list">
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/ja/my-page/profile-edit/"
+            class="lang-switcher__link is-current"
+            lang="ja"
+          >
+            日本語
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/en/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="en"
+          >
+            English
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-cn/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-cn"
+          >
+            中文（简体）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/zh-tw/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="zh-tw"
+          >
+            中文（繁體）
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/es/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="es"
+          >
+            Spanish
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/fr/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="fr"
+          >
+            Français
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/it/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="it"
+          >
+            Italiano
+          </a>
+        </li>
+      
+        <li class="lang-switcher__item">
+          <a
+          class="lang-switcher__link"
+            href="/de/my-page/profile-edit/"
+            class="lang-switcher__link "
+            lang="de"
+          >
+            German
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+    </div>
+  </nav>
+</header>
+
+    
+
+    <main>
+      
+
+
+
+
+
+
+
+
+
+
+<section class="profile-edit">
+  <div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>
+<h1 class="page-title">
+	<span class="page-title__text ">会員情報変更</span>
+</h1>
+</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+			
+<nav class="breadcrumbs">
+  <a href="/ja/">HOME</a>
+
+  
+    <span> &gt; </span>
+
+    
+      <a href="/ja/my-page/">マイページ</a>
+    
+  
+    <span> &gt; </span>
+
+    
+      <span>会員情報変更</span>
+    
+  
+</nav>
+
+	  </div>
+	</div>
+	<div class="auth-completion is-no-margin">		
+		<div class="auth-completion__inner">
+			<form class="auth-completion__form" action="<?=HTTP_ROOT?>user.php" method="post">
+			<?=$hidden?>
+				
+<div class="text-fiedl">
+  <label for="email" class="text-fiedl__label is-required">メールアドレス</label>
+  <input 
+    type="text" 
+    id="email" 
+    name="email"
+    maxlength="254"
+    placeholder="Your Email" 
+    class="text-fiedl__input is-error"
+    value="<?=escape_html($data["email"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error<?=$class_ary["email"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["email_error"]?></p>
+    </div>
+  </div>
+</div>
+
+				
+<div class="password-field js-password-container">
+  <label for="password" class="password-field__label is-required">パスワード</label>
+  <div class="password-field__inner">
+    <input 
+      type="text" 
+      id="password" 
+      name="password" 
+      minlength="8"
+      maxlength="128"      
+      placeholder="Password" 
+      class="password-field__input js-password-input is-error"
+    >
+    <button type="button" class="password-field__switch js-password-toggle" aria-label="パスワードを表示する">
+      
+      <img src="/assets/images/icons/icon-pasword-on.svg" alt="パスワード表示する" />
+    </button>
+    <!-- エラー文言 -->
+      <p class="password-field__conditions ">半角英数字8文字以上</p>
+      <div class="error<?=$class_ary["password"]?>">
+        <div class="error-message">
+          <p class="error-message__text"><?=$class_ary["password_error"]?></p>
+        </div>
+      </div>
+  </div>
+</div>
+
+				
+<div class="text-fiedl">
+  <label for="lastName" class="text-fiedl__label is-required">姓</label>
+  <input 
+    type="text" 
+    id="lastName" 
+    name="family_name"
+    maxlength="254"
+    placeholder="御遍路" 
+    class="text-fiedl__input "
+    value="<?=escape_html($data["family_name"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["family_name"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["family_name_error"]?></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="firstName" class="text-fiedl__label is-required">名</label>
+  <input 
+    type="text" 
+    id="firstName" 
+    name="first_name"
+    maxlength="254"
+    placeholder="太郎" 
+    class="text-fiedl__input "
+    value="<?=escape_html($data["first_name"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["first_name"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["first_name_error"]?></p>
+    </div>
+  </div>
+</div>
+
+				
+<div class="text-fiedl">
+  <label for="lastNameKana" class="text-fiedl__label is-required">セイ</label>
+  <input 
+    type="text" 
+    id="lastNameKana" 
+    name="family_kana"
+    maxlength="254"
+    placeholder="オヘンロ" 
+    class="text-fiedl__input "
+    value="<?=escape_html($data["family_kana"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["family_kana"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["family_kana_error"]?></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="text-fiedl">
+  <label for="firstNameKana" class="text-fiedl__label is-required">メイ</label>
+  <input 
+    type="text" 
+    id="firstNameKana" 
+    name="first_kana"
+    maxlength="254"
+    placeholder="タロウ" 
+    class="text-fiedl__input "
+    value="<?=escape_html($data["first_kana"])?>"
+  >
+  <!-- エラー文言 -->
+   <div class="error <?=$class_ary["first_kana"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["first_kana_error"]?></p>
+    </div>
+  </div>
+</div>
+
+				
+<div class="radio-group">
+  <div class="radio-group__label is-required">
+    年代
+  </div>
+	<ul class="radio-group__list">
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="18～29"
+					<?=check_radio("18～29", $data["age"])?>
+				/>
+				18～29
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="30～39"
+					<?=check_radio("30～39", $data["age"])?>
+				/>
+				30～39
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="40～49"
+					<?=check_radio("40～49", $data["age"])?>
+				/>
+				40～49
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="50～59"
+					<?=check_radio("50～59", $data["age"])?>
+				/>
+				50～59
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="60～69"
+					<?=check_radio("60～69", $data["age"])?>
+				/>
+				60～69
+			</label>
+		</li>
+		
+		<li class="radio-group__item">
+			<label>
+				<input
+					type="radio"
+					name="age"
+					value="70 and above"
+					<?=check_radio("70 and above", $data["age"])?>
+				/>
+				70 and above
+			</label>
+		</li>
+		
+		</ul>
+</div>
+   <div class="error<?=$class_ary["age"]?>">
+    <div class="error-message">
+      <p class="error-message__text"><?=$class_ary["age_error"]?></p>
+    </div>
+  </div>
+					
+				<div class="auth-completion__buttons is-margin">
+				
+  
+    <a href="/ja/my-page/"  class="button-normal__button">
+      <span class="button-normal__button-text">キャンセル</span>    
+    </a>
+  
+
+        
+  
+    <button
+      type="submit"
+      
+      class="button-primary__button"
+    >
+      <!-- ログアウトアイコン -->
+      
+      <span class="button-primary__button-text">変更する</span>
+    </button>
+
+  
+
+			</div>
+			</form>
+		</div>
+	</div>
+</section>
+    </main>
+
+    
+    <footer class="footer">
+	<div class="footer__inner">
+		<p class="footer__copy">copyright &copy;OHENRO.online</p>
+	</div>
+</footer>
+    
+
+  </body>
+</html>

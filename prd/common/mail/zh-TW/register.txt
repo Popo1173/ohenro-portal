@@ -1,0 +1,17 @@
+感謝您註冊「OHENRO.ONLINE」。
+
+■ 用戶資訊
+姓名：#family_name# #first_name#
+郵件：#email#
+年齡層：#age#
+
+您可以透過點擊下方連結進入您的個人頁面。
+
+#url#
+
+□■━━━━━━━━━━━━━━━━━━━━━━━
+OHENRO.ONLINE
+https://ohenro.online/
+營運公司：Konnichi Hello 株式會社
+聯絡我們：https://ohenro.online/contact-us/
+━━━━━━━━━━━━━━━━━━━━━━━■□

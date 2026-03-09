@@ -145,11 +145,6 @@ if ($data["image_file"]) {
   </tr>
 <!--
   <tr>
-    <th><?=$temple_header[array_search("interview", $temple_keys)]?></th>
-    <td><input type="text" name="taxi" value="<?=escape_html($data["interview"])?>" size="30"><br />
-    <strong>※セミコロン区切りで旅館インタビューIDを入力してください。</strong></td>
-  </tr>
-  <tr>
     <th><?=$temple_header[array_search("language", $temple_keys)]?></th>
     <td><textarea name="language" style="width:100%; height:100px;"><?=escape_html($data["language"])?></textarea></td>
   </tr>
@@ -161,6 +156,11 @@ if ($data["image_file"]) {
   <tr>
     <th><?=$temple_header[array_search("Johannes", $temple_keys)]?></th>
     <td><textarea name="Johannes" style="width:100%; height:100px;"><?=escape_html($data["Johannes"])?></textarea></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("interview", $temple_keys)]?></th>
+    <td><input type="text" name="taxi" value="<?=escape_html($data["interview"])?>" size="30"><br />
+    <strong>※セミコロン区切りで旅館インタビューIDを入力してください。</strong></td>
   </tr>
 </table>
 <!--//table_end-->

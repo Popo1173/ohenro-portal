@@ -1,14 +1,14 @@
   //APIの読み込み
-  var tag = document.createElement('script');
+  let tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
+  let firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  var video_id = 'GCZtPhDTM48';
-  var lang_code = null;
-  var temple_num = null;
-  var movie_num = null;
-  var end_flag = false;
+  let video_id = 'GCZtPhDTM48';
+  let lang_code = null;
+  let temple_num = null;
+  let movie_num = null;
+  let end_flag = false;
 
   function set_movie_id(vid, lc = null, t_num = null, m_num = null) {
     video_id = vid;
@@ -17,7 +17,7 @@
     movie_num = m_num;
   }
 
-  var player;
+  let player;
   function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
       height: '360',
@@ -38,14 +38,17 @@
     if (event.data == YT.PlayerState.ENDED) {
       // 終了後の処理
       if (temple_num) {
-        $.post("user.php", {
-          md: "movie_end",
-          lang_code : lang_code,
-          temple_num: temple_num,
-          movie_num: movie_num
-        }, function(data){
-          //alert("送信成功: " + data);
-        });
+        const data = { md: "movie_end", lang_code: lang_code, temple_num: temple_num, movie_num: movie_num };
+
+        fetch('/user.php', {
+          method: 'POST',
+          body: new URLSearchParams(data)
+        })
+        .then(res => res.text())
+        .then(() => {
+          location.reload();
+        })
+        .catch(err => console.error(err));
       }
     }
   }
