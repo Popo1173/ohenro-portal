@@ -8,6 +8,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
+  overflow-x: hidden;
   font-family: "Noto Sans JP", sans-serif;
   line-height: 1.6;
   color: #3b4043;
@@ -1875,9 +1876,56 @@ hr {
   padding: 0 16px;
   margin: 40px auto;
 }
+.temples__wrapper {
+  position: relative;
+  margin-top: 32px;
+}
+@media (min-width: 1024px) {
+  .temples__wrapper {
+    margin-top: 56px;
+  }
+}
+@media (min-width: 1024px) {
+  .temples__inner {
+    display: grid;
+    grid-template-columns: 0.9fr 0.3fr;
+    gap: 40px;
+  }
+}
 .temples__map {
   padding: 0;
   margin: 0;
+}
+.temples__bg {
+  position: absolute;
+  right: 0;
+  bottom: 110px;
+  z-index: 1;
+  width: 55%;
+  max-width: 270px;
+  padding: 0;
+  margin: 0;
+  margin-right: -20px;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .temples__bg {
+    bottom: 0;
+    max-width: 430px;
+  }
+}
+.temples__information {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media (min-width: 1024px) {
+  .temples__information {
+    gap: 20px;
+    margin-top: 56px;
+  }
 }
 .temples__information dt {
   padding: 0;
@@ -1886,6 +1934,27 @@ hr {
 .temples__information dd {
   padding: 0;
   margin: 0;
+  font-size: 14px;
+}
+.temples__information dd br {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .temples__information dd {
+    font-size: 18px;
+  }
+  .temples__information dd br {
+    display: block;
+  }
+}
+.temples__list {
+  padding: 0;
+  margin: 0;
+}
+.temples__item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=style.css.map */

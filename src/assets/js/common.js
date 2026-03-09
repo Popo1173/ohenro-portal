@@ -118,7 +118,7 @@ document.addEventListener('keydown', (e) => {
 // =========================
 // ヘッダースクロール追従
 // =========================
-const header = document.querySelector('.my-page-header')
+const header = document.querySelector('.page-header')
 
 if (header) {
   let lastY = window.scrollY
