@@ -1,4 +1,6 @@
 module.exports = function (eleventyConfig) {
+  // _で始まるファイル・フォルダをdist出力から除外
+  eleventyConfig.ignores.add('src/**/_*')
   /**
    * distへ各フォルダへのコピー
    * JSはバンドルしないため、記載（バンドルする場合は削除する）

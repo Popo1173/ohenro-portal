@@ -1,0 +1,176 @@
+@use '../foundation' as *;
+
+.temples {
+  // .temples__main-visual
+
+  &__main-visual {
+  }
+
+  // .temples__temple
+
+  &__temple {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  // .temples__temple-nav
+
+  &__temple-nav {
+  }
+
+  // .temples__content
+
+  &__content {
+  }
+
+  // .temples__tokushima
+
+  &__tokushima {
+  }
+
+  // .temples__wrapper
+  &__wrapper {
+    position: relative;
+    margin-bottom: 40px;
+
+    @include mq(desktop) {
+      margin-bottom: 64px;
+    }
+  }
+
+  // .temples__inner
+
+  &__inner {
+    @include mq(desktop) {
+      display: grid;
+      grid-template-columns: 0.9fr 0.3fr;
+      gap: 40px;
+    }
+  }
+
+  // .temples__map
+
+  &__map {
+    padding: 0;
+    margin: 0;
+
+    // .temples__map-image
+
+    &-image {
+    }
+  }
+
+  // .temples__bg
+  &__bg {
+    position: absolute;
+    right: 0;
+    bottom: 110px;
+    z-index: 1;
+    width: 55%;
+    max-width: 270px;
+    padding: 0;
+    margin: 0;
+    margin-right: -20px;
+    overflow: hidden;
+
+    @include mq(desktop) {
+      bottom: 0;
+      max-width: 430px;
+    }
+
+    // .temples__bg-image
+    &-image {
+    }
+  }
+
+  // .temples__information
+
+  &__information {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include mq(desktop) {
+      gap: 20px;
+      margin-top: 56px;
+    }
+    dt {
+      padding: 0;
+      margin: 0;
+    }
+    dd {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+
+      br {
+        display: none;
+      }
+
+      @include mq(desktop) {
+        font-size: 18px;
+
+        br {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // .temples__number
+  &__number {
+    padding: 8px 24px;
+    margin-bottom: 32px;
+    background: #eaeaea;
+    border-radius: 20px 20px 0 0;
+
+    // .temples__number-text
+    &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+
+  // .temples__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0;
+    margin: 0;
+
+    @include mq(desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // .temples__item
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  // .temples__kochi
+
+  &__kochi {
+  }
+
+  // .temples__ehime
+
+  &__ehime {
+  }
+
+  // .temples__kagawa
+
+  &__kagawa {
+  }
+}

@@ -9,6 +9,150 @@ url: https://ohenro.online/ja/temples/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
-{% import "_components/_button-big.njk" as buttons %}
+{% from "_components/_main-visual-lower.njk" import mainVisual %}
+{% from "_components/_small-title.njk" import smallTitle %}
+{% import "_components/_temple-card.njk" as card %}
 
-<section>ddd</section>
+<div class="temples">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			<span>{{ title.pageTitle("八十八ヶ所 札所情報", "", "88 Temples") }}</span>
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報" }], lang) }}
+		</div>
+	</div>
+  <section class="temples__main-visual">
+    {{ mainVisual("/assets/images/temple/temple.jpg", "お寺", top) }}
+  </section>
+
+  {% set currentTab = tab or "tokushima" %}
+  <section class="temples__temple">
+    <div class="temples__temple-nav">
+      {% set tabListClass = "bg-blue" %}
+      {% include "_components/_tab.njk" %}
+    </div>
+    <div class="temples__content">
+      <!-- 徳島県 -->
+      <div class="temples__tokushima tab-panel" data-tab="tokushima">
+        <div class="temples__wrapper">
+          <div class="temples__inner">
+            <figure class="temples__map">
+              <img class="temples__map-image" src="/assets/images/temple/map-tokushima.svg" alt="徳島県" />
+            </figure>
+            <dl class="temples__information">
+              <dt>{{ smallTitle("徳島県") }}</dt>
+              <dd>巡礼の始まりを担う最初の舞台。山道や険しい道が多く、歩みを重ねるごとに心身が少しずつ整っていきます。自然の厳しさに触れながら自分と向き合う時間が流れ、巡礼の覚悟が静かに芽生えていきます。すべての歩みの原点となる、お遍路の第一歩を刻む大切な地域です。</dd>
+            </dl>
+          </div>          
+          <figure class="temples__bg">
+            <img class="temples__bg-image" src="/assets/images/temple/map-bg.png" />
+          </figure>
+        </div>
+        <div class="temples__number">
+          <p class="temples__number-text">第01番〜23番</p>
+        </div>
+        <ul class="temples__list">
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-tokushima") }}</li>
+        </ul>
+      </div>
+      <!-- 高知県 -->      
+      <div class="temples__kochi tab-panel" data-tab="kochi">
+        <div class="temples__wrapper">
+          <div class="temples__inner">
+            <figure class="temples__map">
+              <img class="temples__map-image" src="/assets/images/temple/map-kouchi.svg" alt="高知県" />
+            </figure>
+            <dl class="temples__information">
+              <dt>{{ smallTitle("高知県") }}</dt>
+              <dd>太平洋に沿って長い道のりが続く巡礼の舞台。広大な自然の中を歩き続けることで、自分自身と向き合う時間が深まっていきます。厳しさの中にある達成感が、巡礼の実感を強く刻んでくれる地域。歩くことの意味を静かに見つめ直す、大切な行程が続く土地です。</dd>
+            </dl>
+          </div>          
+          <figure class="temples__bg">
+            <img class="temples__bg-image" src="/assets/images/temple/map-bg.png" />
+          </figure>
+        </div>
+        <div class="temples__number">
+          <p class="temples__number-text">第01番〜23番</p>
+        </div>
+        <ul class="temples__list">
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kochi") }}</li>
+        </ul>
+      </div>
+      <!-- 愛媛県 -->  
+      <div class="temples__ehime tab-panel" data-tab="ehime">
+        <div class="temples__wrapper">
+          <div class="temples__inner">
+            <figure class="temples__map">
+              <img class="temples__map-image" src="/assets/images/temple/map-ehime.svg" alt="愛媛県" />
+            </figure>
+            <dl class="temples__information">
+              <dt>{{ smallTitle("愛媛県") }}</dt>
+              <dd>瀬戸内の穏やかな風景に包まれた巡礼の中盤の地。やわらかな空気の中を歩むうちに、これまでの疲れがほどけ、心にゆとりが生まれていきます。人の温かさや風土の優しさに触れながら、歩みを整えていく時間。巡礼の深まりを感じられる、安らぎに満ちた地域です。</dd>
+            </dl>
+          </div>          
+          <figure class="temples__bg">
+            <img class="temples__bg-image" src="/assets/images/temple/map-bg.png" />
+          </figure>
+        </div>
+        <div class="temples__number">
+          <p class="temples__number-text">第01番〜23番</p>
+        </div>
+        <ul class="temples__list">
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-ehime") }}</li>
+        </ul>        
+      </div>
+      <!-- 香川県 -->  
+      <div class="temples__kagawa tab-panel" data-tab="kagawa">
+        <div class="temples__wrapper">
+          <div class="temples__inner">
+            <figure class="temples__map">
+              <img class="temples__map-image" src="/assets/images/temple/map-kagawa.svg" alt="香川県" />
+            </figure>
+            <dl class="temples__information">
+              <dt>{{ smallTitle("香川県") }}</dt>
+              <dd>巡礼の終盤を迎える結びの地。札所が集まるこの地域では、歩んできた道の意味を振り返る時間が増えていきます。満願へと近づくにつれ、静かな達成感とともに旅の余韻が広がります。巡礼の締めくくりにふさわしい、穏やかな時間が流れる地域です。</dd>
+            </dl>
+          </div>          
+          <figure class="temples__bg">
+            <img class="temples__bg-image" src="/assets/images/temple/map-bg.png" />
+          </figure>
+        </div>
+        <div class="temples__number">
+          <p class="temples__number-text">第01番〜23番</p>
+        </div>
+        <ul class="temples__list">
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+          <li class="temples__item">{{ card.templeCard("is-kagawa") }}</li>
+        </ul>          
+      </div>
+    </div>
+    <div class="temples__temple-nav">
+      {% set tabListClass = "bg-blue" %}
+      {% include "_components/_tab.njk" %}
+    </div>    
+  </section>
+</div>

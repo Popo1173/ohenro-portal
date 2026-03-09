@@ -118,7 +118,7 @@ document.addEventListener('keydown', (e) => {
 // =========================
 // ヘッダースクロール追従
 // =========================
-const header = document.querySelector('.my-page-header')
+const header = document.querySelector('.page-header')
 
 if (header) {
   let lastY = window.scrollY
@@ -156,7 +156,7 @@ const params = new URLSearchParams(window.location.search)
 const tab = params.get('tab') || 'tokushima'
 
 // コンテンツ切替
-document.querySelectorAll('.my-page-favorite__tab-panel').forEach((panel) => {
+document.querySelectorAll('.tab-panel').forEach((panel) => {
   panel.classList.toggle('is-active', panel.dataset.tab === tab)
 })
 

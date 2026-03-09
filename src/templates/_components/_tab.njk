@@ -1,13 +1,12 @@
 {% set t = locate[lang] %}
 {% set tabItems = [
   { label: t.favoriteTab.tokushima, tab: "tokushima", class: "is-tokushima" },
-  { label: t.favoriteTab.kochi, tab: "kochi", class: "is-kochi" },
-  { label: t.favoriteTab.ehime, tab: "ehime", class: "is-ehime" },
-  { label: t.favoriteTab.kagawa, tab: "kagawa", class: "is-kagawa" }
-] %}  
-
+  { label: t.favoriteTab.kochi,     tab: "kochi",     class: "is-kochi" },
+  { label: t.favoriteTab.ehime,     tab: "ehime",     class: "is-ehime" },
+  { label: t.favoriteTab.kagawa,    tab: "kagawa",    class: "is-kagawa" }
+] %}
 <div class="tab">
-  <ul class="tab__list">
+  <ul class="tab__list {{ tabListClass }}">
     {% for item in tabItems %}
     <li class="tab__item">
       <a class="tab__link {{ item.class }}" href="?tab={{ item.tab }}" data-tab="{{ item.tab }}">
