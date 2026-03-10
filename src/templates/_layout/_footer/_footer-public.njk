@@ -46,13 +46,13 @@
     <ul class="footer-public__global-nav-list">
       {% for item in globalNavItems %}
       <li class="footer-public__global-nav-item">
-        <a class="footer-public__global-nav-link" href="{{ item.link }}">
+        <a class="footer-public__global-nav-link nav-desktop__nav-link" href="{{ item.link }}">
           <span>{{ item.label }}</span>
         </a>
       </li>
       {% endfor %}
     </ul>
-    <div>
+    <div class="footer-public__global-nav-button">
       {% import "_components/_button-general.njk" as button %}
       {{ button.generalButton("ログイン", "/signup", "login") }}
     </div>

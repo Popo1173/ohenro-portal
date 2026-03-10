@@ -205,8 +205,23 @@
   &__global-nav {
     @include container;
 
+    display: grid;
+    grid-template:
+      'logo' auto
+      'nav' auto
+      'button' auto / 1fr;
+    gap: 16px;
+
+    @include mq(desktop) {
+      grid-template:
+        'logo logo' auto
+        'nav button' auto / auto 1fr;
+      align-items: center;
+    }
+
     // .footer-public__global-nav-logo-link
     &-logo-link {
+      grid-area: logo;
     }
 
     // .footer-public__global-nav-logo
@@ -220,13 +235,24 @@
     // .footer-public__global-nav-list
 
     &-list {
+      display: grid;
+      grid-area: nav;
+      grid-template-columns: repeat(3, auto);
+      gap: 12px;
       padding: 0;
       margin: 0;
+
+      @include mq(desktop) {
+        grid-template-columns: repeat(6, auto);
+        gap: 16px;
+        width: fit-content;
+      }
     }
 
     // .footer-public__global-nav-item
 
     &-item {
+      display: inline-block;
       padding: 0;
       margin: 0;
       list-style-type: none;
@@ -242,6 +268,14 @@
     // .footer-public__global-nav-button
 
     &-button {
+      grid-area: button;
+      width: 100%;
+      margin: 0 auto;
+
+      @include mq(desktop) {
+        width: 150px;
+        margin: 0;
+      }
     }
   }
 
