@@ -1,0 +1,32 @@
+@use '../foundation/' as *;
+
+.favorite-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgb(255 255 255 / 70%);
+  border-radius: 50%;
+
+  // .favorite-button__icon
+  &__icon {
+    display: block;
+    width: 17px;
+    fill: #fff;
+    stroke: #3b4043;
+    stroke-width: 2;
+  }
+
+  &.is-active {
+    .favorite-button__icon {
+      fill: $color-primary;
+      stroke: $color-primary;
+    }
+  }
+}

@@ -1172,6 +1172,32 @@ hr {
   font-size: 14px;
 }
 
+.favorite-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+.favorite-button__icon {
+  display: block;
+  width: 17px;
+  fill: #fff;
+  stroke: #3b4043;
+  stroke-width: 2;
+}
+.favorite-button.is-active .favorite-button__icon {
+  fill: #9f1627;
+  stroke: #9f1627;
+}
+
 .login {
   min-height: 100dvh;
   padding: 4.875rem 16px 1.5rem;
