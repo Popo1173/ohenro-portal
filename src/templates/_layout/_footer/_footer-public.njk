@@ -1,0 +1,69 @@
+<footer class="footer-public">
+  <div class="footer-public__member">
+    <figure class="footer-public__figure">
+      <img class="footer-public__image" src="/assets/images/common/footer-image.jpg" alt="フッター画像" />
+    </figure>
+
+    <div class="footer-public__heading">
+      <h2 class="footer-public__heading-title">
+        <span class="page-title-main__design">Member</span>
+        <span class="page-title-main__text">無料会員登録</span>
+      </h2>
+      <p class="footer-public__heading-read">会員登録すると、札所情報や動画コンテンツをより便利にご利用いただけます。一部会員専用コンテンツなど、全てご覧いただけます。</p>
+    </div>
+
+    <div class="footer-public__login">
+      <p class="footer-public__button">全コンテンツ無料</p>
+      <button class="footer-public__button">無料アカウント登録</button>
+    </div>
+  </div>
+
+	
+  <nav class="footer-public__global-nav">
+    <figure class="footer-public__global-nav-figure">
+      <img src="/assets/images/common/ohenro-logo.webp" alt="OHENRO.ONLINE"/>
+    </figure>
+  {% set globalNavItems = [
+    { link: "/" + lang + "/my-page/", label: t.headerPublic.zen },
+    { link: "/" + lang + "/favorite/", label: t.headerPublic.temples },
+    { link: "/" + lang + "/history/", label: t.headerPublic.basic },
+    { link: "/" + lang + "/history/", label: t.headerPublic.special },
+    { link: "/" + lang + "/history/", label: t.headerPublic.news },
+    { link: "/" + lang + "/history/", label: t.headerPublic.glossary }
+  ] %}
+    <ul class="footer-public__global-nav-list">
+      {% for item in globalNavItems %}
+      <li class="footer-public__global-nav-item">
+        <a class="footer-public__global-nav-link" href="{{ item.link }}">
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+
+  <div class="footer-public__copy">
+		<p class="footer-public__copy-text">copyright &copy;OHENRO.online</p>
+  </div>
+  <nav class="footer-public__global-nav">
+  {% set navItems = [
+    { link: "/" + lang + "/privacy/", label: t.footer.privacy },
+    { link: "/" + lang + "/terms/", label: t.footer.terms },
+    { link: "/" + lang + "/organization/", label: t.footer.organization },
+    { link: "/" + lang + "/browsers/", label: t.footer.browsers },
+    { link: "/" + lang + "/contact-us/", label: t.footer.contact }
+  ] %}
+    <ul class="footer-public__nav-list">
+      {% for item in navItems %}
+      <li class="footer-public__nav-item">
+        <a class="footer-public__nav-link" href="{{ item.link }}">
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>  
+  </nav>
+
+
+</footer>
