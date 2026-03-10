@@ -1,3 +1,46 @@
+@use '../foundation' as *;
+
 // ========================================
 // パンクズ
 // ========================================
+.breadcrumbs {
+  padding: 0 20px;
+  margin-inline: calc(50% - 50vw);
+  overflow: auto hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+
+  @include mq(desktop) {
+    padding: 0;
+    margin-inline: 0;
+  }
+
+  // .breadcrumbs__list
+  &__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    // min-width: 500px;
+  }
+
+  // .breadcrumbs__link
+
+  &__link {
+    font-size: 14px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  // .breadcrumbs__arrow
+
+  &__arrow {
+  }
+
+  // .breadcrumbs__text
+
+  &__text {
+    font-size: 14px;
+  }
+}

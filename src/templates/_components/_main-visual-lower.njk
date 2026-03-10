@@ -1,4 +1,4 @@
-{% macro mainVisual(src, alt="", top) %}
+{% macro mainVisual(src, alt="", top=false) %}
 <div class="main-visual">
   <figure class="main-visual__figure">
     <img class="main-visual__image {% if top %}is-top{% endif %}" src="{{ src }}" alt="{{ alt }}" />

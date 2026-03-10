@@ -581,6 +581,9 @@ hr {
   padding: 0 16px;
   margin: 40px auto;
 }
+.page-heading.is-no-margin {
+  margin-bottom: 8px;
+}
 .page-title-main {
   display: grid;
   grid-template-columns: 1fr;
@@ -605,12 +608,30 @@ hr {
   font-family: "Futura Medium Italic", Futura, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
 }
 .page-title-main__text {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
   font-size: 1.75rem;
   font-weight: bold;
 }
 @media (min-width: 1024px) {
   .page-title-main__text {
+    gap: 16px;
     font-size: 2.375rem;
+  }
+}
+.page-title-main__number {
+  padding: 0 8px;
+  font-size: 1rem;
+  color: #fff;
+  background: #d3992c;
+  border-radius: 5px;
+}
+@media (min-width: 1024px) {
+  .page-title-main__number {
+    font-size: 1.5rem;
   }
 }
 
@@ -745,7 +766,8 @@ hr {
 .tab {
   padding: 0 16px;
   margin-inline: calc(50% - 50vw);
-  overflow-x: auto;
+  overflow: auto hidden;
+  scrollbar-width: none;
 }
 @media (min-width: 768px) {
   .tab {
@@ -1120,6 +1142,34 @@ hr {
   .small-title__text {
     font-size: 24px;
   }
+}
+
+.breadcrumbs {
+  padding: 0 20px;
+  margin-inline: calc(50% - 50vw);
+  overflow: auto hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+@media (min-width: 1024px) {
+  .breadcrumbs {
+    padding: 0;
+    margin-inline: 0;
+  }
+}
+.breadcrumbs__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.breadcrumbs__link {
+  font-size: 14px;
+}
+.breadcrumbs__link:hover {
+  text-decoration: underline;
+}
+.breadcrumbs__text {
+  font-size: 14px;
 }
 
 .login {
