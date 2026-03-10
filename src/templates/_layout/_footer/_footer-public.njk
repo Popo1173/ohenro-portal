@@ -30,9 +30,11 @@
 
 	
   <nav class="footer-public__global-nav">
-    <figure class="footer-public__global-nav-figure">
-      <img src="/assets/images/common/ohenro-logo.webp" alt="OHENRO.ONLINE"/>
-    </figure>
+    <a href="/ja" class="footer-public__global-nav-logo-link">
+      <figure class="footer-public__global-nav-logo">
+        <img src="/assets/images/common/ohenro-logo.webp" alt="OHENRO.ONLINE"/>
+      </figure>
+    </a>
   {% set globalNavItems = [
     { link: "/" + lang + "/my-page/", label: t.headerPublic.zen },
     { link: "/" + lang + "/favorite/", label: t.headerPublic.temples },
@@ -50,7 +52,10 @@
       </li>
       {% endfor %}
     </ul>
-    <button class="footer-public__global-nav-button">ログイン</button>
+    <div>
+      {% import "_components/_button-movie.njk" as button %}
+      {{ button.movieButton("ログイン", "/signup", "login") }}
+    </div>
   </nav>
 
 

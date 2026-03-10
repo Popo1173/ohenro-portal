@@ -203,24 +203,40 @@
   // .footer-public__global-nav
 
   &__global-nav {
-    // .footer-public__global-nav-figure
+    @include container;
 
-    &-figure {
+    // .footer-public__global-nav-logo-link
+    &-logo-link {
+    }
+
+    // .footer-public__global-nav-logo
+
+    &-logo {
+      max-width: 130px;
+      padding: 0;
+      margin: 0;
     }
 
     // .footer-public__global-nav-list
 
     &-list {
+      padding: 0;
+      margin: 0;
     }
 
     // .footer-public__global-nav-item
 
     &-item {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
     }
 
     // .footer-public__global-nav-link
 
     &-link {
+      font-size: 14px;
+      color: $color-text;
     }
 
     // .footer-public__global-nav-button
