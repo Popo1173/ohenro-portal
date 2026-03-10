@@ -13,6 +13,7 @@
     background: $color-white;
     border: 1px solid #c3c3c3;
     border-radius: 50px;
+    transition: all 0.3s;
 
     &:hover {
       background: #f5f7f9;
@@ -42,8 +43,6 @@
     justify-content: center;
     width: 130px;
     height: 40px;
-
-    // padding: 8px;
     background: white;
     border: 1px solid $color-primary;
     border-radius: 999px;
