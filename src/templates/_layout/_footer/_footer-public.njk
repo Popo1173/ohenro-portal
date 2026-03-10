@@ -27,8 +27,6 @@
       </button>
     </div>
   </div>
-
-	
   <nav class="footer-public__global-nav">
     <a href="/ja" class="footer-public__global-nav-logo-link">
       <figure class="footer-public__global-nav-logo">
@@ -57,29 +55,29 @@
       {{ button.generalButton("ログイン", "/signup", "login") }}
     </div>
   </nav>
-
-
-  <div class="footer-public__copy">
-		<p class="footer-public__copy-text">copyright &copy;OHENRO.online</p>
+  <div class="footer-public__wrapper">
+    <div class="footer-public__inner">
+      <nav class="footer-public__nav">
+      {% set navItems = [
+        { link: "/" + lang + "/privacy/", label: t.footer.privacy },
+        { link: "/" + lang + "/terms/", label: t.footer.terms },
+        { link: "/" + lang + "/organization/", label: t.footer.organization },
+        { link: "/" + lang + "/browsers/", label: t.footer.browsers },
+        { link: "/" + lang + "/contact-us/", label: t.footer.contact }
+      ] %}
+        <ul class="footer-public__nav-list">
+          {% for item in navItems %}
+          <li class="footer-public__nav-item">
+            <a class="footer-public__nav-link" href="{{ item.link }}">
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>  
+      </nav>
+      <div class="footer-public__copy">
+        <p class="footer-public__copy-text">copyright &copy;OHENRO.online</p>
+      </div>      
+    </div>
   </div>
-  <nav class="footer-public__nav">
-  {% set navItems = [
-    { link: "/" + lang + "/privacy/", label: t.footer.privacy },
-    { link: "/" + lang + "/terms/", label: t.footer.terms },
-    { link: "/" + lang + "/organization/", label: t.footer.organization },
-    { link: "/" + lang + "/browsers/", label: t.footer.browsers },
-    { link: "/" + lang + "/contact-us/", label: t.footer.contact }
-  ] %}
-    <ul class="footer-public__nav-list">
-      {% for item in navItems %}
-      <li class="footer-public__nav-item">
-        <a class="footer-public__nav-link" href="{{ item.link }}">
-          <span>{{ item.label }}</span>
-        </a>
-      </li>
-      {% endfor %}
-    </ul>  
-  </nav>
-
-
 </footer>

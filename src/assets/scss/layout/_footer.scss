@@ -211,6 +211,7 @@
       'nav' auto
       'button' auto / 1fr;
     gap: 16px;
+    margin-bottom: 24px;
 
     @include mq(desktop) {
       grid-template:
@@ -279,14 +280,42 @@
     }
   }
 
+  // .footer-public__wrapper
+  &__wrapper {
+    padding: 12px 0 8px;
+    background: #463437;
+  }
+
+  // .footer-public__inner
+  &__inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include mq(desktop) {
+    }
+  }
+
   // .footer-public__copy
 
   &__copy {
-  }
+    display: flex;
+    justify-content: center;
 
-  // .footer-public__copy-text
+    // .footer-public__copy-text
 
-  &__copy-text {
+    &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      color: $color-white;
+
+      @include font-futura;
+    }
   }
 
   // .footer-public__nav
@@ -294,16 +323,35 @@
     // .footer-public__nav-list
 
     &-list {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      padding: 0;
+      margin: 0;
+
+      @include mq(desktop) {
+        grid-auto-flow: column;
+        gap: 16px;
+        justify-content: start;
+      }
     }
 
     // .footer-public__nav-item
 
     &-item {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      @include mq(desktop) {
+        width: fit-content;
+      }
     }
 
     // .footer-public__nav-link
 
     &-link {
+      font-size: 13px;
+      color: $color-white;
     }
   }
 }
