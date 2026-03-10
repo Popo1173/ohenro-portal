@@ -1550,6 +1550,9 @@ hr {
   font-size: 13px;
   color: #fff;
 }
+.footer-public__nav-link:hover {
+  opacity: 0.7;
+}
 
 .is-mobile {
   display: block;
