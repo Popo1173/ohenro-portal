@@ -129,6 +129,55 @@ hr {
   content: url("/assets/images/common/icon-logout.svg");
 }
 
+.button-general {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 50px;
+}
+.button-general::after {
+  position: absolute;
+  right: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  line-height: 1;
+  color: #d3992c;
+  content: "";
+  border: 0.1em solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translateX(-25%) rotate(45deg);
+  transition: all 0.3s;
+}
+.button-general:hover {
+  background: #9f1627;
+  border: 1px solid #9f1627;
+}
+.button-general:hover::after {
+  right: 12px;
+}
+.button-general:hover .button-general__icon {
+  fill: #fff;
+}
+.button-general:hover .button-general__text {
+  color: #fff;
+}
+.button-general__icon {
+  width: 20px;
+  height: auto;
+  fill: #9f1627;
+}
+.button-general__text {
+  font-size: 15px;
+}
+
 .button-primary__button {
   box-sizing: border-box;
   display: inline-flex;
@@ -911,55 +960,6 @@ hr {
 .ruby-under {
   font-weight: normal;
   ruby-position: under;
-}
-
-.button-movie {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 16px;
-  background: #fff;
-  border: 1px solid #d3992c;
-  border-radius: 50px;
-}
-.button-movie::after {
-  position: absolute;
-  right: 16px;
-  box-sizing: border-box;
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  line-height: 1;
-  color: #d3992c;
-  content: "";
-  border: 0.1em solid currentcolor;
-  border-bottom: 0;
-  border-left: 0;
-  transform: translateX(-25%) rotate(45deg);
-  transition: all 0.3s ease;
-}
-.button-movie:hover {
-  background: #9f1627;
-  border: 1px solid #9f1627;
-}
-.button-movie:hover::after {
-  right: 12px;
-}
-.button-movie:hover .button-movie__icon {
-  fill: #fff;
-}
-.button-movie:hover .button-movie__text {
-  color: #fff;
-}
-.button-movie__icon {
-  width: 20px;
-  height: auto;
-  fill: #9f1627;
-}
-.button-movie__text {
-  font-size: 15px;
 }
 
 .stamp {

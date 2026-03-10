@@ -60,3 +60,62 @@
     }
   }
 }
+
+// ボタン
+.button-general {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: $color-white;
+  border: 1px solid $color-key;
+  border-radius: 50px;
+
+  &::after {
+    position: absolute;
+    right: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    line-height: 1;
+    color: $color-key;
+    content: '';
+    border: 0.1em solid currentcolor;
+    border-bottom: 0;
+    border-left: 0;
+    transform: translateX(-25%) rotate(45deg);
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    background: $color-primary;
+    border: 1px solid $color-primary;
+
+    &::after {
+      right: 12px;
+    }
+
+    .button-general__icon {
+      fill: $color-white;
+    }
+
+    .button-general__text {
+      color: $color-white;
+    }
+  }
+
+  // .button-general__icon
+  &__icon {
+    width: 20px;
+    height: auto;
+    fill: $color-primary;
+  }
+
+  // .button-movie-text
+  &__text {
+    font-size: 15px;
+  }
+}

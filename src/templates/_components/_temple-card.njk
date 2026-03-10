@@ -1,5 +1,5 @@
 {% macro templeCard(cardClass="") %}
-{% import "_components/_button-movie.njk" as button %}
+{% import "_components/_button-general.njk" as button %}
 <div class="temple-card">
   <div class="temple-card__prefecture {{ cardClass }}">
     <span class="temple-card__prefecture-text">徳島県</span>
@@ -26,8 +26,8 @@
 
   <div class="temple-card__buttons">
     <ul class="temple-card__buttons-list">
-      <li class="temple-card__buttons-item">{{ button.movieButton("お寺Movie", "/ja", "movie") }}</li>
-      <li class="temple-card__buttons-item">{{ button.movieButton("住職Movie", "/ja", "movie") }}</li>
+      <li class="temple-card__buttons-item">{{ button.generalButton("お寺Movie", "/ja", "movie") }}</li>
+      <li class="temple-card__buttons-item">{{ button.generalButton("住職Movie", "/ja", "movie") }}</li>
     </ul>
   </div>
 </div>
