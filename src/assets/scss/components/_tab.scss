@@ -3,7 +3,8 @@
 .tab {
   padding: 0 16px;
   margin-inline: calc(50% - 50vw);
-  overflow-x: auto;
+  overflow: auto hidden;
+  scrollbar-width: none;
 
   @include mq(tablet) {
     padding: 0;

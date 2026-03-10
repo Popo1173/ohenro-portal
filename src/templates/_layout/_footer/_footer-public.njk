@@ -1,0 +1,83 @@
+<footer class="footer-public">
+  <div class="footer-public__member">
+    <!-- <figure class="footer-public__figure">
+      <img class="footer-public__image is-mobile" src="/assets/images/common/footer-image.jpg" alt="無料会員登録" />
+      <img class="footer-public__image is-desktop" src="/assets/images/common/footer-image-desktop.jpg" alt="無料会員登録" />
+    </figure> -->
+    <div class="footer-public__heading">
+      <h2 class="footer-public__heading-title">
+        <span class="page-title-main__design">Member</span>
+        <span class="page-title-main__text">無料会員登録</span>
+      </h2>
+      <p class="footer-public__heading-read">会員登録すると、札所情報や動画コンテンツをより便利にご利用いただけます。<br />一部会員専用コンテンツなど、全てご覧いただけます。</p>
+    </div>
+    <div class="footer-public__login">
+      <div class="footer-public__bubble">
+        <p class="footer-public__bubble-text">全コンテンツ無料</p>
+      </div>
+      <button class="footer-public__button" type="button" id="button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="31.835" height="33.42" viewBox="0 0 31.835 33.42">
+        <g transform="translate(0 0)" clip-path="url(#clip-path)">
+          <path d="M3.571,8.86A8.86,8.86,0,1,0,12.432,0,8.863,8.863,0,0,0,3.571,8.86M12.432,1.1A7.764,7.764,0,1,1,6.943,3.37,7.74,7.74,0,0,1,12.432,1.1" transform="translate(-0.959 0)" />
+          <path d="M.549,36.754H17.543A8,8,0,1,0,17.673,26.7,11.586,11.586,0,0,0,3.365,28.211,11.183,11.183,0,0,0,0,36.205a.549.549,0,0,0,.549.549M11.474,26a10.434,10.434,0,0,1,5.562,1.6,7.972,7.972,0,0,0-.224,8.057H1.125a10.085,10.085,0,0,1,3.01-6.664A10.428,10.428,0,0,1,11.474,26m12.357-1.094a6.907,6.907,0,1,1-4.884,2.023,6.884,6.884,0,0,1,4.884-2.023" transform="translate(0 -6.395)" />
+          <path d="M30.63,32.8V29.786a.489.489,0,1,1,.977,0V32.8h3.012a.489.489,0,0,1,0,.978H31.608v3.011a.489.489,0,1,1-.977,0V33.775H27.619a.489.489,0,0,1,0-.978Z" transform="translate(-7.287 -7.87)" />
+        </g>
+        </svg>
+      <span class="footer-public__button-text">無料アカウント登録</span>
+      </button>
+    </div>
+  </div>
+  <nav class="footer-public__global-nav">
+    <a href="/ja" class="footer-public__global-nav-logo-link">
+      <figure class="footer-public__global-nav-logo">
+        <img src="/assets/images/common/ohenro-logo.webp" alt="OHENRO.ONLINE"/>
+      </figure>
+    </a>
+  {% set globalNavItems = [
+    { link: "/" + lang + "/my-page/", label: t.headerPublic.zen },
+    { link: "/" + lang + "/favorite/", label: t.headerPublic.temples },
+    { link: "/" + lang + "/history/", label: t.headerPublic.basic },
+    { link: "/" + lang + "/history/", label: t.headerPublic.special },
+    { link: "/" + lang + "/history/", label: t.headerPublic.news },
+    { link: "/" + lang + "/history/", label: t.headerPublic.glossary }
+  ] %}
+    <ul class="footer-public__global-nav-list">
+      {% for item in globalNavItems %}
+      <li class="footer-public__global-nav-item">
+        <a class="footer-public__global-nav-link nav-desktop__nav-link" href="{{ item.link }}">
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="footer-public__global-nav-button">
+      {% import "_components/_button-general.njk" as button %}
+      {{ button.generalButton("ログイン", "/signup", "login") }}
+    </div>
+  </nav>
+  <div class="footer-public__wrapper">
+    <div class="footer-public__inner">
+      <nav class="footer-public__nav">
+      {% set navItems = [
+        { link: "/" + lang + "/privacy/", label: t.footer.privacy },
+        { link: "/" + lang + "/terms/", label: t.footer.terms },
+        { link: "/" + lang + "/organization/", label: t.footer.organization },
+        { link: "/" + lang + "/browsers/", label: t.footer.browsers },
+        { link: "/" + lang + "/contact-us/", label: t.footer.contact }
+      ] %}
+        <ul class="footer-public__nav-list">
+          {% for item in navItems %}
+          <li class="footer-public__nav-item">
+            <a class="footer-public__nav-link" href="{{ item.link }}">
+              <span>{{ item.label }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>  
+      </nav>
+      <div class="footer-public__copy">
+        <p class="footer-public__copy-text">copyright &copy;OHENRO.online</p>
+      </div>      
+    </div>
+  </div>
+</footer>

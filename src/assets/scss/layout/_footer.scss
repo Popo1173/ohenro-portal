@@ -1,11 +1,13 @@
 @use '../foundation' as *;
 
+// ========================================
+// マイページ（ログイン後）
+// ========================================
 .footer {
   padding: 18px 24px;
   background: #463437;
 
   &__inner {
-    // @include container;
   }
 
   &__copy {
@@ -13,5 +15,373 @@
     margin: 0;
     font-size: rem(14);
     color: $color-white;
+  }
+}
+
+// ========================================
+// ユーザ画面（ログイン前）
+// ========================================
+
+.footer-public {
+  margin-top: 48px;
+
+  // .footer-public__member
+
+  &__member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 480px;
+    margin-bottom: 24px;
+    background-image: url('/assets/images/common/footer-image-desktop.jpg');
+    background-repeat: no-repeat;
+    background-position: 52% 10%;
+    background-size: auto 480px;
+
+    @include mq(desktop) {
+      align-items: normal;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  // .footer-public__figure
+
+  &__figure {
+  }
+
+  // .footer-public__image
+
+  &__image {
+  }
+
+  // .footer-public__heading
+
+  &__heading {
+    @include container;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 50px 24px;
+    padding-bottom: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include mq(desktop) {
+      gap: 16px;
+    }
+
+    // .footer-public__heading-title
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+
+      @include mq(desktop) {
+        gap: 16px;
+        width: 100%;
+      }
+      .page-title-main__text {
+        color: $color-white;
+      }
+    }
+
+    // .footer-public__heading-read
+
+    &-read {
+      padding: 0;
+      margin: 0;
+      color: $color-white;
+
+      br {
+        display: none;
+      }
+
+      @include mq(desktop) {
+        width: 100%;
+        text-align: left;
+
+        br {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // .footer-public__login
+
+  &__login {
+    @include container;
+
+    width: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include mq(desktop) {
+      width: 100%;
+    }
+
+    &:hover {
+      .footer-public__bubble {
+        transform: translateY(-3px);
+      }
+
+      .footer-public__button {
+        background: $color-white;
+        border: 1px solid $color-primary;
+        transition: 0.3 all;
+
+        svg {
+          fill: $color-primary;
+        }
+      }
+
+      .footer-public__button-text {
+        color: $color-primary;
+      }
+    }
+  }
+
+  // .footer-public__bubble
+  &__bubble {
+    position: relative;
+    top: 1px;
+    left: 24px;
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: $color-primary;
+    background-color: #fff;
+    border: 2px solid $color-primary;
+    border-radius: 14px;
+
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 11%;
+      content: '';
+      border-color: #9f1627 transparent transparent;
+      border-style: solid;
+      border-width: 20px 10px 0;
+      translate: -50% 100%;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 1px;
+      left: 11%;
+      content: '';
+      border-color: #fff transparent transparent;
+      border-style: solid;
+      border-width: 15.5px 7.8px 0;
+      translate: -50% 100%;
+    }
+
+    // .footer-public__bubble-text
+    &-text {
+      padding: 0;
+      margin: 0;
+      color: $color-primary;
+    }
+  }
+
+  // .footer-public__button
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    align-items: center;
+    width: 290px;
+    padding: 20px 32px;
+    background: $color-primary;
+    border-radius: 50px;
+    transition: all 0.3s;
+
+    svg {
+      fill: $color-white;
+    }
+
+    // .footer-public__button-text
+    &-text {
+      font-size: 18px;
+      color: $color-white;
+    }
+  }
+
+  // .footer-public__global-nav
+
+  &__global-nav {
+    @include container;
+
+    display: grid;
+    grid-template:
+      'logo' auto
+      'nav' auto
+      'button' auto / 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+
+    @include mq(desktop) {
+      grid-template:
+        'logo logo' auto
+        'nav button' auto / auto 1fr;
+      align-items: center;
+    }
+
+    // .footer-public__global-nav-logo-link
+    &-logo-link {
+      grid-area: logo;
+    }
+
+    // .footer-public__global-nav-logo
+
+    &-logo {
+      max-width: 130px;
+      padding: 0;
+      margin: 0;
+    }
+
+    // .footer-public__global-nav-list
+
+    &-list {
+      display: grid;
+      grid-area: nav;
+      grid-template-columns: repeat(3, auto);
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+
+      @include mq(desktop) {
+        grid-template-columns: repeat(6, auto);
+        gap: 16px;
+        width: fit-content;
+      }
+    }
+
+    // .footer-public__global-nav-item
+
+    &-item {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+
+    // .footer-public__global-nav-link
+
+    &-link {
+      font-size: 14px;
+      color: $color-text;
+    }
+
+    // .footer-public__global-nav-button
+
+    &-button {
+      grid-area: button;
+      width: 100%;
+      margin: 0 auto;
+
+      @include mq(desktop) {
+        width: 150px;
+        margin: 0;
+      }
+    }
+  }
+
+  // .footer-public__wrapper
+  &__wrapper {
+    padding: 12px 0 8px;
+    background: #463437;
+  }
+
+  // .footer-public__inner
+  &__inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @include mq(desktop) {
+    }
+  }
+
+  // .footer-public__copy
+
+  &__copy {
+    display: flex;
+    justify-content: center;
+
+    // .footer-public__copy-text
+
+    &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 13px;
+      color: $color-white;
+
+      @include font-futura;
+    }
+  }
+
+  // .footer-public__nav
+  &__nav {
+    // .footer-public__nav-list
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      padding: 0;
+      margin: 0;
+
+      @include mq(desktop) {
+        grid-auto-flow: column;
+        gap: 16px;
+        justify-content: start;
+      }
+    }
+
+    // .footer-public__nav-item
+
+    &-item {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+
+      @include mq(desktop) {
+        width: fit-content;
+      }
+    }
+
+    // .footer-public__nav-link
+
+    &-link {
+      font-size: 13px;
+      color: $color-white;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+.is-mobile {
+  display: block;
+
+  @include mq(desktop) {
+    display: none;
+  }
+}
+.is-desktop {
+  display: none;
+
+  @include mq(desktop) {
+    display: block;
   }
 }

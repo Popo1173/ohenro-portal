@@ -1,8 +1,13 @@
-{% macro pageTitle(title, className="", designTitle="") %}
+{% macro pageTitle(title, className="", designTitle="", templeNumber="") %}
 <h1 class="page-title-main">
   {% if designTitle %}
   <span class="page-title-main__design {{ className }}">{{ designTitle }}</span>
   {% endif %}
-	<span class="page-title-main__text {{ className }}">{{ title }}</span>
+	<p class="page-title-main__text {{ className }}">
+    {% if templeNumber %}
+    <span class="page-title-main__number">第{{ templeNumber }}番</span>
+    {% endif %}
+    {{ title }}
+  </p>
 </h1>
 {% endmacro %}

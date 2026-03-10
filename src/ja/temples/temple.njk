@@ -1,0 +1,29 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: 第１番 霊山寺
+description: 第１番霊山寺は、重厚な山門と仁王像が参拝者を迎え、本堂には無数の吊り灯籠が輝き、幻想的な空間を演出します。池に浮かぶ大師堂や、約600年前建立の多宝塔が静かに佇み、祈りと癒やしのひとときを与えてくれる、心を整える特別な寺院です。
+url: https://ohenro.online/ja/temples/temple
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_main-visual-lower.njk" import mainVisual %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+<div class="temple">
+  <div class="page-heading is-no-margin">
+		<div class="page-heading__title">
+			{{ title.pageTitle("竺和山 霊山寺", "", "88 Temples", "88") }}
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報", url: "/temples/" },{ label: "第1番 竺和山 霊山寺第1番 竺和山 霊山寺" }], lang) }}
+		</div>
+	</div>
+
+  <div class="temple__main-visual">
+    <div class="temple__favorite">
+      {% include "_components/_button-favorite.njk" %}
+    </div>
+    {{ mainVisual("/assets/images/temple/temple-main.jpg", "お寺", false) }}
+  </div>
+</div>

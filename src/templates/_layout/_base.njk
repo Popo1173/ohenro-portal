@@ -56,8 +56,10 @@
 
     {% if footerType == "user" %}
     {% include "_layout/_footer/_footer-user.njk" %}
+    {% elseif footerType == "public" %}
+      {% include "_layout/_footer/_footer-public.njk" %}
     {% else %}
-      {% include "_layout/_footer/_footer-user.njk" %}
+      {% include "_layout/_footer/_footer-public.njk" %}
     {% endif %}
 
   </body>

@@ -12,6 +12,10 @@
 
   @include container;
 
+  &.is-no-margin {
+    margin-bottom: 8px;
+  }
+
   // .page-heading__title
 
   &__title {
@@ -53,6 +57,11 @@
   // .heading-my-page__text
 
   &__text {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 0;
+    margin: 0;
     font-size: rem(28);
     font-weight: bold;
 
@@ -62,7 +71,21 @@
     }
 
     @include mq(desktop) {
+      gap: 16px;
       font-size: rem(38);
+    }
+  }
+
+  // .page-title-main__number
+  &__number {
+    padding: 0 8px;
+    font-size: rem(16);
+    color: $color-white;
+    background: $color-key;
+    border-radius: 5px;
+
+    @include mq(desktop) {
+      font-size: rem(24);
     }
   }
 }
