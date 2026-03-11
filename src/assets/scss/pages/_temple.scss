@@ -540,3 +540,118 @@
     }
   }
 }
+
+// ========================================
+// 旅館インタビュー
+// ========================================
+
+.interview {
+  // .interview__title-design
+
+  &__title-design {
+  }
+
+  // .interview__wrapper
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+    background: #f5f7f9;
+
+    &::before {
+      position: absolute;
+      top: -11px;
+      right: -48px;
+      width: 272px;
+      height: 169px;
+      pointer-events: none;
+      content: '';
+      background: url('/assets/images/common/flower-bg.svg') no-repeat right top;
+      background-size: contain;
+
+      @include mq(desktop) {
+        top: -11px;
+        right: -54px;
+        width: 329px;
+        height: 243px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -28px;
+      left: -48px;
+      width: 272px;
+      height: 169px;
+      pointer-events: none;
+      content: '';
+      background: url('/assets/images/common/flower-white-bg.svg') no-repeat right top;
+      background-size: contain;
+
+      @include mq(desktop) {
+        right: -116px;
+        bottom: -48px;
+        width: 329px;
+        height: 243px;
+      }
+    }
+  }
+
+  // .interview__inner
+  &__inner {
+    @include container;
+
+    position: relative;
+    z-index: 1;
+  }
+
+  // .interview__title
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    // .interview__title-text
+
+    &-text {
+    }
+
+    // .interview__title-description
+    &-description {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // .interview__list
+
+  &__list {
+    padding: 0;
+    margin: 0;
+  }
+
+  // .interview__item
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  // .interview__figure
+
+  &__figure {
+    padding: 0;
+    margin: 0;
+  }
+
+  // .interview__image
+
+  &__image {
+  }
+
+  // .interview__inn
+
+  &__inn {
+  }
+}

@@ -2145,6 +2145,80 @@ hr {
   margin: 0;
   list-style-type: none;
 }
+.interview__wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f5f7f9;
+}
+.interview__wrapper::before {
+  position: absolute;
+  top: -11px;
+  right: -48px;
+  width: 272px;
+  height: 169px;
+  pointer-events: none;
+  content: "";
+  background: url("/assets/images/common/flower-bg.svg") no-repeat right top;
+  background-size: contain;
+}
+@media (min-width: 1024px) {
+  .interview__wrapper::before {
+    top: -11px;
+    right: -54px;
+    width: 329px;
+    height: 243px;
+  }
+}
+.interview__wrapper::after {
+  position: absolute;
+  bottom: -28px;
+  left: -48px;
+  width: 272px;
+  height: 169px;
+  pointer-events: none;
+  content: "";
+  background: url("/assets/images/common/flower-white-bg.svg") no-repeat right top;
+  background-size: contain;
+}
+@media (min-width: 1024px) {
+  .interview__wrapper::after {
+    right: -116px;
+    bottom: -48px;
+    width: 329px;
+    height: 243px;
+  }
+}
+.interview__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 40px auto;
+  position: relative;
+  z-index: 1;
+}
+.interview__title {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.interview__title-description {
+  padding: 0;
+  margin: 0;
+}
+.interview__list {
+  padding: 0;
+  margin: 0;
+}
+.interview__item {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.interview__figure {
+  padding: 0;
+  margin: 0;
+}
 .page-header {
   position: sticky;
   top: 0;
