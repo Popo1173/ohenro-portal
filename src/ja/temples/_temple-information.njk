@@ -7,7 +7,8 @@
   </div>
   {% set informationItems = [
     { label: "所在地", text: "徳島県鳴門市大麻町板東東塚鼻126", icon: "/assets/images/icons/icon-pin.svg" },
-    { label: "電話番号", text: "車でのアクセス",icon:"/assets/images/icons/icon-car.svg" },
+    { label: "電話番号", text: "088-689-1111",icon:"/assets/images/icons/icon-phone.svg" },
+    { label: "車でのアクセス", text: "〇〇駅から徒歩10分",icon:"/assets/images/icons/icon-phone.svg" },
     { label: "徒歩でのアクセス", text: "〇〇駅から徒歩10分", icon:"/assets/images/icons/icon-walk.svg" },
     { label: "次の札所まで", text: "極楽寺まで徒歩で約1km", icon:"/assets/images/icons/icon-temple.svg" },
     { label: "タクシー会社", text: "板野タクシー：088-672-0274", icon: "/assets/images/icons/icon-car.svg"},
@@ -16,29 +17,28 @@
   ] %}
   <ul class="information__list">
     {% for item in informationItems %}
-    <li>
-      <dl>
-        <dd>
+    <li class="information__item">
+      <dl class="information__inner">
+        <dd class="information__label">
           <img src="{{ item.icon }}" alt="{{ item.label }}" />
           {{ item.label }}
         </dd>
-        <dt>{{ item.text }}</dt>
+        <dt class="information__description">{{ item.text }}</dt>
       </dl>
     </li>
     {% endfor %}
   </ul>
 
   <div class="information__map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.4786859700343!2d134.49995187709771!3d34.159677112047596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355371e674b682e3%3A0xb3d020fcc0b36321!2z56ysMeeVquacreaJgCDpnIrlsbHlr7o!5e0!3m2!1sja!2sjp!4v1773210716477!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.4786859700343!2d134.49995187709771!3d34.159677112047596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355371e674b682e3%3A0xb3d020fcc0b36321!2z56ysMeeVquacreaJgCDpnIrlsbHlr7o!5e0!3m2!1sja!2sjp!4v1773210716477!5m2!1sja!2sjp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 
   <div class="information__stay">
     <h3 class="about__yohanesu-title">{{ smallTitle("周辺の宿泊情報") }}</h3>
-    <ul>
-      <li>
-        <img src="/assets/images/icons/icon-stay.svg" alt="宿泊" />民宿阿波：088-689-2222、旅館観梅苑：088-689-0697
+    <ul class="information__stay-list">
+      <li class="information__stay-item">
+        <img class="information__stay-image" src="/assets/images/icons/icon-stay.svg" alt="宿泊" />民宿阿波：088-689-2222、旅館観梅苑：088-689-0697
       </li>
-      
     </dl>
   </div>
 </div>

@@ -37,6 +37,10 @@
   }
 }
 
+// ========================================
+// About
+// ========================================
+
 .about {
   // .about__wrapper
   &__wrapper {
@@ -305,6 +309,10 @@
   }
 }
 
+// ========================================
+// 動画を見る
+// ========================================
+
 .movie {
   position: relative;
 
@@ -397,5 +405,125 @@
     }
   }
 }
-.title-mark {
+
+// ========================================
+// 基本情報
+// ========================================
+
+.information {
+  @include container;
+
+  // .information__heading
+
+  &__heading {
+  }
+
+  // .information__list
+
+  &__list {
+    padding: 0;
+    margin: 0;
+
+    @include mq(desktop) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  // .information__item
+
+  &__item {
+    padding: 16px 0;
+    margin: 0;
+    list-style-type: none;
+    border-bottom: 1px solid $color-key;
+  }
+
+  // .information__inner
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    @include mq(desktop) {
+      grid-template-columns: auto auto;
+      gap: 16px;
+      align-items: center;
+      justify-content: start;
+      margin: 0;
+    }
+  }
+
+  // .information__label
+
+  &__label {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: 16px;
+    color: $color-key;
+
+    @include mq(desktop) {
+      padding: 0 0 0 32px;
+      font-size: 18px;
+    }
+  }
+
+  // .information__description
+
+  &__description {
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: 14px;
+
+    @include mq(desktop) {
+      font-size: 16px;
+    }
+  }
+
+  // .information__map
+
+  &__map {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 75 / 59;
+
+    @include mq(desktop) {
+      aspect-ratio: 16 / 7;
+    }
+
+    iframe {
+      inset: 0;
+      width: 100vw;
+      height: 100%;
+      margin: 0 calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      margin-left: calc(50% - 50vw);
+      border: 0;
+    }
+  }
+
+  // .information__stay
+
+  &__stay {
+    // .information__stay-list
+
+    &-list {
+    }
+
+    // .information__stay-item
+
+    &-item {
+    }
+
+    // .information__stay-image
+
+    &-image {
+    }
+  }
 }
