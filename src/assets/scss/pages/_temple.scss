@@ -1,176 +1,107 @@
-@use '../foundation' as *;
-
-.temples {
-  // .temples__main-visual
+.temple {
+  // .temple__main-visual
 
   &__main-visual {
   }
 
-  // .temples__temple
+  // .temple__favorite
 
-  &__temple {
-    @include container;
-
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+  &__favorite {
   }
 
-  // .temples__temple-nav
+  // .temple__about
 
-  &__temple-nav {
+  &__about {
   }
 
-  // .temples__content
+  // .temple__movie
 
-  &__content {
+  &__movie {
   }
 
-  // .temples__tokushima
+  // .temple__infomation
 
-  &__tokushima {
+  &__infomation {
   }
 
-  // .temples__wrapper
-  &__wrapper {
-    position: relative;
-    margin-bottom: 40px;
+  // .temple__interview
 
-    @include mq(desktop) {
-      margin-bottom: 64px;
-    }
+  &__interview {
   }
 
-  // .temples__inner
+  // .temple__next
 
-  &__inner {
-    @include mq(desktop) {
-      display: grid;
-      grid-template-columns: 0.9fr 0.3fr;
-      gap: 40px;
-    }
+  &__next {
+  }
+}
+
+.about {
+  // .about__title
+
+  &__title {
   }
 
-  // .temples__map
+  // .about__description
 
-  &__map {
-    padding: 0;
-    margin: 0;
-
-    // .temples__map-image
-
-    &-image {
-    }
+  &__description {
   }
 
-  // .temples__bg
-  &__bg {
-    position: absolute;
-    right: 0;
-    bottom: 110px;
-    z-index: 1;
-    width: 55%;
-    max-width: 270px;
-    padding: 0;
-    margin: 0;
-    margin-right: -20px;
-    overflow: hidden;
+  // .about__description-text
 
-    @include mq(desktop) {
-      bottom: 0;
-      max-width: 430px;
-    }
-
-    // .temples__bg-image
-    &-image {
-    }
+  &__description-text {
   }
 
-  // .temples__information
-
-  &__information {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    @include mq(desktop) {
-      gap: 20px;
-      margin-top: 56px;
-    }
-    dt {
-      padding: 0;
-      margin: 0;
-    }
-    dd {
-      padding: 0;
-      margin: 0;
-      font-size: 14px;
-
-      br {
-        display: none;
-      }
-
-      @include mq(desktop) {
-        font-size: 18px;
-
-        br {
-          display: block;
-        }
-      }
-    }
-  }
-
-  // .temples__number
-  &__number {
-    padding: 8px 24px;
-    margin-bottom: 32px;
-    background: #eaeaea;
-    border-radius: 20px 20px 0 0;
-
-    // .temples__number-text
-    &-text {
-      padding: 0;
-      margin: 0;
-      font-size: 18px;
-    }
-  }
-
-  // .temples__list
+  // .about__list
 
   &__list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 0;
-    margin: 0;
-
-    @include mq(desktop) {
-      grid-template-columns: repeat(3, 1fr);
-    }
   }
 
-  // .temples__item
+  // .about__item
 
   &__item {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
   }
 
-  // .temples__kochi
+  // .about__item-inner
 
-  &__kochi {
+  &__item-inner {
   }
 
-  // .temples__ehime
+  // .about__label
 
-  &__ehime {
+  &__label {
   }
 
-  // .temples__kagawa
+  // .about__text
 
-  &__kagawa {
+  &__text {
+  }
+
+  // .about__yohanesu
+
+  &__yohanesu {
+    // .about__yohanesu-title
+
+    &-title {
+    }
+
+    // .about__yohanesu-descrption
+
+    &-descrption {
+    }
+
+    // .about__yohanesu-info
+
+    &-info {
+    }
+
+    // .about__yohanesu-info-title
+
+    &-info-title {
+    }
+
+    // .about__yohanesu-info-descrption
+
+    &-info-descrption {
+    }
   }
 }

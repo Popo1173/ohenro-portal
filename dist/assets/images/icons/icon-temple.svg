@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="18.35" viewBox="0 0 22 18.35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_135" data-name="長方形 135" width="22" height="18.35" fill="#d3992c"/>
+    </clipPath>
+  </defs>
+  <g id="グループ_162" data-name="グループ 162" transform="translate(0 0)">
+    <g id="グループ_161" data-name="グループ 161" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <path id="パス_149" data-name="パス 149" d="M21.536,8.418a3.308,3.308,0,0,1-3.226-2.74,2.308,2.308,0,0,1,.6-1.632.464.464,0,0,0-.312-.807H3.406a.464.464,0,0,0-.312.807,2.339,2.339,0,0,1,.6,1.632A3.307,3.307,0,0,1,.464,8.418a.464.464,0,1,0,0,.928h2.33V16.44H5.286V9.346H8.2v4.132H7.691v1.258H14.31V13.479h-.532V9.346h2.936V16.44h2.493V9.346h2.33a.464.464,0,1,0,0-.928m-8.976,5.044H9.414V9.346h.6v3.509h1.966V9.346h.577Z" transform="translate(0 -1.469)" fill="#d3992c"/>
+      <rect id="長方形_133" data-name="長方形 133" width="8.546" height="1.553" transform="translate(6.728 13.996)" fill="#d3992c"/>
+      <rect id="長方形_134" data-name="長方形 134" width="10.697" height="1.894" transform="translate(5.652 16.456)" fill="#d3992c"/>
+      <path id="パス_150" data-name="パス 150" d="M6.326,1.252H20.843a.626.626,0,0,0,0-1.252H6.326a.626.626,0,0,0,0,1.252" transform="translate(-2.584 0)" fill="#d3992c"/>
+    </g>
+  </g>
+</svg>

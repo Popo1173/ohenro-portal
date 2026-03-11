@@ -1,0 +1,17 @@
+{% import "_components/_page-title-main.njk" as title %}
+{% import "_components/_button-general.njk" as button %}
+<div class="movie">
+  <figure>
+    <img src="/assets/images/temple/temple-main.jpg" alt="Movie"/>
+  </figure>
+  <div class="movie__inner">
+    <div class="movie__heading">
+      <span class="title-mark">Movie</span>
+      <h3 class="movie__heading-text">動画を見る</h3>
+    </div>
+    <ul class="movie__buttons-list">
+      <li class="movie__buttons-item">{{ button.generalButton("お寺Movie", "/ja", "movie") }}</li>
+      <li class="movie__buttons-item">{{ button.generalButton("住職Movie", "/ja", "movie") }}</li>
+    </ul>
+  </div>
+</div>
