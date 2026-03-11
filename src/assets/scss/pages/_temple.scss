@@ -1,3 +1,5 @@
+@use '../foundation' as *;
+
 .temple {
   // .temple__main-visual
 
@@ -36,6 +38,49 @@
 }
 
 .about {
+  // .about__wrapper
+  &__wrapper {
+    position: relative;
+    background: #f5f7f9;
+
+    &::before {
+      position: absolute;
+      top: -10px;
+      left: -32px;
+      width: 296px;
+      height: 152px;
+      pointer-events: none;
+      content: '';
+      background: url('/assets/images/common/cloud-bg.png') no-repeat right top;
+      background-size: contain;
+    }
+  }
+
+  // .about__temple-bg
+  &__temple-bg {
+    position: relative;
+    right: -15px;
+    width: 160px;
+    padding: 0;
+    margin: 0 0 0 auto;
+
+    @include mq(desktop) {
+      top: 90px;
+      right: -130px;
+      width: 247px;
+      margin: -100px 0 0 auto;
+    }
+  }
+
+  // .about__inner
+  &__inner {
+    @include container;
+
+    position: relative;
+    z-index: 2;
+    padding: 32px 16px;
+  }
+
   // .about__title
 
   &__title {
@@ -44,64 +89,211 @@
   // .about__description
 
   &__description {
-  }
+    // .about__description-text
 
-  // .about__description-text
+    &-text {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
 
-  &__description-text {
+      @include mq(desktop) {
+        font-size: 16px;
+      }
+    }
   }
 
   // .about__list
 
   &__list {
+    padding: 0 0 40px;
+    margin: 0;
+
+    @include mq(desktop) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px 80px;
+    }
   }
 
   // .about__item
 
   &__item {
-  }
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 
-  // .about__item-inner
+    &:first-of-type {
+      dl {
+        padding-top: 0;
 
-  &__item-inner {
+        @include mq(desktop) {
+          padding-top: 16px;
+        }
+      }
+    }
+
+    // .about__item-inner
+
+    &-inner {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 16px;
+      align-items: center;
+      justify-content: start;
+      padding: 16px 0;
+      margin: 0;
+      border-bottom: 1px solid $color-key;
+    }
   }
 
   // .about__label
 
   &__label {
+    padding: 0 0 0 16px;
+    margin: 0;
+    font-size: 16px;
+    color: $color-key;
+
+    @include mq(desktop) {
+      padding: 0 0 0 32px;
+      font-size: 18px;
+    }
   }
 
   // .about__text
 
   &__text {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+
+    @include mq(desktop) {
+      font-size: 16px;
+    }
   }
 
   // .about__yohanesu
 
   &__yohanesu {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 24px;
+    background: $color-white;
+    border-radius: 10px;
+
+    @include mq(desktop) {
+      padding: 40px 64px;
+    }
+
+    &::before {
+      position: absolute;
+      top: -11px;
+      left: -81px;
+      width: 146px;
+      height: 56px;
+      pointer-events: none;
+      content: '';
+      background: url('/assets/images/icons/icon-double-quotation.svg') no-repeat right top;
+      background-size: contain;
+
+      @include mq(desktop) {
+        top: -11px;
+        left: -94px;
+        width: 204px;
+        height: 86px;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      right: -81px;
+      bottom: -11px;
+      width: 146px;
+      height: 56px;
+      pointer-events: none;
+      content: '';
+      background: url('/assets/images/icons/icon-double-quotation.svg') no-repeat right top;
+      background-size: contain;
+      transform: rotate(180deg);
+
+      @include mq(desktop) {
+        right: -116px;
+        bottom: -32px;
+        width: 204px;
+        height: 86px;
+      }
+    }
+
+    // .about__yohanesu-comment
+    &-comment {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
     // .about__yohanesu-title
 
     &-title {
+      position: relative;
+      z-index: 1;
+      padding: 0;
+      margin: 0;
     }
 
-    // .about__yohanesu-descrption
+    // .about__yohanesu-description
 
-    &-descrption {
+    &-description {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+
+      @include mq(desktop) {
+        font-size: 16px;
+      }
     }
 
     // .about__yohanesu-info
 
     &-info {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 24px;
+      background: none;
+      border-top: 1px solid $color-key;
+
+      @include mq(desktop) {
+        padding: 24px 32px;
+        background: $color-white;
+        border: 1px solid $color-key;
+        border-radius: 10px;
+      }
     }
 
     // .about__yohanesu-info-title
 
     &-info-title {
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      font-weight: normal;
+      color: $color-key;
     }
 
-    // .about__yohanesu-info-descrption
+    // .about__yohanesu-info-description
 
-    &-info-descrption {
+    &-info-description {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+
+      @include mq(desktop) {
+        font-size: 16px;
+      }
     }
   }
 }

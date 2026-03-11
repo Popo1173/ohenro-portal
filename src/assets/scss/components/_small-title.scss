@@ -17,6 +17,7 @@
 
   &__text {
     font-size: 18px;
+    font-weight: bold;
 
     @include mq(desktop) {
       font-size: 24px;
