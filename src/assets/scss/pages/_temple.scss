@@ -446,7 +446,7 @@
   &__inner {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 8px;
 
     @include mq(desktop) {
       grid-template-columns: auto auto;
@@ -511,14 +511,27 @@
   // .information__stay
 
   &__stay {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
     // .information__stay-list
 
     &-list {
+      padding: 0;
+      margin: 0;
     }
 
     // .information__stay-item
 
     &-item {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
     }
 
     // .information__stay-image
