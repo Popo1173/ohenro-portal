@@ -140,6 +140,9 @@ hr {
   border: 1px solid #d3992c;
   border-radius: 50px;
 }
+.button-general.is-expensive-button {
+  padding: 16px;
+}
 .button-general::after {
   position: absolute;
   right: 16px;
@@ -1749,6 +1752,15 @@ hr {
 .temple__main-visual {
   margin-bottom: 0;
 }
+.temple__inner {
+  display: grid;
+  gap: 54px;
+  margin-top: 64px;
+}
+.about {
+  display: grid;
+  gap: 16px;
+}
 .about__wrapper {
   position: relative;
   background: #f5f7f9;
@@ -1787,12 +1799,12 @@ hr {
   margin: 40px auto;
   position: relative;
   z-index: 2;
-  padding: 32px 16px;
+  padding: 0 16px 32px;
   margin-bottom: 0;
 }
 @media (min-width: 1024px) {
   .about__inner {
-    padding: 64px 16px 32px;
+    padding: 32px 16px;
     padding-bottom: 64px;
   }
 }
@@ -1992,7 +2004,7 @@ hr {
 }
 @media (min-width: 1024px) {
   .movie__image {
-    height: 300px;
+    height: 400px;
   }
 }
 .movie__inner {
@@ -2004,14 +2016,15 @@ hr {
   gap: 32px;
   justify-content: center;
   width: 95%;
-  height: 80%;
+  height: 90%;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   transform: translate(-50%, -50%);
 }
 @media (min-width: 1024px) {
   .movie__inner {
+    gap: 56px;
     max-width: 1200px;
   }
 }
@@ -2024,6 +2037,12 @@ hr {
 .movie__heading-text {
   padding: 0;
   margin: 0;
+  font-size: 21px;
+}
+@media (min-width: 1024px) {
+  .movie__heading-text {
+    font-size: 28px;
+  }
 }
 .movie__buttons-list {
   width: 100%;
@@ -2058,8 +2077,16 @@ hr {
   padding: 0 16px;
   margin: 40px auto;
 }
+.information__heading {
+  padding-bottom: 24px;
+}
+@media (min-width: 1024px) {
+  .information__heading {
+    padding-bottom: 40px;
+  }
+}
 .information__list {
-  padding: 0;
+  padding: 0 0 54px;
   margin: 0;
 }
 @media (min-width: 1024px) {
@@ -2067,7 +2094,7 @@ hr {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 80px;
-    padding-bottom: 80px;
+    padding: 0 40px 80px;
   }
 }
 .information__item {
@@ -2119,10 +2146,12 @@ hr {
   position: relative;
   width: 100%;
   aspect-ratio: 75/59;
+  padding-bottom: 24px;
 }
 @media (min-width: 1024px) {
   .information__map {
     aspect-ratio: 16/7;
+    padding-bottom: 62px;
   }
 }
 .information__map iframe {
@@ -2151,6 +2180,10 @@ hr {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+.interview {
+  display: grid;
+  gap: 16px;
 }
 .interview__wrapper {
   position: relative;

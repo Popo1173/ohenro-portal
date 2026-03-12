@@ -12,6 +12,13 @@
   &__favorite {
   }
 
+  // .temple__inner
+  &__inner {
+    display: grid;
+    gap: 54px;
+    margin-top: 64px;
+  }
+
   // .temple__about
 
   &__about {
@@ -43,6 +50,9 @@
 // ========================================
 
 .about {
+  display: grid;
+  gap: 16px;
+
   // .about__wrapper
   &__wrapper {
     position: relative;
@@ -83,11 +93,11 @@
 
     position: relative;
     z-index: 2;
-    padding: 32px 16px;
+    padding: 0 16px 32px;
     margin-bottom: 0;
 
     @include mq(desktop) {
-      padding: 64px 16px 32px;
+      padding: 32px 16px;
       padding-bottom: 64px;
     }
   }
@@ -335,7 +345,7 @@
     object-position: center;
 
     @include mq(desktop) {
-      height: 300px;
+      height: 400px;
     }
   }
 
@@ -350,13 +360,14 @@
     gap: 32px;
     justify-content: center;
     width: 95%;
-    height: 80%;
+    height: 90%;
     background: rgb(255 255 255 / 60%);
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     transform: translate(-50%, -50%);
 
     @include mq(desktop) {
+      gap: 56px;
       max-width: 1200px;
     }
   }
@@ -374,6 +385,11 @@
     &-text {
       padding: 0;
       margin: 0;
+      font-size: 21px;
+
+      @include mq(desktop) {
+        font-size: 28px;
+      }
     }
   }
 
@@ -418,19 +434,24 @@
   // .information__heading
 
   &__heading {
+    padding-bottom: 24px;
+
+    @include mq(desktop) {
+      padding-bottom: 40px;
+    }
   }
 
   // .information__list
 
   &__list {
-    padding: 0;
+    padding: 0 0 54px;
     margin: 0;
 
     @include mq(desktop) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 10px 80px;
-      padding-bottom: 80px;
+      padding: 0 40px 80px;
     }
   }
 
@@ -494,9 +515,11 @@
     position: relative;
     width: 100%;
     aspect-ratio: 75 / 59;
+    padding-bottom: 24px;
 
     @include mq(desktop) {
       aspect-ratio: 16 / 7;
+      padding-bottom: 62px;
     }
 
     iframe {
@@ -548,6 +571,9 @@
 // ========================================
 
 .interview {
+  display: grid;
+  gap: 16px;
+
   // .interview__title-design
 
   &__title-design {

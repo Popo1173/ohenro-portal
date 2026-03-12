@@ -73,6 +73,10 @@
   border: 1px solid $color-key;
   border-radius: 50px;
 
+  &.is-expensive-button {
+    padding: 16px;
+  }
+
   &::after {
     position: absolute;
     right: 16px;
