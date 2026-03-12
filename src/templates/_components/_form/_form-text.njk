@@ -1,0 +1,11 @@
+{% macro formTextarea(label, id) %}
+<div class="text-area">
+  <label for="{{ id }}" class="text-area__label">{{ label }}</label>
+  <textarea 
+    id="{{ id }}" 
+    name="{{ id }}"
+    maxlength="2000"
+    class="text-area__input"
+  ></textarea>
+</div>
+{% endmacro %}

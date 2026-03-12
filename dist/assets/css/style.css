@@ -271,6 +271,30 @@ hr {
   border-color: #9f1627;
 }
 
+.text-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+}
+.text-area__label {
+  font-size: 16px;
+}
+.text-area__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 300px;
+  padding: 24px;
+  font-size: 16px;
+  color: #3b4043;
+  resize: vertical;
+  outline: none;
+  border: 1px solid #eaeaea;
+}
+.text-area__input:focus {
+  border-color: #9f1627;
+}
+
 .password-field {
   display: grid;
   grid-template-columns: 1fr;
@@ -2501,6 +2525,7 @@ hr {
 @media (min-width: 1024px) {
   .footer-public__member {
     align-items: normal;
+    height: 410px;
     background-position: center;
     background-size: cover;
   }
@@ -2523,6 +2548,7 @@ hr {
 @media (min-width: 1024px) {
   .footer-public__heading {
     gap: 16px;
+    padding: 32px 24px;
   }
 }
 .footer-public__heading-title {

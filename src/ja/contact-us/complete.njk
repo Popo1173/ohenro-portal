@@ -1,0 +1,26 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: お問い合わせ完了
+description: お問い合わせありがとうございました。内容を確認のうえ、担当者よりご連絡いたします。
+url: https://ohenro.online/ja/contact-us/complete/
+---
+{% import "_components/_page-title.njk" as title %}
+{% import "_components/_button-big.njk" as primary %}
+<section class="complete">
+  <div class="auth-completion">
+    <div class="auth-completion__inner">
+      <div class="auth-completion__title">
+        {{title.pageTitle("お問い合わせありがとうございます。")}}
+        <p class="auth-completion__title-description">後日担当者より改めてご連絡させていただきます。<br />お問い合わせ内容については、確認の上、ご返信させていただきます。</p>
+      </div>
+      <form class="auth-completion__form">
+        <div class="auth-completion__buttons is-single-button">
+        {{ primary.primaryButton("トップページ", "link", "/" + lang) }} 
+      </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -36,6 +36,35 @@
     }
   }
 }
+.text-area {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  width: 100%;
+
+  // .text-area__label
+
+  &__label {
+    font-size: $base-font-size;
+  }
+
+  // .text-area__input
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 300px;
+    padding: 24px;
+    font-size: $base-font-size;
+    color: $color-text;
+    resize: vertical;
+    outline: none;
+    border: 1px solid #eaeaea;
+    &:focus {
+      border-color: $color-primary;
+    }
+  }
+}
 
 // ========================================
 // パスワード入力フィールド

@@ -40,6 +40,7 @@
 
     @include mq(desktop) {
       align-items: normal;
+      height: 410px;
       background-position: center;
       background-size: cover;
     }
@@ -71,6 +72,7 @@
 
     @include mq(desktop) {
       gap: 16px;
+      padding: 32px 24px;
     }
 
     // .footer-public__heading-title
