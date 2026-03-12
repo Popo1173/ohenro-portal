@@ -79,6 +79,15 @@
     gap: 24px;
     width: 100%;
     max-width: 340px;
-    margin-top: 0;
+    margin-top: 32px;
+
+    &.confirm-button {
+      max-width: none;
+      margin-top: 64px;
+
+      @include mq(desktop) {
+        flex-direction: row;
+      }
+    }
   }
 }
