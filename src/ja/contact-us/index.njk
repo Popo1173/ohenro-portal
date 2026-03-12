@@ -3,55 +3,50 @@ lang: ja
 layout: _layout/_base.njk
 headerType: public
 footerType: public
-title: お問い合わせ内容確認
-description: 入力されたお問い合わせ内容をご確認ください。内容に問題がなければ送信してください。
+title: お問い合わせ
+description: 当サイトへのお問い合わせはこちらのフォームからお送りください。内容を確認のうえ、担当者よりご連絡いたします。
 url: https://ohenro.online/ja/contact-us/confirm/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
-
 {% import "_components/_form/_form-field-text.njk" as forms %}
 {% import "_components/_form/_form-text.njk" as formText %}
 {% import "_components/_form/_form-check-box.njk" as checkBox %}
-
 {% import "_components/_button-big.njk" as primary %}
-<section class="registration">
-	<div class="auth-page-heading">
-		<div class="auth-page-heading__title">
-			<span>{{ title.pageTitle("お問い合わせ") }}</span>
+<div class="contact-us">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			{{ title.pageTitle("お問い合わせ") }}
 		</div>
-		<div class="auth-page-heading__breadcrumbs">
-      {{ breadcrumbs([{ label: "お問い合わせ" }], lang) }}
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "お問い合わせ" }], lang) }}
 		</div>
 	</div>
 
-	<div class="auth-completion is-no-margin">
-		<div class="registration__title">
-			<p class="registration__title-descrption">お問い合わせ内容を入力ください。内容を確認のうえ、担当者よりご連絡いたします。</p>
-			<span class="note">※ 必須項目はすべてご入力ください。</span>
-		</div>		
-		
-		<div class="auth-completion__inner">
-			<form class="auth-completion__form">
-				{{ forms.formInput("メールアドレス", "email", "Your Email", "text", true, true) }}
-				{{ forms.formInput("名", "firstName", "太郎", "text", true) }}
-				{{ forms.formInput("姓", "lastName", "御遍路", "text", true) }}
-				{{ forms.formInput("メイ", "firstNameKana", "タロウ", "text", true) }}
-				{{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}
+  <div class="contact-us__wrapper">
+    <div class="contact-us__description">
+      <p class="contact-us__description-text">お問い合わせ内容を入力ください。内容を確認のうえ、担当者よりご連絡いたします。</p>
+      <span class="note">※ 必須項目はすべてご入力ください。</span>
+    </div>    
+    <section class="contact-us__inner">
+      <form class="contact-us__form">
+        {{ forms.formInput("メールアドレス", "email", "Your Email", "text", true, true) }}
+        {{ forms.formInput("名", "firstName", "太郎", "text", true) }}
+        {{ forms.formInput("姓", "lastName", "御遍路", "text", true) }}
+        {{ forms.formInput("メイ", "firstNameKana", "タロウ", "text", true) }}
+        {{ forms.formInput("セイ", "lastNameKana", "オヘンロ", "text", true) }}
         {{ formText.formTextarea("お問い合わせ内容", "contact") }}
-        
 
-        <div class="auth-completion__policy">
-          <p class="auth-completion__policy-text"><a href="/ja/privacy">個人情報保護ポリシー</a> をご確認の上、「同意する」にチェックしてください。</p>
-          <div class="auth-completion__policy-check">
-          {{ checkBox.formCheck("同意する", "consent", "consent",true) }}
+        <div class="contact-us__policy">
+          <p class="contact-us__policy-text"><a href="/ja/privacy">個人情報保護ポリシー</a> をご確認の上、「同意する」にチェックしてください。</p>
+          <div class="contact-us__policy-check">
+            {{ checkBox.formCheck("同意する", "consent", "consent",true) }}
           </div>
         </div>
-	
-				<div class="auth-completion__buttons is-single-button">
-				{{ primary.primaryButton("確認する", "submit", "/" + lang + "/confirm/") }}
-			</div>
-			</form>
-		</div>
-	</div>
-</section>
+        <div class="contact-us__buttons is-single-button">
+          {{ primary.primaryButton("確認する", "submit", "/confirm/") }}
+        </div>        
+      </form>
+    </section>
+  </div>
+</div>
