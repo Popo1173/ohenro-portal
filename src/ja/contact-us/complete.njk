@@ -9,12 +9,11 @@ url: https://ohenro.online/ja/contact-us/complete/
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
-{% import "_components/_page-title.njk" as title %}
 {% import "_components/_button-big.njk" as primary %}
 <div class="contact-us">
   <div class="page-heading">
 		<div class="page-heading__title">
-			{{ title.pageTitle("お問い合わせ完了") }}
+      {{ title.pageTitle("お問い合わせ完了", "", "Complete") }}      
 		</div>
 		<div class="page-heading__breadcrumbs">
 			{{ breadcrumbs([{ label: "お問い合わせ", url: "/ja/contact-us/" }, { label: "お問い合わせ完了" }], lang) }}
