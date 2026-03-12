@@ -4,6 +4,7 @@
   // .temple__main-visual
 
   &__main-visual {
+    margin-bottom: 0;
   }
 
   // .temple__favorite
@@ -86,6 +87,7 @@
     margin-bottom: 0;
 
     @include mq(desktop) {
+      padding: 64px 16px 32px;
       padding-bottom: 64px;
     }
   }
@@ -602,6 +604,9 @@
 
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   // .interview__title
@@ -628,6 +633,25 @@
   &__list {
     padding: 0;
     margin: 0;
+
+    @include mq(desktop) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+    }
+  }
+
+  // .interview__link
+  &__link {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    &:hover {
+      .interview__image {
+        transform: scale(1.1);
+      }
+    }
   }
 
   // .interview__item
@@ -636,6 +660,10 @@
     padding: 0;
     margin: 0;
     list-style-type: none;
+
+    &:not(:last-of-type) {
+      margin-bottom: 48px;
+    }
   }
 
   // .interview__figure
@@ -643,15 +671,165 @@
   &__figure {
     padding: 0;
     margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
   }
 
   // .interview__image
 
   &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
   }
 
   // .interview__inn
 
   &__inn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: $color-text;
+
+    // .interview__inn-description
+    &-description {
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+// ========================================
+// 次の札所
+// ========================================
+.next {
+  padding: 0 16px;
+  margin: 0 auto;
+
+  @include mq(desktop) {
+    max-width: 1000px;
+  }
+
+  // .next__link
+  &__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 32px 16px;
+    color: $color-text;
+    border: 1px solid $color-key;
+    border-radius: 5px;
+
+    @include mq(desktop) {
+      grid-template-columns: auto 360px;
+      align-items: center;
+      justify-content: space-around;
+      padding: 16px;
+
+      &::after {
+        position: absolute;
+        right: 16px;
+        box-sizing: border-box;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        line-height: 1;
+        color: #d3992c;
+        content: '';
+        border: 0.1em solid currentcolor;
+        border-bottom: 0;
+        border-left: 0;
+        transform: translateX(-25%) rotate(45deg);
+        transition: all 0.3s;
+      }
+    }
+
+    &:hover {
+      &::after {
+        right: 10px;
+      }
+
+      .next__temple-description-image {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  // .next__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+  }
+
+  // .next__temple
+
+  &__temple {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+
+    @include mq(desktop) {
+      display: block;
+    }
+
+    // .next__temple-information
+    &-information {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+
+      img {
+        max-width: 30px;
+      }
+    }
+
+    // .next__temple-next
+
+    &-next {
+      font-size: 15px;
+    }
+
+    // .next__temple-name
+
+    &-name {
+      font-size: 28px;
+    }
+
+    // .next__temple-description
+
+    &-description {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+
+      // .next__temple-description-text
+      &-text {
+        font-size: 15px;
+      }
+
+      // .next__temple-description-figure
+      &-figure {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      // .next__temple-description-image
+      &-image {
+        transition: transform 0.5s ease;
+      }
+    }
   }
 }

@@ -2,6 +2,8 @@
 
 .small-title {
   display: flex;
+  padding: 0;
+  margin: 0;
   &::before {
     display: block;
     width: 13px;

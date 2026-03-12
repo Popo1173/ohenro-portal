@@ -1119,6 +1119,7 @@ hr {
     padding: 0 16px;
     margin: 40px auto;
     margin-top: 0;
+    margin-bottom: 0;
   }
 }
 .main-visual__figure {
@@ -1143,6 +1144,8 @@ hr {
 
 .small-title {
   display: flex;
+  padding: 0;
+  margin: 0;
 }
 .small-title::before {
   display: block;
@@ -1743,6 +1746,9 @@ hr {
   margin: 0;
   list-style-type: none;
 }
+.temple__main-visual {
+  margin-bottom: 0;
+}
 .about__wrapper {
   position: relative;
   background: #f5f7f9;
@@ -1786,6 +1792,7 @@ hr {
 }
 @media (min-width: 1024px) {
   .about__inner {
+    padding: 64px 16px 32px;
     padding-bottom: 64px;
   }
 }
@@ -2196,6 +2203,9 @@ hr {
   margin: 40px auto;
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
 }
 .interview__title {
   display: flex;
@@ -2210,15 +2220,155 @@ hr {
   padding: 0;
   margin: 0;
 }
+@media (min-width: 1024px) {
+  .interview__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+  }
+}
+.interview__link {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.interview__link:hover .interview__image {
+  transform: scale(1.1);
+}
 .interview__item {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
+.interview__item:not(:last-of-type) {
+  margin-bottom: 48px;
+}
 .interview__figure {
   padding: 0;
   margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
 }
+.interview__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+.interview__inn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #3b4043;
+}
+.interview__inn-description {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.next {
+  padding: 0 16px;
+  margin: 0 auto;
+}
+@media (min-width: 1024px) {
+  .next {
+    max-width: 1000px;
+  }
+}
+.next__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 32px 16px;
+  color: #3b4043;
+  border: 1px solid #d3992c;
+  border-radius: 5px;
+}
+@media (min-width: 1024px) {
+  .next__link {
+    grid-template-columns: auto 360px;
+    align-items: center;
+    justify-content: space-around;
+    padding: 16px;
+  }
+  .next__link::after {
+    position: absolute;
+    right: 16px;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    color: #d3992c;
+    content: "";
+    border: 0.1em solid currentcolor;
+    border-bottom: 0;
+    border-left: 0;
+    transform: translateX(-25%) rotate(45deg);
+    transition: all 0.3s;
+  }
+}
+.next__link:hover::after {
+  right: 10px;
+}
+.next__link:hover .next__temple-description-image {
+  transform: scale(1.1);
+}
+.next__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+.next__temple {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+@media (min-width: 1024px) {
+  .next__temple {
+    display: block;
+  }
+}
+.next__temple-information {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.next__temple-information img {
+  max-width: 30px;
+}
+.next__temple-next {
+  font-size: 15px;
+}
+.next__temple-name {
+  font-size: 28px;
+}
+.next__temple-description {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.next__temple-description-text {
+  font-size: 15px;
+}
+.next__temple-description-figure {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.next__temple-description-image {
+  transition: transform 0.5s ease;
+}
+
 .page-header {
   position: sticky;
   top: 0;
