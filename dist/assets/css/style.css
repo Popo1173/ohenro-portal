@@ -2485,6 +2485,9 @@ hr {
     flex-direction: row;
   }
 }
+.contact-us .auth-completion__form {
+  margin-top: 64px;
+}
 
 .page-header {
   position: sticky;
