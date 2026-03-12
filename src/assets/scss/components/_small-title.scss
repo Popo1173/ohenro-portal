@@ -2,6 +2,8 @@
 
 .small-title {
   display: flex;
+  padding: 0;
+  margin: 0;
   &::before {
     display: block;
     width: 13px;
@@ -17,6 +19,7 @@
 
   &__text {
     font-size: 18px;
+    font-weight: bold;
 
     @include mq(desktop) {
       font-size: 24px;

@@ -1,7 +1,7 @@
 {% macro pageTitle(title, className="", designTitle="", templeNumber="") %}
 <h1 class="page-title-main">
   {% if designTitle %}
-  <span class="page-title-main__design {{ className }}">{{ designTitle }}</span>
+  <span class="title-mark">{{ designTitle }}</span>
   {% endif %}
 	<p class="page-title-main__text {{ className }}">
     {% if templeNumber %}

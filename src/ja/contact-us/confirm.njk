@@ -1,0 +1,59 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: 入力内容の確認
+description: 入力したお客様の情報を確認してください。
+url: https://ohenro.online/ja/form/confirm/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% import "_components/_button-big.njk" as primary %}
+{% import "_components/_form/_form-field-text.njk" as forms %}
+{% import "_components/_button-normal.njk" as normal %}
+<section class="registration">
+	<div class="auth-page-heading">
+		<div class="auth-page-heading__title">
+			<span>{{ title.pageTitle("お問い合わせ内容確認") }}</span>
+		</div>
+		<div class="auth-page-heading__breadcrumbs">
+      {{ breadcrumbs([{ label: "お問い合わせ", url: "/ja/contact-us/" }, { label: "お問い合わせ内容確認" }], lang) }}
+		</div>
+	</div>
+
+	<div class="auth-completion is-no-margin">
+		<div class="registration__title">
+			<p class="registration__title-descrption">内容にお間違いがなければ「送信する」ボタンを押してください。修正がある場合は「内容を修正する」ボタンから入力内容を修正できます。</p>
+		</div>		
+		
+		<div class="auth-completion__inner">
+      {% set confirmItems = [
+        { label: "メールアドレス", name: "email", value: "ohenro-taro@ohenro.jp", required: true },
+        { label: "名", name: "first_name", value: "太郎", required: true },
+        { label: "姓", name: "last_name", value: "お遍路", required: true },
+        { label: "セイ", name: "first_kana", value: "タロウ", required: true },
+        { label: "メイ", name: "last_kana", value: "オヘンロ", required: true },
+        { label: "お問い合わせ内容", name: "contact", value: "御遍路サイトについてお問い合わせします。" },
+        { label: "個人情報保護ポリシー", name: "consent", value: "同意する", required: true }
+      ] %}      
+        <dl class="confirm__list">
+          {% for item in confirmItems %}
+            <div class="confirm__item">
+              <dt class="confirm__item-label {% if item.required %}is-required{% endif %}">
+                {{ item.label }}
+              </dt>
+              <dd class="confirm__item-value">{{ item.value }}</dd>
+              <input type="hidden" name="{{ item.name }}" value="{{ item.value }}">
+            </div>
+          {% endfor %}
+        </dl>
+			<form class="auth-completion__form">
+				<div class="auth-completion__buttons">
+				{{ normal.normalButton("内容を修正する", "link", "/" + lang + "/contact-us") }}
+        {{ primary.primaryButton("確認する", "submit", "/confirm/") }}
+			</div>
+			</form>
+		</div>
+	</div>
+</section>

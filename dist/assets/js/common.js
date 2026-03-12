@@ -164,13 +164,3 @@ document.querySelectorAll('.tab-panel').forEach((panel) => {
 document.querySelectorAll('.tab__link').forEach((link) => {
   link.classList.toggle('is-active', link.dataset.tab === tab)
 })
-
-// =========================
-// お気に入り
-// =========================
-
-document.querySelectorAll('.js-favorite').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    btn.classList.toggle('is-active')
-  })
-})

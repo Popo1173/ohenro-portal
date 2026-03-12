@@ -20,10 +20,29 @@ url: https://ohenro.online/ja/temples/temple
 		</div>
 	</div>
 
-  <div class="temple__main-visual">
+  <section class="temple__main-visual">
     <div class="temple__favorite">
       {% include "_components/_button-favorite.njk" %}
     </div>
     {{ mainVisual("/assets/images/temple/temple-main.jpg", "お寺", false) }}
+  </section>
+
+  <div class="temple__inner">
+    <section class="temple__about">
+      {% include "./_temple-about.njk" %}
+      {% include "./_temple-movie.njk" %}
+    </section>
+
+    <section class="temple__infomation">
+      {% include "./_temple-information.njk" %}
+    </section>
+
+    <section class="temple__interview">
+      {% include "./_temple-interview.njk" %}
+    </section>
+    
+    <section class="temple__next">
+      {% include "./_temple-next.njk" %}
+    </section>
   </div>
 </div>
