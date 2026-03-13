@@ -1,9 +1,14 @@
 {% from "_components/_small-title.njk" import smallTitle %}
 <div class="information">
   <div class="information__heading">
-    <div class="page-heading__title">
-			{{ title.pageTitle("基本情報", "", "Information") }}
-		</div>
+    <div class="information__title-design">
+      <span class="title-mark">Information</span>
+    </div>
+    <div class="information__title">
+      <h2 class="information__title-text">
+        <span class="page-title-main__text">基本情報</span>
+      </h2>
+    </div>
   </div>
   {% set informationItems = [
     { label: "所在地", text: "鳴門市大麻町板東東塚鼻126", icon: "/assets/images/icons/icon-pin.svg" },
