@@ -60,7 +60,7 @@ define("LOG_PATH", SVR_ROOT . "data/log/");
 define("BATCH_PATH", SVR_ROOT . "data/log/");
 
 // 管理者メールアドレス
-define("WEB_MAIL", "info@advancedsearch.co.jp");
+define("WEB_MAIL", "no-reply@advancedsearch.co.jp");
 define("WEB_MAIL2", "info@advancedsearch.co.jp");
 
 //本番／開発フラグ

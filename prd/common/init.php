@@ -33,14 +33,14 @@ define("TMP_FILE_ROOT", SVR_ROOT . "admin/tmp/");
 define("TMP_FILE_PATH", HTTP_ROOT . "admin/tmp/");
 define("PDF_FILE_ROOT", SVR_ROOT . "pdf/");
 define("PDF_FILE_PATH", HTTP_ROOT . "pdf/");
-define("IMAGE_FILE_ROOT", SVR_ROOT . "image/notice/");
-define("IMAGE_FILE_PATH", HTTP_ROOT . "image/notice/");
-define("TEMPLE_IMAGE_ROOT", SVR_ROOT . "assets/images/temple/temple-");
-define("TEMPLE_IMAGE_PATH", HTTP_ROOT . "assets/images/temple/temple-");
-define("TEMPLE_LSIZE_ROOT", SVR_ROOT . "assets/images/temple-l/");
-define("TEMPLE_LSIZE_PATH", HTTP_ROOT . "assets/images/temple-l/");
-define("INFO_IMAGE_ROOT", CMN_ROOT . "image/");
-define("INFO_IMAGE_PATH", CMN_PATH . "image/");
+define("IMAGE_FILE_ROOT", CMN_ROOT . "images/notice/");
+define("IMAGE_FILE_PATH", CMN_PATH . "images/notice/");
+define("TEMPLE_IMAGE_ROOT", CMN_ROOT . "images/temple/");
+define("TEMPLE_IMAGE_PATH", CMN_PATH . "images/temple/");
+define("TEMPLE_LSIZE_ROOT", CMN_ROOT . "images/temple-l/");
+define("TEMPLE_LSIZE_PATH", CMN_PATH . "images/temple-l/");
+define("INFO_IMAGE_ROOT", CMN_ROOT . "images/");
+define("INFO_IMAGE_PATH", CMN_PATH . "images/");
 
 
 //言語定義
@@ -88,8 +88,11 @@ $message_keys = array(
 $temple_keys = array(
 	"temple_num",
 	"mountain",
+	"mount_kana",
 	"infirmary",
+	"infir_kana",
 	"temple_name",
+	"temple_kana",
 	"pref",
 	"address",
 	"tel",
@@ -103,8 +106,9 @@ $temple_keys = array(
 	"next_temple",
 	"walk",
 	"car",
+	"next_comment",
 	"ohenro_item",
-	"comment",
+	//"comment",
 	"inn",
 	"shukubou",
 	"taxi",
@@ -118,8 +122,11 @@ $temple_keys = array(
 $temple_header = array(
 	"札所No",
 	"山",
+	"山（カナ）",
 	"院",
+	"院（カナ）",
 	"寺院名",
+	"寺院名（カナ）",
 	"県",
 	"所在",
 	"電話",
@@ -133,8 +140,9 @@ $temple_header = array(
 	"次の札所まで（単位km）",
 	"徒歩（分）",
 	"車（分）",
+	"次の札所説明",
 	"遍路用品",
-	"情報",
+	//"情報",
 	"周辺宿泊",
 	"宿坊",
 	"タクシー",
@@ -220,7 +228,7 @@ $interview_header = array(
 //情報モード
 $info_ary = array(
 	"",
-	"宿",
+	"旅館",
 	"タクシー",
 	"旅館インタビュー",
 );
@@ -302,12 +310,6 @@ $shikoku_tab = array(
 	"ehime"=>"愛媛県",
 	"kagawa"=>"香川県",
 );
-$shikoku_temple_num = array(
-	"tokushima"=>"第01番～23番",
-	"kochi"=>"第24番～39番",
-	"ehime"=>"第40番～65番",
-	"kagawa"=>"第66番～88番",
-);
 
 
 //暗号化キー
@@ -329,6 +331,9 @@ if (isset($_SERVER["SERVER_NAME"])) {
 
 set_include_path(get_include_path() . PATH_SEPARATOR . CLASS_PATH);
 date_default_timezone_set('Asia/Tokyo');
+
+//現在のURL
+$current_url = (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 //表示日付
 $ary_year = array();

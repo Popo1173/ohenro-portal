@@ -185,7 +185,6 @@ elseif ($post_send_flag && isset($request_data["md"]) && ($request_data["md"] ==
 		exit;
 	}
 
-	$data["lang_code"] = $lang_code;
 	$data["user_id"] = $_SESSION["login_info_user"]["user_id"];
 	if ($request_data["md"] == "movie_end") {
 		$data["mode_flag"] = 1;
@@ -439,8 +438,7 @@ elseif (strpos($path, "my-page/account-delete/") !== false) {
 
 	$hidden .= '    <input type="hidden" name="md" value="del">
 	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">
-';
+	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">' . "\n";
 }
 elseif (strpos($path, "my-page/subscribe-edit/") !== false) {
 	//メルマガ購読変更画面
@@ -454,8 +452,7 @@ elseif (strpos($path, "my-page/subscribe-edit/") !== false) {
 
 	$hidden .= '    <input type="hidden" name="md" value="subscribe">
 	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">
-';
+	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">' . "\n";
 }
 elseif (strpos($path, "signup/form/confirm") !== false) {
 	//確認画面
@@ -468,26 +465,22 @@ elseif (strpos($path, "signup/form/confirm") !== false) {
 	}
 
 	$form = '<form name="form_q" action="' . $_SERVER["SCRIPT_NAME"] . '" method="post">';
-	$hidden = '    <input type="hidden" name="comp_flag" value="1">
-';
+	$hidden = '    <input type="hidden" name="comp_flag" value="1">' . "\n";
 	foreach ($data as $key => $value) {
 		if (is_array($value)) {
 			for ($i = 0; $i < count_ary($value); $i++) {
 				if (is_array($value[$i])) {
 					foreach ($value[$i] as $key2 => $value2) {
-						$hidden .= '    <input type="hidden" name="' . $key2 . '[]" value="' . escape_html($value2) . '">
-';
+						$hidden .= '    <input type="hidden" name="' . $key2 . '[]" value="' . escape_html($value2) . '">' . "\n";
 					}
 				}
 				else {
-					$hidden .= '    <input type="hidden" name="' . $key . '[]" value="' . escape_html($value[$i]) . '">
-';
+					$hidden .= '    <input type="hidden" name="' . $key . '[]" value="' . escape_html($value[$i]) . '">' . "\n";
 				}
 			}
 		}
 		else {
-			$hidden .= '    <input type="hidden" name="' . $key . '" value="' . escape_html($value) . '">
-';
+			$hidden .= '    <input type="hidden" name="' . $key . '" value="' . escape_html($value) . '">' . "\n";
 		}
 	}
 
@@ -559,26 +552,22 @@ elseif (strpos($path, "signup/form/") !== false || strpos($path, "my-page/profil
 	}
 
 	if ($error_flag) {
-		$_SESSION["error_message"] = "アクセスエラーです。";
+		print_access_log("会員登録変更 : アクセスエラーです。");
 		header("Location: " . HTTP_ROOT . $lang_ary[$lang_code] . "/login/index" . EXT);
 		exit;
 	}
 
 	$hidden .= '    <input type="hidden" name="md" value="up">
 	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">
-';
+	<input type="hidden" name="user_id" value="' . $data["user_id"] . '">' . "\n";
 	if ($data["temp_id"]) {
-		$hidden .= '<input type="hidden" name="temp_id" value="' . escape_html($data["temp_id"]) . '">
-';
+		$hidden .= '<input type="hidden" name="temp_id" value="' . escape_html($data["temp_id"]) . '">' . "\n";
 		$disp_email = ' style="display:none;" ';
 		$hidden_email = '    <input type="hidden" name="email" value="' . escape_html($data["email"]) . '">
-	<input type="hidden" name="email2" value="' . escape_html($data["email"]) . '">
-';
+	<input type="hidden" name="email2" value="' . escape_html($data["email"]) . '">' . "\n";
 	}
 	else {
-		$hidden .= '<input type="hidden" name="comp_flag" value="1">
-';
+		$hidden .= '<input type="hidden" name="comp_flag" value="1">' . "\n";
 	}
 
 	$javascript = "";
@@ -592,8 +581,7 @@ elseif (strpos($path, "signup") !== false) {
 	}
 
 	$hidden = '    <input type="hidden" name="md" value="mail_up">
-	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-';
+	<input type="hidden" name="lang_code" value="' . $lang_code . '">' . "\n";
 
 }
 elseif (strpos($path, "login") !== false) {
@@ -611,7 +599,7 @@ elseif (strpos($path, "login") !== false) {
 
 	$hidden = '    <input type="hidden" name="e" value="' . $event["url_param"] . '">
 	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-	<input type="hidden" name="url" value="' . $request_data["url"] . '">';
+	<input type="hidden" name="url" value="' . $request_data["url"] . '">' . "\n";
 
 }
 elseif (strpos($path, "password-reset/new/") !== false) {
@@ -636,15 +624,14 @@ elseif (strpos($path, "password-reset/new/") !== false) {
 	}
 
 	if ($error_flag) {
-		$_SESSION["error_message"] = "アクセスエラーです。";
+		print_access_log("パスワード再設定 : アクセスエラーです。");
 		header("Location: " . HTTP_ROOT . $lang_ary[$lang_code] . "/login/index" . EXT);
 		exit;
 	}
 
 	$hidden = '    <input type="hidden" name="md" value="password">
 	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-	<input type="hidden" name="s" value="' . $request_data["s"] . '">
-';
+	<input type="hidden" name="s" value="' . $request_data["s"] . '">' . "\n";
 
 }
 elseif (strpos($path, "password-reset/") !== false) {
@@ -655,14 +642,18 @@ elseif (strpos($path, "password-reset/") !== false) {
 	}
 
 	$hidden = '    <input type="hidden" name="md" value="reset">
-	<input type="hidden" name="lang_code" value="' . $lang_code . '">
-';
+	<input type="hidden" name="lang_code" value="' . $lang_code . '">' . "\n";
 }
 elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/history/") !== false) {
 	//視聴履歴一覧、お気に入り一覧
 
 	//ログインチェック
 	check_login_user();
+
+	//デフォルト表示県
+	if (strpos($path, "my-page/favorite/") !== false && !$request_data["tab"]) {
+		$request_data["tab"] = "tokushima";
+	}
 
 	//データ取得
 	$search = array();
@@ -676,9 +667,6 @@ elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/h
 	//札所クラス
 	require_once(CLASS_PATH . 'class_temple.php');
 	$obj_temple = new class_temple();
-
-	//動画CSV読み込み
-	$csv_data = get_csv_movie($lang_code);
 
 	if (strpos($path, "history/") !== false) {
 		//視聴履歴
@@ -699,7 +687,6 @@ elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/h
 			$round_list = $obj_data->round_list;
 			$round_max = $obj_data->round_max;
 		}
-
 	}
 	else {
 		//お気に入り
@@ -711,21 +698,25 @@ elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/h
 		$num1 = $page * $num + 1;
 		$max = $obj_data->movie_max;
 		$num2 = min($page*$num+count_ary($list), ($page+1)*$num, $max);
+
+		//動画CSV読み込み
+		$csv_data = get_csv_movie($lang_code);
+
+		//動画用URL
+		for ($i = 0; $i < count_ary($list); $i++) {
+			$list[$i]["movie2_flag"] = false;
+			if ($csv_data[$list[$i]["temple_num"]-1]["url2"]) {
+				//住職ムービーが存在するかのフラグ
+				$list[$i]["movie2_flag"] = true;
+				$list[$i]["movie_url2"] = $obj_temple->get_movie_url($list[$i], 2);
+			}
+			$list[$i]["movie_url1"] = $obj_temple->get_movie_url($list[$i], 1);
+		}
 	}
 
 	//データベースクローズ
 	db_close($dbh);
 
-	//動画用URL
-	for ($i = 0; $i < count_ary($list); $i++) {
-		$list[$i]["movie2_flag"] = false;
-		if ($csv_data[$list[$i]["temple_num"]-1]["url2"]) {
-			//住職ムービーが存在するかのフラグ
-			$list[$i]["movie2_flag"] = true;
-			$list[$i]["movie_url2"] = $obj_temple->get_movie_url($list[$i], 2);
-		}
-		$list[$i]["movie_url1"] = $obj_temple->get_movie_url($list[$i], 1);
-	}
 }
 //elseif ($mode == "award") {
 elseif (strpos($path, "my-page/award/") !== false) {

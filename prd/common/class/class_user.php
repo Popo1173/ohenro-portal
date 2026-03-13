@@ -330,38 +330,7 @@ class class_user  {
 
 		$this->check_mail($data, $dbh);
 		$this->check_pass($data, $dbh);
-
-		$this->class_ary["family_name"] = "";
-		if (!isset($data["family_name"]) || !$data["family_name"]) {
-			$this->class_ary["family_name"] = $this->error_code;
-			//$this->error_message .= "「姓」を入力してください。";
-			$message["message_num"] = "E03001";
-			$this->class_ary["family_name_error"] .= get_lang_message($message);
-			$this->error_message .= $this->class_ary["family_name_error"] . "<br>\n";
-		}
-		$this->class_ary["first_name"] = "";
-		if (!isset($data["first_name"]) || !$data["first_name"]) {
-			$this->class_ary["first_name"] = $this->error_code;
-			//$this->error_message .= "「名」を入力してください。";
-			$message["message_num"] = "E03002";
-			$this->class_ary["first_name_error"] .= get_lang_message($message);
-			$this->error_message .= $this->class_ary["first_name_error"] . "<br>\n";
-		}
-
-		if ($data["lang_code"] == array_search('ja', $lang_ary)) {
-			$this->class_ary["family_kana"] = "";
-			if (!isset($data["family_kana"]) || !$data["family_kana"]) {
-				$this->class_ary["family_kana"] = $this->error_code;
-				$this->class_ary["family_kana_error"] .= "「セイ」を入力してください。";
-				$this->error_message .= $this->class_ary["family_kana_error"] . "<br>\n";
-			}
-			$this->class_ary["first_kana"] = "";
-			if (!isset($data["first_kana"]) || !$data["first_kana"]) {
-				$this->class_ary["first_kana"] = $this->error_code;
-				$this->class_ary["first_kana_error"] .= "「メイ」を入力してください。";
-				$this->error_message .= $this->class_ary["first_kana_error"] . "<br>\n";
-			}
-		}
+		$this->check_name($data, $dbh);
 /*
 		$this->class_ary["country"] = "";
 		if (!isset($data["country"]) || !$data["country"]) {
@@ -396,8 +365,54 @@ class class_user  {
 		return true;
 	}
 
+	//姓名チェック
+	function check_name($request_data, $dbh) {
+		$data = $request_data;
+		$message = array();
+		$message["lang_code"] = $data["lang_code"];
+
+		$this->class_ary["family_name"] = "";
+		if (!isset($data["family_name"]) || !$data["family_name"]) {
+			$this->class_ary["family_name"] = $this->error_code;
+			//$this->error_message .= "「姓」を入力してください。";
+			$message["message_num"] = "E03001";
+			$this->class_ary["family_name_error"] .= get_lang_message($message);
+			$this->error_message .= $this->class_ary["family_name_error"] . "<br>\n";
+		}
+		$this->class_ary["first_name"] = "";
+		if (!isset($data["first_name"]) || !$data["first_name"]) {
+			$this->class_ary["first_name"] = $this->error_code;
+			//$this->error_message .= "「名」を入力してください。";
+			$message["message_num"] = "E03002";
+			$this->class_ary["first_name_error"] .= get_lang_message($message);
+			$this->error_message .= $this->class_ary["first_name_error"] . "<br>\n";
+		}
+
+		if ($data["lang_code"] == array_search('ja', $lang_ary)) {
+			$this->class_ary["family_kana"] = "";
+			if (!isset($data["family_kana"]) || !$data["family_kana"]) {
+				$this->class_ary["family_kana"] = $this->error_code;
+				$this->class_ary["family_kana_error"] .= "「セイ」を入力してください。";
+				$this->error_message .= $this->class_ary["family_kana_error"] . "<br>\n";
+			}
+			$this->class_ary["first_kana"] = "";
+			if (!isset($data["first_kana"]) || !$data["first_kana"]) {
+				$this->class_ary["first_kana"] = $this->error_code;
+				$this->class_ary["first_kana_error"] .= "「メイ」を入力してください。";
+				$this->error_message .= $this->class_ary["first_kana_error"] . "<br>\n";
+			}
+		}
+
+		if ($this->error_message) {
+			return false;
+		}
+
+		return true;
+	}
+
 	//メールアドレスチェック
 	function check_mail($request_data, $dbh) {
+		global $lang_ary, $user_keys, $user_header;
 		$data = $request_data;
 		$message = array();
 		$message["lang_code"] = $data["lang_code"];
@@ -543,12 +558,12 @@ class class_user  {
 		global $lang_ary;
 
 		$data = $request_data;
-		$message = array();
-		$message["lang_code"] = $data["lang_code"];
-
 		if (!isset($data["lang_code"])) {
 			$data["lang_code"] = 0;
 		}
+
+		$message = array();
+		$message["lang_code"] = get_en_code($data["lang_code"]);
 
 		//メール作成クラス
 		require_once(CLASS_PATH . "class_mail.php");
@@ -753,8 +768,9 @@ class class_user  {
 			$obj_mail->set_subject($subject);
 
 			// メール本文
-			if (!$obj_mail->set_mail("register.txt", CMN_ROOT . "mail/" . $lang_ary[$message["lang_code"]] . "/")) {
-				$this->error_message .= "ファイルオープンに失敗しました。\n";
+			if (!$obj_mail->set_mail("register.txt", MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/")) {
+				$this->error_message .= MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/register.txt ファイルオープンに失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 
@@ -764,7 +780,8 @@ class class_user  {
 
 			// ユーザメール送信
 			if ($data["email"] && !$obj_mail->send_mail($data["email"], WEB_MAIL)) {
-				$this->error_message .= " メール送信に失敗しました。\n";
+				$this->error_message .= "会員本登録 : メール送信に失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 		}
@@ -777,8 +794,9 @@ class class_user  {
 			$obj_mail->set_subject($subject);
 
 			// メール本文
-			if (!$obj_mail->set_mail("change.txt", CMN_ROOT . "mail/" . $lang_ary[$message["lang_code"]] . "/")) {
-				$this->error_message .= "ファイルオープンに失敗しました。\n";
+			if (!$obj_mail->set_mail("change.txt", MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/")) {
+				$this->error_message .= MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/change.txt ファイルオープンに失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 
@@ -788,7 +806,8 @@ class class_user  {
 
 			// ユーザメール送信
 			if ($data["email"] && !$obj_mail->send_mail($data["email"], WEB_MAIL)) {
-				$this->error_message .= " メール送信に失敗しました。\n";
+				$this->error_message .= "会員情報変更 : メール送信に失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 		}
@@ -879,14 +898,15 @@ class class_user  {
 		// 件名
 		//$obj_mail->set_subject("仮登録完了");
 		$message = array();
-		$message["lang_code"] = $data["lang_code"];
+		$message["lang_code"] = get_en_code($data["lang_code"]);
 		$message["message_num"] = "S01001";
 		$subject = get_lang_message($message);
 		$obj_mail->set_subject($subject);
 
 		// メール本文
-		if (!$obj_mail->set_mail("user_mail.txt", CMN_ROOT . "mail/" . $lang_ary[$message["lang_code"]] . "/")) {
-			$this->error_message .= "ファイルオープンに失敗しました。\n";
+		if (!$obj_mail->set_mail("user_mail.txt", MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/")) {
+			$this->error_message .= MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/user_mail.txt ファイルオープンに失敗しました。\n";
+			print_access_log($this->error_message);
 			return false;
 		}
 
@@ -896,7 +916,8 @@ class class_user  {
 
 		// ユーザメール送信
 		if ($data["email"] && !$obj_mail->send_mail($data["email"], WEB_MAIL)) {
-			$this->error_message .= " メール送信に失敗しました。\n";
+			$this->error_message .= "仮登録 : メール送信に失敗しました。\n";
+			print_access_log($this->error_message);
 			return false;
 		}
 
@@ -920,7 +941,8 @@ class class_user  {
 		$user = $this->data;
 
 		if (!count_ary($user)) {
-			$this->error_message .= "メール送信に失敗しました。<br>\n";
+			$this->error_message .= "パスワード再設定 : ユーザー取得エラー。<br>\n";
+			print_access_log($this->error_message);
 			return false;
 		}
 
@@ -933,14 +955,15 @@ class class_user  {
 		// 件名
 		//$obj_mail->set_subject("パスワード再設定");
 		$message = array();
-		$message["lang_code"] = $data["lang_code"];
+		$message["lang_code"] = get_en_code($data["lang_code"]);
 		$message["message_num"] = "S01004";
 		$subject = get_lang_message($message);
 		$obj_mail->set_subject($subject);
 
 		// メール本文
-		if (!$obj_mail->set_mail("password.txt", CMN_ROOT . "mail/" . $lang_ary[$message["lang_code"]] . "/")) {
-			$this->error_message .= "ファイルオープンに失敗しました。\n";
+		if (!$obj_mail->set_mail("password.txt", MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/")) {
+			$this->error_message .= MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/password.txt ファイルオープンに失敗しました。\n";
+			print_access_log($this->error_message);
 			return false;
 		}
 
@@ -950,7 +973,8 @@ class class_user  {
 
 		// ユーザメール送信
 		if ($user["email"] && !$obj_mail->send_mail($user["email"], WEB_MAIL)) {
-			$this->error_message .= " メール送信に失敗しました。\n";
+			$this->error_message .= "パスワード再設定 : メール送信に失敗しました。\n";
+			print_access_log($this->error_message);
 			return false;
 		}
 
@@ -1065,20 +1089,22 @@ class class_user  {
 			// 件名
 			//$obj_mail->set_subject("会員情報を削除いたしました");
 			$message = array();
-			$message["lang_code"] = $data["lang_code"];
+			$message["lang_code"] = get_en_code($data["lang_code"]);
 			$message["message_num"] = "S01005";
 			$subject = get_lang_message($message);
 			$obj_mail->set_subject($subject);
 
 			// メール本文
-			if (!$obj_mail->set_mail("cancel.txt", CMN_ROOT . "mail/" . $lang_ary[$message["lang_code"]] . "/")) {
-				$this->error_message .= "ファイルオープンに失敗しました。\n";
+			if (!$obj_mail->set_mail("cancel.txt", MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/")) {
+				$this->error_message .= MAIL_ROOT . $lang_ary[$message["lang_code"]] . "/cancel.txt ファイルオープンに失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 
 			// ユーザメール送信
 			if ($data["email"] && !$obj_mail->send_mail($data["email"], WEB_MAIL)) {
-				$this->error_message .= " メール送信に失敗しました。\n";
+				$this->error_message .= "会員退会 : メール送信に失敗しました。\n";
+				print_access_log($this->error_message);
 				return false;
 			}
 		}
@@ -1282,7 +1308,11 @@ class class_user  {
 				t.lang_code,
 				t.temple_num,
 				t.mountain,
+				t.mount_kana,
+				t.infirmary,
+				t.infir_kana,
 				t.temple_name,
+				t.temple_kana,
 				t.pref,
 				t.movie_detail1,
 				t.movie_detail2,
@@ -1345,7 +1375,11 @@ class class_user  {
 				t.lang_code,
 				t.temple_num,
 				t.mountain,
+				t.mount_kana,
+				t.infirmary,
+				t.infir_kana,
 				t.temple_name,
+				t.temple_kana,
 				t.pref,
 				t.movie_detail1,
 				t.movie_detail2,
@@ -1496,7 +1530,7 @@ class class_user  {
 			$sql = "
 			insert into " . TBL_HEAD . "user_round (
 				user_id,
-				insert_date,
+				insert_date
 			) values (
 				" . escape_sql($data["user_id"]) . ",
 				now()
@@ -1511,6 +1545,8 @@ class class_user  {
 				" . TBL_HEAD . "movie_user
 			where
 				user_id = " . escape_sql($data["user_id"]) . "
+			and
+				movie_num = 1
 			and
 				mode_flag = 1
 			";

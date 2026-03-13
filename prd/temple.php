@@ -53,14 +53,46 @@ if (strpos($path, "temples/temple") !== false) {
 	$obj_data->get_data($data);
 	$data = $obj_data->data;
 
-	//住職ムービーが存在するかのフラグ
-	$movie2_flag = false;
-	if ($csv_data[$data["temple_num"]]["url2"]) {
-		$movie2_flag = true;
+	require_once(CLASS_PATH . 'class_info.php');
+	$obj_info = new class_info();
+
+	$taxi = "";
+	$inn = "";
+	$interview = $data["interview_info"];
+
+	$item = $data["taxi_info"];
+	for ($i = 0; $i < count_ary($item); $i++) {
+		if ($i > 0) {
+			$taxi .= "、";
+		}
+		$taxi .= escape_html($item[$i]["info_name"]) . "：" . escape_html($item[$i]["tel"]);
+	}
+
+	$item = $data["inn_info"];
+	for ($i = 0; $i < count_ary($item); $i++) {
+		if ($i > 0) {
+			$inn .= "、";
+		}
+		$inn .= escape_html($item[$i]["info_name"]) . "：" . escape_html($item[$i]["tel"]);
 	}
 
 	//動画用URL
-	$movie_url = "movie.html?lang_code=" . $lang_code . "&temple=" . $data["temple_num"];
+	$movie_url = $obj_data->get_movie_url($data, 1);
+	$movie_url2 = "";
+
+	//住職ムービーが存在するかのフラグ
+	if ($csv_data[$data["temple_num"]-1]["url2"]) {
+		$movie_url2 = $obj_data->get_movie_url($data, 2);
+	}
+
+	//次の札所情報取得
+	if ($data["temple_num"] < 88) {
+		$search = array();
+		$search["lang_code"] = $lang_code;
+		$search["temple_num"] = $data["temple_num"] + 1;
+		$obj_data->get_data($search);
+		$next = $obj_data->data;
+	}
 
 }
 elseif (strpos($path, "temples/movie") !== false) {
@@ -68,11 +100,12 @@ elseif (strpos($path, "temples/movie") !== false) {
 	if (isset($request_data["temple"])) {
 		//札所動画画面
 
-		//エラーチェック
+		$temple = $request_data["temple"];
 		if ($temple <= 0) {
-			$temple = 0;
+			$temple = 1;
 		}
 
+		$num = $request_data["num"];
 		if ($num != 1 && $num != 2) {
 			$num = 1;
 		}
@@ -81,12 +114,12 @@ elseif (strpos($path, "temples/movie") !== false) {
 		$pref  = $csv_data[$temple-1]["pref"];
 		$title = $csv_data[$temple-1]["temple"];
 		$url = $csv_data[$temple-1]["url" . $num];
+		$movie_id = $obj_data->get_movie_id($url);
 
 		$js_string = "<script>
-  window.onload = function() {
-    set_movie_id(" . $obj_data->get_movie_id($url) . ", " . $lang_code . ", " . $temple . ", " . $num . ");
-  }
-</sciprt>";
+    set_movie_id(" . $lang_code . ", " . $temple . ", " . $num . ");
+</script>";
+
 	}
 	else {
 		//その他の動画画面
@@ -111,9 +144,7 @@ elseif (strpos($path, "temples/movie") !== false) {
 		}
 
 		$js_string = "<script>
-  window.onload = function() {
-    set_movie_id(" . $movie_id . ", " . $lang_code . ");
-  }
+    set_movie_id(" . $lang_code . ");
 </script>";
 	}
 
@@ -124,7 +155,7 @@ elseif (strpos($path, "temples/movie") !== false) {
 	}
 
 }
-elseif (strpos($path, "temples") !== false) {
+elseif (strpos($path, "temples/") !== false) {
 	//一覧
 	$sub_title_name .= "一覧";
 
@@ -133,10 +164,17 @@ elseif (strpos($path, "temples") !== false) {
 		$page = $request_data["page"];
 	}
 
+	//デフォルト表示県
+	if (!$request_data["tab"]) {
+		$request_data["tab"] = "tokushima";
+	}
+
 	//絞り込み
 	$data = $request_data;
-	$search = array();
+	$data["pref"] = $shikoku_tab[$request_data["tab"]];
+
 	//スペイン語、フランス語、イタリア語、ドイツ語の場合は英語を取得
+	$search = array();
 	$search["en_flag"] = true;
 	$data["lang_code"] = get_lang_code($search);
 
@@ -156,7 +194,7 @@ elseif (strpos($path, "temples") !== false) {
 	//動画用URL
 	for ($i = 0; $i < count_ary($list); $i++) {
 		$list[$i]["movie2_flag"] = false;
-		if ($csv_data[$list[$i]["temple_num"-1]]["url2"]) {
+		if ($csv_data[$list[$i]["temple_num"]-1]["url2"]) {
 			//住職ムービーが存在するかのフラグ
 			$list[$i]["movie2_flag"] = true;
 			$list[$i]["movie_url2"] = $obj_data->get_movie_url($list[$i], 2);
@@ -166,26 +204,6 @@ elseif (strpos($path, "temples") !== false) {
 
 }
 else {
-
-		//その他の動画画面
-		$movie_key = "";
-		$movie_id = "";
-		$title = "";
-
-		if (isset($request_data["mid"])) {
-			//管理IDからURLを取得する
-			$movie_key = $request_data["mid"];
-			for ($i = 88; $i < count_ary($csv_data); $i++) {
-				if ($csv_data[$i]["pref"] == $movie_key) {
-					$movie_id = $obj_data->get_movie_id($csv_data[$i]["url1"]);
-					$title = $csv_data[$i]["temple"];
-					break;
-				}
-			}
-		}
-c($movie_id);
-
-
 }
 
 ?>

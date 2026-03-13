@@ -5,15 +5,22 @@
   let firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  let video_id = 'GCZtPhDTM48';
+  let lang_code = null;
+  let temple_num = null;
+  let movie_num = null;
   let end_flag = false;
 
-  function set_video_id(vid) {
-    video_id = vid;
+  function set_movie_id(lang = null, temple = null, movie = null) {
+    lang_code = lang;
+    temple_num = temple;
+    movie_num = movie;
   }
 
   let player;
   function onYouTubeIframeAPIReady() {
+    var playerElement = document.getElementById('player');
+    var video_id = playerElement.getAttribute('data-video-id');
+
     player = new YT.Player('player', {
       height: '360',
       width: '640',

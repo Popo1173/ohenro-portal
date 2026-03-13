@@ -30,9 +30,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
   const applyBtn = lang.querySelector('.js-lang-apply')
   const select = lang.querySelector('.js-lang-select')
 
-  // =========================
   // 開閉
-  // =========================
   if (langToggle && panel) {
     langToggle.addEventListener('click', (e) => {
       e.stopPropagation()
@@ -50,9 +48,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
     })
   }
 
-  // =========================
   // 言語切替
-  // =========================
   const switchLanguage = (targetLang) => {
     const url = new URL(window.location.href)
     const parts = url.pathname.split('/')
@@ -81,7 +77,7 @@ document.querySelectorAll('.js-lang').forEach((lang) => {
 })
 
 // =========================
-// Drawer（ハンバーガー等）+ スクロールロック追加
+// Drawer（ハンバーガー等）+ スクロールロック
 // =========================
 const drawer = document.querySelector('.js-drawer')
 const triggers = document.querySelectorAll('.js-drawer-toggle')
@@ -122,7 +118,7 @@ document.addEventListener('keydown', (e) => {
 // =========================
 // ヘッダースクロール追従
 // =========================
-const header = document.querySelector('.my-page-header')
+const header = document.querySelector('.page-header')
 
 if (header) {
   let lastY = window.scrollY
@@ -132,10 +128,18 @@ if (header) {
     () => {
       const y = window.scrollY
 
+      // 下スクロールでヘッダー非表示
       if (y > lastY && y > 50) {
-        header.classList.add('is-hidden') // 下スクロールで隠す
+        header.classList.add('is-hidden')
       } else {
-        header.classList.remove('is-hidden') // 上スクロールで表示
+        header.classList.remove('is-hidden')
+      }
+
+      // 上スクロールでヘッダー表示してshadowを追加
+      if (y > 0) {
+        header.classList.add('is-shadow')
+      } else {
+        header.classList.remove('is-shadow')
       }
 
       lastY = y
@@ -152,7 +156,7 @@ const params = new URLSearchParams(window.location.search)
 const tab = params.get('tab') || 'tokushima'
 
 // コンテンツ切替
-document.querySelectorAll('.my-page-favorite__tab-panel').forEach((panel) => {
+document.querySelectorAll('.tab-panel').forEach((panel) => {
   panel.classList.toggle('is-active', panel.dataset.tab === tab)
 })
 

@@ -130,7 +130,13 @@
               <dt class="confirm__item-label ">
                 メールマガジンの購読
               </dt>
-              <dd class="confirm__item-value"><?=$mail_read_ary[$data["mail_flag"]]?></dd>
+              <dd class="confirm__item-value">
+<?php if ($data["mail_flag"]) { ?>
+                購読する
+<?php } else { ?>
+                購読しない
+<?php } ?>
+              </dd>
             </div>
           
             <div class="confirm__item">
@@ -141,8 +147,9 @@
             </div>
           
         </dl>
-			<form class="auth-completion__form" action="<?=HTTP_ROOT?>user.php" method="post">
-			<?=$hidden?>
+        <form action="<?=HTTP_ROOT?>user.php" method="post">
+          <?=$hidden?>
+
 				<div class="auth-completion__buttons">
 				
   
@@ -160,7 +167,7 @@
 
 
 			</div>
-			</form>
+          </form>
 		</div>
 	</div>
 </section>

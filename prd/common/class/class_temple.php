@@ -24,8 +24,11 @@ class class_temple  {
 			"temple_num",
 			"pref",
 			"temple_name",
+			"temple_kana",
 			"mountain",
+			"mount_kana",
 			"infirmary",
+			"infir_kana",
 			"address",
 			"tel",
 			"access",
@@ -38,6 +41,7 @@ class class_temple  {
 			"next_temple",
 			"car",
 			"walk",
+			"next_comment",
 			"ohenro_item",
 			"inn",
 			"taxi",
@@ -135,6 +139,16 @@ class class_temple  {
 			}
 		}
 */
+		//Google Map用に日本語の住所取得
+		$data["map_address"] = $data["pref"] . $data["address"];
+		if ($data["lang_code"] > 0) {
+			$search = array();
+			$search["lang_code"] = 0;
+			$search["temple_num"] = $data["temple_num"];
+			$this->get_data($search, $dbh);
+			$data["map_address"] = $this->data["map_address"];
+		}
+
 		require_once(CLASS_PATH . 'class_info.php');
 		$obj_data = new class_info();
 
@@ -142,7 +156,8 @@ class class_temple  {
 		$tmp = string_to_array(";", $data["inn"]);
 		for ($i = 0; $i < count_ary($tmp); $i++) {
 			$search = array();
-			$search["info_id"] = $tmp[$i];
+			$search["lang_code"] = $data["lang_code"];
+			$search["info_num"] = $tmp[$i];
 			$search["mode_flag"] = 1;
 			$obj_data->get_data($search, $dbh);
 
@@ -153,7 +168,8 @@ class class_temple  {
 		$tmp = string_to_array(";", $data["taxi"]);
 		for ($i = 0; $i < count_ary($tmp); $i++) {
 			$search = array();
-			$search["taxi_id"] = $tmp[$i];
+			$search["lang_code"] = $data["lang_code"];
+			$search["info_num"] = $tmp[$i];
 			$search["mode_flag"] = 2;
 			$obj_data->get_data($search, $dbh);
 
@@ -164,7 +180,8 @@ class class_temple  {
 		$tmp = string_to_array(";", $data["interview"]);
 		for ($i = 0; $i < count_ary($tmp); $i++) {
 			$search = array();
-			$search["interview_id"] = $tmp[$i];
+			$search["lang_code"] = $data["lang_code"];
+			$search["info_num"] = $tmp[$i];
 			$search["mode_flag"] = 3;
 			$obj_data->get_data($search, $dbh);
 
@@ -230,9 +247,26 @@ class class_temple  {
 			t.lang_code = " . escape_sql($data["lang_code"]);
 		}
 		if (isset($data["pref"]) && $data["pref"]) {
-			$sql_search .= "
+			if ($data["lang_code"] > 0) {
+				//日本語以外は、日本語の県名で抽出した後で札所Noで検索する
+				$sql_search .= "
+		and
+			t.temple_num in (
+				select
+					temple_num
+				from
+					" . TBL_HEAD . "temple
+				where
+					lang_code = 0
+				and
+					pref = " . escape_sql($data["pref"]) . "
+			)";
+			}
+			else {
+				$sql_search .= "
 		and
 			t.pref = " . escape_sql($data["pref"]);
+			}
 		}
 
 		if ($data["order_id"] === "desc") {
@@ -258,12 +292,23 @@ class class_temple  {
 		$sql = "
 		select
 			t.temple_id,
+			r.relation_id,
 			" . $sql_field . "
 			t.update_date as up_date
 		from
 			" . TBL_HEAD . "temple t
+		left join
+			" . TBL_HEAD . "movie_user r
+		on
+			t.temple_num = r.temple_num
+		and
+			r.user_id = " . escape_sql($data["user_id"]) . "
+		and
+			r.movie_num = 1
+		and
+			r.mode_flag = 2
 		where
-			t.temple_id is not null " . $sql_search . $data["search"] . "
+			t.temple_id is not null " . $sql_search . "
 		" . $data["order"] . "
 		" . $data["limit"];
 
@@ -277,7 +322,7 @@ class class_temple  {
 		from
 			" . TBL_HEAD . "temple t
 		where
-			t.temple_id is not null " . $sql_search . $data["search"] . "
+			t.temple_id is not null " . $sql_search . "
 		";
 
 		$item = get_array($dbh, $sql);
@@ -456,7 +501,7 @@ class class_temple  {
 		}
 
 		for ($i = 1; $i < count_ary($info_str); $i++) {
-			if (isset($data[$info_str[$i]]) && !preg_match("/^[0-9;]+$/", $data[$info_str[$i]])) {
+			if ($data[$info_str[$i]] && !preg_match("/^[0-9;]+$/", $data[$info_str[$i]])) {
 				$this->error_message .= $info_ary[$i] . "は数値と;(セミコロン)のみで入力してください。<br>\n";
 			}
 		}

@@ -91,7 +91,7 @@ function submit_search() {
 <!--  <th width="110">画像</th>-->
   <th width="100">言語</th>
   <th width="60">札所No</th>
-  <th width="200">寺院名</th>
+  <th width="250">山 院 寺院名</th>
   <th>住所</th>
   <th width="120">電話番号</th>
  </tr>
@@ -103,8 +103,8 @@ if (count_ary($list)) {
 <!--  <td><a href="temple_detail.html?id=<?=$list[$i]["temple_id"]?>"><img src="<?=$obj_data->get_image_path($list[$i]["temple_num"])?>" width="110px" border="0"></a></td>-->
   <td><?=escape_html($lang_string[$list[$i]["lang_code"]])?></td>
   <td><?=escape_html($list[$i]["temple_num"])?></td>
-  <td><a href="temple_detail.html?id=<?=$list[$i]["temple_id"]?>" class="link_b"><?=escape_html($list[$i]["temple_name"])?></a></td>
-  <td><?=escape_html($list[$i]["pref"])?><?=escape_html($list[$i]["address"])?></td>
+  <td><a href="temple_detail.html?id=<?=$list[$i]["temple_id"]?>" class="link_b"><?=escape_html($list[$i]["mountain"])?> <?=escape_html($list[$i]["infirmary"])?> <?=escape_html($list[$i]["temple_name"])?></a></td>
+  <td><?=escape_html($list[$i]["pref"])?> <?=escape_html($list[$i]["address"])?></td>
   <td><?=escape_html($list[$i]["tel"])?></td>
 <!--  <input type="button" value="全画像削除" onClick="delete_image('<?=$list[$i]["temple_id"]?>');"> -->
  </tr>

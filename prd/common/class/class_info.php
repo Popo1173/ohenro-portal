@@ -217,6 +217,7 @@ class class_info  {
 	function get_image_path($id) {
 		$file_root = INFO_IMAGE_ROOT . "interview/" . sprintf('%02d', $id) . IMAGE_FILE_EXT;
 		$file_name = INFO_IMAGE_PATH . "interview/" . sprintf('%02d', $id) . IMAGE_FILE_EXT;
+
 		if (!is_file($file_root)) {
 			$file_name = $this->no_img;
 		}

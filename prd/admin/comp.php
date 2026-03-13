@@ -26,9 +26,9 @@ elseif ($request_data["md"]) {
 $mode_array = array(
 	"notice"=>"お知らせ",
 	"temple"=>"札所",
-	"inn"=>"宿",
-	"taxi"=>"タクシー",
-	"interview"=>"旅館インタビュー",
+	"inn"=>$info_ary[1],
+	"taxi"=>$info_ary[2],
+	"interview"=>$info_ary[3],
 	"admin"=>"アカウント",
 	"user"=>"会員",
 	"mail"=>"メールマガジン",

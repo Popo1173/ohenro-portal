@@ -1,0 +1,11 @@
+「OHENRO.ONLINE」
+以下の方からお問い合わせがありました。
+
+■お客様情報
+お名前　　　　　　:#family_name# #first_name#
+カナ　　　　　　　:#family_kana# #first_kana#
+メールアドレス　　:#email#
+内容　　　　　　　:
+#detail#
+
+

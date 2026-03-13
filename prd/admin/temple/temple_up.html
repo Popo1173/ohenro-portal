@@ -49,12 +49,24 @@ if ($data["image_file"]) {
     <td><input type="text" name="mountain" value="<?=escape_html($data["mountain"])?>" size="80"></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("mount_kana", $temple_keys)]?></th>
+    <td><input type="text" name="mount_kana" value="<?=escape_html($data["mount_kana"])?>" size="80"></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("infirmary", $temple_keys)]?></th>
     <td><input type="text" name="infirmary" value="<?=escape_html($data["infirmary"])?>" size="80"></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("infir_kana", $temple_keys)]?></th>
+    <td><input type="text" name="infir_kana" value="<?=escape_html($data["infir_kana"])?>" size="80"></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("temple_name", $temple_keys)]?><?=$need_string?></th>
     <td><input type="text" name="temple_name" value="<?=escape_html($data["temple_name"])?>" style="width: 100%;"></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("temple_kana", $temple_keys)]?><?=$need_string?></th>
+    <td><input type="text" name="temple_kana" value="<?=escape_html($data["temple_kana"])?>" style="width: 100%;"></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("pref", $temple_keys)]?></th>
@@ -95,7 +107,7 @@ if ($data["image_file"]) {
   </tr>
   <tr>
     <th><?=$temple_header[array_search("kaiki", $temple_keys)]?></th>
-    <td><input type="text" name="kanki" value="<?=escape_html($data["kaiki"])?>" size="80"></td>
+    <td><input type="text" name="kaiki" value="<?=escape_html($data["kaiki"])?>" size="80"></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("honzon", $temple_keys)]?></th>
@@ -122,21 +134,27 @@ if ($data["image_file"]) {
     <td><input type="text" name="car" value="<?=escape_html($data["car"])?>" size="10"></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
+    <td><textarea name="next_comment" style="width:100%; height:100px;"><?=escape_html($data["next_comment"])?></textarea></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("ohenro_item", $temple_keys)]?></th>
     <td><input type="text" name="ohenro_item" value="<?=escape_html($data["ohenro_item"])?>" size="80"></td>
   </tr>
+<!--
   <tr>
     <th><?=$temple_header[array_search("comment", $temple_keys)]?></th>
     <td><textarea name="comment" style="width:100%; height:100px;"><?=escape_html($data["comment"])?></textarea></td>
   </tr>
+-->
   <tr>
     <th><?=$temple_header[array_search("inn", $temple_keys)]?></th>
     <td><input type="text" name="inn" value="<?=escape_html($data["inn"])?>" size="30"><br />
-    <strong>※セミコロン区切りで宿IDを入力してください。</strong></td>
+    <strong>※セミコロン区切りで<?=$info_ary[1]?>IDを入力してください。</strong></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("shukubou", $temple_keys)]?></th>
-    <td><input type="text" name="ohenro_item" value="<?=escape_html($data["shukubou"])?>" size="80"></td>
+    <td><input type="text" name="shukubou" value="<?=escape_html($data["shukubou"])?>" size="80"></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("taxi", $temple_keys)]?></th>
@@ -159,7 +177,7 @@ if ($data["image_file"]) {
   </tr>
   <tr>
     <th><?=$temple_header[array_search("interview", $temple_keys)]?></th>
-    <td><input type="text" name="taxi" value="<?=escape_html($data["interview"])?>" size="30"><br />
+    <td><input type="text" name="interview" value="<?=escape_html($data["interview"])?>" size="30"><br />
     <strong>※セミコロン区切りで旅館インタビューIDを入力してください。</strong></td>
   </tr>
 </table>

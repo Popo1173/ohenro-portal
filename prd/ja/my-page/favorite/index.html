@@ -563,11 +563,17 @@
   </ul>
 </div>
 
-    <script src="/common/js/system.js" defer></script>
-
     <div class="tab-panel" data-tab="<?=escape_html($request_data["tab"])?>">
       <div class="my-page-favorite__number">
-        <p class="my-page-favorite__number-text"><?=$shikoku_temple_num[$request_data["tab"]]?></p>
+<?php if ($request_data["tab"] == "tokushima") { ?>
+        <p class="my-page-favorite__number-text">第01番～23番</p>
+<?php } elseif ($request_data["tab"] == "kochi") { ?>
+        <p class="my-page-favorite__number-text">第24番～39番</p>
+<?php } elseif ($request_data["tab"] == "ehime") { ?>
+        <p class="my-page-favorite__number-text">第40番～65番</p>
+<?php } elseif ($request_data["tab"] == "kagawa") { ?>
+        <p class="my-page-favorite__number-text">第66番～88番</p>
+<?php } ?> 
       </div>
       <ul class="my-page-favorite__list">
 <?php if (count_ary($list)) { ?>
@@ -585,14 +591,14 @@
         <path d="M22.639.021A4.844,4.844,0,0,0,17.453,3.74c-.5-2.825-3.42-3.905-5.181-3.719C10.119.251,7.276,1.2,8,5.615s9.5,11.974,9.5,11.974,8.7-7.559,9.419-11.974S24.793.251,22.639.021" transform="translate(-7.381 0.505)" />
       </svg>
     </button>
-    <a class="temple-card__link" href="/ja/temples/temple.html?temple_id=<?=escape_html($list[$i]["temple_id"])?>">
+    <a class="temple-card__link" href="/ja/temples/temple/index.html?temple_num=<?=escape_html($list[$i]["temple_num"])?>">
       <figure class="temple-card__figure">
         <img class="temple-card__image" src="<?=$obj_temple->get_image_path($list[$i]["temple_num"])?>" alt="<?=escape_html($list[$i]["mountain"])?> <?=escape_html($list[$i]["temple_name"])?>">
       </figure>
       <h3 class="temple-card__name">
         <span class="temple-card__number">第<?=escape_html($list[$i]["temple_num"])?>番</span>
         <span class="temple-card__label">
-          <ruby class="ruby-under"><?=escape_html($list[$i]["mountain"])?>　<?=escape_html($list[$i]["temple_name"])?></ruby>
+          <ruby class="ruby-under"><?=escape_html($list[$i]["mountain"])?>　<?=escape_html($list[$i]["temple_name"])?><rt><?=escape_html($list[$i]["mount_kana"])?>　<?=escape_html($list[$i]["temple_kana"])?></rt></ruby>
         </span>
       </h3>
     </a>
@@ -601,22 +607,22 @@
   <div class="temple-card__buttons">
     <ul class="temple-card__buttons-list">
       <li class="temple-card__buttons-item">
-  <a href="<?=$list[$i]["movie_url1"]?>" class="button-movie">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-movie__icon">
+  <a href="<?=$list[$i]["movie_url1"]?>" class="button-general">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-general__icon">
       <path d="M19.333,0H.667A.666.666,0,0,0,0,.667V15.11a.666.666,0,0,0,.667.667H19.333A.666.666,0,0,0,20,15.11V.667A.666.666,0,0,0,19.333,0m-.667,2.593H15.333V1.333h3.334Zm0,9.258H1.333V3.926H18.667ZM9.333,14.443H6V13.184H9.333Zm1.333-1.259H14v1.259H10.666Zm0-11.851H14V2.593H10.666ZM9.333,2.593H6V1.333H9.333Zm-4.666,0H1.333V1.333H4.667ZM1.333,13.184H4.667v1.259H1.333Zm14,0h3.334v1.259H15.333Z"/>
       <path d="M17.163,16.994a.443.443,0,0,0,.222.06.448.448,0,0,0,.222-.06l4.054-2.341a.444.444,0,0,0,0-.77l-4.054-2.341a.444.444,0,0,0-.667.385v4.681a.443.443,0,0,0,.222.385" transform="translate(-9.412 -6.38)"/>
     </svg>
-    <span class="button-movie__text">お寺Movie</span>    
+    <span class="button-general__text">お寺Movie</span>    
   </a>
 </li>
       <li class="temple-card__buttons-item">
 <?php     if ($list[$i]["movie2_flag"]) { ?>
-  <a href="<?=$list[$i]["movie_url2"]?>" class="button-movie">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-movie__icon">
+  <a href="<?=$list[$i]["movie_url2"]?>" class="button-general">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-general__icon">
       <path d="M19.333,0H.667A.666.666,0,0,0,0,.667V15.11a.666.666,0,0,0,.667.667H19.333A.666.666,0,0,0,20,15.11V.667A.666.666,0,0,0,19.333,0m-.667,2.593H15.333V1.333h3.334Zm0,9.258H1.333V3.926H18.667ZM9.333,14.443H6V13.184H9.333Zm1.333-1.259H14v1.259H10.666Zm0-11.851H14V2.593H10.666ZM9.333,2.593H6V1.333H9.333Zm-4.666,0H1.333V1.333H4.667ZM1.333,13.184H4.667v1.259H1.333Zm14,0h3.334v1.259H15.333Z"/>
       <path d="M17.163,16.994a.443.443,0,0,0,.222.06.448.448,0,0,0,.222-.06l4.054-2.341a.444.444,0,0,0,0-.77l-4.054-2.341a.444.444,0,0,0-.667.385v4.681a.443.443,0,0,0,.222.385" transform="translate(-9.412 -6.38)"/>
     </svg>
-    <span class="button-movie__text">住職Movie</span>    
+    <span class="button-general__text">住職Movie</span>    
   </a>
 <?php     } ?>
 </li>
@@ -630,8 +636,8 @@
 <?php } ?>
       </ul>
     </div>
-    
-  
+
+<script src="/common/js/system.js"></script>
 
 <div class="tab">
   <ul class="tab__list">

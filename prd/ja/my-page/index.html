@@ -582,7 +582,13 @@
 <div class="member__subscription">
   <dl class="member">
     <dt class="member__label">メールマガジンの購読</dt>
-    <dd class="member__value"><?=$mail_read_ary[$data["mail_flag"]]?></dd>
+    <dd class="member__value">
+ <?php if ($data["mail_flag"]) { ?>
+                購読する
+<?php } else { ?>
+                購読しない
+<?php } ?>
+    </dd>
   </dl>
   <div class="member__edit">
     <button class="button" type="button" type="submit" id="subscription-edit">

@@ -180,12 +180,24 @@ if (!$_GET["md"] && $data["image_flag"]) {
     <td><?=escape_html($data["mountain"])?></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("mount_kana", $temple_keys)]?></th>
+    <td><?=escape_html($data["mount_kana"])?></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("infirmary", $temple_keys)]?></th>
     <td><?=escape_html($data["infirmary"])?></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("infir_kana", $temple_keys)]?></th>
+    <td><?=escape_html($data["infir_kana"])?></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("temple_name", $temple_keys)]?></th>
     <td><?=escape_html($data["temple_name"])?></td>
+  </tr>
+  <tr>
+    <th><?=$temple_header[array_search("temple_kana", $temple_keys)]?></th>
+    <td><?=escape_html($data["temple_kana"])?></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("pref", $temple_keys)]?></th>
@@ -242,13 +254,19 @@ if (!$_GET["md"] && $data["image_flag"]) {
     <td><?=escape_html($data["car"])?></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
+    <td><?=escape_html($data["next_comment"])?></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("ohenro_item", $temple_keys)]?></th>
     <td><?=escape_html($data["ohenro_item"])?></td>
   </tr>
+<!--
   <tr>
     <th><?=$temple_header[array_search("comment", $temple_keys)]?></th>
     <td><?=escape_html($data["comment"])?></td>
   </tr>
+-->
   <tr>
     <th><?=$temple_header[array_search("inn", $temple_keys)]?></th>
     <td><?=escape_html($data["inn"])?></td>
