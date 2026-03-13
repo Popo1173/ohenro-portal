@@ -636,8 +636,9 @@ hr {
 }
 .page-title-main__text {
   display: flex;
+  flex-direction: column;
   gap: 8px;
-  align-items: center;
+  align-items: flex-start;
   padding: 0;
   margin: 0;
   font-size: 1.75rem;
@@ -660,6 +661,13 @@ hr {
   .page-title-main__number {
     font-size: 1.5rem;
   }
+}
+.page-title-main__temple ruby {
+  ruby-position: top;
+}
+.page-title-main__temple rt {
+  font-size: 13px;
+  font-weight: normal;
 }
 
 .title-mark {
@@ -997,6 +1005,9 @@ hr {
   font-size: 21px;
   line-height: 1.3;
   color: #fff;
+}
+.temple-card__label ruby {
+  font-weight: normal;
 }
 .temple-card__buttons {
   padding: 0;
@@ -2487,6 +2498,122 @@ hr {
 }
 .contact-us .auth-completion__form {
   margin-top: 64px;
+}
+
+.news__wrapper {
+  padding: 48px 16px;
+  margin-bottom: -48px;
+  background: #f5f7f9;
+}
+.news__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 0;
+  margin-top: 0;
+}
+@media (min-width: 1024px) {
+  .news__inner {
+    gap: 56px;
+  }
+}
+.news__page-list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.news__page-link {
+  display: block;
+  padding: 8px;
+  line-height: 1;
+  color: #d3992c;
+  font-family: "Futura Medium Italic", Futura, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+}
+.news__page-link.is-active {
+  color: #3b4043;
+  background: #fff;
+  border: 1px solid #d3992c;
+  border-radius: 5px;
+}
+.news__page-item {
+  padding: 0;
+  margin: 0;
+  font-size: 16px;
+  color: #d3992c;
+  list-style-type: none;
+}
+.news__page-item:first-of-type a {
+  position: relative;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  color: #3b4043;
+}
+.news__page-item:first-of-type a::before {
+  position: absolute;
+  top: 12px;
+  left: -8px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  line-height: 1;
+  vertical-align: middle;
+  color: #d3992c;
+  content: "";
+  border: 0.1em solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translateX(-25%) rotate(-135deg);
+  transition: all 0.3s;
+}
+.news__page-item:last-of-type a {
+  position: relative;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  color: #3b4043;
+}
+.news__page-item:last-of-type a::after {
+  position: absolute;
+  top: 12px;
+  right: -8px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  line-height: 1;
+  vertical-align: middle;
+  color: #d3992c;
+  content: "";
+  border: 0.1em solid currentcolor;
+  border-bottom: 0;
+  border-left: 0;
+  transform: translateX(-25%) rotate(45deg);
+  transition: all 0.3s;
+}
+.news__page-item:not(:first-child, :last-child) a:hover {
+  padding: 8px;
+  color: #3b4043;
+  background: #fff;
+}
+.news__page-item a:hover {
+  text-decoration: underline;
+}
+.news__page-item a:hover::before {
+  left: -12px;
+}
+.news__page-item a:hover::after {
+  right: -12px;
 }
 
 .page-header {

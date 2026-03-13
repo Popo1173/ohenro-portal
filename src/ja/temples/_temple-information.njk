@@ -1,19 +1,22 @@
 {% from "_components/_small-title.njk" import smallTitle %}
 <div class="information">
   <div class="information__heading">
-    <div class="page-heading__title">
-			{{ title.pageTitle("基本情報", "", "Information") }}
-		</div>
+    <div class="information__title-design">
+      <span class="title-mark">Information</span>
+    </div>
+    <div class="information__title">
+      <h2 class="information__title-text">
+        <span class="page-title-main__text">基本情報</span>
+      </h2>
+    </div>
   </div>
   {% set informationItems = [
-    { label: "所在地", text: "徳島県鳴門市大麻町板東東塚鼻126", icon: "/assets/images/icons/icon-pin.svg" },
+    { label: "所在地", text: "鳴門市大麻町板東東塚鼻126", icon: "/assets/images/icons/icon-pin.svg" },
     { label: "電話番号", text: "088-689-1111",icon:"/assets/images/icons/icon-phone.svg" },
-    { label: "車でのアクセス", text: "〇〇駅から徒歩10分",icon:"/assets/images/icons/icon-car.svg" },
-    { label: "徒歩でのアクセス", text: "〇〇駅から徒歩10分", icon:"/assets/images/icons/icon-walk.svg" },
-    { label: "次の札所まで", text: "極楽寺まで徒歩で約1km", icon:"/assets/images/icons/icon-temple.svg" },
-    { label: "タクシー会社", text: "板野タクシー：088-672-0274", icon: "/assets/images/icons/icon-car.svg"},
+    { label: "次の札所まで", text: "約<span>1</span>km。徒歩で<span>15</span>分、車で<span>4</span>分。", icon:"/assets/images/icons/icon-temple.svg" },
+    { label: "タクシー会社", text: "<span>板野タクシー</span>：<span>088-672-0274</span>", icon: "/assets/images/icons/icon-car.svg"},
     { label: "お遍路用品", text: "一式有", icon: "/assets/images/icons/icon-shirt.svg"},
-    { label: "備考", text: "近くに宿は無い。食堂無し、喫茶あり", icon:"/assets/images/icons/icon-pen.svg" }
+    { label: "宿坊", text: "休止中", icon:"/assets/images/icons/icon-shukubo.svg" }
   ] %}
   <ul class="information__list">
     {% for item in informationItems %}
@@ -23,7 +26,7 @@
           <img src="{{ item.icon }}" alt="{{ item.label }}" />
           {{ item.label }}
         </dd>
-        <dt class="information__description">{{ item.text }}</dt>
+        <dt class="information__description">{{ item.text | safe }}</dt>
       </dl>
     </li>
     {% endfor %}

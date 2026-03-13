@@ -1,0 +1,69 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: お知らせ・最新情報
+description: 四国八十八ヶ所巡りの最新情報を発信する「ohenro.online」のお知らせ一覧ページです。サイトの更新情報やイベント案内、お遍路の旅に役立つトピックスなど、巡礼者の皆様へ向けた重要情報を随時お届けします。最新の状況をいち早く確認して、安心で充実した旅の計画にお役立てください。
+url: https://ohenro.online/ja/news/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% from "_components/_news-list.njk" import newsList %}
+
+<div class="news">
+  <div class="page-heading">
+		<div class="page-heading__title">
+			{{ title.pageTitle("お知らせ・最新情報", "", "News") }}
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "お知らせ・最新情報" }], lang) }}
+		</div>
+	</div>
+  <div class="news__wrapper">
+    <section class="news__inner">
+      {% set newsItems = [
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" },
+        { url: "/", date: "2026/01/23", text: "親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
+        なぜそんな無闇をしたと聞く人があるかも知れ" }                                
+      ] %}        
+      {{ newsList(newsItems) }}
+      <div class="news__pagination">
+        <ul class="news__page-list">
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">前へ</a>
+          </li>
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">1</a>
+          </li>
+          <li class="news__page-item">
+            <a class="news__page-link is-active " href="/">2</a>
+          </li>
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">3</a>
+          </li>
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">...</a>
+          </li>
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">10</a>
+          </li>          
+          <li class="news__page-item">
+            <a class="news__page-link" href="/">次へ</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  <div>  
+</div>
