@@ -644,9 +644,11 @@ hr {
   font-size: 1.75rem;
   font-weight: bold;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page-title-main__text {
+    flex-direction: row;
     gap: 16px;
+    align-items: center;
     font-size: 2.375rem;
   }
 }
@@ -657,7 +659,7 @@ hr {
   background: #d3992c;
   border-radius: 5px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page-title-main__number {
     font-size: 1.5rem;
   }

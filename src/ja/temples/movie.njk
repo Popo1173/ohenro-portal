@@ -1,0 +1,22 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: お寺ムービー
+description: 国八十八ヶ所の各札所の風景や境内の雰囲気を高品質な動画でご紹介します。実際にお寺を訪れているような臨場感あふれる映像を通じて、各札所の歴史や魅力を視覚的に体感いただけます。参拝前の予習や、思い出の振り返りにもぜひご活用ください。
+url: https://ohenro.online/ja/temples/movie
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+<div class="movie">
+  <div class="page-heading is-no-margin">
+		<div class="page-heading__title">
+			{{ title.pageTitle("竺和山 霊山寺", "", "Movie", "88") }}
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報", url: "/temples" },{ label: "竺和山 一乗院 霊山寺", url: "/temples/temple" },{ label: "お寺Movie" }], lang) }}
+		</div>
+	</div>
+  </div>
+</div>
