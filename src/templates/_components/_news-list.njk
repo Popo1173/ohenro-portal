@@ -1,0 +1,12 @@
+{% macro newsList(items=[]) %}
+<ul class="news__list">
+  {% for item in items %}
+  <li class="news__item">
+    <a class="news__link" href="{{ item.url }}">
+      <dl class="news__date">{{ item.date }}</dl>
+      <dd class="news__text">{{ item.text }}</dd>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endmacro %}
