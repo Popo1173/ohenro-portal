@@ -1,0 +1,41 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: 記事タイトル | お知らせ
+description: 「ohenro.online」がお届けする個別のお知らせ詳細ページです。お遍路に関する最新ニュースやイベント、サイトのアップデート情報を詳しくご紹介。
+url: https://ohenro.online/ja/news/detail/
+---
+
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% import "_components/_button-secondary.njk" as buttonSecondary %}
+<div class="news">
+  <div class="page-heading">
+    <div class="page-heading__title">
+      {{ title.pageTitle("四国八十八ヶ所霊場の88個の動画を8か国語で", "", "News") }}
+    </div>
+    <div class="page-heading__breadcrumbs">
+      {{ breadcrumbs([{ label: "お知らせ・最新情報",url: "/news" }, {label: "記事タイトル"}], lang) }}
+    </div>
+  </div>
+  <div class="news__wrapper">
+    <section class="news__inner is-detail">
+      <div class="news__detail">
+        <div class="news__detail-box">
+          <div class="news__detail-date"><time>2026/01/23 </time></div>
+          <h2 class="news__detail-title">四国八十八ヶ所霊場の88個の動画を8か国語で</h2>
+          <b>88ヶ所全ての霊場の紹介動画</b>
+          <p class="news__detail-text">日本の伝統と歴史が息づく四国の地。弘法大師の足跡を辿る、四国遍路の霊場全88ヶ所を動画でご紹介します。動画では各寺院の歴史や文化、そしてその魅力を余すところなくお届けします。美しい風景、静かな境内、そして大師の教えが息づく寺院の数々を地元大学の放送研究部のナレーションでお届けします。まるで現地を訪れているかのような臨場感でお楽しみいただけ、お遍路をこれから始めたい方にとっては予習や計画の参考になり、遠方でなかなか訪れることができない方には、オンラインでの“巡礼体験”としてご利用いただけます。</p>
+          <figure class="news__detail-figure">
+            <img class="news__detail-image" src="/assets/images/temple/temple-main.jpg" alt=""/>
+          </figure>
+        </div>     
+      </div>
+      
+      <div class="news__button">
+       {{ buttonSecondary.secondaryButton("お知らせ・最新情報", "link", "/" + lang + "/news") }}
+       </div>
+    </section>  
+</div>

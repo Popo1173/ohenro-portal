@@ -3,11 +3,11 @@
   {% if designTitle %}
   <span class="title-mark">{{ designTitle }}</span>
   {% endif %}
-	<p class="page-title-main__text {{ className }}">
+	<div class="page-title-main__text {{ className }}">
     {% if templeNumber %}
     <span class="page-title-main__number">第{{ templeNumber }}番</span>
     {% endif %}
     <span class="page-title-main__temple">{{ title | safe }}</span>
-  </p>
+  </div>
 </h1>
 {% endmacro %}

@@ -71,8 +71,10 @@
       // color: red;
     }
 
-    @include mq(desktop) {
+    @include mq(tablet) {
+      flex-direction: row;
       gap: 16px;
+      align-items: center;
       font-size: rem(38);
     }
   }
@@ -85,7 +87,7 @@
     background: $color-key;
     border-radius: 5px;
 
-    @include mq(desktop) {
+    @include mq(tablet) {
       font-size: rem(24);
     }
   }
