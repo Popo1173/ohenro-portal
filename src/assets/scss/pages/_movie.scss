@@ -1,0 +1,18 @@
+@use '../foundation' as *;
+
+.movie {
+  // .movie__iframe
+
+  &__iframe {
+    @include container;
+
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
