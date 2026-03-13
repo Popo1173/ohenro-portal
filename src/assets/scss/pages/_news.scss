@@ -1,0 +1,151 @@
+@use '../foundation' as *;
+
+.news {
+  // .news__wrapper
+
+  &__wrapper {
+    padding: 48px 16px;
+    margin-bottom: -48px;
+    background: #f5f7f9;
+  }
+
+  // .news__inner
+
+  &__inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0;
+    margin-top: 0;
+
+    @include mq(desktop) {
+      gap: 56px;
+    }
+  }
+
+  // .news__area
+
+  &__area {
+  }
+
+  // .news__pagination
+
+  &__pagination {
+  }
+
+  // .news__page-list
+
+  &__page-list {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  // .news__page-link
+  &__page-link {
+    display: block;
+    padding: 8px;
+    line-height: 1;
+    color: $color-key;
+
+    @include font-futura;
+
+    &.is-active {
+      color: $color-text;
+      background: $color-white;
+      border: 1px solid $color-key;
+      border-radius: 5px;
+    }
+  }
+
+  // .news__page-item
+
+  &__page-item {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    color: $color-key;
+    list-style-type: none;
+
+    &:first-of-type {
+      a {
+        position: relative;
+        font-family: $font-base;
+        font-size: 14px;
+        color: $color-text;
+
+        &::before {
+          position: absolute;
+          top: 12px;
+          left: -8px;
+          box-sizing: border-box;
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          margin-left: auto;
+          line-height: 1;
+          vertical-align: middle;
+          color: $color-key;
+          content: '';
+          border: 0.1em solid currentcolor;
+          border-bottom: 0;
+          border-left: 0;
+          transform: translateX(-25%) rotate(-135deg);
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    &:last-of-type {
+      a {
+        position: relative;
+        font-family: $font-base;
+        font-size: 14px;
+        color: $color-text;
+
+        &::after {
+          position: absolute;
+          top: 12px;
+          right: -8px;
+          box-sizing: border-box;
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          margin-left: auto;
+          line-height: 1;
+          vertical-align: middle;
+          color: $color-key;
+          content: '';
+          border: 0.1em solid currentcolor;
+          border-bottom: 0;
+          border-left: 0;
+          transform: translateX(-25%) rotate(45deg);
+          transition: all 0.3s;
+        }
+      }
+    }
+
+    &:not(:first-child, :last-child) a:hover {
+      padding: 8px;
+      color: $color-text;
+      background: $color-white;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      &::before {
+        left: -12px;
+      }
+
+      &::after {
+        right: -12px;
+      }
+    }
+  }
+}
