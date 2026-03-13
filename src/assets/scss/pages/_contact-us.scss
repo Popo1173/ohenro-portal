@@ -1,0 +1,97 @@
+@use '../foundation' as *;
+
+// ========================================
+// お問い合わせフォーム
+// ========================================
+.contact-us {
+  // .contact-us__wrapper
+  &__wrapper {
+    padding: 48px 16px;
+    margin-bottom: -48px;
+    background: #f5f7f9;
+  }
+
+  // .contact-us__description
+
+  &__description {
+    box-sizing: border-box;
+    margin: 0 auto 32px;
+
+    @include mq(desktop) {
+      max-width: 780px;
+    }
+
+    // .contact-us__description-text
+
+    &-text {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // .contact-us__inner
+
+  &__inner {
+    box-sizing: border-box;
+    padding: 48px 16px;
+    margin: 0 auto;
+    background: $color-white;
+    border-radius: 10px;
+
+    @include mq(desktop) {
+      max-width: 780px;
+      padding: 48px;
+    }
+  }
+
+  // .contact-us__form
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    justify-items: center;
+  }
+
+  // .contact-us__policy
+
+  &__policy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // .contact-us__policy-text
+
+    &-text {
+    }
+
+    // .contact-us__policy-check
+
+    &-check {
+    }
+  }
+
+  // .contact-us__buttons
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 340px;
+    margin-top: 32px;
+
+    &.confirm-button {
+      max-width: none;
+      margin-top: 64px;
+
+      @include mq(desktop) {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .auth-completion__form {
+    margin-top: 64px;
+  }
+}
