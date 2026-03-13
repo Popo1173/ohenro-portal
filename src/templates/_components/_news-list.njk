@@ -3,7 +3,7 @@
   {% for item in items %}
   <li class="news__item">
     <a class="news__link" href="{{ item.url }}">
-      <dl class="news__date">{{ item.date }}</dl>
+      <dl class="news__date"><time>{{ item.date }}</time></dl>
       <dd class="news__text">{{ item.text }}</dd>
     </a>
   </li>
