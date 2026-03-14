@@ -1,0 +1,27 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: お遍路用語集
+description: お遍路にまつわる専門用語を分かりやすく解説した用語集です。納経、遍路転がし、同行二人など、初心者が戸惑いやすい言葉の意味を網羅。用語の背景を知ることで、四国八十八ヶ所巡りの文化や歴史への理解がより一層深まり、参拝がさらに意義深いものになります。
+url: https://ohenro.online/ja/glossary/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% from "_components/_main-visual-lower.njk" import mainVisual %}
+<div class="glossary">
+  <div class="page-heading is-no-margin">
+		<div class="page-heading__title">
+			{{ title.pageTitle("お遍路用語集", "", "Glossary") }}
+		</div>
+		<div class="page-heading__breadcrumbs">
+			{{ breadcrumbs([{ label: "お遍路用語集" }], lang) }}
+		</div>
+	</div>
+
+  <section class="temples__main-visual">
+    {{ mainVisual("/assets/images/glossary/main-visual.jpg", "お遍路用語集") }}
+  </section>
+
+</div>
