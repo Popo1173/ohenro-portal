@@ -24,4 +24,36 @@ url: https://ohenro.online/ja/glossary/
     {{ mainVisual("/assets/images/glossary/main-visual.jpg", "お遍路用語集") }}
   </section>
 
+  <section class="glossary__content">
+    <div class="glossary__tab-wrap">
+      <div class="tab" data-default-tab="{{ glossaryJa.categories[0].id }}">
+        <ul class="tab__list glossary__tab-list">
+          {% for category in glossaryJa.categories %}
+          <li class="tab__item">
+            <a href="?tab={{ category.id }}" class="tab__link is-glossary" data-tab="{{ category.id }}">{{ category.name }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="glossary__inner">
+      {% for category in glossaryJa.categories %}
+      <div class="tab-panel" data-tab="{{ category.id }}">
+        <dl class="glossary__list">
+          {% for item in category.terms %}
+          <div class="glossary__item">
+            <dt class="glossary__term">
+              {{ item.term }}
+              <span class="glossary__reading">（{{ item.reading }}）</span>
+            </dt>
+            <dd class="glossary__description">{{ item.description }}</dd>
+          </div>
+          {% endfor %}
+        </dl>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
 </div>
