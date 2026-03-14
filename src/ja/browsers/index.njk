@@ -1,0 +1,57 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: 推奨環境
+description: 本サイトを最適な状態で閲覧いただくための推奨動作環境をご案内します。映像コンテンツや各種機能を快適に利用するために必要なブラウザの設定やOSの種類について説明しています。表示不具合を防ぎ、最新の機能を十分に体験いただくために、環境設定をご確認ください。
+url: https://ohenro.online/ja/browsers/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% from "_components/_small-title.njk" import smallTitle %}
+<div class="privacy">
+  <div class="page-heading">
+    <div class="page-heading__title">
+      {{ title.pageTitle("推奨環境", "", "Browsers") }}
+    </div>
+    <div class="page-heading__breadcrumbs">
+      {{ breadcrumbs([{ label: "推奨環境" }], lang) }}
+    </div>
+  </div>
+  <section class="privacy__wrapper">
+    <div class="privacy__read">
+      <p class="privacy__description-text">本サイトを安全にご利用いただくために、以下のブラウザのご利用を推奨いたします。<br /><small>※推奨環境下のご利用でも、OSとブラウザの組み合わせ、ブラウザの設定状況によってはWEBサイトの表示に不具合が起こる場合がございます。</p>
+    </div>    
+    <div class="privacy__inner">
+
+      <dl class="privacy__list">
+        <dt class="privacy__title">{{ smallTitle("パソコンでのご利用") }}</dt>
+        <dd>
+          <p class="privacy__description-text">Microsoft Windows11をご利用の場合</p>
+          <ul>
+            <li>Microsoft Edge 最新版</li>
+            <li>Google Chrome 最新版</li>           
+          </ul>       
+        </dd>
+        <dd>
+          <p class="privacy__description-text">Mac OSをご利用の場合</p>
+          <ul>
+            <li>Safari最新版</li>           
+          </ul>          
+        </dd>
+      </dl>
+
+      <dl class="privacy__list">
+        <dt class="privacy__title">{{ smallTitle("スマートフォンでのご利用") }}</dt>
+        <dd>
+          <ul>
+            <li>iOS（Safari）最新版</li>
+            <li>Android（Google Chrome） 最新版</li>           
+          </ul>       
+        </dd>
+        <dd>
+      </dl>
+    </div>    
+  </section>
+</div>
