@@ -2672,6 +2672,69 @@ hr {
   border: 0;
 }
 
+.terms__wrapper {
+  padding: 48px 16px;
+  margin-bottom: -48px;
+  background: #f5f7f9;
+}
+.terms__read {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.terms__inner {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 16px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 10px;
+}
+.terms__description-text {
+  padding: 0;
+  margin: 0;
+}
+.terms__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+}
+.terms__list dt {
+  padding: 0;
+  margin: 0;
+}
+.terms__list dd {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+.terms__list dd ul {
+  padding: 0;
+  margin: 0;
+}
+.terms__list dd li {
+  position: relative;
+  margin-left: 24px;
+}
+@media (min-width: 1024px) {
+  .terms__list dd li {
+    margin-left: 24px;
+  }
+}
+.terms__list dd li::marker {
+  color: #d3992c;
+}
+.terms__list dd a:hover {
+  text-decoration: underline;
+}
 .page-header {
   position: sticky;
   top: 0;
