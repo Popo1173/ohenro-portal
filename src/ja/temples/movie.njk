@@ -9,24 +9,42 @@ url: https://ohenro.online/ja/temples/movie
 ---
 {% import "_components/_page-title-main.njk" as title %}
 {% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% import "_components/_button-big.njk" as primary %}
 <div class="movie">
   <div class="page-heading is-no-margin">
 		<div class="page-heading__title">
-						{{ title.pageTitle("<ruby>竺和山<rt>じくわざん</rt></ruby>&nbsp;<ruby>一乗院<rt>いちじょういん</rt></ruby>&nbsp;<ruby>霊山寺<rt>りょうぜんじ</rt></ruby>", "", "Movie", "88") }}
+			{{ title.pageTitle("<ruby>竺和山<rt>じくわざん</rt></ruby>&nbsp;<ruby>一乗院<rt>いちじょういん</rt></ruby>&nbsp;<ruby>霊山寺<rt>りょうぜんじ</rt></ruby>", "", "Movie", "88") }}
 		</div>
 		<div class="page-heading__breadcrumbs">
 			{{ breadcrumbs([{ label: "八十八ヶ所 札所情報", url: "/temples" },{ label: "第88番 竺和山 一乗院 霊山寺", url: "/temples/temple" },{ label: "お寺Movie" }], lang) }}
 		</div>
 	</div>
-  <section class="movie__iframe">
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/GCZtPhDTM48"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen>
-    </iframe>
+  <section class="movie__youtube">
+    <div class="movie__inner">
+      <div id="youtube" class="video-container">
+        <div id="player"></div>
+      </div>
+      
+      <div class="movie__announcement is-active">
+        <div class="movie__announcement-inner">
+          <p class="movie__announcement-text">この続きは会員限定コンテンツです。<br />無料会員登録で動画の最後までご覧いただけます。</p>
+          <div class="movie__announcement-button">{{ primary.primaryButton("無料アカウント登録", "submit", "/my-page/") }} </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="movie__cover">
+      <div class="movie__pause">
+        <svg class="movie__pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7.714,55H2.571A2.572,2.572,0,0,1,0,52.429V33.571A2.572,2.572,0,0,1,2.571,31H7.714a2.572,2.572,0,0,1,2.571,2.571V52.429A2.572,2.572,0,0,1,7.714,55ZM24,52.429V33.571A2.572,2.572,0,0,0,21.429,31H16.286a2.572,2.572,0,0,0-2.571,2.571V52.429A2.572,2.572,0,0,0,16.286,55h5.143A2.572,2.572,0,0,0,24,52.429Z" transform="translate(0 -31)"/>
+        </svg>
+      </div>
+      <div class="movie__mute  is-active">
+        <svg class="movie__mute-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.001 24">
+          <path d="M13.44,64.445,7.879,70H1.5A1.5,1.5,0,0,0,0,71.5v9A1.5,1.5,0,0,0,1.5,82H7.879l5.561,5.559A1.5,1.5,0,0,0,16,86.5v-21A1.5,1.5,0,0,0,13.44,64.445ZM28.853,76l2.853-2.853a1.009,1.009,0,0,0,0-1.426L30.279,70.3a1.009,1.009,0,0,0-1.426,0L26,73.151,23.148,70.3a1.009,1.009,0,0,0-1.426,0L20.3,71.725a1.009,1.009,0,0,0,0,1.426L23.148,76,20.3,78.856a1.009,1.009,0,0,0,0,1.426l1.426,1.426a1.009,1.009,0,0,0,1.426,0L26,78.857l2.853,2.853a1.009,1.009,0,0,0,1.426,0l1.426-1.426a1.009,1.009,0,0,0,0-1.426Z" transform="translate(0 -64.004)"/>
+        </svg>
+      </div>      
+    </div>
+
   </section>
 </div>
