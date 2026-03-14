@@ -153,7 +153,9 @@ if (header) {
 // =========================
 
 const params = new URLSearchParams(window.location.search)
-const tab = params.get('tab') || 'tokushima'
+const tabContainer = document.querySelector('.tab')
+const defaultTab = tabContainer?.dataset.defaultTab || 'tokushima'
+const tab = params.get('tab') || defaultTab
 
 // コンテンツ切替
 document.querySelectorAll('.tab-panel').forEach((panel) => {

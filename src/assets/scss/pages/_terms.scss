@@ -1,0 +1,90 @@
+@use '../foundation' as *;
+
+.privacy {
+  // .privacy__wrapper
+
+  &__wrapper {
+    padding: 48px 16px;
+    margin-bottom: -48px;
+    background: #f5f7f9;
+  }
+
+  // .privacy__read
+  &__read {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // .privacy__inner
+  &__inner {
+    @include container;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px;
+    background: $color-white;
+    border-radius: 10px;
+  }
+
+  // .privacy__description
+
+  &__description {
+    // .privacy__description-text
+
+    &-text {
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // .privacy__list
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0;
+    margin: 0;
+
+    dt {
+      padding: 0;
+      margin: 0;
+    }
+    dd {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        position: relative;
+        margin-left: 24px;
+
+        @include mq(desktop) {
+          margin-left: 24px;
+        }
+
+        &::marker {
+          color: $color-key;
+        }
+      }
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // .privacy__title
+
+  &__title {
+  }
+}
