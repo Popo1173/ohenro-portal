@@ -1,0 +1,45 @@
+---
+lang: ja
+layout: _layout/_base.njk
+headerType: public
+footerType: public
+title: 運営会社について
+description: 巡礼ポータルサイトを運営する組織の概要をご紹介します。伝統文化の普及と情報のデジタル化を通じて、より多くの方に価値ある体験を届けるための組織情報や理念を掲載しています。信頼されるサービス提供に向けた、私たちの運営体制や目的について詳しくお伝えします。
+url: https://ohenro.online/ja/organization/
+---
+{% import "_components/_page-title-main.njk" as title %}
+{% from "_components/_breadcrumbs.njk" import breadcrumbs %}
+{% from "_components/_small-title.njk" import smallTitle %}
+<div class="privacy">
+  <div class="page-heading">
+    <div class="page-heading__title">
+      {{ title.pageTitle("運営会社について", "", "Organization") }}
+    </div>
+    <div class="page-heading__breadcrumbs">
+      {{ breadcrumbs([{ label: "運営会社について" }], lang) }}
+    </div>
+  </div>
+  <section class="privacy__wrapper">
+    <div class="privacy__read">
+      <p class="privacy__description-text">本サイトは、運営会社「株式会社こんにちハロー」が企画・管理・運営しています。運営会社は、日本の巡礼文化であるお遍路をはじめ、寺院や札所、その歴史や思想を尊重し、正確で信頼性のある情報発信に努めています。本サイトに掲載される動画コンテンツや情報は、関係者の協力および適切な確認のもとで制作・公開しています。また、利用者が安心してサービスを利用できるよう、サイト運営および情報管理体制の維持・向上に取り組んでいます。</p>
+    </div>    
+    <div class="privacy__inner">
+
+      <dl class="privacy__list">
+        <dt class="privacy__title">{{ smallTitle("会社情報") }}</dt>
+        <dd>
+          <p class="privacy__description-text">会社名：株式会社こんにちハロー</p>
+          <p class="privacy__description-text">設立日：2024年3月15日</p>
+          <p class="privacy__description-text">住所：東京都中央区築地 3-2-10-1106</p>
+        </dd>
+      </dl>
+
+      <dl class="privacy__list">
+        <dt class="privacy__title">{{ smallTitle("お問い合わせ先") }}</dt>
+        <dd>
+          <p class="privacy__description-text"><a href="/ja/contact-us">お問い合わせフォーム</a>よりご連絡ください。</p>
+        </dd>
+      </dl>
+    </div>    
+  </section>
+</div>
