@@ -24,6 +24,7 @@ class class_notice {
 			"top_flag",
 			"mypage_flag",
 			"title",
+			"sub_title",
 			"detail",
 			"url",
 			"status",
@@ -71,7 +72,7 @@ class class_notice {
 		select
 			n.notice_id,
 			" . $sql_field . "
-			update_date as up_date
+			date_format(n.update_date, '%Y/%m/%d') as up_date
 		from
 			" . TBL_HEAD . "notice n
 		where

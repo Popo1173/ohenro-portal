@@ -23,8 +23,7 @@ $num = 100;
 $update_session_name = $menu_id . "_up";
 
 //モードの取得
-$mode = get_file_mode($_SERVER["SCRIPT_NAME"]);
-//$mode = get_file_name($_SERVER["SCRIPT_NAME"], false);
+$path = $_SERVER["SCRIPT_NAME"];
 $md = $request_data["md"];
 
 //クラスオブジェクト生成
@@ -37,7 +36,6 @@ $request_data["lang"] = $lang_code;
 //動画CSV読み込み
 //require_once(dirname(__FILE__). '/./csv.html');
 $csv_data = get_csv_movie($lang_code);
-
 
 if (strpos($path, "temples/temple") !== false) {
 	//詳細
@@ -101,9 +99,11 @@ elseif (strpos($path, "temples/movie") !== false) {
 		//札所動画画面
 
 		$temple = $request_data["temple"];
-		if ($temple <= 0) {
-			$temple = 1;
-		}
+		$search = $request_data;
+		$search["lang_code"] = $lang_code;
+		$search["temple_num"] = $temple;
+		$obj_data->get_data($search);
+		$data = $obj_data->data;
 
 		$num = $request_data["num"];
 		if ($num != 1 && $num != 2) {
@@ -119,7 +119,6 @@ elseif (strpos($path, "temples/movie") !== false) {
 		$js_string = "<script>
     set_movie_id(" . $lang_code . ", " . $temple . ", " . $num . ");
 </script>";
-
 	}
 	else {
 		//その他の動画画面

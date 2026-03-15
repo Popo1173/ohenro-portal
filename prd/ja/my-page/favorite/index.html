@@ -575,8 +575,8 @@
         <p class="my-page-favorite__number-text">第66番～88番</p>
 <?php } ?> 
       </div>
-      <ul class="my-page-favorite__list">
 <?php if (count_ary($list)) { ?>
+      <ul class="my-page-favorite__list">
 <?php   for ($i = 0; $i < count_ary($list); $i++) { ?>
         <li class="my-page-favorite__item">
 
@@ -631,10 +631,10 @@
 </div>
 </li>
 <?php   } ?>
+      </ul>
 <?php }else { ?>
   お気に入りはありません。
 <?php } ?>
-      </ul>
     </div>
 
 <script src="/common/js/system.js"></script>

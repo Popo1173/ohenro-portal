@@ -1,6 +1,3 @@
-// =========================
-// アンケート条件分岐
-// =========================
 document.addEventListener('DOMContentLoaded', () => {
   const selects = [...document.querySelectorAll('.js-select')]
   const blocks = [...document.querySelectorAll('.js-q')]
@@ -20,9 +17,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const parts = expr.split('&&').map((s) => s.trim())
 
     return parts.every((part) => {
-      const m = part.match(/^(\w+)\s*(==|!=)\s*([\w\-\+]+)$/)
-      if (!m) return true
-      const [, key, op, val] = m
+      // 演算子が含まれているか確認
+      const isEquals = part.includes('==');
+      const isNotEquals = part.includes('!=');
+      
+      if (!isEquals && !isNotEquals) return true;
+
+      const op = isEquals ? '==' : '!=';
+      // 演算子で分割して [キー, 値] を取得
+      let [key, val] = part.split(op).map(s => s.trim());
+
+      // 引用符（' や "）がついている場合は除去する
+      val = val.replace(/^['"]|['"]$/g, '');
+
       const cur = state[key] ?? ''
 
       return op === '==' ? cur === val : cur !== val
@@ -35,7 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // other input
     document.querySelectorAll('.js-other').forEach((input) => {
       const q = input.dataset.otherFor
-      input.hidden = state[q] !== 'other'
+      const targetValue = input.dataset.showOn; // HTMLの data-show-on を取得
+
+      // 選択されている値が、指定された値（その他/其他/Other）と一致するか判定
+      input.hidden = state[q] !== targetValue;
     })
 
     // showIf blocks
@@ -43,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const visible = evalShowIf(block.dataset.showIf)
       block.hidden = !visible
 
-      // 非表示になったら値もクリア
+      // 非表示になったら値もクリア（分岐の整合性が崩れない）
       if (!visible) {
         const sel = block.querySelector('.js-select')
         if (sel) sel.value = ''

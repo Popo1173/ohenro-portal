@@ -8,7 +8,6 @@
   let lang_code = null;
   let temple_num = null;
   let movie_num = null;
-  let end_flag = false;
 
   function set_movie_id(lang = null, temple = null, movie = null) {
     lang_code = lang;
@@ -34,42 +33,37 @@
 
   //動画エリアクリック時
   document.getElementById('youtube').addEventListener('click', (e) => {
+    //再生、停止
+    btn_pause();
+  });
+
+  //ミュート
+  function btn_mute() {
+    element = document.querySelector('.movie__mute');
     if (player) {
-      // クリックされた座標にある全要素を取得
-      const elements = document.elementsFromPoint(e.clientX, e.clientY);
-
-      // 重なっている上部要素を除外して、下の要素を見つける
-      const clickedElement = elements.find(el => el.classList.contains('overlay'));
-
-      if (clickedElement) {
-        //Mute、UnMute
-        if (player.isMuted() == 1) {
-          player.unMute();
-          document.getElementById('message-overlay').innerHTML = 'Mute';
-        }
-        else {
-          player.mute();
-          document.getElementById('message-overlay').innerHTML = 'UnMute';
-        }
+      if (player.isMuted() == 1) {
+        player.unMute();
       }
       else {
-        //再生、停止
-        if (player.getPlayerState() == 1) {
-          player.pauseVideo();
-          document.getElementById('message-overlay').style.display = 'none';
-          document.getElementById('message').style.display = 'flex';
-        }
-        else {
-          player.playVideo();
-          document.getElementById('message-overlay').style.display = 'flex';
-          document.getElementById('message').style.display = 'none';
-        }
+        player.mute();
       }
+      element.classList.toggle('is-active');
     }
-    else if (end_flag) {
-      //location.href = "https://ohenro.online/ja/";
+  }
+
+  //再生、停止
+  function btn_pause() {
+    element = document.querySelector('.movie__pause');
+    if (player) {
+      if (player.getPlayerState() == 1) {
+        player.pauseVideo();
+      }
+      else {
+        player.playVideo();
+      }
+      element.classList.toggle('is-active');
     }
-  });
+  }
 
   // 1秒ごとに再生時間をチェックするタイマー
   setInterval(function() {
@@ -78,10 +72,8 @@
       if (currentTime >= 30) { 
         player.pauseVideo();
         player = null;
-        document.getElementById('message-overlay').style.display = 'none';
-        document.getElementById('message').innerHTML = '<a href="https://ohenro.online/ja/">続きを見たい方は、会員登録をしてください。</a>';
-        document.getElementById('message').style.display = 'flex';
-        end_flag = true;
+        element = document.querySelector('.movie__announcement');
+        element.classList.toggle('is-active');
       }
     }
   }, 1000);

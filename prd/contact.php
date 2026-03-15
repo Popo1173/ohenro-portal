@@ -24,7 +24,7 @@ $menu_id = "contact";
 $update_session_name = $menu_id . "_up";
 
 //モードの取得
-$mode = get_file_mode($_SERVER["SCRIPT_NAME"]);
+$path = $_SERVER["SCRIPT_NAME"];
 $md = $request_data["md"];
 
 $lang_code = get_lang_code();

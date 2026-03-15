@@ -367,6 +367,7 @@ class class_user  {
 
 	//姓名チェック
 	function check_name($request_data, $dbh) {
+		global $lang_ary;
 		$data = $request_data;
 		$message = array();
 		$message["lang_code"] = $data["lang_code"];

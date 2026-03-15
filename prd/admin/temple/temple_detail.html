@@ -222,6 +222,10 @@ if (!$_GET["md"] && $data["image_flag"]) {
     <td><?=escape_html($data["detail"])?></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
+    <td><?=escape_html($data["next_comment"])?></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("shuuha", $temple_keys)]?></th>
     <td><?=escape_html($data["shuuha"])?></td>
   </tr>
@@ -252,10 +256,6 @@ if (!$_GET["md"] && $data["image_flag"]) {
   <tr>
     <th><?=$temple_header[array_search("car", $temple_keys)]?></th>
     <td><?=escape_html($data["car"])?></td>
-  </tr>
-  <tr>
-    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
-    <td><?=escape_html($data["next_comment"])?></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("ohenro_item", $temple_keys)]?></th>

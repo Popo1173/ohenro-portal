@@ -25,7 +25,6 @@ $update_session_name = $menu_id . "_up";
 
 //モードの取得
 $path = $_SERVER["SCRIPT_NAME"];
-$mode = get_file_name($_SERVER["SCRIPT_NAME"], false);
 $md = $request_data["md"];
 $mode_flag = $request_data["mode_flag"];
 
@@ -567,7 +566,9 @@ elseif (strpos($path, "signup/form/") !== false || strpos($path, "my-page/profil
 	<input type="hidden" name="email2" value="' . escape_html($data["email"]) . '">' . "\n";
 	}
 	else {
-		$hidden .= '<input type="hidden" name="comp_flag" value="1">' . "\n";
+		//会員情報変更
+		$hidden .= '<input type="hidden" name="mail_flag" value="' . escape_html($data["mail_flag"]) . '">
+	<input type="hidden" name="comp_flag" value="1">' . "\n";
 	}
 
 	$javascript = "";
@@ -718,7 +719,6 @@ elseif (strpos($path, "my-page/favorite/") !== false || strpos($path, "my-page/h
 	db_close($dbh);
 
 }
-//elseif ($mode == "award") {
 elseif (strpos($path, "my-page/award/") !== false) {
 	//賞状表示
 

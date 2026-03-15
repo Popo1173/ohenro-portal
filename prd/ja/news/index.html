@@ -1,4 +1,4 @@
-<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/temple.php'); ?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/notice.php'); ?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -9,14 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- title / description -->
-    <title>第<?=escape_html($data["temple_num"])?>番 <?=escape_html($data["infirmary"])?> <?=escape_html($data["temple_name"])?> ｜ ohenro.online</title>
-    <meta name="description" content="<?=escape_html($data["detail"])?>" />
+    <title>お知らせ・最新情報 ｜ ohenro.online</title>
+    <meta name="description" content="四国八十八ヶ所巡りの最新情報を発信する「ohenro.online」のお知らせ一覧ページです。サイトの更新情報やイベント案内、お遍路の旅に役立つトピックスなど、巡礼者の皆様へ向けた重要情報を随時お届けします。最新の状況をいち早く確認して、安心で充実した旅の計画にお役立てください。" />
 
     <!-- OGP -->
-    <meta property="og:title" content="第<?=escape_html($data["temple_num"])?>番 <?=escape_html($data["infirmary"])?> <?=escape_html($data["temple_name"])?>" />
-    <meta property="og:description" content="<?=escape_html($data["detail"])?>" />
+    <meta property="og:title" content="お知らせ・最新情報" />
+    <meta property="og:description" content="四国八十八ヶ所巡りの最新情報を発信する「ohenro.online」のお知らせ一覧ページです。サイトの更新情報やイベント案内、お遍路の旅に役立つトピックスなど、巡礼者の皆様へ向けた重要情報を随時お届けします。最新の状況をいち早く確認して、安心で充実した旅の計画にお役立てください。" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="<?=$current_url?>" />
+    <meta property="og:url" content="https://ohenro.online/ja/news/" />
     <meta property="og:image" content="" />
 
     <!-- favicon,apple-touch-icon -->
@@ -69,7 +69,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/ja/temples/temple/"
+            href="/ja/news/"
             class="lang-switcher__link is-current"
             lang="ja"
           >
@@ -80,7 +80,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/en/temples/temple/"
+            href="/en/news/"
             class="lang-switcher__link "
             lang="en"
           >
@@ -91,7 +91,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-cn/temples/temple/"
+            href="/zh-cn/news/"
             class="lang-switcher__link "
             lang="zh-cn"
           >
@@ -102,7 +102,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-tw/temples/temple/"
+            href="/zh-tw/news/"
             class="lang-switcher__link "
             lang="zh-tw"
           >
@@ -113,7 +113,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/es/temples/temple/"
+            href="/es/news/"
             class="lang-switcher__link "
             lang="es"
           >
@@ -124,7 +124,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/fr/temples/temple/"
+            href="/fr/news/"
             class="lang-switcher__link "
             lang="fr"
           >
@@ -135,7 +135,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/it/temples/temple/"
+            href="/it/news/"
             class="lang-switcher__link "
             lang="it"
           >
@@ -146,7 +146,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/de/temples/temple/"
+            href="/de/news/"
             class="lang-switcher__link "
             lang="de"
           >
@@ -229,7 +229,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/ja/temples/temple/"
+            href="/ja/news/"
             class="lang-switcher__link is-current"
             lang="ja"
           >
@@ -240,7 +240,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/en/temples/temple/"
+            href="/en/news/"
             class="lang-switcher__link "
             lang="en"
           >
@@ -251,7 +251,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-cn/temples/temple/"
+            href="/zh-cn/news/"
             class="lang-switcher__link "
             lang="zh-cn"
           >
@@ -262,7 +262,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-tw/temples/temple/"
+            href="/zh-tw/news/"
             class="lang-switcher__link "
             lang="zh-tw"
           >
@@ -273,7 +273,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/es/temples/temple/"
+            href="/es/news/"
             class="lang-switcher__link "
             lang="es"
           >
@@ -284,7 +284,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/fr/temples/temple/"
+            href="/fr/news/"
             class="lang-switcher__link "
             lang="fr"
           >
@@ -295,7 +295,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/it/temples/temple/"
+            href="/it/news/"
             class="lang-switcher__link "
             lang="it"
           >
@@ -306,7 +306,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/de/temples/temple/"
+            href="/de/news/"
             class="lang-switcher__link "
             lang="de"
           >
@@ -426,7 +426,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/ja/temples/temple/"
+            href="/ja/news/"
             class="lang-switcher__link is-current"
             lang="ja"
           >
@@ -437,7 +437,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/en/temples/temple/"
+            href="/en/news/"
             class="lang-switcher__link "
             lang="en"
           >
@@ -448,7 +448,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-cn/temples/temple/"
+            href="/zh-cn/news/"
             class="lang-switcher__link "
             lang="zh-cn"
           >
@@ -459,7 +459,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/zh-tw/temples/temple/"
+            href="/zh-tw/news/"
             class="lang-switcher__link "
             lang="zh-tw"
           >
@@ -470,7 +470,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/es/temples/temple/"
+            href="/es/news/"
             class="lang-switcher__link "
             lang="es"
           >
@@ -481,7 +481,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/fr/temples/temple/"
+            href="/fr/news/"
             class="lang-switcher__link "
             lang="fr"
           >
@@ -492,7 +492,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/it/temples/temple/"
+            href="/it/news/"
             class="lang-switcher__link "
             lang="it"
           >
@@ -503,7 +503,7 @@
         <li class="lang-switcher__item">
           <a
           class="lang-switcher__link"
-            href="/de/temples/temple/"
+            href="/de/news/"
             class="lang-switcher__link "
             lang="de"
           >
@@ -528,20 +528,19 @@
       
 
 
-<div class="temple">
-  <div class="page-heading is-no-margin">
+
+<div class="news">
+  <div class="page-heading">
 		<div class="page-heading__title">
 			
 <h1 class="page-title-main">
   
-  <span class="title-mark">88 Temples</span>
+  <span class="title-mark">News</span>
   
-	<p class="page-title-main__text ">
+	<div class="page-title-main__text ">
     
-    <span class="page-title-main__number">第<?=escape_html($data["temple_num"])?>番</span>
-    
-    <span class="page-title-main__temple"><ruby><?=escape_html($data["mountain"])?><rt><?=escape_html($data["mount_kana"])?></rt></ruby>&nbsp;<ruby><?=escape_html($data["infirmary"])?><rt><?=escape_html($data["infir_kana"])?></rt></ruby>&nbsp;<ruby><?=escape_html($data["temple_name"])?><rt><?=escape_html($data["temple_kana"])?></rt></ruby></span>
-    </p>
+    <span class="page-title-main__temple">お知らせ・最新情報</span>
+  </div>
 </h1>
 
 		</div>
@@ -553,12 +552,7 @@
     
       <span class="breadcrumbs__arrow">&nbsp; &gt; &nbsp;</span>
       
-        <a class="breadcrumbs__link" href="/ja/temples//">八十八ヶ所 札所情報</a>
-      
-    
-      <span class="breadcrumbs__arrow">&nbsp; &gt; &nbsp;</span>
-      
-        <span class="breadcrumbs__text">第<?=escape_html($data["temple_num"])?>番 <?=escape_html($data["mountain"])?> <?=escape_html($data["infirmary"])?> <?=escape_html($data["temple_name"])?></span>
+        <span class="breadcrumbs__text">お知らせ・最新情報</span>
       
     
   </nav>
@@ -566,298 +560,53 @@
 
 		</div>
 	</div>
-
-  <section class="temple__main-visual">
-    <div class="temple__favorite">
-      <button class="favorite-button" href="/">
-  <svg class="favorite-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.148 18.755">
-    <path d="M22.639.021A4.844,4.844,0,0,0,17.453,3.74c-.5-2.825-3.42-3.905-5.181-3.719C10.119.251,7.276,1.2,8,5.615s9.5,11.974,9.5,11.974,8.7-7.559,9.419-11.974S24.793.251,22.639.021" transform="translate(-7.381 0.505)" />
-  </svg>
-</button>
-    </div>
-    
-<div class="main-visual">
-  <figure class="main-visual__figure">
-    <img class="main-visual__image " src="<?=$obj_data->get_lsize_path($data["temple_num"])?>" alt="お寺" />
-  </figure>
-</div>
-
-  </section>
-
-  <div class="temple__inner">
-    <section class="temple__about">
-      
-<div class="about">
-  <div class="about__title">
-    <span class="title-mark">About</span>
-  </div>
-  
-  <div class="about__wrapper">     
-    <div class="about__inner">
-      <div class="about__description">
-        <p class="about__description-text"><?=escape_html($data["detail"])?></p>
+  <div class="news__wrapper">
+    <section class="news__inner">
+<?php if (count_ary($list)) { ?>
+<ul class="news__list">
+<?php for ($i = 0; $i < count_ary($list); $i++) { ?>
+  <li class="news__item">
+    <a class="news__link" href="/ja/news/detail/index.html?notice_id=<?=escape_html($list[$i]["notice_id"])?>">
+      <dl class="news__date"><time><?=escape_html($list[$i]["up_date"])?></time></dl>
+      <dd class="news__text"><?=escape_html($list[$i]["title"])?></dd>
+    </a>
+  </li>
+<?php } ?>  
+</ul>
+<?php   if ($max > $num) { ?>
+      <div class="news__pagination">
+        <ul class="news__page-list">
+          <li class="news__page-item">
+<?php     if ($page != 0) { ?>
+            <a class="news__page-link" href="<?=$url?>?page=<?=$page-1?>">前へ</a>
+<?php     } else { ?>
+<?php     } ?>
+          </li>
+<?php     for ($i = 0; $i < $max / $num; $i++) { ?>
+<?php       if ($i == $page) { ?>
+          <li class="news__page-item">
+            <a class="news__page-link is-active " href="<?=$url?>?page=<?=$i?>"><?=($i+1)?></a>
+          </li>
+<?php       } else { ?>
+          <li class="news__page-item">
+            <a class="news__page-link" href="<?=$url?>?page=<?=$i?>"><?=($i+1)?></a>
+          </li>
+<?php       } ?>
+<?php      } ?>
+          <li class="news__page-item">
+<?php     if ($page * $num < $max - $num) { ?>
+            <a class="news__page-link" href="<?=$url?>?page=<?=$page+1?>">次へ</a>
+<?php     } else { ?>
+<?php     } ?>
+          </li>
+        </ul>
       </div>
-      <figure class="about__temple-bg">
-        <img src="/assets/images/common/temple-bg.png" />
-      </figure>        
-      
-      <ul class="about__list">
-        
-        <li class="about__item">    
-          <dl class="about__item-inner">
-            <dt class="about__label">創建</dt>
-            <dd class="about__text"><?=escape_html($data["founding"])?></dd>
-          </dl>
-        </li>
-
-        <li class="about__item">    
-          <dl class="about__item-inner">
-            <dt class="about__label">宗派</dt>
-            <dd class="about__text"><?=escape_html($data["shuuha"])?></dd>
-          </dl>
-        </li>
-        
-        <li class="about__item">    
-          <dl class="about__item-inner">
-            <dt class="about__label">開基</dt>
-            <dd class="about__text"><?=escape_html($data["kaiki"])?></dd>
-          </dl>
-        </li>
-        
-        <li class="about__item">    
-          <dl class="about__item-inner">
-            <dt class="about__label">本尊</dt>
-            <dd class="about__text"><?=escape_html($data["honzon"])?></dd>
-          </dl>
-        </li>
-        
-        <li class="about__item">    
-          <dl class="about__item-inner">
-            <dt class="about__label">真言</dt>
-            <dd class="about__text"><?=escape_html($data["shingon"])?></dd>
-          </dl>
-        </li>
-        
-      </ul>
-      <div class="about__yohanesu">
-        <div class="about__yohanesu-comment">
-          <div class="about__yohanesu-title">
-<h3 class="small-title">
-  <span class="small-title__text">ヨハネスコメント</span>
-</h3>
-</div>
-          <p class="about__yohanesu-description"><?=escape_html($data["Johannes"])?></p>
-        </div>
-        <div class="about__yohanesu-info">
-          <h3 class="about__yohanesu-info-title">ヨハネスとは</h3>
-          <p class="about__yohanesu-info-description">旅をするのが好きで、時間があれば各地を歩いている。なかでも四国遍路に詳しく、札所や道中の話を楽しそうに語る。人と話すのが好きで、出会いを大切にしている。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      
-
-<div class="movie">
-  <figure class="movie__figure">
-    <img class="movie__image" src="<?=$obj_data->get_lsize_path($data["temple_num"])?>" alt="Movie"/>
-  </figure>
-  <div class="movie__inner">
-    <div class="movie__heading">
-      <span class="title-mark">Movie</span>
-      <h3 class="movie__heading-text">動画を見る</h3>
-    </div>
-    <ul class="movie__buttons-list">
-      <li class="movie__buttons-item">
-  <a href="<?=$movie_url?>" class="button-general is-expensive-button">
-    
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-general__icon">
-        <path d="M19.333,0H.667A.666.666,0,0,0,0,.667V15.11a.666.666,0,0,0,.667.667H19.333A.666.666,0,0,0,20,15.11V.667A.666.666,0,0,0,19.333,0m-.667,2.593H15.333V1.333h3.334Zm0,9.258H1.333V3.926H18.667ZM9.333,14.443H6V13.184H9.333Zm1.333-1.259H14v1.259H10.666Zm0-11.851H14V2.593H10.666ZM9.333,2.593H6V1.333H9.333Zm-4.666,0H1.333V1.333H4.667ZM1.333,13.184H4.667v1.259H1.333Zm14,0h3.334v1.259H15.333Z"/>
-        <path d="M17.163,16.994a.443.443,0,0,0,.222.06.448.448,0,0,0,.222-.06l4.054-2.341a.444.444,0,0,0,0-.77l-4.054-2.341a.444.444,0,0,0-.667.385v4.681a.443.443,0,0,0,.222.385" transform="translate(-9.412 -6.38)"/>
-      </svg>
-    
-    <span class="button-general__text">お寺Movie</span>    
-  </a>
-</li>
-<?php if ($movie_url2) { ?>
-      <li class="movie__buttons-item">
-  <a href="<?=$movie_url2?>" class="button-general is-expensive-button">
-    
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 15.777" class="button-general__icon">
-        <path d="M19.333,0H.667A.666.666,0,0,0,0,.667V15.11a.666.666,0,0,0,.667.667H19.333A.666.666,0,0,0,20,15.11V.667A.666.666,0,0,0,19.333,0m-.667,2.593H15.333V1.333h3.334Zm0,9.258H1.333V3.926H18.667ZM9.333,14.443H6V13.184H9.333Zm1.333-1.259H14v1.259H10.666Zm0-11.851H14V2.593H10.666ZM9.333,2.593H6V1.333H9.333Zm-4.666,0H1.333V1.333H4.667ZM1.333,13.184H4.667v1.259H1.333Zm14,0h3.334v1.259H15.333Z"/>
-        <path d="M17.163,16.994a.443.443,0,0,0,.222.06.448.448,0,0,0,.222-.06l4.054-2.341a.444.444,0,0,0,0-.77l-4.054-2.341a.444.444,0,0,0-.667.385v4.681a.443.443,0,0,0,.222.385" transform="translate(-9.412 -6.38)"/>
-      </svg>
-    
-    <span class="button-general__text">住職Movie</span>    
-  </a>
-</li>
+<?php   } ?>
+<?php } else { ?>
+お知らせはありません。
 <?php } ?>
-    </ul>
-  </div>
-</div>
     </section>
-
-    <section class="temple__infomation">
-      
-<div class="information">
-  <div class="information__heading">
-    <div class="information__title-design">
-      <span class="title-mark">Information</span>
-    </div>
-    <div class="information__title">
-      <h2 class="information__title-text">
-        <span class="page-title-main__text">基本情報</span>
-      </h2>
-    </div>
-  </div>
-
-  <ul class="information__list">
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-pin.svg" alt="所在地" />
-          所在地
-        </dd>
-        <dt class="information__description"><?=escape_html($data["pref"])?><?=escape_html($data["address"])?></dt>
-      </dl>
-    </li>
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-phone.svg" alt="電話番号" />
-          電話番号
-        </dd>
-        <dt class="information__description"><?=escape_html($data["tel"])?></dt>
-      </dl>
-    </li>
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-temple.svg" alt="次の札所まで" />
-          次の札所まで
-        </dd>
-        <dt class="information__description">約<span><?=escape_html($data["next_temple"])?></span>km。徒歩で<span><?=escape_html($data["walk"])?></span>分、車で<span><?=escape_html($data["car"])?></span>分。</dt>
-      </dl>
-    </li>
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-car.svg" alt="タクシー会社" />
-          タクシー会社
-        </dd>
-        <dt class="information__description"><?=$taxi?></dt>
-      </dl>
-    </li>
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-shirt.svg" alt="お遍路用品" />
-          お遍路用品
-        </dd>
-        <dt class="information__description"><?=escape_html($data["ohenro_item"])?></dt>
-      </dl>
-    </li>
-    
-    <li class="information__item">
-      <dl class="information__inner">
-        <dd class="information__label">
-          <img src="/assets/images/icons/icon-shukubo.svg" alt="宿坊" />
-          宿坊
-        </dd>
-        <dt class="information__description"><?=escape_html($data["shukubou"])?></dt>
-      </dl>
-    </li>
-    
-  </ul>
-
-  <div class="information__map">
-    <iframe src="https://www.google.com/maps?q=<?=urlencode(escape_html($data["map_address"]))?>&output=embed&hl=<?=$lang_ary[$lang_code]?>" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-
-  <div class="information__stay">
-    <div class="about__yohanesu-title">
-<h3 class="small-title">
-  <span class="small-title__text">周辺の宿泊情報</span>
-</h3>
-</div>
-    <ul class="information__stay-list">
-      <li class="information__stay-item">
-        <img class="information__stay-image" src="/assets/images/icons/icon-stay.svg" alt="宿泊" /><?=$inn?>
-      </li>
-    </dl>
-  </div>
-</div>
-    </section>
-<?php if (count_ary($interview)) { ?>
-    <section class="temple__interview">
-      
-<div class="interview">
-  <div class="interview__title-design">
-    <span class="title-mark">Welcoming inn</span>
-  </div>
-  <div class="interview__wrapper">
-    <div class="interview__inner">
-      <div class="interview__title">
-        <h2 class="interview__title-text">
-          <span class="page-title-main__text">旅館インタビュー</span>
-        </h2>
-        <p class="interview__title-description">周辺旅館のインタビュー記事です。</p>
-      </div>
-      <ul class="interview__list">
-<?php for ($i = 0; $i < count_ary($interview); $i++) { ?>
-        <li class="interview__item">
-          <a class="interview__link" href="<?=escape_html($interview[$i]["url"])?>">
-            <figure class="interview__figure">
-              <img class="interview__image" src="<?=$obj_info->get_image_path($interview[$i]["info_num"])?>" alt="<?=escape_html($interview[$i]["info_name"])?>" />
-            </figure>
-            <div class="interview__inn">
-              <div class="about__yohanesu-title">
-<h3 class="small-title">
-  <span class="small-title__text"><?=escape_html($interview[$i]["info_name"])?></span>
-</h3>
-</div>
-              <p class="interview__inn-description"><?=escape_html($interview[$i]["comment"])?></p>
-            </div>
-          </a>
-        </li>
-<?php } ?>
-      </ul>
-    </div>
-  </div>
-</div>
-    </section>
-<?php } ?>
-<?php if ($next) { ?>
-    <section class="temple__next">
-      <div class="next">
-  <a class="next__link" href="/ja/temples/temple/index.html?temple_num=<?=escape_html($next["temple_num"])?>">
-    <dl class="next__list">
-      <dt class="next__temple">
-        <div class="next__temple-information">
-          <img src="/assets/images/icons/icon-next.svg" alt="NEXT"/>
-          <span class="next__temple-next">
-            次の札所まで、約<span><?=escape_html($data["next_temple"])?></span>km。徒歩で約<span><?=escape_html($data["walk"])?></span>分。</span>
-        </div>
-        <span class="next__temple-name">第<?=escape_html($next["temple_num"])?>番 <?=escape_html($next["temple_name"])?></span>
-      </dt>
-      <dd class="next__temple-description">
-        <span class="next__temple-description-text">
-          <?=escape_html($data["next_comment"])?></span>
-      </dd>
-    </dl>
-    <figure class="next__temple-description-figure">
-      <img class="next__temple-description-image" src="<?=$obj_data->get_lsize_path($next["temple_num"])?>" alt="第<?=escape_html($next["temple_num"])?>番 <?=escape_html($next["infirmary"])?> <?=escape_html($next["temple_name"])?>" />
-    </figure> 
-  </a>
-</div>
-    </section>
-<?php } ?>
-  </div>
+  <div>  
 </div>
     </main>
 

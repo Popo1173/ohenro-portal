@@ -3,6 +3,7 @@
 
 ■お客様情報
 お名前　　　　　　:#family_name# #first_name#
+フリガナ　　　　　:#family_kana# #first_kana#
 メールアドレス　　:#email#
 年齢層　　　　　　:#age#
 

@@ -526,16 +526,20 @@
         <h2 class="page-title-small">お知らせ</h2>
         <div class="my-page__news-list">
           <section class="news">
+<?php if (count_ary($notice)) { ?>
   <ul class="news__list">
-<?php for ($i = 0; $i < count_ary($notice); $i++) { ?>
+<?php   for ($i = 0; $i < count_ary($notice); $i++) { ?>
     <li class="news__item">
       <a class="news__link" href="/news/detail.html?id=<?=$notice[$i]["notice_id"]?>">
         <dl class="news__date"><?=escape_html($notice[$i]["up_date"])?> </dl>
         <dd class="news__text"><?=escape_html($notice[$i]["title"])?></dd>
       </a>
     </li>
-<?php } ?>
+<?php   } ?>
   </ul>
+<?php } else { ?>
+お知らせはありません。
+<?php } ?>
 </section>
         </div>
       </section>

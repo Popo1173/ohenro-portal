@@ -17,13 +17,13 @@ $sub_title_name = $sub_title;
 $menu_id = "notice";
 
 //データの件数/1ページ
-$num = 100;
+$num = 10;
 
 //セッション名
 $update_session_name = $menu_id . "_up";
 
 //モードの取得
-$mode = get_file_mode($_SERVER["SCRIPT_NAME"]);
+$path = $_SERVER["SCRIPT_NAME"];
 $md = $request_data["md"];
 
 //クラスオブジェクト生成
@@ -74,5 +74,19 @@ elseif (strpos($path, "news") !== false) {
 	$max = $obj_data->max;
 	$num2 = min($page*$num+count_ary($list), ($page+1)*$num, $max);
 
+	$url = $_SERVER["SCRIPT_NAME"];
+/*
+	include_once(CLASS_PATH . "Paging.php");
+
+	//オブジェクトを生成
+	$pageing = new Paging();
+	//1ページ毎の表示数を設定
+	$pageing -> count = $num;
+	//全体の件数を設定しhtmlを生成
+	$pageing -> setHtml($max);
+
+	//ページングクラスを表示
+	//echo $pageing -> html;
+*/
 }
 ?>

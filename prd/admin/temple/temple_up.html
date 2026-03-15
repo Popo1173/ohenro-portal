@@ -102,6 +102,10 @@ if ($data["image_file"]) {
     <td><textarea name="detail" style="width:100%; height:100px;"><?=escape_html($data["detail"])?></textarea></td>
   </tr>
   <tr>
+    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
+    <td><textarea name="next_comment" style="width:100%; height:100px;"><?=escape_html($data["next_comment"])?></textarea></td>
+  </tr>
+  <tr>
     <th><?=$temple_header[array_search("shuuha", $temple_keys)]?></th>
     <td><input type="text" name="shuuha" value="<?=escape_html($data["shuuha"])?>" size="80"></td>
   </tr>
@@ -132,10 +136,6 @@ if ($data["image_file"]) {
   <tr>
     <th><?=$temple_header[array_search("car", $temple_keys)]?></th>
     <td><input type="text" name="car" value="<?=escape_html($data["car"])?>" size="10"></td>
-  </tr>
-  <tr>
-    <th><?=$temple_header[array_search("next_comment", $temple_keys)]?></th>
-    <td><textarea name="next_comment" style="width:100%; height:100px;"><?=escape_html($data["next_comment"])?></textarea></td>
   </tr>
   <tr>
     <th><?=$temple_header[array_search("ohenro_item", $temple_keys)]?></th>

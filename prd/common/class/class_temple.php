@@ -91,7 +91,7 @@ class class_temple  {
 		and
 			t.temple_num = " . escape_sql($data["temple_num"]);
 		}
-		if ($data["lang_code"]) {
+		if (string_length($data["lang_code"])) {
 			$sql_search .= "
 		and
 			t.lang_code = " . escape_sql($data["lang_code"]);
@@ -140,7 +140,7 @@ class class_temple  {
 		}
 */
 		//Google Map用に日本語の住所取得
-		$data["map_address"] = $data["pref"] . $data["address"];
+		$data["map_address"] = $data["infirmary"] . $data["temple_name"] . "+" . $data["pref"] . $data["address"];
 		if ($data["lang_code"] > 0) {
 			$search = array();
 			$search["lang_code"] = 0;
@@ -341,7 +341,7 @@ class class_temple  {
 		global $lang_ary;
 		$data = $request_data;
 
-		$url = HTTP_ROOT . $lang_ary[$data["lang_code"]] . "/temples/movie.html?lang=" . $lang_ary[$data["lang_code"]];
+		$url = HTTP_ROOT . $lang_ary[$data["lang_code"]] . "/temples/movie/index.html?lang=" . $lang_ary[$data["lang_code"]];
 		$url .= "&temple=" . $data["temple_num"] . "&num=" . $movie_num;
 
 		return $url;
